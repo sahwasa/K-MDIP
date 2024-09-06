@@ -1,0 +1,41 @@
+<header id="header">
+  <h1 class="main_logo">
+    <a href="/main.do">
+      <img src="../../images/cmmn/logo.png" alt="지자체 재난 예경보 통합플랫폼">
+    </a>
+  </h1>
+  <nav class="gnb">
+    <ul class="gnb_lst">
+      <li class="on"><a href="">GIS 상황판</a></li>
+      <li><a href="/html/cctv/integrated_ctrl.html">CCTV 통합관제</a></li>
+      <li><a href="">IOT 관측자료</a></li>
+      <li><a href="/html/warning/monitoring.html">재난예경보</a></li>
+    </ul>
+  </nav>
+  <div class="util_wrap">
+    <ul class="util_lst">
+      <li>
+        <button type="button" class="btn user" onclick="showMyInfo()">내정보 보기 및 수정</button>
+        <span><b id="top_user_nm">김관리</b>님</span>
+      </li>
+
+      <li><a href="#" class="btn set">환경설정</a></li>
+      
+      <li class="alert_wrap" title="재난발령요청">
+        <a href="#" class="btn alert">재난발령요청</a>
+        <span class="on" id="alert_counter">0</span>
+      </li>      
+      
+      <li class="alert_wrap" onclick="open_accdent_popup()" title="돌발상황">
+        <a href="#" class="btn unexpected">돌발상황</a>
+        <span class="on" id='accident_counter'>2</span>
+      </li>
+      
+      <li title="연계상태"><span class="system">연계상태</span></li>
+      <li title="로그아웃"><a href="/login.do" class="btn log">로그아웃</a></li>
+    </ul>
+<!--       <div class="system_wrap" style="cursor:pointer;"> -->
+<!--         <span class="system">시스템</span> -->
+<!--       </div> -->
+  </div>
+</header>
