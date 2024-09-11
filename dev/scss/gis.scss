@@ -1,0 +1,55 @@
+@charset "utf-8";
+@import "./mixin.scss";
+
+i{
+  $colors :#1b969a,#B6B4B2,#CF8C51;
+  @mixin ico($color){font-size:13px;color:#fff;border-radius:5px;border:1px solid darken($color,10);background-color:$color;padding:1px 3px;}
+  &.notified{@include ico(nth($colors, 1));}
+  &.unnotified{@include ico(nth($colors, 2));}
+  &.requested{@include ico(nth($colors, 3));}
+}
+
+.gis_alert{flex:0 56px;display:flex;justify-content:center;align-items:center;gap:5px;color:#fff;font-size:20px;background-color:#293141;
+  strong{color:#b5fff4;}
+}
+
+.tab_list{display:flex;padding:20px;border-bottom:1px solid $border_gray;
+  li{flex:1;
+    @for $i from 1 through 5{
+      &:nth-child(#{$i}) button::before{background-position-x: (($i - 1) * - 43px) + 9px ;}
+    }
+  }
+  button{width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;font-size:12px;letter-spacing:-.05em;
+    &::before{@include shape(43px,43px);border-radius:50%;background:url(../images/ico_gis_lnb.png) 0 8px no-repeat, #f4f5f7;}
+    &.on{color:$skyblue;font-weight:600;
+      &::before{background-position-y:-33px;background-color:$skyblue;}
+    }
+  }
+}
+$panelWidth : 370px;
+.gis_ctrl{width:$panelWidth;box-shadow:0.3px 4px 5px 0 rgba(0, 0, 0, 0.2);
+  .panel_wrap{width:$panelWidth;}
+  .tit{padding:20px 15px 15px 20px;}
+  .section_body{flex:1;overflow-y:auto;}
+  .tab{margin-bottom:0;}
+}
+.panel{
+  .tit h2{color:$skyblue;font-size:15px;font-weight:600;}
+  .panel_content{padding:0 20px;}
+  .tbl_wrap{height:calc(100vh - 290px);min-height:509px;}
+}
+
+.request_wrap{width:100%;height:100%;background-color:#90B9CF;
+	.btn_wrap{position:absolute;right:10px;top:10px;z-index:10;}
+	.type_wrap{margin-left:5px;
+		li{vertical-align:text-top;}	
+	}
+}
+.map_content{position:relative;}
+.btn_map > button{@include shape(55px,51px);
+  @for $i from 1 through 3{
+    &:nth-child(#{$i}){background-image:url(../images/img_map_0#{$i}.png);}
+  }
+	&.on,
+	&:hover{background-position-y:bottom;}
+}

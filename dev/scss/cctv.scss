@@ -1,15 +1,23 @@
 @charset "utf-8";
 @import "./mixin.scss";
 
-.tree_ctrl{border-bottom:1px solid $border_gray;text-align:right;padding:0 15px 10px;
-  .tgl_tree{@include btn();display:inline-flex;align-items:center;gap:5px;
+$panelWidth : 350px;
+.cctv_ctrl{width:$panelWidth;box-shadow:0.3px 4px 5px 0 rgba(0, 0, 0, 0.2);
+  .panel_wrap{width:$panelWidth;}
+  .tit{padding:20px 15px 15px 20px;}
+  .section_body{flex:1;background-color:$bg_gray;overflow-y:auto;}
+  .tab{margin-bottom:0;}
+}
+.tree_ctrl{border-bottom:1px solid $border_gray;text-align:right;padding:10px 15px;z-index:5;
+  .tgl_tree{@include btn();
+    &{display:inline-flex;align-items:center;gap:5px;}
     label{color:#555;}
-    &::before{@include shape(13px, 13px);background:url(../images/cmmn/ico.png) -31px -26px no-repeat;}
+    &::before{@include shape(13px, 13px);background:url(../images/ico.png) -31px -26px no-repeat;}
     &:has(:checked)::before{background-position-y:-3px;}
   }
 }
-.tree_wrap{  
-  .tree{display:flex;flex-direction:column;
+.tree_wrap{
+  .tree{display:flex;flex-direction:column;height:calc(100vh - 235px);min-height:528px;overflow-y:auto;
     li{position:relative;padding-left:17px;display:flex;flex-wrap:wrap;align-items:center;column-gap:5px;row-gap:5px;
       &::before, &::after {content:'';position:absolute;left:5px;top:11px;}
       &::before{border-left:1px dotted #000;height:100%;top:-10px;}
@@ -19,15 +27,18 @@
       &:has(> button){        
         & > button::before{position:relative;@include fontello("\f0fe");font-size:14px;color:$skyblue;}
       }
-      &:not(:has(> button)){padding-left:25px;
+      ul:not(:has(>  ul)){
         &::before {top:-10px}
         &::after {top:12px;width:15px;}        
       }
       ul{width:100%;margin-bottom:5px;}
     }
+    & > li{
+      &:not(:has(>ul)){padding-left:34px;}
+    }
     & > li::before, & > li::after{display:none;border:0; }
     input[type=checkbox]{width:12px;height:12px;margin-top:2px;}
-    label{flex:1;align-items:flex-start;letter-spacing:-.12px;padding:5px 0;cursor:pointer;vertical-align:middle;
+    label{flex:1;align-items:flex-start;letter-spacing:-.12px;padding:5px 15px 5px 0;cursor:pointer;vertical-align:middle;word-break:break-all;
       &:hover, &.hover{background-color:#f9fafc;color:$blue;font-weight:bold;}
     }     
   }
@@ -36,38 +47,55 @@
     & > ul{display:none;}
   }  
 }
-.cctv_ctrl{display:flex;flex-direction:column;width:350px;box-shadow:0.3px 4px 5px 0 rgba(0, 0, 0, 0.2);
-  .tit{padding:20px 15px 15px 20px;}
-  .section_body{flex:1;background-color:$bg_gray;overflow-y:auto;}
-}
+
 .tgl_cctv_lst{position:relative;
   label{@include label_item(true, $blue);&{font-size:0;padding:7px 8px;}
     &::before{@include fontello('\eb69');font-size:16px;}
   }
-  .layer{position: absolute;}
+  .layer{display:none;position:absolute;right:0;top:100%;z-index:10;background-color:#fff;border:1px solid $border_gray;margin-top:3px;
+    .monitoring_lst{width:258px;max-height:70vh;counter-reset:list_num;overflow-y:auto;}
+    li{position:relative;
+      &:has(button:hover){background-color:$bg_blue;}
+      button{@include ellipsis;width:100%;padding:6px 0;
+        &::before{@include count;display:inline-block;width:30px;margin-right:10px;}
+      }
+    }
+  }
   &:has(:checked) .layer{display:block;}
 }
 .lst_wrap{background-color:$border_gray;padding:1px;}
-.lst_cctv{display:grid;grid-template-columns: repeat(3, 1fr);grid-auto-rows: minmax(100px, auto);counter-reset:cctv_num;
-  li{border:1px solid $border_gray;background-color:#f9fafc;}  
-  .cctv_desc{display:flex;align-items:flex-start;gap:10px;padding:15px;
-    i{@include shape(13px,13px);border-radius:50%;border:1px solid transparent;margin-top:1px;
-      &.i_green{background-color:$green;border-color:darken($green, 10);}
-      &.i_red{background-color:$red;border-color:darken($red, 20);}
-    }
-    .name{flex:1;display:grid;grid-template-columns:auto 1fr;column-gap:8px;row-gap:5px;line-height:1;
-      &::before{content:counter(cctv_num);counter-increment: cctv_num;text-align:right;font-size:15px;font-weight:800;color:#000;}
-      strong{font-size:15px;color:#555;}
-      p{grid-column-start:2;color:#555;}
-    }
-    .bookmark{@include label_item(true, transparent, #b9b9b9, #FFCB23);
-      &{border-width:0;font-size:0;padding:0;}
-      &::before{@include fontello('\e807');font-size:18px;}
-      &:has(input[type=checkbox]:checked)::before{content:"\e806";@include text_stroke(#d9a401);}
-    }
-    .btn_cross::before{font-size:30px;color:#bdbdbd;line-height:16px;margin-left:5px;}
+.lst_cctv{display:grid;grid-template-columns: repeat(3, 1fr);grid-auto-rows: minmax(100px, auto);
+  li{border:1px solid $border_gray;background-color:#f9fafc;
+    &:focus-within,&:hover{position:relative;border-color:$blue;box-shadow:0 0 10px $blue;z-index:5;}
+  }  
+}
+.cctv_desc{display:flex;align-items:flex-start;gap:10px;padding:15px;
+  i{@include shape(13px,13px);border-radius:50%;border:1px solid transparent;margin-top:1px;
+    &.i_green{background-color:$green;border-color:darken($green, 10);}
+    &.i_red{background-color:$red;border-color:darken($red, 20);}
   }
-  .cctv_wrap{background-color:#f1f1f1;text-align:center;
-    img{width:100%;}
+  .name{flex:1;display:grid;grid-template-columns:auto 1fr;column-gap:8px;row-gap:5px;line-height:1;
+    span{text-align:right;font-size:15px;font-weight:800;color:#000;}
+    strong{font-size:15px;color:#555;}
+    p{grid-column-start:2;color:#555;}
   }
+  .bookmark{@include label_item(true, transparent, #b9b9b9, #FFCB23);
+    &{border-width:0;font-size:0;padding:0;}
+    &:hover{@include text_stroke(#d9a401);}
+    &::before{@include fontello('\e807');font-size:18px;}
+    &:has(input[type=checkbox]:checked)::before{content:"\e806";@include text_stroke(#d9a401);}
+  }
+  .btn_cross::before{font-size:30px;color:#bdbdbd;line-height:16px;margin-left:5px;}    
+}
+.cctv_wrap{background-color:#f1f1f1;text-align:center;
+  button{display:inline-block;width:100%;min-height:187px;}    
+  img{width:100%;}
+}
+.pop_cctv_zoom{width:800px;padding:0;top:20vh;left:calc(50vw - 400px);
+  .cctv_desc{background-color:#293141;}
+  .name{
+    span,strong,p{color:#fff;}
+  }
+  .cctv_wrap{background-color:transparent;}
+
 }

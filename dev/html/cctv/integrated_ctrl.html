@@ -4,30 +4,39 @@
   @@include('../../inc/header.html')
   <div class="con_wrap">
     @@include('../../inc/cctv/lnb.html')
-    <main class="contents">
+    <main class="contents">      
       <header class="tit blind">
         <h1>CCTV 통합관제</h1>
       </header>
       <div class="content">
         <div class="lst_top">
           <div class="tool">
-            <select name="" id=""><option value="">3칸씩 보기</option></select>
+            <select name="CCTV보기유형" id="viewType">
+              <option value="2">2칸씩 보기</option>
+              <option value="3" selected>3칸씩 보기</option>
+              <option value="4">4칸씩 보기</option>
+              <option value="5">5칸씩 보기</option>
+            </select>
             <div class="tgl_cctv_lst">
-              <label class="tgl_cctv_lst" for="cctv_lst"><input type="checkbox" id="cctv_lst">현재 관찰중인 CCTV리스트보기</label>
+              <label class="tgl_cctv_lst" for="monitoring_lst"><input type="checkbox" id="monitoring_lst">현재 관찰중인 CCTV리스트보기</label>
               <div class="layer">
-                <ol>
-                  <li></li>
+                <ol class="monitoring_lst">
+                  <li><button type="button">CCTV 구로구  00000도로 1_AA 01CCTV 구로구  00000도로 1_AA 01</button></li>
+                  <li><button type="button">CCTV 구로구  00000도로 1_AA 02</button></li>
+                  <li><button type="button">CCTV 구로구  00000도로 1_AA 03</button></li>
+                  <li><button type="button">CCTV 구로구  00000도로 1_AA 03</button></li>
                 </ol>
               </div>
             </div>
           </div>
         </div>
         <div class="lst_wrap">
-          <ul class="lst_cctv">
+          <ul id="lst_cctv" class="lst_cctv">
             <li>
               <div class="cctv_desc">
                 <i class="i_green">상태</i>
                 <div class="name">
+                  <span>1</span>
                   <strong>CCTV 구로구  00000도로 1_AA 01</strong>
                   <p>서울시 구로구</p>     
                 </div>
@@ -37,13 +46,14 @@
                 </div>
               </div>
               <div class="cctv_wrap">
-                <img src="https://picsum.photos/400/250?random=1" alt="">
+                <button type="button" id="btn1" onclick="popOpen('btn1');"><img src="https://picsum.photos/400/250?random=1" alt=""></button>
               </div>
             </li>
             <li>
               <div class="cctv_desc">
                 <i class="i_red">상태</i>
                 <div class="name">
+                  <span>2</span>
                   <strong>CCTV 구로구  00000도로 1_AA 01</strong>
                   <p>서울시 구로구</p>     
                 </div>
@@ -53,13 +63,14 @@
                 </div>
               </div>
               <div class="cctv_wrap">
-                <img src="https://picsum.photos/400/250?random=2" alt="">
+                <button type="button" id="btn2" onclick="popOpen('btn2');"><img src="https://picsum.photos/400/250?random=2" alt=""></button>
               </div>
             </li>
             <li>
               <div class="cctv_desc">
                 <i class="i_green">상태</i>
                 <div class="name">
+                  <span>3</span>
                   <strong>CCTV 구로구  00000도로 1_AA 01</strong>
                   <p>서울시 구로구</p>     
                 </div>
@@ -69,13 +80,14 @@
                 </div>
               </div>
               <div class="cctv_wrap">
-                <img src="https://picsum.photos/400/250?random=3" alt="">
+                <button type="button" id="btn3" onclick="popOpen('btn3');"><img src="https://picsum.photos/400/250?random=3" alt=""></button>
               </div>
             </li>
             <li>
               <div class="cctv_desc">
                 <i class="i_green">상태</i>
                 <div class="name">
+                  <span>4</span>
                   <strong>CCTV 구로구  00000도로 1_AA 01</strong>
                   <p>서울시 구로구</p>     
                 </div>
@@ -85,7 +97,7 @@
                 </div>
               </div>
               <div class="cctv_wrap">
-                <img src="https://picsum.photos/400/250?random=4" alt="">
+                <button type="button" id="btn4" onclick="popOpen('btn4');"><img src="https://picsum.photos/400/250?random=4" alt=""></button>
               </div>
             </li>
           </ul>
@@ -94,7 +106,64 @@
     </main>
   </div>
 </div>
+<dialog class="pop_cctv_zoom">
+  <div class="cctv_desc p_header">
+    <i class="i_green">상태</i>
+    <div class="name">
+      <strong>CCTV 구로구  00000도로 1_AA 01</strong>
+      <p>서울시 구로구</p>     
+    </div>
+    <div class="tool">
+      <label class="bookmark" for="bookmark4"><input type="checkbox" id="bookmark4">관심CCTV</label>
+      <button type="button" class="btn_cross">끄기</button>
+    </div>
+  </div>
+  <div class="cctv_wrap">
+    <a href="#"><img src="https://picsum.photos/800/505?random=4" alt=""></a>
+  </div>
+</dialog>
 @@include('../../inc/script.html')
+<script>
+  //보기옵션
+  const cctvList = $('#lst_cctv');
+  $('#viewType').on('change',function(){
+    var type = $(this).val();
+    cctvList.css('grid-template-columns',`repeat(${type}, 1fr)`)
+  })
+  //cctv 화면 드래그
+  cctvList.sortable({placeholder: "ui-state-highlight"});
+  // document.querySelector('.pop_cctv_zoom').show();
+
+  //팝업생성
+  const createPop = (btnId) => {
+    const zoomWrap = document.createElement('dialog')
+    zoomWrap.id = 'pop' + btnId;
+    zoomWrap.setAttribute('class','pop_cctv_zoom');
+    document.getElementById('wrap').appendChild(zoomWrap)
+    return zoomWrap
+  }
+
+  function popOpen(btnId) {
+    const button = document.getElementById(btnId);
+    let pop;
+    let html = button.closest('li').innerHTML;
+    if($('#pop' + btnId).length === 0){
+      pop = createPop(btnId);
+    }else{
+      pop = document.getElementById('pop'+btnId);
+    }
+    pop.innerHTML = html;
+    pop.addEventListener('click',function(event){
+      if(event.target.className === 'btn_cross') pop.remove();
+    });
+    $(pop).draggable({ handle: ".cctv_desc", cursor: "move" ,containment: "#wrap",scroll: true, scrollSensitivity: 100, scrollSpeed: 10})
+    .resizable({minHeight:290, minWidth: 200, /* aspectRatio: 16 / 9 영상비율을 몰라서 생략 */});
+    //움... 관심CCTV 별모양은 어떻게 연동한담...??
+    pop.show();
+  }
+  
+
+</script>
 </body>
 </html>
 

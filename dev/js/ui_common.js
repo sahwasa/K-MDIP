@@ -1,4 +1,5 @@
 $(function () {
+  $('dialog:has(.p_header)').draggable({ handle: ".p_header", cursor: "move" ,containment: "#wrap",scroll: true, scrollSensitivity: 100, scrollSpeed: 100});
   $.datetimepicker.setLocale('kr');
   $('#datetimepicker').datetimepicker();
 
@@ -112,29 +113,30 @@ $(function () {
   })
 
   // tree
-  $('.tree li:has(li)').addClass('arrow')
+  $('.tree li:has(ul)').addClass('arrow')
   $('.tree').on('click', 'li > button', function () {
     var children = $(this).parent('li.arrow').find(' > ul > li')
     if (children.is(':visible')) {
       children.hide(0)
       $(this).parent('li').addClass('close')
-      $(this).next('ul').removeClass('move_sortable')
     } else {
       children.show(0)
       $(this).parent('li').removeClass('close')
-      $(this).next('ul').addClass('move_sortable')
     }
     return false
   })
   $('.tree_ctrl').on('change','input',function(){
     var cur = $(this).prop('checked');
-    var tree = $('.tree').find('ul');
+    var treelst = $('.tree').find('ul > li');
     var txt = $(this);
     if (cur) {
-      tree.hide();
+      treelst.hide(0)
+      treelst.addClass('close')
       txt = '전체펼치기';
     } else {
-      tree.show();
+      // tree.show();
+      treelst.show(0)
+      treelst.removeClass('close')
       txt = '전체접기';
     }
     $(this).next('label').text(txt);
@@ -257,9 +259,13 @@ function initSlideshow() {
   var slides = document.querySelectorAll('.slide_item');
   var slideRemote = document.querySelector('.slideRemote');
   var dotContainer = document.querySelector('.dots_container');
+  if (slides.length === 0) return;
   if (slides.length <= 1) {
     slideRemote.style.display = 'none';
     dotContainer.style.display = 'none';
+  }else{
+    slideRemote.style.display = 'block';
+    dotContainer.style.display = 'block';
   }
   
   for (var i = 0; i < slides.length; i++) {
