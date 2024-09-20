@@ -84,9 +84,8 @@ $panelWidth : 370px;
 .ol-viewport{position:relative;width:100%;height:100%;}
 .symbol{position:absolute;left:var(--left);right:var(--right);top:var(--top);}
 .terminal{
-  .symbol{
-	  & > button{background-image:url(../images/symbol_ok.png);@include shape(33px,33px);}
-	  &.fail button{background-image:url(../images/symbol_fail.png);}
+  .symbol > button{background-image:url(../images/symbol_ok.png);@include shape(33px,33px);
+    &.fail{background-image:url(../images/symbol_fail.png);}
   }
   .BIS, .CDB, .LDB, .TDB, .PDB, .ADD{background-position-x:0;}
   .VBS, .VNS, .VNI, .VNO, .RAS, .DSB{background-position-x:-40px;}
