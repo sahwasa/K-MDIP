@@ -1,34 +1,5 @@
 @import "./variables";
-@font-face {
-  font-family:'NanumGothic';
-  font-style:normal;
-  font-weight:400;
-  src: url('../../font/nanum_gothic/NanumGothic-Regular.eot');
-  src: url('../../font/nanum_gothic/NanumGothic-Regular.eot?#iefix') format('embedded-opentype'),
-       url('../../font/nanum_gothic/NanumGothic-Regular.woff2') format('woff2'),
-       url('../../font/nanum_gothic/NanumGothic-Regular.woff') format('woff'),
-       url('../../font/nanum_gothic/NanumGothic-Regular.ttf') format('truetype');
-}
-@font-face {
-  font-family:'NanumGothic';
-  font-style:normal;
-  font-weight:700;
-  src: url('../../font/nanum_gothic/NanumGothic-Bold.eot');
-  src: url('../../font/nanum_gothic/NanumGothic-Bold.eot?#iefix') format('embedded-opentype'),
-       url('../../font/nanum_gothic/NanumGothic-Bold.woff2') format('woff2'),
-       url('../../font/nanum_gothic/NanumGothic-Bold.woff') format('woff'),
-       url('../../font/nanum_gothic/NanumGothic-Bold.ttf') format('truetype');
-}
-@font-face {
-  font-family:'NanumGothic';
-  font-style:normal;
-  font-weight:800;
-  src: url('../../font/nanum_gothic/NanumGothic-ExtraBold.eot');
-  src: url('../../font/nanum_gothic/NanumGothic-ExtraBold.eot?#iefix') format('embedded-opentype'),
-       url('../../font/nanum_gothic/NanumGothic-ExtraBold.woff2') format('woff2'),
-       url('../../font/nanum_gothic/NanumGothic-ExtraBold.woff') format('woff'),
-       url('../../font/nanum_gothic/NanumGothic-ExtraBold.ttf') format('truetype');
-}
+
 @mixin mobile_only {
   @media (max-width: #{$breakpoint-mobile}) {
     @content;
@@ -68,7 +39,7 @@
 }
 
 @mixin ipt_common(){  
-  position:relative;min-height:32px;border:1px solid #cccccc;color:#555;background-color:rgba(255,255,255,.9);vertical-align:middle;padding:0 5px;box-sizing:border-box;
+  position:relative;min-height:33px;border:1px solid #cccccc;color:#555;background-color:rgba(255,255,255,.9);vertical-align:middle;padding:0 5px;box-sizing:border-box;
 }
 
 @mixin f_blind{
@@ -110,7 +81,7 @@
 
 @mixin full{display:block;width:100%!important;min-width:auto;}
 
-@mixin btn($bg:#fff,$color:inherit,$border:$border_gray,$y:5px,$x:6px,$w:false,$addTxt:false,$addTxtafter:false){flex-shrink:0;cursor:pointer;
+@mixin btn($bg:#fff,$color:inherit,$border:$border_gray,$y:8px,$x:15px,$w:false,$addTxt:false,$addTxtafter:false){flex-shrink:0;cursor:pointer;font-size:13px;vertical-align:middle;
   background-color:$bg;color:$color;padding:$y $x;border-radius:3px;border:1px solid $border;
   @if($bg == #fff){
     &:hover{border-color:darken($border, 20);}
@@ -127,10 +98,8 @@
     &::after{@include fontello($addTxtafter);vertical-align:middle;font-size:14px;}
   }
 }
+@mixin tag($color){flex-shrink:0;font-size:13px;color:#fff;border-radius:5px;border:1px solid darken($color,15);background-color:$color;padding:1px 3px;font-weight:normal;white-space:nowrap;}
 
-@mixin badge_style($max_w:auto){display:inline-block;max-width:$max_w;
-color:#fff;font-size:12px;letter-spacing:-.3px;text-align:center;border-radius:5px;
-border:1px solid transparent;}
 @mixin shape($w_size,$h_size){
   display:inline-block;content:"";@include f_blind;overflow:hidden;flex-shrink:0;
   width:$w_size;height:$h_size;

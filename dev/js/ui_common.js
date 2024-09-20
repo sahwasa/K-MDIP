@@ -100,6 +100,10 @@ $(function () {
     var target = $(this).attr('openpop');
     $('#' + target).show();
   })
+  $('dialog').on('click','.btn_cross',function(){
+    var target = $(this).parents('dialog').attr('id');
+    document.getElementById(target).close();
+  })
   var closePop = $('.btn_pop_close');
   closePop.on('click', function () {
     $(this).parents('.pop_overlay').hide();
