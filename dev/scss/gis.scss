@@ -84,15 +84,10 @@ $panelWidth : 370px;
 .ol-viewport{position:relative;width:100%;height:100%;}
 .symbol{position:absolute;left:var(--left);right:var(--right);top:var(--top);}
 .terminal{
-	i{background-image:url(../images/symbol_ok.png);@include shape(33px,33px);
-		&.fail{background-image:url(../images/symbol_fail.png);}
-	}
-  .i_success,
-  .i_fail{display:inline-block;width:14px;height:14px;font-size:0;border-radius:50%;vertical-align:middle;
-    &:empty{position:relative;top:-2px;}
+  .symbol{
+	  & > button{background-image:url(../images/symbol_ok.png);@include shape(33px,33px);}
+	  &.fail button{background-image:url(../images/symbol_fail.png);}
   }
-  .i_success{background-color:#86BF56;}
-  .i_fail{background-color:#EA5A3E;}
   .BIS, .CDB, .LDB, .TDB, .PDB, .ADD{background-position-x:0;}
   .VBS, .VNS, .VNI, .VNO, .RAS, .DSB{background-position-x:-40px;}
   .BIS, .VBS{background-position-y:0;}
@@ -111,7 +106,7 @@ $panelWidth : 370px;
   .DSB::before, .ADD::before{background-position-y:-125px;}
 }
 .DAlert .symbol{
-  &>strong{display:flex;align-items: center;gap:5px;color:#fff;background-color:#fc6c6d;border:1px solid #ff0405;border-radius:20px;padding:5px 15px;font-size:16px;
+  & > strong{display:flex;align-items: center;gap:5px;color:#fff;background-color:#fc6c6d;border:1px solid #ff0405;border-radius:20px;padding:5px 15px;font-size:16px;
     img{width:35px;}
   }
   &::before{position:absolute;overflow:hidden;transform:scaleX(1.2) rotate(45deg);background-color:#fc6c6d; border: 1px solid #ff0405;border-width: 0 1px 1px 0;left:29px;bottom:-4px;@include shape(7px,7px);}
