@@ -12,12 +12,13 @@
         <div class="tab box_tab">
           <ul class="tab_list">
             <li><a href="#tab01" class="on">표준문안관리</a></li>
+            <li><a href="#tab02" title="재난코드와 무관한 메시지 관리(예약어 해당 없음)">메시지 관리</a></li>
           </ul>
         </div>
         <div class="tab_conts">
-          <div id="tab01" class="tab_cont">
-            <div class="standard_wrap">              
-              <div>
+          <div id="tab01" class="tab_cont layout_flex std_tmpl">            
+            <div class="layout_flex vertical">
+              <section>
                 <div class="search_area">
                   <ul class="search">
                     <li>
@@ -26,385 +27,89 @@
                     </li>
                   </ul>
                 </div>
-                <div class="tbl_wrap">
-                  <div class="tbl_top flex_wrap f_sb">
+                <div class="tbl_area">
+                  <div class="tbl_top">
                     <p>검색결과 : 총 <b class="font_blue" id="result_count">163</b>건</p>                      
                   </div>
-                  <table class="tbl_default">
-                    <caption>표준문안관리 검색 결과 제목</caption>
-                    <colgroup>
-                      <col style="width:100px">
-                      <col style="width:200px">
-                      <col style="width:100px">
-                      <col style="width:auto">
-                      <col style="width:100px">
-                      <col style="width:100px">
-                      <col class="fix_scroll">
-                    </colgroup>
-                    <thead>
-                      <tr>
-                        <th scope="col">대분류</th>
-                        <th scope="col">중분류</th>
-                        <th scope="col">재난코드</th>
-                        <th scope="col">재난명</th>
-                        <th scope="col">우선순위</th>
-                        <th scope="col">사용여부</th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                  </table>
-                  <div class="tbl_body_wrap tbl_scroll" style="height:94px;">
+                  <div class="tbl_wrap" style="--h:156px">
                     <table class="tbl_default">
-                      <caption>표준문안관리 검색 결과 내용</caption>
-                      <colgroup>
-                        <col style="width:100px">
-                        <col style="width:200px">
-                        <col style="width:100px">
-                        <col style="width:auto">
-                        <col style="width:100px">
-                        <col style="width:101px">
-                      </colgroup>
-                      <tbody id="table_list"><tr onclick="selectRow(this, 'HWA')" style="cursor:pointer;"><td>자연재난</td><td>강풍</td><td>HWA</td><td>강풍 주의보</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'HWG')" style="cursor:pointer;"><td>자연재난</td><td>강풍</td><td>HWG</td><td>강풍 주의보 변경</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'HWL')" style="cursor:pointer;"><td>자연재난</td><td>강풍</td><td>HWL</td><td>강풍 주의보 해제</td><td>1</td><td>Y</td></tr><tr onclick="selectRow(this, 'HWW')" style="cursor:pointer;"><td>자연재난</td><td>강풍</td><td>HWW</td><td>강풍 경보</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'HWN')" style="cursor:pointer;"><td>자연재난</td><td>강풍</td><td>HWN</td><td>강풍 경보 변경</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'HWC')" style="cursor:pointer;"><td>자연재난</td><td>강풍</td><td>HWC</td><td>강풍 경보 해제</td><td>1</td><td>Y</td></tr><tr onclick="selectRow(this, 'THW')" style="cursor:pointer;"><td>자연재난</td><td>낙뢰</td><td>THW</td><td>낙뢰 경보(심각)</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'HSA')" style="cursor:pointer;"><td>자연재난</td><td>대설</td><td>HSA</td><td>대설 주의보</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'HSG')" style="cursor:pointer;"><td>자연재난</td><td>대설</td><td>HSG</td><td>대설 주의보 변경</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'HSL')" style="cursor:pointer;"><td>자연재난</td><td>대설</td><td>HSL</td><td>대설 주의보 해제</td><td>1</td><td>Y</td></tr><tr onclick="selectRow(this, 'HSW')" style="cursor:pointer;"><td>자연재난</td><td>대설</td><td>HSW</td><td>대설 경보</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'HSN')" style="cursor:pointer;"><td>자연재난</td><td>대설</td><td>HSN</td><td>대설 경보 변경</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'HSC')" style="cursor:pointer;"><td>자연재난</td><td>대설</td><td>HSC</td><td>대설 경보 해제</td><td>1</td><td>Y</td></tr><tr onclick="selectRow(this, 'TPA')" style="cursor:pointer;"><td>자연재난</td><td>태풍</td><td>TPA</td><td>태풍 주의보</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'TPG')" style="cursor:pointer;"><td>자연재난</td><td>태풍</td><td>TPG</td><td>태풍 주의보 변경</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'TPL')" style="cursor:pointer;"><td>자연재난</td><td>태풍</td><td>TPL</td><td>태풍 주의보 해제</td><td>1</td><td>Y</td></tr><tr onclick="selectRow(this, 'TPW')" style="cursor:pointer;"><td>자연재난</td><td>태풍</td><td>TPW</td><td>태풍 경보</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'TPN')" style="cursor:pointer;"><td>자연재난</td><td>태풍</td><td>TPN</td><td>태풍 경보 변경</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'TPC')" style="cursor:pointer;"><td>자연재난</td><td>태풍</td><td>TPC</td><td>태풍 경보 해제</td><td>1</td><td>Y</td></tr><tr onclick="selectRow(this, 'HRA')" style="cursor:pointer;"><td>자연재난</td><td>호우</td><td>HRA</td><td>호우 주의보</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'HRG')" style="cursor:pointer;"><td>자연재난</td><td>호우</td><td>HRG</td><td>호우 주의보 변경</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'HRL')" style="cursor:pointer;"><td>자연재난</td><td>호우</td><td>HRL</td><td>호우 주의보 해제</td><td>1</td><td>Y</td></tr><tr onclick="selectRow(this, 'HRW')" style="cursor:pointer;"><td>자연재난</td><td>호우</td><td>HRW</td><td>호우 경보</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'HRN')" style="cursor:pointer;"><td>자연재난</td><td>호우</td><td>HRN</td><td>호우 경보 변경</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'HRC')" style="cursor:pointer;"><td>자연재난</td><td>호우</td><td>HRC</td><td>호우 경보 해제</td><td>1</td><td>Y</td></tr><tr onclick="selectRow(this, 'YSW')" style="cursor:pointer;"><td>자연재난</td><td>황사</td><td>YSW</td><td>황사 경보</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'YSC')" style="cursor:pointer;"><td>자연재난</td><td>황사</td><td>YSC</td><td>황사 경보 해제</td><td>1</td><td>Y</td></tr><tr onclick="selectRow(this, 'WWA')" style="cursor:pointer;"><td>자연재난</td><td>풍랑</td><td>WWA</td><td>풍랑 주의보</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'WWG')" style="cursor:pointer;"><td>자연재난</td><td>풍랑</td><td>WWG</td><td>풍랑 주의보 변경</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'WWL')" style="cursor:pointer;"><td>자연재난</td><td>풍랑</td><td>WWL</td><td>풍랑 주의보 해제</td><td>1</td><td>Y</td></tr><tr onclick="selectRow(this, 'WWW')" style="cursor:pointer;"><td>자연재난</td><td>풍랑</td><td>WWW</td><td>풍랑 경보</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'WWN')" style="cursor:pointer;"><td>자연재난</td><td>풍랑</td><td>WWN</td><td>풍랑 경보 변경</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'WWC')" style="cursor:pointer;"><td>자연재난</td><td>풍랑</td><td>WWC</td><td>풍랑 경보 해제</td><td>1</td><td>Y</td></tr><tr onclick="selectRow(this, 'SSA')" style="cursor:pointer;"><td>자연재난</td><td>폭풍해일</td><td>SSA</td><td>폭풍해일 주의보</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'SSG')" style="cursor:pointer;"><td>자연재난</td><td>폭풍해일</td><td>SSG</td><td>폭풍해일 주의보 변경</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'SSL')" style="cursor:pointer;"><td>자연재난</td><td>폭풍해일</td><td>SSL</td><td>폭풍해일 주의보 해제</td><td>1</td><td>Y</td></tr><tr onclick="selectRow(this, 'SSW')" style="cursor:pointer;"><td>자연재난</td><td>폭풍해일</td><td>SSW</td><td>폭풍해일 경보</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'SSN')" style="cursor:pointer;"><td>자연재난</td><td>폭풍해일</td><td>SSN</td><td>폭풍해일 경보 변경</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'SSC')" style="cursor:pointer;"><td>자연재난</td><td>폭풍해일</td><td>SSC</td><td>폭풍해일 경보 해제</td><td>1</td><td>Y</td></tr><tr onclick="selectRow(this, 'FLA')" style="cursor:pointer;"><td>자연재난</td><td>홍수</td><td>FLA</td><td>홍수 주의보</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'FLL')" style="cursor:pointer;"><td>자연재난</td><td>홍수</td><td>FLL</td><td>홍수 주의보 해제</td><td>1</td><td>Y</td></tr><tr onclick="selectRow(this, 'FLG')" style="cursor:pointer;"><td>자연재난</td><td>홍수</td><td>FLG</td><td>홍수 주의보 변경</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'FLW')" style="cursor:pointer;"><td>자연재난</td><td>홍수</td><td>FLW</td><td>홍수 경보</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'FLC')" style="cursor:pointer;"><td>자연재난</td><td>홍수</td><td>FLC</td><td>홍수 경보 해제</td><td>1</td><td>Y</td></tr><tr onclick="selectRow(this, 'FLN')" style="cursor:pointer;"><td>자연재난</td><td>홍수</td><td>FLN</td><td>홍수 경보 변경</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'DRW')" style="cursor:pointer;"><td>자연재난</td><td>가뭄</td><td>DRW</td><td>가뭄 경보(심각)</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'HTA')" style="cursor:pointer;"><td>자연재난</td><td>폭염</td><td>HTA</td><td>폭염 주의보</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'HTG')" style="cursor:pointer;"><td>자연재난</td><td>폭염</td><td>HTG</td><td>폭염 주의보 변경</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'HTL')" style="cursor:pointer;"><td>자연재난</td><td>폭염</td><td>HTL</td><td>폭염 주의보 해제</td><td>1</td><td>Y</td></tr><tr onclick="selectRow(this, 'HTW')" style="cursor:pointer;"><td>자연재난</td><td>폭염</td><td>HTW</td><td>폭염 경보</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'HTN')" style="cursor:pointer;"><td>자연재난</td><td>폭염</td><td>HTN</td><td>폭염 경보 변경</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'HTC')" style="cursor:pointer;"><td>자연재난</td><td>폭염</td><td>HTC</td><td>폭염 경보 해제</td><td>1</td><td>Y</td></tr><tr onclick="selectRow(this, 'CWA')" style="cursor:pointer;"><td>자연재난</td><td>한파</td><td>CWA</td><td>한파 주의보</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'CWG')" style="cursor:pointer;"><td>자연재난</td><td>한파</td><td>CWG</td><td>한파 주의보 변경</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'CWL')" style="cursor:pointer;"><td>자연재난</td><td>한파</td><td>CWL</td><td>한파 주의보 해제</td><td>1</td><td>Y</td></tr><tr onclick="selectRow(this, 'CWW')" style="cursor:pointer;"><td>자연재난</td><td>한파</td><td>CWW</td><td>한파 경보</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'CWN')" style="cursor:pointer;"><td>자연재난</td><td>한파</td><td>CWN</td><td>한파 경보 변경</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'CWC')" style="cursor:pointer;"><td>자연재난</td><td>한파</td><td>CWC</td><td>한파 경보 해제</td><td>1</td><td>Y</td></tr><tr onclick="selectRow(this, 'HAA')" style="cursor:pointer;"><td>자연재난</td><td>건조</td><td>HAA</td><td>건조 주의보</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'HAG')" style="cursor:pointer;"><td>자연재난</td><td>건조</td><td>HAG</td><td>건조 주의보 변경</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'HAL')" style="cursor:pointer;"><td>자연재난</td><td>건조</td><td>HAL</td><td>건조 주의보 해제</td><td>1</td><td>Y</td></tr><tr onclick="selectRow(this, 'HAW')" style="cursor:pointer;"><td>자연재난</td><td>건조</td><td>HAW</td><td>건조 경보</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'HAN')" style="cursor:pointer;"><td>자연재난</td><td>건조</td><td>HAN</td><td>건조 경보 변경</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'HAC')" style="cursor:pointer;"><td>자연재난</td><td>건조</td><td>HAC</td><td>건조 경보 해제</td><td>1</td><td>Y</td></tr><tr onclick="selectRow(this, 'HFA')" style="cursor:pointer;"><td>자연재난</td><td>안개</td><td>HFA</td><td>안개 주의보</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'HFG')" style="cursor:pointer;"><td>자연재난</td><td>안개</td><td>HFG</td><td>안개 주의보 변경</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'HFL')" style="cursor:pointer;"><td>자연재난</td><td>안개</td><td>HFL</td><td>안개 주의보 해제</td><td>1</td><td>Y</td></tr><tr onclick="selectRow(this, 'HFW')" style="cursor:pointer;"><td>자연재난</td><td>안개</td><td>HFW</td><td>안개 경보</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'HFN')" style="cursor:pointer;"><td>자연재난</td><td>안개</td><td>HFN</td><td>안개 경보 변경</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'HFC')" style="cursor:pointer;"><td>자연재난</td><td>안개</td><td>HFC</td><td>안개 경보 해제</td><td>1</td><td>Y</td></tr><tr onclick="selectRow(this, 'AVA')" style="cursor:pointer;"><td>자연재난</td><td>산사태</td><td>AVA</td><td>산사태 위기경보(주의)</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'AVW')" style="cursor:pointer;"><td>자연재난</td><td>산사태</td><td>AVW</td><td>산사태 위기경보(심각)</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'EQI')" style="cursor:pointer;"><td>자연재난</td><td>지진</td><td>EQI</td><td>지진정보</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'VOI')" style="cursor:pointer;"><td>자연재난</td><td>화산</td><td>VOI</td><td>화산정보</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'VOA')" style="cursor:pointer;"><td>자연재난</td><td>화산</td><td>VOA</td><td>화산재 주의보</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'VOL')" style="cursor:pointer;"><td>자연재난</td><td>화산</td><td>VOL</td><td>화산재 주의보 해제</td><td>1</td><td>Y</td></tr><tr onclick="selectRow(this, 'VOW')" style="cursor:pointer;"><td>자연재난</td><td>화산</td><td>VOW</td><td>화산재 경보</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'VOC')" style="cursor:pointer;"><td>자연재난</td><td>화산</td><td>VOC</td><td>화산재 경보 해제</td><td>1</td><td>Y</td></tr><tr onclick="selectRow(this, 'TSA')" style="cursor:pointer;"><td>자연재난</td><td>지진해일</td><td>TSA</td><td>지진해일 주의보</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'TSW')" style="cursor:pointer;"><td>자연재난</td><td>지진해일</td><td>TSW</td><td>지진해일 경보</td><td>4</td><td>Y</td></tr><tr onclick="selectRow(this, 'TSC')" style="cursor:pointer;"><td>자연재난</td><td>지진해일</td><td>TSC</td><td>지진해일 경보 해제</td><td>1</td><td>Y</td></tr><tr onclick="selectRow(this, 'TSO')" style="cursor:pointer;"><td>자연재난</td><td>지진해일</td><td>TSO</td><td>지진해일 경보/주의보</td><td>4</td><td>Y</td></tr><tr onclick="selectRow(this, 'TSL')" style="cursor:pointer;"><td>자연재난</td><td>지진해일</td><td>TSL</td><td>지진해일 주의보 해제</td><td>1</td><td>Y</td></tr><tr onclick="selectRow(this, 'TSR')" style="cursor:pointer;"><td>자연재난</td><td>지진해일</td><td>TSR</td><td>지진해일 경보/주의보 해제</td><td>1</td><td>Y</td></tr><tr onclick="selectRow(this, 'TSI')" style="cursor:pointer;"><td>자연재난</td><td>지진해일</td><td>TSI</td><td>지진해일 정보</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'NSD')" style="cursor:pointer;"><td>자연재난</td><td>자연우주물체 추락/충돌</td><td>NSD</td><td>자연우주물체 사고</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'NSW')" style="cursor:pointer;"><td>자연재난</td><td>자연우주물체 추락/충돌</td><td>NSW</td><td>자연우주물체 경보(경계, 심각)</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'NSV')" style="cursor:pointer;"><td>자연재난</td><td>자연우주물체 추락/충돌</td><td>NSV</td><td>자연우주물체 추락/충돌 대피</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'NHW')" style="cursor:pointer;"><td>자연재난</td><td>기타</td><td>NHW</td><td>기타 자연재난</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'MFA')" style="cursor:pointer;"><td>사회재난</td><td>산불</td><td>MFA</td><td>산불 주의보</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'MFW')" style="cursor:pointer;"><td>사회재난</td><td>산불</td><td>MFW</td><td>산불 경보(경계,심각)</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'MFV')" style="cursor:pointer;"><td>사회재난</td><td>산불</td><td>MFV</td><td>산불 대피</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'FHD')" style="cursor:pointer;"><td>사회재난</td><td>화재폭발</td><td>FHD</td><td>위험물 사고</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'FHV')" style="cursor:pointer;"><td>사회재난</td><td>화재폭발</td><td>FHV</td><td>위험물 사고 대피</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'FRW')" style="cursor:pointer;"><td>사회재난</td><td>화재폭발</td><td>FRW</td><td>다중밀집시설 대형화재</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'FRV')" style="cursor:pointer;"><td>사회재난</td><td>화재폭발</td><td>FRV</td><td>다중밀집시설 대형화재 대피</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'WHD')" style="cursor:pointer;"><td>사회재난</td><td>화재폭발</td><td>WHD</td><td>사업장 대규모 인적사고</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'DOW')" style="cursor:pointer;"><td>사회재난</td><td>댐 붕괴 사고</td><td>DOW</td><td>댐 월류 경보</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'DOE')" style="cursor:pointer;"><td>사회재난</td><td>댐 붕괴 사고</td><td>DOE</td><td>댐 월류 발생</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'DBA')" style="cursor:pointer;"><td>사회재난</td><td>댐 붕괴 사고</td><td>DBA</td><td>댐 붕괴 주의</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'DBW')" style="cursor:pointer;"><td>사회재난</td><td>댐 붕괴 사고</td><td>DBW</td><td>댐 붕괴 경보</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'RVD')" style="cursor:pointer;"><td>사회재난</td><td>댐 붕괴 사고</td><td>RVD</td><td>저수지 사고</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'BCW')" style="cursor:pointer;"><td>사회재난</td><td>시설물 붕괴</td><td>BCW</td><td>다중밀집 건축물 붕괴</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'RWD')" style="cursor:pointer;"><td>사회재난</td><td>철도 사고</td><td>RWD</td><td>고속철도 대형사고</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'RWS')" style="cursor:pointer;"><td>사회재난</td><td>철도 사고</td><td>RWS</td><td>고속철도 사고 수습에 따른 차량 우회 협조</td><td>1</td><td>Y</td></tr><tr onclick="selectRow(this, 'RWC')" style="cursor:pointer;"><td>사회재난</td><td>철도 사고</td><td>RWC</td><td>고속철도 사고 복구 완료</td><td>1</td><td>Y</td></tr><tr onclick="selectRow(this, 'SWD')" style="cursor:pointer;"><td>사회재난</td><td>철도 사고</td><td>SWD</td><td>지하철 대형사고</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'SWS')" style="cursor:pointer;"><td>사회재난</td><td>철도 사고</td><td>SWS</td><td>지하철 사고 수습에 따른 차량 우회 협조</td><td>1</td><td>Y</td></tr><tr onclick="selectRow(this, 'SWC')" style="cursor:pointer;"><td>사회재난</td><td>철도 사고</td><td>SWC</td><td>지하철 사고 복구 완료</td><td>1</td><td>Y</td></tr><tr onclick="selectRow(this, 'ISD')" style="cursor:pointer;"><td>사회재난</td><td>해양 사고</td><td>ISD</td><td>내수면 유·도선사고</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'MSD')" style="cursor:pointer;"><td>사회재난</td><td>해양 사고</td><td>MSD</td><td>해양 선박 사고</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'RLD')" style="cursor:pointer;"><td>사회재난</td><td>방사능 누출사고</td><td>RLD</td><td>방사능 누출사고</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'RHW')" style="cursor:pointer;"><td>사회재난</td><td>원자력 시설사고</td><td>RHW</td><td>방사선 위험경보</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'NRD')" style="cursor:pointer;"><td>사회재난</td><td>인접국가 방사능 누출사고</td><td>NRD</td><td>인접국가 방사능 누출사고</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'CHD')" style="cursor:pointer;"><td>사회재난</td><td>유해화학물질</td><td>CHD</td><td>유해화학물질 유출 사고</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'CHC')" style="cursor:pointer;"><td>사회재난</td><td>유해화학물질</td><td>CHC</td><td>유해화학물질 유출 사고 상황종료</td><td>1</td><td>Y</td></tr><tr onclick="selectRow(this, 'CWD')" style="cursor:pointer;"><td>사회재난</td><td>수질오염</td><td>CWD</td><td>대규모 수질오염 사고</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'MPD')" style="cursor:pointer;"><td>사회재난</td><td>해양 오염</td><td>MPD</td><td>대규모 해양 오염</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'FDA')" style="cursor:pointer;"><td>사회재난</td><td>미세먼지</td><td>FDA</td><td>미세먼지 주의보</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'FDW')" style="cursor:pointer;"><td>사회재난</td><td>미세먼지</td><td>FDW</td><td>미세먼지 경보</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'FDE')" style="cursor:pointer;"><td>사회재난</td><td>미세먼지</td><td>FDE</td><td>미세먼지 비상저감조치 시행</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'FND')" style="cursor:pointer;"><td>사회재난</td><td>금융 기반 시설 사고</td><td>FND</td><td>금융 전산 및 시설사고</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'FNE')" style="cursor:pointer;"><td>사회재난</td><td>금융 기반 시설 사고</td><td>FNE</td><td>금융 전산 사이버 공격</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'DWW')" style="cursor:pointer;"><td>사회재난</td><td>식용수</td><td>DWW</td><td>식용수 수질악화</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'DFD')" style="cursor:pointer;"><td>사회재난</td><td>식용수</td><td>DFD</td><td>식용수 시설 사고</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'POA')" style="cursor:pointer;"><td>사회재난</td><td>에너지</td><td>POA</td><td>전력부족 경계단계</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'POW')" style="cursor:pointer;"><td>사회재난</td><td>에너지</td><td>POW</td><td>전력부족 심각단계</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'POD')" style="cursor:pointer;"><td>사회재난</td><td>에너지</td><td>POD</td><td>전력 사고</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'GAD')" style="cursor:pointer;"><td>사회재난</td><td>에너지</td><td>GAD</td><td>가스 수급 및 누출사고</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'COD')" style="cursor:pointer;"><td>사회재난</td><td>에너지</td><td>COD</td><td>원유수급 사고</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'NDA')" style="cursor:pointer;"><td>사회재난</td><td>통신재난</td><td>NDA</td><td>통신재난 주의(관심,주의)</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'NDW')" style="cursor:pointer;"><td>사회재난</td><td>통신재난</td><td>NDW</td><td>통신재난 경보(경계,심각)</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'GFD')" style="cursor:pointer;"><td>사회재난</td><td>정부 중요시설</td><td>GFD</td><td>정부 중요시설 사고</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'DEW')" style="cursor:pointer;"><td>사회재난</td><td>감염병</td><td>DEW</td><td>감염병 경보</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'CME')" style="cursor:pointer;"><td>사회재난</td><td>가정 안전사고</td><td>CME</td><td>아동 실종 경보</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'CMC')" style="cursor:pointer;"><td>사회재난</td><td>가정 안전사고</td><td>CMC</td><td>아동 실종 경보 해제</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'CAE')" style="cursor:pointer;"><td>사회재난</td><td>가정 안전사고</td><td>CAE</td><td>아동 유괴 경보</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'CAC')" style="cursor:pointer;"><td>사회재난</td><td>가정 안전사고</td><td>CAC</td><td>아동 유괴 경보 해제</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'TEW')" style="cursor:pointer;"><td>사회재난</td><td>테러</td><td>TEW</td><td>테러 경보</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'GRW')" style="cursor:pointer;"><td>사회재난</td><td>GPS 전파 혼신</td><td>GRW</td><td>위성항법장치(GPS) 전파혼신 경보</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'ASD')" style="cursor:pointer;"><td>사회재난</td><td>인공우주물체 추락/충돌</td><td>ASD</td><td>인공우주물체 사고</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'ASW')" style="cursor:pointer;"><td>사회재난</td><td>인공우주물체 추락/충돌</td><td>ASW</td><td>인공우주물체 경보(경계, 심각)</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'ASV')" style="cursor:pointer;"><td>사회재난</td><td>인공우주물체 추락/충돌</td><td>ASV</td><td>인공우주물체 추락/충돌 대피</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'CPW')" style="cursor:pointer;"><td>사회재난</td><td>민방위경보</td><td>CPW</td><td>민방위 경계경보</td><td>4</td><td>Y</td></tr><tr onclick="selectRow(this, 'CAW')" style="cursor:pointer;"><td>사회재난</td><td>민방위경보</td><td>CAW</td><td>민방위 공습경보</td><td>4</td><td>Y</td></tr><tr onclick="selectRow(this, 'CCW')" style="cursor:pointer;"><td>사회재난</td><td>민방위경보</td><td>CCW</td><td>민방위 화생방 경보</td><td>4</td><td>Y</td></tr><tr onclick="selectRow(this, 'CDC')" style="cursor:pointer;"><td>사회재난</td><td>민방위경보</td><td>CDC</td><td>민방위 경보 해제</td><td>4</td><td>Y</td></tr><tr onclick="selectRow(this, 'SHW')" style="cursor:pointer;"><td>사회재난</td><td>기타</td><td>SHW</td><td>기타 사회재난</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'LAW')" style="cursor:pointer;"><td>기타재난</td><td>지역재난</td><td>LAW</td><td>지역재난</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'NPT')" style="cursor:pointer;"><td>기타재난</td><td>시험</td><td>NPT</td><td>정기시험</td><td>0</td><td>N</td></tr><tr onclick="selectRow(this, 'DIS')" style="cursor:pointer;"><td>기타재난</td><td>재난정보</td><td>DIS</td><td>재난정보서비스</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'DIM')" style="cursor:pointer;"><td>기타재난</td><td>재난정보</td><td>DIM</td><td>재난정보 처리결과</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'HWE')" style="cursor:pointer;"><td>자연재난</td><td>강풍</td><td>HWE</td><td>강풍 긴급정보</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'HRE')" style="cursor:pointer;"><td>자연재난</td><td>호우</td><td>HRE</td><td>호우 긴급정보</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'CWE')" style="cursor:pointer;"><td>자연재난</td><td>한파</td><td>CWE</td><td>한파 긴급정보</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'HAE')" style="cursor:pointer;"><td>자연재난</td><td>건조</td><td>HAE</td><td>건조 긴급정보</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'SSE')" style="cursor:pointer;"><td>자연재난</td><td>폭풍해일</td><td>SSE</td><td>폭풍해일 긴급정보</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'WWE')" style="cursor:pointer;"><td>자연재난</td><td>풍랑</td><td>WWE</td><td>풍랑 긴급정보</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'TPE')" style="cursor:pointer;"><td>자연재난</td><td>태풍</td><td>TPE</td><td>태풍 긴급정보</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'HSE')" style="cursor:pointer;"><td>자연재난</td><td>대설</td><td>HSE</td><td>대설 긴급정보</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'YSE')" style="cursor:pointer;"><td>자연재난</td><td>황사</td><td>YSE</td><td>황사 긴급정보</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'HTE')" style="cursor:pointer;"><td>자연재난</td><td>폭염</td><td>HTE</td><td>폭염 긴급정보</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'HFE')" style="cursor:pointer;"><td>자연재난</td><td>안개</td><td>HFE</td><td>안개 긴급정보</td><td>2</td><td>Y</td></tr></tbody>
+                      <caption>표준문안관리 검색 결과 제목</caption>          
+                      <thead>
+                        <tr>
+                          <th scope="col">대분류</th>
+                          <th scope="col">중분류</th>
+                          <th scope="col">재난코드</th>
+                          <th scope="col">재난명</th>
+                          <th scope="col">우선순위</th>
+                          <th scope="col">사용여부</th>
+                        </tr>
+                      </thead>                    
+                      <tbody id="table_list"><tr onclick="selectRow(this, 'HWA')" style="cursor:pointer;"><td>자연재난</td><td>강풍</td><td>HWA</td><td>강풍 주의보</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'HWG')" style="cursor:pointer;"><td>자연재난</td><td>강풍</td><td>HWG</td><td>강풍 주의보 변경</td><td>2</td><td>Y</td></tr><tr onclick="selectRow(this, 'HWL')" style="cursor:pointer;"><td>자연재난</td><td>강풍</td><td>HWL</td><td>강풍 주의보 해제</td><td>1</td><td>Y</td></tr><tr onclick="selectRow(this, 'HWW')" style="cursor:pointer;"><td>자연재난</td><td>강풍</td><td>HWW</td><td>강풍 경보</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'HWN')" style="cursor:pointer;"><td>자연재난</td><td>강풍</td><td>HWN</td><td>강풍 경보 변경</td><td>3</td><td>Y</td></tr><tr onclick="selectRow(this, 'HWC')" style="cursor:pointer;"><td>자연재난</td><td>강풍</td><td>HWC</td><td>강풍 경보 해제</td><td>1</td><td>Y</td></tr></tbody>
                     </table>
                   </div>
                 </div>
-              </div>
-              <div class="ico_arrow horizontal"></div>
-              <div class="standard_detail">
-                <div id="tabs" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
-        <ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
-          <li role="tab" tabindex="0" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab ui-tabs-active ui-state-active" aria-controls="tabs-1" aria-labelledby="ui-id-1" aria-selected="true" aria-expanded="true"><a href="#tabs-1" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-1">한국어</a></li>
-          <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab" aria-controls="tabs-2" aria-labelledby="ui-id-2" aria-selected="false" aria-expanded="false"><a href="#tabs-2" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-2">영어</a></li>
-<!-- 					    <li><a href="#tabs-3">일본어</a></li> -->
-<!-- 					    <li><a href="#tabs-4">중국어</a></li> -->
-<!-- 					    <li><a href="#tabs-5">베트남어</a></li> -->
-        </ul>
-        <div id="tabs-1" aria-labelledby="ui-id-1" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="false">
-          <ul class="monitoring_detail monitoring_text">
-                    <li>
-                      <div class="flex_wrap f_sb">
-                        <b>경보 발령의 근거 제공자</b>
-                        <p class="alignR"></p>
-                      </div>
-                      <textarea id="source_kr" maxlength="20" style="height: 35px;"></textarea>
-                    </li>
-                    <li>
-                      <div class="flex_wrap f_sb">
-                        <b>재해문자전광판</b>
-                        <p class="alignR"><span id="nowByte40_kr">0</span>/40 bytes</p>
-                      </div>
-                      <textarea id="text_40_kr" onkeyup="fn_checkByte(this, 40, 'nowByte40_kr')" maxlength="40" style="height: 35px;"></textarea>
-                    </li>
-                    <li>
-                      <div class="flex_wrap f_sb">
-                        <b>재해문자전광판</b>
-                        <p class="alignR"><span id="nowByte80_kr">0</span>/80 bytes</p>
-                      </div>
-                      <textarea id="text_80_kr" onkeyup="fn_checkByte(this, 80, 'nowByte80_kr')" maxlength="80" style="height: 33px;"></textarea>
-                    </li>
-                    <li>
-                      <div class="flex_wrap f_sb">
-                        <b>버스정보시스템/포털</b>
-                        <p class="alignR"><span id="nowByte180_kr">0</span>/180 bytes</p>
-                      </div>
-                      <textarea id="text_180_kr" onkeyup="fn_checkByte(this, 180, 'nowByte180_kr')" maxlength="180" style="height: 55px;"></textarea>
-                    </li>
-<!-- 	                      <li> -->
-<!-- 	                        <div class="flex_wrap f_sb"> -->
-<!-- 	                          <b>text_315_kr</b> -->
-<!-- 	                          <p class="alignR"><span id="nowByte315_kr">0</span>/315 bytes</p> -->
-<!-- 	                        </div> -->
-<!-- 	                        <textarea id="text_315_kr" onkeyup="fn_checkByte(this, 315, 'nowByte315_kr')" maxlength="315" style="height: 100px;"></textarea> -->
-<!-- 	                      </li> -->
-                    <li>
-                      <div class="flex_wrap f_sb">
-                        <b>마을방송/자동음성통보/자동우량경보</b>
-                        <p class="alignR"></p>
-                      </div>
-                      <textarea id="text_voice_kr" style="height: 100px;"></textarea>
-                    </li>
-                    <li>
-                      <div class="flex_wrap f_sb">
-                        <b>재난방송(TV, UHD)</b>
-                        <p class="alignR"></p>
-                      </div>
-                      <textarea id="text_broadcast_kr" style="height: 100px;"></textarea>
-                    </li>
-                  </ul>
-        </div>
-        
-        <div id="tabs-2" aria-labelledby="ui-id-2" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="true" style="display: none;">
-          <ul class="monitoring_detail monitoring_text">
-            <li>
-                      <div class="flex_wrap f_sb">
-                        <b>경보 발령의 근거 제공자</b>
-                        <p class="alignR"></p>
-                      </div>
-                      <textarea id="source_en" maxlength="50" style="height: 35px;"></textarea>
-                    </li>
-                    <li>
-                      <div class="flex_wrap f_sb">
-                        <b>재해문자전광판</b>
-                        <p class="alignR"><span id="nowByte40_en">0</span>/40 bytes</p>
-                      </div>
-                      <textarea id="text_40_en" onkeyup="fn_checkByte(this, 40, 'nowByte40_en')" maxlength="40" style="height: 35px;"></textarea>
-                    </li>
-                    <li>
-                      <div class="flex_wrap f_sb">
-                        <b>재해문자전광판</b>
-                        <p class="alignR"><span id="nowByte80_en">0</span>/80 bytes</p>
-                      </div>
-                      <textarea id="text_80_en" onkeyup="fn_checkByte(this, 80, 'nowByte80_en')" maxlength="80" style="height: 33px;"></textarea>
-                    </li>
-                    <li>
-                      <div class="flex_wrap f_sb">
-                        <b>버스정보시스템/포털</b>
-                        <p class="alignR"><span id="nowByte180_en">0</span>/180 bytes</p>
-                      </div>
-                      <textarea id="text_180_en" onkeyup="fn_checkByte(this, 180, 'nowByte180_en')" maxlength="180" style="height: 55px;"></textarea>
-                    </li>
-<!-- 	                      <li> -->
-<!-- 	                        <div class="flex_wrap f_sb"> -->
-<!-- 	                          <b>text_315_kr</b> -->
-<!-- 	                          <p class="alignR"><span id="nowByte315_en">0</span>/315 bytes</p> -->
-<!-- 	                        </div> -->
-<!-- 	                        <textarea id="text_315_en" onkeyup="fn_checkByte(this, 315, 'nowByte315_en')" maxlength="315" style="height: 100px;"></textarea> -->
-<!-- 	                      </li> -->
-                    <li>
-                      <div class="flex_wrap f_sb">
-                        <b>마을방송/자동음성통보/자동우량경보</b>
-                        <p class="alignR"></p>
-                      </div>
-                      <textarea id="text_voice_en" style="height: 100px;"></textarea>
-                    </li>
-                    <li>
-                      <div class="flex_wrap f_sb">
-                        <b>재난방송(TV, UHD)</b>
-                        <p class="alignR"></p>
-                      </div>
-                      <textarea id="text_broadcast_en" style="height: 100px;"></textarea>
-                    </li>
-                  </ul>
-        </div>
-        
-<!-- 					  <div id="tabs-3"> -->
-<!-- 					  	<ul class="monitoring_detail monitoring_text"> -->
-<!-- 					  	  <li> -->
-<!-- 	                        <div class="flex_wrap f_sb"> -->
-<!-- 	                          <b>경보 발령의 근거 제공자</b> -->
-<!-- 	                          <p class="alignR"></p> -->
-<!-- 	                        </div> -->
-<!-- 	                        <textarea id=source_jp maxlength="50" style="height: 35px;"></textarea> -->
-<!-- 	                      </li> -->
-<!-- 	                      <li> -->
-<!-- 	                        <div class="flex_wrap f_sb"> -->
-<!-- 	                          <b>재해문자전광판</b> -->
-<!-- 	                          <p class="alignR"><span id="nowByte40_jp">0</span>/40 bytes</p> -->
-<!-- 	                        </div> -->
-<!-- 	                        <textarea id=text_40_jp onkeyup="fn_checkByte(this, 40, 'nowByte40_jp')" maxlength="40" style="height: 35px;"></textarea> -->
-<!-- 	                      </li> -->
-<!-- 	                      <li> -->
-<!-- 	                        <div class="flex_wrap f_sb"> -->
-<!-- 	                          <b>재해문자전광판</b> -->
-<!-- 	                          <p class="alignR"><span id="nowByte80_jp">0</span>/80 bytes</p> -->
-<!-- 	                        </div> -->
-<!-- 	                        <textarea id="text_80_jp" onkeyup="fn_checkByte(this, 80, 'nowByte80_jp')" maxlength="80" style="height: 33px;"></textarea> -->
-<!-- 	                      </li> -->
-<!-- 	                      <li> -->
-<!-- 	                        <div class="flex_wrap f_sb"> -->
-<!-- 	                          <b>버스정보시스템/포털</b> -->
-<!-- 	                          <p class="alignR"><span id="nowByte180_jp">0</span>/180 bytes</p> -->
-<!-- 	                        </div> -->
-<!-- 	                        <textarea id="text_180_jp" onkeyup="fn_checkByte(this, 180, 'nowByte180_jp')" maxlength="180" style="height: 55px;"></textarea> -->
-<!-- 	                      </li> -->
-<!-- 	                      <li> -->
-<!-- 	                        <div class="flex_wrap f_sb"> -->
-<!-- 	                          <b>text_315_kr</b> -->
-<!-- 	                          <p class="alignR"><span id="nowByte315_jp">0</span>/315 bytes</p> -->
-<!-- 	                        </div> -->
-<!-- 	                        <textarea id="text_315_jp" onkeyup="fn_checkByte(this, 315, 'nowByte315_jp')" maxlength="315" style="height: 100px;"></textarea> -->
-<!-- 	                      </li> -->
-<!-- 	                      <li> -->
-<!-- 	                        <div class="flex_wrap f_sb"> -->
-<!-- 	                          <b>재난방송(TV, UHD)</b> -->
-<!-- 	                          <p class="alignR"></p> -->
-<!-- 	                        </div> -->
-<!-- 	                        <textarea id="text_broadcast_jp" style="height: 100px;"></textarea> -->
-<!-- 	                      </li> -->
-<!-- 	                      <li> -->
-<!-- 	                        <div class="flex_wrap f_sb"> -->
-<!-- 	                          <b>마을방송/자동음성통보/자동우량경보</b> -->
-<!-- 	                          <p class="alignR"></p> -->
-<!-- 	                        </div> -->
-<!-- 	                        <textarea id="text_voice_jp" style="height: 100px;"></textarea> -->
-<!-- 	                      </li> -->
-<!-- 	                    </ul> -->
-<!-- 					  </div> -->
-        
-<!-- 					  <div id="tabs-4"> -->
-<!-- 					  	<ul class="monitoring_detail monitoring_text"> -->
-<!-- 					  	  <li> -->
-<!-- 	                        <div class="flex_wrap f_sb"> -->
-<!-- 	                          <b>경보 발령의 근거 제공자</b> -->
-<!-- 	                          <p class="alignR"></p> -->
-<!-- 	                        </div> -->
-<!-- 	                        <textarea id=source_cn maxlength="50" style="height: 35px;"></textarea> -->
-<!-- 	                      </li> -->
-<!-- 	                      <li> -->
-<!-- 	                        <div class="flex_wrap f_sb"> -->
-<!-- 	                          <b>재해문자전광판</b> -->
-<!-- 	                          <p class="alignR"><span id="nowByte40_cn">0</span>/40 bytes</p> -->
-<!-- 	                        </div> -->
-<!-- 	                        <textarea id=text_40_cn onkeyup="fn_checkByte(this, 40, 'nowByte40_cn')" maxlength="40" style="height: 35px;"></textarea> -->
-<!-- 	                      </li> -->
-<!-- 	                      <li> -->
-<!-- 	                        <div class="flex_wrap f_sb"> -->
-<!-- 	                          <b>재해문자전광판</b> -->
-<!-- 	                          <p class="alignR"><span id="nowByte80_cn">0</span>/80 bytes</p> -->
-<!-- 	                        </div> -->
-<!-- 	                        <textarea id="text_80_cn" onkeyup="fn_checkByte(this, 80, 'nowByte80_cn')" maxlength="80" style="height: 33px;"></textarea> -->
-<!-- 	                      </li> -->
-<!-- 	                      <li> -->
-<!-- 	                        <div class="flex_wrap f_sb"> -->
-<!-- 	                          <b>버스정보시스템/포털</b> -->
-<!-- 	                          <p class="alignR"><span id="nowByte180_cn">0</span>/180 bytes</p> -->
-<!-- 	                        </div> -->
-<!-- 	                        <textarea id="text_180_cn" onkeyup="fn_checkByte(this, 180, 'nowByte180_cn')" maxlength="180" style="height: 55px;"></textarea> -->
-<!-- 	                      </li> -->
-<!-- 	                      <li> -->
-<!-- 	                        <div class="flex_wrap f_sb"> -->
-<!-- 	                          <b>text_315_kr</b> -->
-<!-- 	                          <p class="alignR"><span id="nowByte315_cn">0</span>/315 bytes</p> -->
-<!-- 	                        </div> -->
-<!-- 	                        <textarea id="text_315_cn" onkeyup="fn_checkByte(this, 315, 'nowByte315_cn')" maxlength="315" style="height: 100px;"></textarea> -->
-<!-- 	                      </li> -->
-<!-- 	                      <li> -->
-<!-- 	                        <div class="flex_wrap f_sb"> -->
-<!-- 	                          <b>재난방송(TV, UHD)</b> -->
-<!-- 	                          <p class="alignR"></p> -->
-<!-- 	                        </div> -->
-<!-- 	                        <textarea id="text_broadcast_cn" style="height: 100px;"></textarea> -->
-<!-- 	                      </li> -->
-<!-- 	                      <li> -->
-<!-- 	                        <div class="flex_wrap f_sb"> -->
-<!-- 	                          <b>마을방송/자동음성통보/자동우량경보</b> -->
-<!-- 	                          <p class="alignR"></p> -->
-<!-- 	                        </div> -->
-<!-- 	                        <textarea id="text_voice_cn" style="height: 100px;"></textarea> -->
-<!-- 	                      </li> -->
-<!-- 	                    </ul> -->
-<!-- 					  </div> -->
-        
-<!-- 					  <div id="tabs-5"> -->
-<!-- 					  	<ul class="monitoring_detail monitoring_text"> -->
-<!-- 					  	  <li> -->
-<!-- 	                        <div class="flex_wrap f_sb"> -->
-<!-- 	                          <b>경보 발령의 근거 제공자</b> -->
-<!-- 	                          <p class="alignR"></p> -->
-<!-- 	                        </div> -->
-<!-- 	                        <textarea id=source_vn maxlength="50" style="height: 35px;"></textarea> -->
-<!-- 	                      </li> -->
-<!-- 	                      <li> -->
-<!-- 	                        <div class="flex_wrap f_sb"> -->
-<!-- 	                          <b>재해문자전광판</b> -->
-<!-- 	                          <p class="alignR"><span id="nowByte40_vn">0</span>/40 bytes</p> -->
-<!-- 	                        </div> -->
-<!-- 	                        <textarea id=text_40_vn onkeyup="fn_checkByte(this, 40, 'nowByte40_vn')" maxlength="40" style="height: 35px;"></textarea> -->
-<!-- 	                      </li> -->
-<!-- 	                      <li> -->
-<!-- 	                        <div class="flex_wrap f_sb"> -->
-<!-- 	                          <b>재해문자전광판</b> -->
-<!-- 	                          <p class="alignR"><span id="nowByte80_vn">0</span>/80 bytes</p> -->
-<!-- 	                        </div> -->
-<!-- 	                        <textarea id="text_80_vn" onkeyup="fn_checkByte(this, 80, 'nowByte80_vn')" maxlength="80" style="height: 33px;"></textarea> -->
-<!-- 	                      </li> -->
-<!-- 	                      <li> -->
-<!-- 	                        <div class="flex_wrap f_sb"> -->
-<!-- 	                          <b>버스정보시스템/포털</b> -->
-<!-- 	                          <p class="alignR"><span id="nowByte180_vn">0</span>/180 bytes</p> -->
-<!-- 	                        </div> -->
-<!-- 	                        <textarea id="text_180_vn" onkeyup="fn_checkByte(this, 180, 'nowByte180_vn')" maxlength="180" style="height: 55px;"></textarea> -->
-<!-- 	                      </li> -->
-<!-- 	                      <li> -->
-<!-- 	                        <div class="flex_wrap f_sb"> -->
-<!-- 	                          <b>text_315_kr</b> -->
-<!-- 	                          <p class="alignR"><span id="nowByte315_vn">0</span>/315 bytes</p> -->
-<!-- 	                        </div> -->
-<!-- 	                        <textarea id="text_315_vn" onkeyup="fn_checkByte(this, 315, 'nowByte315_vn')" maxlength="315" style="height: 100px;"></textarea> -->
-<!-- 	                      </li> -->
-<!-- 	                      <li> -->
-<!-- 	                        <div class="flex_wrap f_sb"> -->
-<!-- 	                          <b>재난방송(TV, UHD)</b> -->
-<!-- 	                          <p class="alignR"></p> -->
-<!-- 	                        </div> -->
-<!-- 	                        <textarea id="text_broadcast_vn" style="height: 100px;"></textarea> -->
-<!-- 	                      </li> -->
-<!-- 	                      <li> -->
-<!-- 	                        <div class="flex_wrap f_sb"> -->
-<!-- 	                          <b>마을방송/자동음성통보/자동우량경보</b> -->
-<!-- 	                          <p class="alignR"></p> -->
-<!-- 	                        </div> -->
-<!-- 	                        <textarea id="text_voice_vn" style="height: 100px;"></textarea> -->
-<!-- 	                      </li> -->
-<!-- 	                    </ul> -->
-<!-- 					  </div> -->
-      </div>
-      
-<!-- 					<div class="flex_wrap f_sb" style="margin: 10px;"> -->
-<!--                       <b style="font-size: 13px;">행동요령</b> -->
-<!--                       <p class="alignR"></p> -->
-<!--                     </div> -->
-<!--                     <textarea id="text_instruction" style="height: 100px;"></textarea> -->
+              </section>              
+              
+              <section id="tabs" class="tab_wrap">
+                <ul>
+                  <li><a href="#tabs-1">한국어</a></li>
+                  <li><a href="#tabs-2">영어</a></li>
+                </ul>
+                <div id="tabs-1">
+                  @@include('../../inc/warning/msg_lst.html')
+                </div>                        
+              </section>                   
 
-      <div class="monitoring_detail f_sb" style="margin: 10px;">
-                  <b style="font-size: 13px;">수신매체</b>
-                  <p class="alignR"></p>
-                  <ul class="flex_wrap f_s media_select" style="flex-wrap: wrap;" id="media_select"><li><input type="checkbox" name="media" value="I-C-BC1.0" id="media_I-C-BC1.0"><label for="media_I-C-BC1.0">재난방송(UHD)</label></li><li><input type="checkbox" name="deviceType" value="BIS" id="media_BIS"><label for="media_BIS">버스정보시스템</label></li><li><input type="checkbox" name="deviceType" value="CDB" id="media_CDB"><label for="media_CDB">재해문자전광판(행정안전부)</label></li><li><input type="checkbox" name="deviceType" value="LDB" id="media_LDB"><label for="media_LDB">재해문자전광판(지자체)</label></li><li><input type="checkbox" name="deviceType" value="VBS" id="media_VBS"><label for="media_VBS">마을방송시스템</label></li><li><input type="checkbox" name="deviceType" value="VNS" id="media_VNS"><label for="media_VNS">자동음성통보시스템</label></li></ul>
-                </div>
-                
-      <div class="btn_wrap alignC">
-                  <button type="button" class="btn btn_blue" onclick="saveTemplate()">저장</button>
-<!--                       <button type="button" class="btn btn_gray">취소</button> -->
-                </div>
-                  
-      <script>
-      $( "#tabs" ).tabs();
-      </script>
+              <section>
+                <header class="tit">
+                  <h2>수신매체</h2>
+                </header>
+                <ul id="media_select" class="check_group">
+                  <li><label for="media_I-C-BC1.0"><input type="checkbox" name="media" value="I-C-BC1.0" id="media_I-C-BC1.0">재난방송(UHD)</label></li>
+                  <li><label for="media_BIS"><input type="checkbox" name="deviceType" value="BIS" id="media_BIS">버스정보시스템</label></li>
+                  <li><label for="media_CDB"><input type="checkbox" name="deviceType" value="CDB" id="media_CDB">재해문자전광판(행정안전부)</label></li>
+                  <li><label for="media_LDB"><input type="checkbox" name="deviceType" value="LDB" id="media_LDB">재해문자전광판(지자체)</label></li>
+                  <li><label for="media_VBS"><input type="checkbox" name="deviceType" value="VBS" id="media_VBS">마을방송시스템</label></li>
+                  <li><label for="media_VNS"><input type="checkbox" name="deviceType" value="VNS" id="media_VNS">자동음성통보시스템</label></li>
+                </ul>
+              </section>
 
-                
+              <div class="btn_wrap">
+                <button type="button" class="btn_blue" onclick="saveTemplate()">저장</button>
+                <button type="button" class="btn_gray">취소</button>
               </div>
             </div>
-            <div class="tbl_wrap">
-              <h2>예약어</h2>
-              <table class="tbl_default">
-                <caption>예약어 제목</caption>
-                <colgroup>
-                  <col style="width:150px">
-                  <col style="width:auto">
-                  <col class="fix_scroll">
-                </colgroup>
-                <thead>
-                  <tr>
-                    <th scope="col">예약어</th>
-                    <th scope="col">설명</th>
-                    <th></th>
-                  </tr>
-                </thead>
-              </table>
-              <div class="tbl_body_wrap tbl_scroll" style="max-height: 1277px;">
-                <table class="tbl_default">
-                  <caption>예약어 내용</caption>
+            <section class="tbl_area">
+              <header class="tit">
+                <h2>예약어</h2>
+              </header>
+              <div class="tbl_area">
+                <div class="tbl_top">
+                      <input type="text">
+                      <button type="button" class="btn_skyblue" onclick="search();">검색</button>
+                </div>
+                <div class="tbl_wrap">
+                  <table class="tbl_default">
+                  <caption>예약어 제목</caption>
                   <colgroup>
                     <col style="width:150px">
                     <col style="width:auto">
                   </colgroup>
-                  <tbody id="table_cvnnt"><tr><td>@AREADESC.en-US@</td><td>(영어)재난발생지역명 전체</td></tr><tr><td>@AREADESC.ja@</td><td>(일본어)재난발생지역명 전체</td></tr><tr><td>@AREADESC.ko-KR@</td><td>(한글)재난발생지역명 전체</td></tr><tr><td>@AREADESC.vn@</td><td>(베트남어)재난발생지역명 전체</td></tr><tr><td>@AREADESC.zh-chs@</td><td>(중국어)재난발생지역명 전체</td></tr><tr><td>@AREASI.en-US@</td><td>(영어)재난발생지역 간략히 표시(경북 포항시)</td></tr><tr><td>@AREASI.ja@</td><td>(일본어)재난발생지역 간략히 표시(경북 포항시)</td></tr><tr><td>@AREASI.ko-KR@</td><td>(한글)재난발생지역 간략히 표시(경북 포항시)</td></tr><tr><td>@AREASI.vn@</td><td>(베트남어)재난발생지역 간략히 표시(경북 포항시)</td></tr><tr><td>@AREASI.zh-chs@</td><td>(중국어)재난발생지역 간략히 표시(경북 포항시)</td></tr><tr><td>@ETA@</td><td>재난발생시각 : YYYY년 MM월 DD일 HH시 MI분</td></tr><tr><td>@ETB@</td><td>재난발생시각 : YYYY-MM-DD HH:MI:SS</td></tr><tr><td>@ETDD@</td><td>재난발생시각 : 일(추가)</td></tr><tr><td>@ETHH@</td><td>재난발생시각 : 시</td></tr><tr><td>@ETMI@</td><td>재난발생시각 : 분</td></tr><tr><td>@ETMM@</td><td>재난발생시각 : 월(추가)</td></tr><tr><td>@MAGNITUDE@</td><td>지진규모</td></tr><tr><td>@SENDERNAME@</td><td>발령기관명</td></tr><tr><td>@SOURCE.en-US@</td><td>(영어)관리기관명</td></tr><tr><td>@SOURCE.ja@</td><td>(일본어)관리기관명</td></tr><tr><td>@SOURCE.ko-KR@</td><td>관리기관명</td></tr><tr><td>@SOURCE.vn@</td><td>(베트남어)관리기관명</td></tr><tr><td>@SOURCE.zh-chs@</td><td>(중국어)관리기관명</td></tr></tbody>
-                </table>
+                  <thead>
+                    <tr>
+                      <th scope="col">예약어</th>
+                      <th scope="col">설명</th>
+                    </tr>
+                  </thead>             
+                    <tbody id="table_cvnnt"><tr><td>@AREADESC.en-US@</td><td>(영어)재난발생지역명 전체</td></tr><tr><td>@AREADESC.ja@</td><td>(일본어)재난발생지역명 전체</td></tr><tr><td>@AREADESC.ko-KR@</td><td>(한글)재난발생지역명 전체</td></tr><tr><td>@AREADESC.vn@</td><td>(베트남어)재난발생지역명 전체</td></tr><tr><td>@AREADESC.zh-chs@</td><td>(중국어)재난발생지역명 전체</td></tr><tr><td>@AREASI.en-US@</td><td>(영어)재난발생지역 간략히 표시(경북 포항시)</td></tr><tr><td>@AREASI.ja@</td><td>(일본어)재난발생지역 간략히 표시(경북 포항시)</td></tr><tr><td>@AREASI.ko-KR@</td><td>(한글)재난발생지역 간략히 표시(경북 포항시)</td></tr><tr><td>@AREASI.vn@</td><td>(베트남어)재난발생지역 간략히 표시(경북 포항시)</td></tr><tr><td>@AREASI.zh-chs@</td><td>(중국어)재난발생지역 간략히 표시(경북 포항시)</td></tr><tr><td>@ETA@</td><td>재난발생시각 : YYYY년 MM월 DD일 HH시 MI분</td></tr><tr><td>@ETB@</td><td>재난발생시각 : YYYY-MM-DD HH:MI:SS</td></tr><tr><td>@ETDD@</td><td>재난발생시각 : 일(추가)</td></tr><tr><td>@ETHH@</td><td>재난발생시각 : 시</td></tr><tr><td>@ETMI@</td><td>재난발생시각 : 분</td></tr><tr><td>@ETMM@</td><td>재난발생시각 : 월(추가)</td></tr><tr><td>@MAGNITUDE@</td><td>지진규모</td></tr><tr><td>@SENDERNAME@</td><td>발령기관명</td></tr><tr><td>@SOURCE.en-US@</td><td>(영어)관리기관명</td></tr><tr><td>@SOURCE.ja@</td><td>(일본어)관리기관명</td></tr><tr><td>@SOURCE.ko-KR@</td><td>관리기관명</td></tr><tr><td>@SOURCE.vn@</td><td>(베트남어)관리기관명</td></tr><tr><td>@SOURCE.zh-chs@</td><td>(중국어)관리기관명</td></tr></tbody>
+                  </table>
+                </div>
               </div>
-            </div>
+            </section>
           </div>
         </div>
-      </main>
+      </div>
+    </main>
   </div>
 </div>
 @@include('../../inc/script.html')

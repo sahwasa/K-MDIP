@@ -146,16 +146,12 @@ $(function () {
     $(this).next('label').text(txt);
   })
 
-  // main : slide & drag
-  // $('.btn_slide').on('click', function () {
-  //   $('.con_l').toggleClass('close');
-  // })
+
   $('.btn_subclose').on('click', function () {
     $('.panel_sub').hide();
   })
-  // $('.con_sub > .btn_slide').on('click', function () {
-  //   $('.btn_subclose').toggleClass('on');
-  // })
+ 
+ 
 })
 
 

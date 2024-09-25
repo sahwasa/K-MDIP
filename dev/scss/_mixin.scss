@@ -56,8 +56,8 @@
   @include shape($w,$h);background-color:$col;margin:0 15px 0 #{15 - $gap};
 }
 
-@mixin divide($w:1px,$h:10px,$gap:5px,$col:$gray,$after:false){
-  position:relative;display:inline-flex;align-items:center;
+@mixin divide($w:1px,$h:10px,$gap:5px,$col:$border_gray,$after:false){
+  position:relative;display:inline-flex;align-items:center;gap:$gap;
   @if($after){
     &::after{@include bar($w:$w,$h:$h,$gap:$gap,$col:$col);@content}
   }@else{
@@ -84,7 +84,7 @@
 @mixin btn($bg:#fff,$color:inherit,$border:$border_gray,$y:8px,$x:15px,$w:false,$addTxt:false,$addTxtafter:false){flex-shrink:0;cursor:pointer;font-size:13px;vertical-align:middle;
   background-color:$bg;color:$color;padding:$y $x;border-radius:3px;border:1px solid $border;
   @if($bg == #fff){
-    &:hover{border-color:darken($border, 20);}
+    &:hover{border-color:darken($border, 10);color:darken($border, 20);}
   }@else{
     &:hover{background-color:darken($bg, 5);}
   }
@@ -98,6 +98,11 @@
     &::after{@include fontello($addTxtafter);vertical-align:middle;font-size:14px;}
   }
 }
+@mixin btnType($type:default){
+  @if($type == L){height:40px;padding:0 30px;font-weight:600;font-size:16px;}
+  @else if($type == M){height:32px;padding:0 10px;font-size:14px;}
+  @else if($type == S){height:25px;padding:0 6px;font-size:12px;}
+}
 @mixin tag($color){flex-shrink:0;font-size:13px;color:#fff;border-radius:5px;border:1px solid darken($color,15);background-color:$color;padding:1px 3px;font-weight:normal;white-space:nowrap;}
 
 @mixin shape($w_size,$h_size){
@@ -106,13 +111,6 @@
 }
 @mixin fontello($ic:default){
   display:inline-block;font-family:"fontello";font-weight:normal;content:$ic;line-height:1;
-}
-@mixin ico($ic:default,$col:inherit,$size:inherit){
-  display:inline-flex;gap:7px;align-items:center;
-  &::before{@include fontello(($ic));color:$col;font-size:$size;}
-  @if $ic == 'default' {
-    &::before{@include shape(22px,22px);background:url(../images/ico.png) 0 0 no-repeat;}
-  }
 }
 @mixin ico_only($font:none){font-size:0;vertical-align:middle;line-height:1;
   @if($font == none){

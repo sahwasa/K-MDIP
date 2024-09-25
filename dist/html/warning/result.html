@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="../../plugins/jquery-ui/themes/base/jquery-ui.min.css">
   <link rel="stylesheet" href="../../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.css">
   <link rel="stylesheet" href="../../plugins/jqueryui-timepicker-addon/dist/jquery.datetimepicker.css">
+  <link rel="stylesheet" href="../../font/fontello/css/fontello.css">
   <link rel="stylesheet" href="../../css/cmmn.css">
   <link rel="stylesheet" href="../../css/tui-pagination.css">
   <script src="../../plugins/jquery/dist/jquery.min.js"></script>
@@ -17,7 +18,7 @@
   <script src="../../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.js"></script>
   <script src="../../plugins/jqueryui-timepicker-addon/dist/jquery.datetimepicker.full.min.js"></script>
   <!-- <script src="../../plugins/jqueryui-timepicker-addon/dist/i18n/jquery-ui-timepicker-ko.js"></script> -->
-  <!-- <script src="../../plugins/echarts/dist/echarts.min.js"></script> -->
+  <script src="../../plugins/echarts/dist/echarts.min.js"></script>
   <!-- <script src="../../js/tui-pagination.js"></script> -->
   <script src="../../js/common.js"></script>
   <script src="../../js/ui_common.js"></script>
@@ -48,7 +49,7 @@
         <span><b id="top_user_nm">김관리</b>님</span>
       </li>
 
-      <li><a href="#" class="btn set">환경설정</a></li>
+      <li><a href="/html/set/admin.html" class="btn set">환경설정</a></li>
       
       <li class="alert_wrap" title="재난발령요청">
         <a href="#" class="btn alert">재난발령요청</a>
@@ -63,41 +64,45 @@
       <li title="연계상태"><span class="system">연계상태</span></li>
       <li title="로그아웃"><a href="/login.do" class="btn log">로그아웃</a></li>
     </ul>
-<!--       <div class="system_wrap" style="cursor:pointer;"> -->
-<!--         <span class="system">시스템</span> -->
-<!--       </div> -->
+      <!-- <div class="system_wrap" style="cursor:pointer;">
+        <span class="system">시스템</span>
+      </div> -->
   </div>
 </header>
   <div class="con_wrap">
      <nav class="lnb lnb_warning">
   <ul id="left_menu">
     <li class="on"><a href="/html/warning/monitoring.html">모니터링</a></li>
+    <li><a href="/html/warning/reserve.html">예약발송</a></li>
     <li><a href="/html/warning/result.html">발령현황</a></li>
-    <li><a href="/html/warning/manual.html">수동발령</a></li>
-    <li><a href="/html/warning/history.html">발령이력</a></li>
-    <li class="depth2_wrap"><a href="/html/warning/stats01.html">통계</a>
-<!--         <ul> -->
-<!--           <li><a href="/stats/stats01.html">재난별 발령통계</a></li> -->
-<!--           <li><a href="/stats/stats02.html">매체별 발령통계</a></li> -->
-<!--         </ul> -->
+    <li><a href="/html/warning/manual.html">수동발령</a>
+      <ul>
+        <li><a href="/html/warning/manual.html">통합발령</a></li>
+        <li><a href="/html/warning/terminal.html">단말기발송</a></li>
+        <li><a href="/html/warning/mms.html">문자발송</a></li>
+      </ul>    
     </li>
+    <li><a href="/html/warning/history.html">발령이력</a></li>
+    <li><a href="/html/warning/stats01.html">통계</a></li>
+    <li><a href="/html/warning/terminalAdmin.html">단말기관리</a></li>       
+    <li><a href="/html/warning/addrAdmin.html">주소록</a></li>       
     <li><a href="/html/warning/template.html">환경설정</a></li>       
-    <li><a href="/html/warning/admin.html">시스템관리</a></li>     
+    <!-- <li><a href="/html/warning/admin.html">시스템관리</a></li>      -->
   </ul>
 </nav>
      <main class="contents">
-        <div class="panel_wrap">
+        <div class="panel_wrap result">
           <section class="panel panel_main">
             <header class="tit">
               <h1>발령현황</h1>
             </header>
-            <div class="slide_sub panel_content">
+            <div class="panel_content">
               <div class="search_area">                
                 <ul class="search">
-                  <li style="margin-right: 0px;">
+                  <li>
                     <select title="전체" id="stt"><option value="">전체</option><option value="A">승인</option><option value="B">반려</option></select>
                   <select title="대분류" id="code1" onchange="setCode2()"><option value="">전체</option><option value="T1">자연재난</option><option value="T2">사회재난</option><option value="T3">기타재난</option></select>
-                  <select title="중분류" id="code2"><option value="">전체</option><option value="T10101">강풍</option><option value="T10102">낙뢰</option><option value="T10103">대설</option><option value="T10105">태풍</option><option value="T10107">호우</option><option value="T10108">황사</option><option value="T10204">풍랑</option><option value="T10205">폭풍해일</option><option value="T10206">홍수</option><option value="T10301">가뭄</option><option value="T10302">폭염</option><option value="T10303">한파</option><option value="T10304">건조</option><option value="T10305">안개</option><option value="T10401">산사태</option><option value="T10402">지진</option><option value="T10403">화산</option><option value="T10404">지진해일</option><option value="T10501">자연우주물체 추락/충돌</option><option value="T10999">기타</option><option value="T20101">산불</option><option value="T20103">화재폭발</option><option value="T20202">댐 붕괴 사고</option><option value="T20203">시설물 붕괴</option><option value="T20302">철도 사고</option><option value="T20304">해양 사고</option><option value="T20401">방사능 누출사고</option><option value="T20402">원자력 시설사고</option><option value="T20403">인접국가 방사능 누출사고</option><option value="T20405">유해화학물질</option><option value="T20502">수질오염</option><option value="T20504">해양 오염</option><option value="T20505">미세먼지</option><option value="T20602">금융 기반 시설 사고</option><option value="T20604">식용수</option><option value="T20605">에너지</option><option value="T20606">통신재난</option><option value="T20607">정부 중요시설</option><option value="T20704">감염병</option><option value="T20801">가정 안전사고</option><option value="T20903">테러</option><option value="T20905">GPS 전파 혼신</option><option value="T20906">인공우주물체 추락/충돌</option><option value="T20999">기타</option><option value="T21001">민방위경보</option><option value="T30101">지역재난</option><option value="T30102">시험</option><option value="T30103">재난정보</option></select>
+                  <select title="중분류" id="code2"><option value="">전체</option></select>
                   </li>
                   <li>
                     <select title="재난상황" id="situation"><option value="">전체</option><option value="Actual">실제</option><option value="Exercise">훈련</option><option value="Test">시험</option></select>
@@ -113,7 +118,7 @@
                     <option value="9">수동</option>
                   </select>
                     <input type="text" title="location" placeholder="발령지역" id="areadesc" onkeydown="fn_onKeyDown();">
-                  <button type="button" class="btn_skyblue" onclick="search();">검색</button>
+                    <button type="button" class="btn_skyblue" onclick="search();">검색</button>
                   </li>
                 </ul>
               </div>
@@ -126,11 +131,11 @@
                     <b class="font_blue">승인요청 <span id="count_R">0</span>건</b>
                   </p>
                   <div class="tool">
-                    <button type="button" class="btn_s btn_green" onclick="excelDown()">엑셀다운</button>
+                    <button type="button" class="btn_greenline" onclick="excelDown()">엑셀다운</button>
                   </div>
                 </div>
                 <div class="tbl_wrap">
-                  <table class="tbl_default tbl_s">
+                  <table class="tbl_default tbl_hover tbl_s">
                     <colgroup>
                       <col style="width:50px">
                       <col style="width:140px">
@@ -147,44 +152,35 @@
                         <th scope="col">최종상태</th>
                       </tr>
                     </thead>
-                    <tbody id="left_list"><tr onclick="selectRow(this, 'KR.T10107-2024000001_HRE_1', '3100000000')" style="cursor:pointer;" value="KR.T10107-2024000001_HRE_1"><td><ul class="type_wrap"><li class="auto"></li><li class="Actual"></li></ul></td><td>호우 긴급정보</td><td>울산광역시</td><td>2024-02-06 10:32:02</td><td>승인</td></tr><tr onclick="selectRow(this, 'KR.T10101-2024000001_HWE_1', '3100000000')" style="cursor:pointer;" value="KR.T10101-2024000001_HWE_1"><td><ul class="type_wrap"><li class="auto"></li><li class="Actual"></li></ul></td><td>강풍 긴급정보</td><td>울산광역시</td><td>2024-02-05 17:42:08</td><td>승인</td></tr><tr onclick="selectRow(this, 'KR.T10103-2024000002_HSE_1', '3100000000')" style="cursor:pointer;" value="KR.T10103-2024000002_HSE_1"><td><ul class="type_wrap"><li class="auto"></li><li class="Test"></li></ul></td><td>대설 긴급정보</td><td>울산광역시</td><td>2024-01-22 13:50:09</td><td>승인</td></tr><tr onclick="selectRow(this, 'KR.T10103-2024000001_HSE_1', '3100000000')" style="cursor:pointer;" value="KR.T10103-2024000001_HSE_1"><td><ul class="type_wrap"><li class="auto"></li><li class="Test"></li></ul></td><td>대설 긴급정보</td><td>울산광역시</td><td>2024-01-22 13:44:51</td><td>승인</td></tr></tbody>
+                    <tbody id="left_list">
+                      <tr onclick="selectRow(this, 'KR.T10107-2024000001_HRE_1', '3100000000')" style="cursor:pointer;" value="KR.T10107-2024000001_HRE_1"><td><ul class="type_wrap"><li class="auto"></li><li class="Actual"></li></ul></td><td>호우 긴급정보</td><td>울산광역시</td><td>2024-02-06 10:32:02</td><td>승인</td></tr>
+                    </tbody>
                   </table>
                 </div>
-  <!--               <div id="stt_pagination" class="tui-pagination"></div> -->
               </div>
             </div>            
           </section>
           <section class="panel panel_sub">
             <div class="panel_content">
-              <header class="disaster_type tit">
-                <h3 id="detail_title"><img id="detail_icon" src="../img/symbol/HRE.png" width="38" height="32">호우 긴급정보 시험방송</h3>
-              </header>
-              <div class="flex_vertical">
-                <div class="btn_area alignR">
-                  <button type="button" class="btn_s btn_pink">발령이력 보고서</button>
+              <header class="tit">
+                <h3 id="detail_title"><img id="detail_icon" src="../../images/symbol/HRE.png" width="38" height="32">호우 긴급정보 시험방송</h3>
+                <div class="tool">
+                  <button type="button" class="btn_pink" onclick="document.querySelector('#pop_report').show()">발령이력 보고서</button>
                 </div>
-                <ul class="dot_list issue_dtl">
-                  <li>
-                    <b>발령매체</b>
-                    <div><span id="media_select">재해문자전광판(지자체), 마을방송시스템</span></div>
-                  </li>
-                  <li>
-                    <b>발생시각</b>
-                    <span id="detail_creat_dt">2024-02-06 10:32:02</span>
-                  </li>
-                  <li class="list_area" id="detail_mag_li" style="display:none;">
-                    <b>규&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;모</b>
-                    <div><span id="detail_mag"></span></div>
-                  </li>
-                  <li class="list_area" id="detail_location_li" style="display:none;">
-                    <b>발생위치</b>
-                    <div><span id="detail_location"></span></div>
-                  </li>
-                  <li class="list_area">
-                    <b>발령지역</b>
-                    <div><span id="detail_areadesc">울산광역시</span></div>
-                  </li>
-                </ul>
+              </header>
+              <div class="flex_vertical">                
+                <dl class="issue_dtl">
+                  <dt>발령매체</dt>
+                  <dd id="media_select">재해문자전광판(지자체), 마을방송시스템</dd>
+                  <dt>발생시각</dt>
+                  <dd id="detail_creat_dt">2024-02-13 15:35</dd>
+                  <dt id="detail_mag_li">규       모</dt>
+                  <dd id="detail_mag">-</dd>
+                  <dt>발생위치</dt>
+                  <dd id="detail_location">울산(동구)</dd>
+                  <dt>발령지역</dt>
+                  <dd id="detail_areadesc">울산(동구)</dd>
+                </dl>
                 <div class="tab tab_s">
                   <ul class="tab_list">
                     <li><a href="#tab01" class="on">발령내용</a></li>
@@ -200,95 +196,87 @@
                         <li><a href="#tabs-2">영어</a></li>
                       </ul>
                       <div id="tabs-1">
-                        <ul class="monitoring_detail monitoring_text">
-                          <li>
-                            <div class="flex_wrap f_sb">
-                              <b>재해문자전광판</b>
-                            </div>
-                            <textarea id="text_40_kr" onkeyup="fn_checkByte(this, 40, 'nowByte40_kr')" maxlength="40" disabled=""></textarea>
-                          </li>
-                          <li>
-                            <div class="flex_wrap f_sb">
-                              <b>재해문자전광판</b>
-                            </div>
-                            <textarea id="text_80_kr" onkeyup="fn_checkByte(this, 80, 'nowByte80_kr')" maxlength="80" style="height: 55px;" disabled=""></textarea>
-                          </li>
-                          <li>
-                            <div class="flex_wrap f_sb">
-                              <b>버스정보시스템/포털</b>
-                            </div>
-                            <textarea id="text_180_kr" onkeyup="fn_checkByte(this, 180, 'nowByte180_kr')" maxlength="180" style="height: 93px;" disabled=""></textarea>
-                          </li>
-                          <li>
-                            <div class="flex_wrap f_sb">
-                              <b>마을방송/자동음성통보/자동우량경보</b>
-                              <p class="alignR"></p>
-                            </div>
-                            <textarea id="text_voice_kr" style="height: 100px;" disabled=""></textarea>
-                          </li>
-                          <li>
-                            <div class="flex_wrap f_sb">
-                              <b>재난방송(TV, UHD)</b>
-                              <p class="alignR"></p>
-                            </div>
-                            <textarea id="text_broadcast_kr" style="height: 100px;" disabled=""></textarea>
-                          </li>
-                          <li id="audio_kr" style="display:none;">
-                            <div class="flex_wrap f_sb">
-                              <b>음성파일</b>
-                              <p class="alignR"></p>
-                            </div>
-                            <audio controls="">
-                              <source src="" type="audio/mp3">
-                            </audio>
-                          </li>
-                        </ul>
+                        <dl class="msg_lst">
+  <dt><label for="source_kr">경보 발령의 근거 제공자</label></dt>
+  <dd><textarea id="source_kr" maxlength="20" rows="1"></textarea></dd>
+  <dt>
+    <label for="text_40_kr">재해문자전광판</label>
+    <span class="size"><span id="nowByte40_kr">0</span> / 40 bytes</span>
+  </dt>
+  <dd>
+    <textarea id="text_40_kr" onkeyup="fn_checkByte(this, 80, 'nowByte80_kr')" maxlength="80" rows="2"></textarea>                   
+  </dd>
+  <dt>
+    <label for="text_80_kr">재해문자전광판</label>
+    <span class="size"><span id="nowByte80_kr">0</span> / 80 bytes</span>
+  </dt>
+  <dd>
+    <textarea id="text_80_kr" onkeyup="fn_checkByte(this, 80, 'nowByte80_kr')" maxlength="80" rows="2"></textarea>                   
+  </dd>
+  <dt>
+    <label for="text_180_kr">버스정보시스템/포털</label>
+    <span class="size"><span id="nowByte180_kr">0</span> / 180 bytes</span>
+  </dt>
+  <dd><textarea id="text_180_kr" onkeyup="fn_checkByte(this, 180, 'nowByte180_kr')" rows="3"></textarea></dd>
+  <dt>
+    <label for="text_voice_kr">마을방송/자동음성통보/자동우량경보</label>
+  </dt>
+  <dd>
+    <textarea id="text_voice_kr" rows="3"></textarea>
+  </dd>
+  <dt><label for="text_broadcast_kr">재난방송(TV, UHD)</label></dt>
+  <dd>
+    <textarea id="text_broadcast_kr" rows="3"></textarea>
+  </dd>
+  <dt>음성파일</dt>
+  <dd>
+    <audio controls="">
+      <source src="" type="audio/mp3">
+    </audio>
+  </dd>                 
+</dl>
                       </div>
                     
                       <div id="tabs-2">
-                        <ul class="monitoring_detail monitoring_text">
-                          <li>
-                            <div class="flex_wrap f_sb">
-                              <b>재해문자전광판</b>
-                            </div>
-                            <textarea id="text_40_en" onkeyup="fn_checkByte(this, 40, 'nowByte40_en')" maxlength="40" disabled=""></textarea>
-                          </li>
-                          <li>
-                            <div class="flex_wrap f_sb">
-                              <b>재해문자전광판</b>
-                            </div>
-                            <textarea id="text_80_en" onkeyup="fn_checkByte(this, 80, 'nowByte80_en')" maxlength="80" style="height: 33px;" disabled=""></textarea>
-                          </li>
-                          <li>
-                            <div class="flex_wrap f_sb">
-                              <b>버스정보시스템/포털</b>
-                            </div>
-                            <textarea id="text_180_en" onkeyup="fn_checkByte(this, 180, 'nowByte180_en')" maxlength="180" style="height: 93px;" disabled=""></textarea>
-                          </li>
-                          <li>
-                            <div class="flex_wrap f_sb">
-                              <b>마을방송/자동음성통보/자동우량경보</b>
-                              <p class="alignR"></p>
-                            </div>
-                            <textarea id="text_voice_en" style="height: 100px;" disabled=""></textarea>
-                          </li>
-                          <li>
-                            <div class="flex_wrap f_sb">
-                              <b>재난방송(TV, UHD)</b>
-                              <p class="alignR"></p>
-                            </div>
-                            <textarea id="text_broadcast_en" style="height: 100px;" disabled=""></textarea>
-                          </li>
-                          <li id="audio_en" style="display:none;">
-                            <div class="flex_wrap f_sb">
-                              <b>음성파일</b>
-                              <p class="alignR"></p>
-                            </div>
-                            <audio controls="">
-                              <source src="" type="audio/mp3">
-                          </audio>
-                          </li>
-                        </ul>
+                        <dl class="msg_lst">
+  <dt><label for="source_kr">경보 발령의 근거 제공자</label></dt>
+  <dd><textarea id="source_kr" maxlength="20" rows="1"></textarea></dd>
+  <dt>
+    <label for="text_40_kr">재해문자전광판</label>
+    <span class="size"><span id="nowByte40_kr">0</span> / 40 bytes</span>
+  </dt>
+  <dd>
+    <textarea id="text_40_kr" onkeyup="fn_checkByte(this, 80, 'nowByte80_kr')" maxlength="80" rows="2"></textarea>                   
+  </dd>
+  <dt>
+    <label for="text_80_kr">재해문자전광판</label>
+    <span class="size"><span id="nowByte80_kr">0</span> / 80 bytes</span>
+  </dt>
+  <dd>
+    <textarea id="text_80_kr" onkeyup="fn_checkByte(this, 80, 'nowByte80_kr')" maxlength="80" rows="2"></textarea>                   
+  </dd>
+  <dt>
+    <label for="text_180_kr">버스정보시스템/포털</label>
+    <span class="size"><span id="nowByte180_kr">0</span> / 180 bytes</span>
+  </dt>
+  <dd><textarea id="text_180_kr" onkeyup="fn_checkByte(this, 180, 'nowByte180_kr')" rows="3"></textarea></dd>
+  <dt>
+    <label for="text_voice_kr">마을방송/자동음성통보/자동우량경보</label>
+  </dt>
+  <dd>
+    <textarea id="text_voice_kr" rows="3"></textarea>
+  </dd>
+  <dt><label for="text_broadcast_kr">재난방송(TV, UHD)</label></dt>
+  <dd>
+    <textarea id="text_broadcast_kr" rows="3"></textarea>
+  </dd>
+  <dt>음성파일</dt>
+  <dd>
+    <audio controls="">
+      <source src="" type="audio/mp3">
+    </audio>
+  </dd>                 
+</dl>
                       </div>						  
                     </div>						
                   </div>
@@ -349,9 +337,7 @@
                 </div>
               </div>
             </div>
-            <div class="btn_subclose">
-              <i class="axi axi-close"></i>
-            </div>
+            <button type="button" class="btn_subclose">상세패널 닫기</button>
           </section>
           <span class="btn_switch_single btn_slide">
             <input type="checkbox" id="btn_panel">
@@ -361,14 +347,14 @@
         <div class="map_content">
           <div class="request_wrap" id="map">
             <div class="btn_wrap btn_map">
-              <button class="btn" id="mapmode_1" onclick="mapMode(1)">기본지도</button>
+              <button class="btn on" id="mapmode_1" onclick="mapMode(1)">기본지도</button>
               <button class="btn" id="mapmode_2" onclick="mapMode(2)">2D지도</button>
               <button class="btn" id="mapmode_3" onclick="mapMode(3)">위성지도</button>
             </div>
           </div>
           <div class="symbols">
             <div class="symbol" style="--left:1100px;--top:50px">
-              <i class="BIS fail">00지구 00회관(단말기명)_실패</i>
+              <button type="button" class="BIS fail">00지구 00회관(단말기명)_실패</button>
               <div class="layer" style="display: block;">
                 <button type="button" class="axi axi-close" title="닫기">닫기</button>
                 <strong>00지구 00회관(단말기명)</strong>
@@ -383,7 +369,7 @@
               </div>
             </div>
             <div class="symbol" style="--left:1100px;--top:350px">
-              <i class="CDB">00지구 00회관(단말기명)_성공</i>
+              <button type="button" class="CDB">00지구 00회관(단말기명)_성공</button>
               <div class="layer" style="display: block;">
                 <button type="button" class="axi axi-close" title="닫기">닫기</button>
                 <strong>00지구 00회관(단말기명)_성공</strong>
@@ -398,72 +384,71 @@
               </div>
             </div>
             <div class="symbol" style="--left:1100px;--top:450px">
-              <i class="LDB">00지구 00회관(단말기명)_성공</i>
+              <button type="button" class="LDB">00지구 00회관(단말기명)_성공</button>
             </div>
             <div class="symbol" style="--left:1500px;--top:50px">
-              <i class="TDB">00지구 00회관(단말기명)_성공</i>
+              <button type="button" class="TDB">00지구 00회관(단말기명)_성공</button>
             </div>
             <div class="symbol" style="--left:1500px;--top:100px">
-              <i class="PDB">00지구 00회관(단말기명)_성공</i>
+              <button type="button" class="PDB">00지구 00회관(단말기명)_성공</button>
             </div>
             <div class="symbol" style="--left:1500px;--top:150px">
-              <i class="ADD">00지구 00회관(단말기명)_성공</i>
+              <button type="button" class="ADD">00지구 00회관(단말기명)_성공</button>
             </div>
             <div class="symbol" style="--left:1500px;--top:200px">
-              <i class="VBS">00지구 00회관(단말기명)_성공</i>
+              <button type="button" class="VBS">00지구 00회관(단말기명)_성공</button>
             </div>
             <div class="symbol" style="--left:1500px;--top:250px">
-              <i class="VNS">00지구 00회관(단말기명)_성공</i>
+              <button type="button" class="VNS">00지구 00회관(단말기명)_성공</button>
             </div>
             <div class="symbol" style="--left:1500px;--top:300px">
-              <i class="VNI">00지구 00회관(단말기명)_성공</i>
+              <button type="button" class="VNI">00지구 00회관(단말기명)_성공</button>
             </div>
             <div class="symbol" style="--left:1500px;--top:350px">
-              <i class="VNO">00지구 00회관(단말기명)_성공</i>
+              <button type="button" class="VNO">00지구 00회관(단말기명)_성공</button>
             </div>
             <div class="symbol" style="--left:1500px;--top:400px">
-              <i class="RAS">00지구 00회관(단말기명)_성공</i>
+              <button type="button" class="RAS">00지구 00회관(단말기명)_성공</button>
             </div>
             <div class="symbol" style="--left:1500px;--top:450px">
-              <i class="DSB">00지구 00회관(단말기명)_성공</i>
+              <button type="button" class="DSB">00지구 00회관(단말기명)_성공</button>
             </div>
             <div class="symbol" style="--left:1600px;--top:0px">
-              <i class="BIS fail">00지구 00회관(단말기명)_실패</i>
+              <button type="button" class="BIS fail">00지구 00회관(단말기명)_실패</button>
             </div>
             <div class="symbol" style="--left:1600px;--top:50px">
-              <i class="CDB fail">00지구 00회관(단말기명)_실패</i>
+              <button type="button" class="CDB fail">00지구 00회관(단말기명)_실패</button>
             </div>
             <div class="symbol" style="--left:1600px;--top:100px">
-              <i class="LDB fail">00지구 00회관(단말기명)_실패</i>
+              <button type="button" class="LDB fail">00지구 00회관(단말기명)_실패</button>
             </div>
             <div class="symbol" style="--left:1600px;--top:150px">
-              <i class="TDB fail">00지구 00회관(단말기명)_실패</i>
+              <button type="button" class="TDB fail">00지구 00회관(단말기명)_실패</button>
             </div>
             <div class="symbol" style="--left:1600px;--top:200px">
-              <i class="PDB fail">00지구 00회관(단말기명)_실패</i>
+              <button type="button" class="PDB fail">00지구 00회관(단말기명)_실패</button>
             </div>
             <div class="symbol" style="--left:1600px;--top:250px">
-              <i class="ADD fail">00지구 00회관(단말기명)_실패</i>
+              <button type="button" class="ADD fail">00지구 00회관(단말기명)_실패</button>
             </div>
             <div class="symbol" style="--left:1600px;--top:300px">
-              <i class="VBS fail">00지구 00회관(단말기명)_실패</i>
+              <button type="button" class="VBS fail">00지구 00회관(단말기명)_실패</button>
             </div>
             <div class="symbol" style="--left:1600px;--top:350px">
-              <i class="VNS fail">00지구 00회관(단말기명)_실패</i>
+              <button type="button" class="VNS fail">00지구 00회관(단말기명)_실패</button>
             </div>
             <div class="symbol" style="--left:1600px;--top:400px">
-              <i class="VNI fail">00지구 00회관(단말기명)_실패</i>
+              <button type="button" class="VNI fail">00지구 00회관(단말기명)_실패</button>
             </div>
             <div class="symbol" style="--left:1600px;--top:450px">
-              <i class="VNO fail">00지구 00회관(단말기명)_실패</i>
+              <button type="button" class="VNO fail">00지구 00회관(단말기명)_실패</button>
             </div>
             <div class="symbol" style="--left:1600px;--top:500px">
-              <i class="RAS fail">00지구 00회관(단말기명)_실패</i>
+              <button type="button" class="RAS fail">00지구 00회관(단말기명)_실패</button>
             </div>
             <div class="symbol" style="--left:1600px;--top:550px">
-              <i class="DSB fail">00지구 00회관(단말기명)_실패</i>
-            </div>
-          
+              <button type="button" class="DSB fail">00지구 00회관(단말기명)_실패</button>
+            </div>          
             <div class="symbol_legend">
               <span class="btn_switch_single folding">
                 <input type="checkbox" id="fold" checked>
@@ -491,7 +476,136 @@
      </main>
   </div>
 </div>
-
+<dialog id="pop_report" class="pop_report" style="--width:1000px">
+  <div class="p_header">
+    <h1>발령이력 보고서</h1>
+    <button type="button" class="btn_cross">닫기</button>
+  </div>
+  <div class="p_body">
+    <article class="report_wrap">
+      <div class="report_tit">
+        <h1>발령이력 보고서</h1>
+        <span class="report_date">보고일 ( 2023-10-10 )</span>
+      </div>
+      <div class="report_body">
+        <section>
+          <h2>유형</h2>
+          <span>자동, 실제</span>
+        </section>          
+        <section>
+          <h2>재난정보</h2>
+          <span>자연재난 &sol; 호우 긴급정보</span>
+        </section>          
+        <section>
+          <h2>발생시각</h2>
+          <span>2024-05-06 10:32:02</span>
+        </section>          
+        <section>
+          <h2>발령지역</h2>
+          <span>포항시 북구, 포항시 남구</span>
+        </section>
+        <section>
+          <h2>발령내용</h2>
+          <dl class="msg_lst">
+  <dt><label for="source_kr">경보 발령의 근거 제공자</label></dt>
+  <dd><textarea id="source_kr" maxlength="20" rows="1"></textarea></dd>
+  <dt>
+    <label for="text_40_kr">재해문자전광판</label>
+    <span class="size"><span id="nowByte40_kr">0</span> / 40 bytes</span>
+  </dt>
+  <dd>
+    <textarea id="text_40_kr" onkeyup="fn_checkByte(this, 80, 'nowByte80_kr')" maxlength="80" rows="2"></textarea>                   
+  </dd>
+  <dt>
+    <label for="text_80_kr">재해문자전광판</label>
+    <span class="size"><span id="nowByte80_kr">0</span> / 80 bytes</span>
+  </dt>
+  <dd>
+    <textarea id="text_80_kr" onkeyup="fn_checkByte(this, 80, 'nowByte80_kr')" maxlength="80" rows="2"></textarea>                   
+  </dd>
+  <dt>
+    <label for="text_180_kr">버스정보시스템/포털</label>
+    <span class="size"><span id="nowByte180_kr">0</span> / 180 bytes</span>
+  </dt>
+  <dd><textarea id="text_180_kr" onkeyup="fn_checkByte(this, 180, 'nowByte180_kr')" rows="3"></textarea></dd>
+  <dt>
+    <label for="text_voice_kr">마을방송/자동음성통보/자동우량경보</label>
+  </dt>
+  <dd>
+    <textarea id="text_voice_kr" rows="3"></textarea>
+  </dd>
+  <dt><label for="text_broadcast_kr">재난방송(TV, UHD)</label></dt>
+  <dd>
+    <textarea id="text_broadcast_kr" rows="3"></textarea>
+  </dd>
+  <dt>음성파일</dt>
+  <dd>
+    <audio controls="">
+      <source src="" type="audio/mp3">
+    </audio>
+  </dd>                 
+</dl>
+        </section>
+        <section>
+          <h2>수신처별 발령이력</h2>            
+          <div class="tbl_wrap">                
+            <table class="tbl_default tbl_comprehensive_safety">
+              <caption>수신처별 발령이력</caption>
+              <thead>
+                <tr>
+                  <th scope="col">발령매체</th>
+                  <th scope="col">수신처명</th>
+                  <th scope="col">수신자 ID</th>
+                  <th scope="col">전송시각</th>
+                  <th scope="col">응답시각</th>
+                </tr>
+              </thead>
+              <tbody>                   
+                <tr>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section>
+          <h2>단말기별 발령이력</h2>            
+          <div class="tbl_wrap">                
+            <table class="tbl_default tbl_comprehensive_safety">
+              <caption>단말기별 발령이력</caption>
+              <thead>
+                <tr>
+                  <th scope="col">발령매체</th>
+                  <th scope="col">예경보 시스템명</th>
+                  <th scope="col">단말기명</th>
+                  <th scope="col">설치주소</th>
+                  <th scope="col">발송시각</th>
+                  <th scope="col">성공여부</th>
+                  <th scope="col">메모</th>
+                </tr>
+              </thead>
+              <tbody>                   
+                <tr>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>          
+      </div>
+    </article>
+  </div>
+</dialog>
 <script type="text/javascript">
   $(function(){
     var path = window.location.pathname.split('/')[2];

@@ -5,41 +5,18 @@
   <div class="con_wrap">
     @@include('../../inc/warning/lnb.html')
     <main class="contents">
-      <div class="panel_wrap monitoring">
+      <div class="panel_wrap reserve">
         <section class="panel panel_main">
           <header class="tit">
-            <h1>실시간 모니터링</h1>
-            <div class="tool">              
-              <div class="how_to_use">
-                <span class="btn_switch_single">
-                  <input type="checkbox" id="help">
-                  <label for="help" class="btn_info" title="도움말">도움말</label>
-                </span>
-                <div class="layer">
-                  <h3 class="font_blue font_b">재난 예경보 플랫폼 사용법</h3>
-                  <ul class="dot_list">
-                    <li>실시간 모니터링 목록을 확인한다.</li>
-                    <li>승인요청(실제) 접수시 “승인 요청 알림(팝업)” 화면으로 알림을 확인한다.(훈련 및 테스트 제외)</li>
-                    <li>알림화면에서 해당 재난정보를 클릭하고 해당 재난정보 내용을 확인한다.</li>
-                    <li>재난정보 내용을 확인/편집한 후 하단의 발령승인/반려 버튼을 누른다.(단, 반려시 반려사유 필수 입력)</li>
-                  </ul>
-                  <button type="button" class="btn_cross" onclick="document.querySelector('#help').checked = false;">닫기</button>
-                </div>
-              </div>
-            </div>
-            
-          </header>
+            <h1>예약발송</h1>
+          </header>           
           <div class="panel_content">
-            <header class="lst_status">
-              <h2><span id="today">2024.02.06</span> 실시간 재난발생 현황</h2>
-              <div class="tool">
-                <strong>승인요청</strong>
-                <span id="ready_count">0</span>
-                <span>건</span>
-              </div>
-            </header>
+            <div class="lst_status">
+              <select name="" id=""><option value="">예약자</option></select>
+              
+            </div>
             <ul class="monitoring_wrap">
-              <li onclick="selectLi(this, 'KR.T10101-2024900002_HWA_1', '3117000000')" value="KR.T10101-2024900002_HWA_1" class="on">
+              <li class="on">
                 <header class="tit">
                   <h3><img src="../../images/symbol/HWA.png" width="38" height="32">강풍 주의보</h3>
                   <div class="type_wrap">
@@ -47,34 +24,22 @@
                   </div>
                 </header>
                 <dl class="monitoring_dtl">
-                  <dt>승인요청</dt>
+                  <dt>예  약  자</dt>
                   <dd><em>김관리</em>(2024-02-13 15:37:05)</dd>
                   <dt>발령매체</dt>
                   <dd>재난방송, 재해문자전광판(지자체), 마을방송시스템</dd>
-                  <dt>발생시각</dt>
-                  <dd>2024-02-13 15:35</dd>
-                  <dt>발령지역</dt>
+                  <dt>기       간</dt>
+                  <dd>2024-06-22 ~ 2024-08-31</dd>
+                  <dt>발송시각</dt>
+                  <dd>15:35</dd>
+                  <dt>발송주기</dt>
+                  <dd>매주(토,일)</dd>
+                  <dt>발송지역</dt>
                   <dd>울산(동구)</dd>
+                  <dt>상       태</dt>
+                  <dd>일시중지</dd>
                 </dl>
-              </li>
-              <li onclick="selectLi(this, 'KR.T10101-2024900002_HWA_1', '3117000000')" value="KR.T10101-2024900002_HWA_1">
-                <header class="tit">
-                  <h3><img src="../../images/symbol/HWA.png" width="38" height="32">강풍 주의보</h3>
-                  <div class="type_wrap">
-                    <i class="Actual">실제</i><i class="manual">수동</i>
-                  </div>
-                </header>
-                <dl class="monitoring_dtl">
-                  <dt>승인요청</dt>
-                  <dd><em>김관리</em>(2024-02-13 15:37:05)</dd>
-                  <dt>발령매체</dt>
-                  <dd>재난방송, 재해문자전광판(지자체), 마을방송시스템</dd>
-                  <dt>발생시각</dt>
-                  <dd>2024-02-13 15:35</dd>
-                  <dt>발령지역</dt>
-                  <dd>울산(동구)</dd>
-                </dl>
-              </li>
+              </li>              
             </ul>
           </div>
         </section>
@@ -91,9 +56,7 @@
                 <dt>발생시각</dt>
                 <dd id="detail_creat_dt">2024-02-13 15:35</dd>
                 <dt>신고내용</dt>
-                <dd id="detail_frw">-</dd>
-                <dt>발생위치</dt>
-                <dd id="detail_location">울산(동구)</dd>
+                <dd id="detail_frw">-</dd>                
                 <dt>발령지역</dt>
                 <dd id="detail_areadesc">울산(동구)</dd>
               </dl>        
@@ -127,42 +90,11 @@
                   @@include('../../inc/warning/msg_lst.html')
                 </div>             
               </div>
-
-              <div class="confirm_area">
-                <div class="tit">
-                  <h2 class="dot_tit">24시간 이내 동일 재난, 동일 지역 발령내역</h2>
-                  <div class="tool">
-                    <label for="checked" class="check_label"><input type="checkbox" id="checked">확인</label>
-                  </div>
-                </div>
-                <table class="tbl_default tbl_s">
-                  <colgroup>
-                    <col style="width:220px" span="2">
-                    <col style="width:100px">
-                    <col style="width:80px">
-                  </colgroup>
-                  <thead>
-                    <tr>
-                      <th scope="col">발령지역</th>
-                      <th scope="col">발령매체</th>
-                      <th scope="col">발령시각</th>
-                      <th scope="col">승인자</th>
-                    </tr>
-                  </thead>
-                  <tbody id="left_list">
-                  <tr>
-                    <td>울산광역시 동구</td><td>재난방송, 재해문자전광판(지자체), 마을방송시스템</td><td>2024-02-06 10:32:02</td><td>홍길동</td>
-                  </tr>
-                  <tr>
-                    <td>울산광역시 동구, 울산광역시 서구</td><td>재난방송, 재해문자전광판(지자체), 마을방송시스템</td><td>2024-02-05 17:42:08</td><td>홍길동</td>
-                  </tr>
-                  </tbody>
-                </table>
-              </div>
               <div id="buttons" class="btn_wrap">              
-                <button type="button" class="btn_blue" onclick="$('#approval').show()" disabled>발령승인</button>
-                <button type="button" class="btn_skyblue" onclick="$('#popup_brush_off').show()">반려</button>
                 <button type="button" class="btn_pink" onclick="updateCap()">수정</button>
+                <button type="button" class="btn_pink" onclick="">삭제</button>
+                <button type="button" class="btn_pink" onclick="">일시중지</button>
+                <button type="button" class="btn_pink" onclick="">다시시작</button>
               </div>            
             </div>
           </div>
