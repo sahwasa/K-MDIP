@@ -37,3 +37,5 @@ dialog[open]{position:fixed;left:calc(50vw - (var(--width) / 2));top:var(--top, 
 .pop_box{width:100%;padding:15px 20px;border:1px solid #c7c7c7;border-width:1px 0;text-align:center;}
 .pop_box .alert{display:inline-block;width:30px;height:30px;margin:10px 0 15px;background:url(../images/ico_warning.png)no-repeat;text-indent:-9999px;text-align:center;}
 .pop_box p{align-self:center;font-size:13px;line-height:23px;}
+
+.pop_changePassword .box_gray{margin-bottom:15px;}

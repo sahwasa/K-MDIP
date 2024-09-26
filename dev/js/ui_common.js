@@ -1,4 +1,14 @@
 $(function () {
+  $('[data-selectTarget]').hide();
+  $('[data-selectEvt]').on('change', function (e) {
+    const getTarget = e.target.dataset.selectevt;
+    const result = $(this).val();
+    let target = $('#' + getTarget + result);
+    $('[data-selectTarget]').hide();
+    if(target.length){
+      target.show();
+    }
+  });
   $('dialog:has(.p_header)').draggable({ handle: ".p_header", cursor: "move" ,containment: "#wrap",scroll: true, scrollSensitivity: 100, scrollSpeed: 100});
   $.datetimepicker.setLocale('kr');
   $('#datetimepicker').datetimepicker();
@@ -284,6 +294,3 @@ function prevSlide() {
   slideIndex--;
   showSlides();
 }
-
-
- 

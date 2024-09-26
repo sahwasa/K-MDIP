@@ -115,7 +115,7 @@
 .issue_dtl{display:grid;grid-template-columns:60px 1fr;gap:10px;margin-top:10px;
 	dt{font-weight:600;white-space:pre;}
 }
-.issue_dtl{background-color:#f5f5f5;padding:10px;border-radius:3px;
+.issue_dtl{background-color:#f5f5f5;padding:10px;border-radius:3px;margin-top:5px;
 	dt::before{content:'·';font-weight:600;margin-right:5px;}
 }
 .generated_img img{width:100%;}
@@ -263,13 +263,13 @@
 }
 
 /* 재난 발령 정보 수정 20220419 */
-.dot_list{display:flex;flex-direction:column;gap:5px;
-	& > li{display:flex;gap:10px;}
-	li:has(select){flex-wrap:wrap;justify-content:space-between;
-		select:nth-of-type(2){flex:0 0 auto;width:calc(100% - 180px);}
-		select:last-of-type{width:calc(100% - 88px);margin-left:auto;}
-	}
-}
+// .dot_list{display:flex;flex-direction:column;gap:5px;
+// 	& > li{display:flex;gap:10px;}
+// 	li:has(select){flex-wrap:wrap;justify-content:space-between;
+// 		select:nth-of-type(2){flex:0 0 auto;width:calc(100% - 180px);}
+// 		select:last-of-type{width:calc(100% - 88px);margin-left:auto;}
+// 	}
+// }
 
 
 /* 20220429 공통 상단, 지도 선택 버튼 디자인 수정 */

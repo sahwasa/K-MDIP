@@ -1,6 +1,9 @@
 @import "./mixin.scss","./reset.scss","./pop.scss";
 
 .label_item{@include label_item;&:has(:checked){font-weight:700;}}
+// box
+.box_gray{background-color:$bg_gray;padding:10px;border-radius:3px;}
+
 /* Btn */
 .btn{width:75px;height:27px;font-size:16px;color:#f8f8f8;line-height:24px;text-align:center;
   &_s{height:25px;padding:0 6px;border-radius:4px;font-size:13px;color:#f8f8f8;line-height:22px;text-align:center;word-break:keep-all;white-space:nowrap;}
@@ -427,4 +430,3 @@ input:disabled{border-color:transparent;}
 .slide_next{position:absolute;top:50%;left:0;width:auto;padding:10px;border-radius:0 8px 8px 0;background:rgb(173 204 230 / 71%);font-size:24px;color:#fff;font-weight:bold;transform:translate(0, -50%);user-select:none;cursor:pointer;transition:.3s;}
 .slide_next {right:0;left:auto;border-radius:8px 0 0 8px;}
 .slide_prev:hover,.slide_next:hover {background-color:rgb(131 187 234);}
-

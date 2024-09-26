@@ -184,21 +184,13 @@
     <dl class="dl_list">
     <dt>주기</dt>
     <dd>      
-      <select name="" id="" title="반복 단위">
-        <option value="">매일</option>
-        <option value="">매주</option>
-        <option value="">매월</option>
-        <option value="">매년</option>
+      <select name="" id="" title="반복 단위" data-selectEvt>
+        <option value="every_day" selected>매일</option>
+        <option value="every_week">매주</option>
+        <option value="every_month">매월</option>
+        <option value="every_year">매년</option>
       </select>
-      <!-- 개월 -->
-      <!-- <span class="divide">
-        <input type="number" min="1" max="31">일
-      <span class="divide">  -->
-      <!-- 년 -->
-      <!-- </span>
-        <input type="text" id="" class="date" value="YYYY-MM-DD" title="날자 선택">
-      </span> -->
-      <ul class="check_group divide"> <!-- 주 -->
+      <ul id="every_week" class="check_group divide" data-selectTarget> <!-- 주 -->
         <li><label for="sun"><input type="checkbox" id="sun">일</label></li>
         <li><label for="mon"><input type="checkbox" id="mon">월</label></li>
         <li><label for="tue"><input type="checkbox" id="tue">화</label></li>
@@ -207,11 +199,17 @@
         <li><label for="fri"><input type="checkbox" id="fri">금</label></li>
         <li><label for="sat"><input type="checkbox" id="sat">토</label></li>
       </ul>
+      <span class="divide" id="every_month" data-selectTarget>
+        <input type="number" min="1" max="31">일     
+      </span>
+      <span class="divide" id="every_year" data-selectTarget>
+        <input type="text" id="" class="date" value="YYYY-MM-DD" title="날자 선택" >
+      </span>
     </dd>    
     <dt>발송시각</dt>
     <dd>
       <span class="datetimepicker_wrap">
-        <input type="text" id="timepicker_" title="date" class="input_calendar" value="발송시각 선택">
+        <input type="text" id="timepicker" title="date" class="input_calendar" value="발송시각 선택">
       </span>
     </dd>
     <dt>기간</dt>
