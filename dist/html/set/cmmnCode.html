@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>지자체 재난 예경보 통합플랫폼</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.png">
+  <link rel="stylesheet" href="../../plugins/axicon/axicon.min.css">
+  <link rel="stylesheet" href="../../plugins/jquery-ui/themes/base/jquery-ui.min.css">
+  <link rel="stylesheet" href="../../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.css">
+  <link rel="stylesheet" href="../../plugins/jqueryui-timepicker-addon/dist/jquery.datetimepicker.css">
+  <link rel="stylesheet" href="../../font/fontello/css/fontello.css">
+  <link rel="stylesheet" href="../../css/cmmn.css">
+  <link rel="stylesheet" href="../../css/tui-pagination.css">
+  <script src="../../plugins/jquery/dist/jquery.min.js"></script>
+  <script src="../../plugins/jquery-ui/jquery-ui.min.js"></script>
+  <script src="../../plugins/jquery-ui/ui/i18n/datepicker-ko.js"></script>
+  <script src="../../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.js"></script>
+  <script src="../../plugins/jqueryui-timepicker-addon/dist/jquery.datetimepicker.full.min.js"></script>
+  <!-- <script src="../../plugins/jqueryui-timepicker-addon/dist/i18n/jquery-ui-timepicker-ko.js"></script> -->
+  <script src="../../plugins/echarts/dist/echarts.min.js"></script>
+  <!-- <script src="../../js/tui-pagination.js"></script> -->
+  <script src="../../js/common.js"></script>
+  <script src="../../js/ui_common.js"></script>
+
+</head>
+
+
+<body>
+<div id="wrap">
+  <header id="header">
+  <h1 class="main_logo">
+    <a href="/main.do">
+      <img src="../../images/logo.png" alt="지자체 재난 예경보 통합플랫폼">
+    </a>
+  </h1>
+  <nav class="gnb">
+    <ul class="gnb_lst">
+      <li class="on"><a href="../../html/gis/gis_mntr.html">GIS 상황판</a></li>
+      <li><a href="../../html/cctv/integrated_ctrl.html">CCTV 통합관제</a></li>
+      <li><a href="">IOT 관측자료</a></li>
+      <li><a href="../../html/warning/monitoring.html">재난예경보</a></li>
+    </ul>
+  </nav>
+  <div class="util_wrap">
+    <ul class="util_lst">
+      <li>
+        <button type="button" class="btn user" onclick="showMyInfo()">내정보 보기 및 수정</button>
+        <span><b id="top_user_nm">김관리</b>님</span>
+      </li>
+
+      <li><a href="../../html/set/admin.html" class="btn set">환경설정</a></li>
+      
+      <li class="alert_wrap" title="재난발령요청">
+        <a href="#" class="btn alert">재난발령요청</a>
+        <span class="on" id="alert_counter">0</span>
+      </li>      
+      
+      <li class="alert_wrap" onclick="open_accdent_popup()" title="돌발상황">
+        <a href="#" class="btn unexpected">돌발상황</a>
+        <span class="on" id='accident_counter'>2</span>
+      </li>
+      
+      <li title="연계상태"><span class="system">연계상태</span></li>
+      <li title="로그아웃"><a href="/login.do" class="btn log">로그아웃</a></li>
+    </ul>
+      <!-- <div class="system_wrap" style="cursor:pointer;">
+        <span class="system">시스템</span>
+      </div> -->
+  </div>
+</header>
+  <div class="con_wrap">
+    <section class="lnb_panel">
+  <div class="panel_wrap">
+    <header class="tit blind">
+      <h1>시스템관리</h1>
+    </header>    
+    <nav class="lnb lnb_set">
+      <ul id="left_menu">
+        <li class="on"><a href="../../html/warning/monitoring.html">사용자관리</a></li>       
+        <li><a href="../../html/warning/terminalAdmin.html">공통코드관리</a></li>       
+        <li><a href="../../html/warning/addrAdmin.html">재난코드관리</a></li>
+        <li><a href="../../html/warning/dest.html">수신처관리</a></li>       
+      </ul>
+    </nav>      
+  </div>  
+</section>
+    <main class="contents">
+      <header class="tit">
+        <h1>공통코드관리</h1>
+      </header>
+      <div class="content">
+        <div class="layout_flex">
+                <section class="section">
+                  <header class="tit">
+                    <h3>그룹코드</h3>
+                    <div class="tool">
+                      <button type="button" class="btn_axi btn_add btn_skyblueline btn_code" onclick="showGroupcodePopup('C')">추가</button>
+                      <button type="button" class="btn_axi btn_edit btn_pinkline" onclick="showGroupcodePopup('U')">수정 </button>
+                      <button type="button" class="btn_axi btn_minus btn_grayline" onclick="deleteCode('')">삭제</button>
+    <!--                       <button type="button" class="btn_s btn_mintline"><b>미사용</b></button> -->
+                    </div>
+                  </header>
+                  <div class="tbl_area tbl_wrap" style="--h:660px">
+                    <table class="tbl_default">
+                      <caption>공통코드관리 제목</caption>
+                      <colgroup>
+                        <col style="width:80px">
+                        <col style="width:120px">
+                        <col style="width:180px">
+                        <col style="width:auto">
+                        <col style="width:78px">
+                        <col class="fix_scroll">
+                      </colgroup>
+                      <thead>
+                        <tr>
+                          <th>선택</th>
+                          <th>코드</th>
+                          <th>코드명</th>
+                          <th>설명</th>
+                          <th>사용여부</th>
+                          <th></th>
+                        </tr>
+                      </thead>                  
+                      <tbody id="tab2_left"><tr onclick="selectGroupCode(this, 'AUTH', '사용자권한', '사용자권한', 'on')" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab2_left" value="AUTH"></td><td>AUTH</td><td>사용자권한</td><td>사용자권한</td><td><span datavalue="on" class="btn_toggle" onclick="useCode(this, 'AUTH_')"></span></td></tr><tr onclick="selectGroupCode(this, 'T1', '자연재난', '재난코드 대분류', 'on')" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab2_left" value="T1"></td><td>T1</td><td>자연재난</td><td>재난코드 대분류</td><td><span datavalue="on" class="btn_toggle" onclick="useCode(this, 'T1_')"></span></td></tr><tr onclick="selectGroupCode(this, 'T2', '사회재난', '재난코드 대분류', 'on')" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab2_left" value="T2"></td><td>T2</td><td>사회재난</td><td>재난코드 대분류</td><td><span datavalue="on" class="btn_toggle" onclick="useCode(this, 'T2_')"></span></td></tr><tr onclick="selectGroupCode(this, 'T3', '기타재난', '재난코드 대분류', 'on')" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab2_left" value="T3"></td><td>T3</td><td>기타재난</td><td>재난코드 대분류</td><td><span datavalue="on" class="btn_toggle" onclick="useCode(this, 'T3_')"></span></td></tr><tr onclick="selectGroupCode(this, 'msgType', '통보구분 코드', 'cap 파라메터', 'on')" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab2_left" value="msgType"></td><td>msgType</td><td>통보구분 코드</td><td>cap 파라메터</td><td><span datavalue="on" class="btn_toggle" onclick="useCode(this, 'msgType_')"></span></td></tr><tr onclick="selectGroupCode(this, 'category', '재난유형 분류코드', 'cap 파라메터', 'on')" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab2_left" value="category"></td><td>category</td><td>재난유형 분류코드</td><td>cap 파라메터</td><td><span datavalue="on" class="btn_toggle" onclick="useCode(this, 'category_')"></span></td></tr><tr onclick="selectGroupCode(this, 'urgency', '대응 행위의 긴급성', 'cap 파라메터', 'on')" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab2_left" value="urgency"></td><td>urgency</td><td>대응 행위의 긴급성</td><td>cap 파라메터</td><td><span datavalue="on" class="btn_toggle" onclick="useCode(this, 'urgency_')"></span></td></tr><tr onclick="selectGroupCode(this, 'certainty', '재난의 발생 확률', 'cap 파라메터', 'on')" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab2_left" value="certainty"></td><td>certainty</td><td>재난의 발생 확률</td><td>cap 파라메터</td><td><span datavalue="on" class="btn_toggle" onclick="useCode(this, 'certainty_')"></span></td></tr><tr onclick="selectGroupCode(this, 'Priority', '우선순위', 'cap 파라메터', 'on')" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab2_left" value="Priority"></td><td>Priority</td><td>우선순위</td><td>cap 파라메터</td><td><span datavalue="on" class="btn_toggle" onclick="useCode(this, 'Priority_')"></span></td></tr><tr onclick="selectGroupCode(this, 'Broadcastflag', '의무방송구분', 'cap 파라메터', 'on')" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab2_left" value="Broadcastflag"></td><td>Broadcastflag</td><td>의무방송구분</td><td>cap 파라메터</td><td><span datavalue="on" class="btn_toggle" onclick="useCode(this, 'Broadcastflag_')"></span></td></tr><tr onclick="selectGroupCode(this, 'status', '통보발령상황 코드', 'cap 파라메터', 'on')" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab2_left" value="status"></td><td>status</td><td>통보발령상황 코드</td><td>cap 파라메터</td><td><span datavalue="on" class="btn_toggle" onclick="useCode(this, 'status_')"></span></td></tr><tr onclick="selectGroupCode(this, 'DeviceType', '수신기 유형 구분', 'cap 파라메터', 'on')" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab2_left" value="DeviceType"></td><td>DeviceType</td><td>수신기 유형 구분</td><td>cap 파라메터</td><td><span datavalue="on" class="btn_toggle" onclick="useCode(this, 'DeviceType_')"></span></td></tr><tr onclick="selectGroupCode(this, 'severity', '이벤트 피해규모', 'cap 파라메터2', 'on')" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab2_left" value="severity"></td><td>severity</td><td>이벤트 피해규모</td><td>cap 파라메터2</td><td><span datavalue="on" class="btn_toggle" onclick="useCode(this, 'severity_')"></span></td></tr><tr onclick="selectGroupCode(this, 'code', '메시지 처리방법', 'cap 파라메터', 'on')" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab2_left" value="code"></td><td>code</td><td>메시지 처리방법</td><td>cap 파라메터</td><td><span datavalue="on" class="btn_toggle" onclick="useCode(this, 'code_')"></span></td></tr><tr onclick="selectGroupCode(this, 'stt', '통보문 승인 상태', '', 'on')" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab2_left" value="stt"></td><td>stt</td><td>통보문 승인 상태</td><td></td><td><span datavalue="on" class="btn_toggle" onclick="useCode(this, 'stt_')"></span></td></tr><tr onclick="selectGroupCode(this, 'settings', '설정변수', '설정변수', 'on')" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab2_left" value="settings"></td><td>settings</td><td>설정변수</td><td>설정변수</td><td><span datavalue="on" class="btn_toggle" onclick="useCode(this, 'settings_')"></span></td></tr></tbody>
+                    </table>
+                  </div>
+                </section>
+                <section>
+                  <header class="tit">
+                    <h3>상세코드</h3>
+                    <div class="tool">
+                      <button type="button" class="btn_axi btn_add btn_skyblueline btn_code_2" onclick="showCodePopup('C')">추가</button>
+                      <button type="button" class="btn_axi btn_edit btn_pinkline" onclick="showCodePopup('U')">수정 </button>
+                      <button type="button" class="btn_axi btn_minus btn_grayline" onclick="deleteCode()">삭제</button>
+    <!--                       <button type="button" class="btn_s btn_mintline"><b>미사용</b></button> -->
+                    </div>
+                  </header>
+                  <div class="tbl_area tbl_wrap" style="--h:660px">
+                    <table class="tbl_default">
+                      <caption>상세코드 제목</caption>
+                      <colgroup>
+                        <col style="width:80px">
+                        <col style="width:120px">
+                        <col style="width:180px">
+                        <col style="width:auto">
+                        <col style="width:78px">
+                        <col class="fix_scroll">
+                      </colgroup>
+                      <thead>
+                        <tr>
+                          <th>선택</th>
+                          <th>코드</th>
+                          <th>코드명</th>
+                          <th>설명</th>
+                          <th>사용여부</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody id="tab2_right">
+                      </tbody>
+                    </table>
+                  </div>
+                </section>
+        </div>
+      </div>      
+    </main>
+  </div>  
+</div>
+<script type="text/javascript">
+  $(function(){
+    var path = window.location.pathname.split('/')[2];
+    $('head').append( $('<link rel="stylesheet" />').attr('href', '../../css/' + path + '.css') );
+    init();
+    initSlideshow();
+  })
+</script>
+</body>
+</html>

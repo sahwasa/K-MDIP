@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>지자체 재난 예경보 통합플랫폼</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.png">
+  <link rel="stylesheet" href="../../plugins/axicon/axicon.min.css">
+  <link rel="stylesheet" href="../../plugins/jquery-ui/themes/base/jquery-ui.min.css">
+  <link rel="stylesheet" href="../../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.css">
+  <link rel="stylesheet" href="../../plugins/jqueryui-timepicker-addon/dist/jquery.datetimepicker.css">
+  <link rel="stylesheet" href="../../font/fontello/css/fontello.css">
+  <link rel="stylesheet" href="../../css/cmmn.css">
+  <link rel="stylesheet" href="../../css/tui-pagination.css">
+  <script src="../../plugins/jquery/dist/jquery.min.js"></script>
+  <script src="../../plugins/jquery-ui/jquery-ui.min.js"></script>
+  <script src="../../plugins/jquery-ui/ui/i18n/datepicker-ko.js"></script>
+  <script src="../../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.js"></script>
+  <script src="../../plugins/jqueryui-timepicker-addon/dist/jquery.datetimepicker.full.min.js"></script>
+  <!-- <script src="../../plugins/jqueryui-timepicker-addon/dist/i18n/jquery-ui-timepicker-ko.js"></script> -->
+  <script src="../../plugins/echarts/dist/echarts.min.js"></script>
+  <!-- <script src="../../js/tui-pagination.js"></script> -->
+  <script src="../../js/common.js"></script>
+  <script src="../../js/ui_common.js"></script>
+
+</head>
+
+
+<body>
+<div id="wrap">
+  <header id="header">
+  <h1 class="main_logo">
+    <a href="/main.do">
+      <img src="../../images/logo.png" alt="지자체 재난 예경보 통합플랫폼">
+    </a>
+  </h1>
+  <nav class="gnb">
+    <ul class="gnb_lst">
+      <li class="on"><a href="../../html/gis/gis_mntr.html">GIS 상황판</a></li>
+      <li><a href="../../html/cctv/integrated_ctrl.html">CCTV 통합관제</a></li>
+      <li><a href="">IOT 관측자료</a></li>
+      <li><a href="../../html/warning/monitoring.html">재난예경보</a></li>
+    </ul>
+  </nav>
+  <div class="util_wrap">
+    <ul class="util_lst">
+      <li>
+        <button type="button" class="btn user" onclick="showMyInfo()">내정보 보기 및 수정</button>
+        <span><b id="top_user_nm">김관리</b>님</span>
+      </li>
+
+      <li><a href="../../html/set/admin.html" class="btn set">환경설정</a></li>
+      
+      <li class="alert_wrap" title="재난발령요청">
+        <a href="#" class="btn alert">재난발령요청</a>
+        <span class="on" id="alert_counter">0</span>
+      </li>      
+      
+      <li class="alert_wrap" onclick="open_accdent_popup()" title="돌발상황">
+        <a href="#" class="btn unexpected">돌발상황</a>
+        <span class="on" id='accident_counter'>2</span>
+      </li>
+      
+      <li title="연계상태"><span class="system">연계상태</span></li>
+      <li title="로그아웃"><a href="/login.do" class="btn log">로그아웃</a></li>
+    </ul>
+      <!-- <div class="system_wrap" style="cursor:pointer;">
+        <span class="system">시스템</span>
+      </div> -->
+  </div>
+</header>
+  <div class="con_wrap">
+    <section class="lnb_panel">
+  <div class="panel_wrap">
+    <header class="tit blind">
+      <h1>시스템관리</h1>
+    </header>    
+    <nav class="lnb lnb_set">
+      <ul id="left_menu">
+        <li class="on"><a href="../../html/warning/monitoring.html">사용자관리</a></li>       
+        <li><a href="../../html/warning/terminalAdmin.html">공통코드관리</a></li>       
+        <li><a href="../../html/warning/addrAdmin.html">재난코드관리</a></li>
+        <li><a href="../../html/warning/dest.html">수신처관리</a></li>       
+      </ul>
+    </nav>      
+  </div>  
+</section>
+    <main class="contents">
+      <header class="tit">
+        <h1>수신처관리</h1>
+      </header>
+      <div class="content">
+        <div class="search_area">
+          <ul class="search">
+            <li>
+              <input type="text" title="location" id="search_dest_id" placeholder="수신처명" onkeydown="fn_onKeyDown(4);">
+              <button type="button" class="btn_skyblue" onclick="getDestList()">검색</button>
+            </li>
+          </ul>
+        </div>
+        <div class="tbl_area">
+          <div class="tbl_top">
+            <div class="tool">
+              <button type="button" class="btn_axi btn_add btn_skyblueline btn_receiver">추가</button>
+              <button type="button" class="btn_axi btn_minus btn_grayline" onclick="deleteDest()">삭제</button>
+            </div>
+          </div>
+          <div class="tbl_wrap" style="--h:595px">
+            <table class="tbl_default">
+              <caption>수신처관리 제목</caption>
+              <colgroup>
+                <col style="width:80px">
+                <col style="width:200px">
+                <col style="width:200px">
+                <col style="width:200px">
+                <col style="width:200px">
+                <col style="width:200px">
+                <col style="width:200px">
+                <col style="width:200px">
+                <col style="width:auto">
+                <col class="fix_scroll">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">선택</th>
+                  <th scope="col">수신처명</th>
+                  <th scope="col">ID</th>
+                  <th scope="col">IP</th>
+                  <th scope="col">담당자</th>
+                  <th scope="col">연락처</th>
+                  <th scope="col">등록일</th>
+                  <th scope="col">사용여부</th>
+                  <th scope="col">수정</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>              
+              <tbody id="tab4_list"><tr onclick="highlightTr(this)" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab4" value="kbs_uhd"></td><td>KBS 울산방송</td><td>kbs_uhd</td><td>122.199.200.232</td><td>KBS 울산방송</td><td>010-0000-0000</td><td>2023-11-21 12:29:45</td><td><span datavalue="on" class="btn_toggle" onclick="useDest(this, 'kbs_uhd')"></span></td><td><button class="ico_edit" onclick="showDestInfo('kbs_uhd')"></button></td></tr><tr onclick="highlightTr(this)" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab4" value="idsp"></td><td>UHD 수신테스트</td><td>idsp</td><td>122.199.200.232</td><td>테스트</td><td>010-0000-9050</td><td>2021-02-23 15:28:59</td><td><span datavalue="on" class="btn_toggle" onclick="useDest(this, 'idsp')"></span></td><td><button class="ico_edit" onclick="showDestInfo('idsp')"></button></td></tr><tr onclick="highlightTr(this)" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab4" value="dids"></td><td>구례 DIDS</td><td>dids</td><td>119.197.110.148</td><td>000 담당</td><td>010-0000-0000</td><td>2022-09-13 15:06:45</td><td><span datavalue="off" class="btn_toggle" onclick="useDest(this, 'dids')"></span></td><td><button class="ico_edit" onclick="showDestInfo('dids')"></button></td></tr><tr onclick="highlightTr(this)" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab4" value="us_gateway"></td><td>울산게이트웨이</td><td>us_gateway</td><td>222.235.103.114</td><td>울산 예경보</td><td>010-0000-0000</td><td>2022-12-13 16:16:59</td><td><span datavalue="off" class="btn_toggle" onclick="useDest(this, 'us_gateway')"></span></td><td><button class="ico_edit" onclick="showDestInfo('us_gateway')"></button></td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </div>      
+    </main>
+  </div>  
+</div>
+<script type="text/javascript">
+  $(function(){
+    var path = window.location.pathname.split('/')[2];
+    $('head').append( $('<link rel="stylesheet" />').attr('href', '../../css/' + path + '.css') );
+    init();
+    initSlideshow();
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+@@include('../../inc/top.html')
+<body>
+<div id="wrap">
+  @@include('../../inc/header.html')
+  <div class="con_wrap">
+    @@include('../../inc/set/lnb.html')
+    <main class="contents">
+      <header class="tit">
+        <h1>공통코드관리</h1>
+      </header>
+      <div class="content">        
+        <div class="search_area">
+          <ul class="search">
+            <li>
+              <select title="권한" id="search_auth"><option value="all">전체</option><option value="1">작성자</option><option value="2">승인자</option><option value="3">시스템운영자</option></select>
+              <input type="text" title="사용자명 검색어" placeholder="사용자명" id="search_username" onkeydown="fn_onKeyDown(1);">
+              <button type="button" class="btn_skyblue" onclick="getUserList()">검색</button>
+            </li>
+          </ul>
+        </div>
+        <div class="tbl_area">
+          <div class="tbl_top">
+            <div class="tool">
+              <button type="button" class="btn_skyblueline">추가</button>
+              <button type="button" class="btn_grayline" onclick="deleteUser()">삭제</button>
+            </div>
+          </div>
+          <div class="tbl_wrap" style="--h:560px;">
+            <table class="tbl_default">
+              <caption>사용자관리</caption>
+              <colgroup>
+                <col style="width:80px">
+                <col style="width:250px">
+                <col style="width:250px">
+                <col style="width:250px">
+                <col style="width:250px">
+                <col style="width:250px">
+                <col style="width:250px">
+                <col style="width:250px">
+                <col style="width:250px">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">선택</th>
+                  <th scope="col">권한</th>
+                  <th scope="col">사용자ID</th>
+                  <th scope="col">사용자명</th>
+                  <th scope="col">소속기관</th>
+                  <th scope="col">부서</th>
+                  <th scope="col">직급</th>
+                  <th scope="col">등록일</th>
+                  <th scope="col">수정</th>
+                </tr>
+              </thead>
+              <tbody id="tab1_table"><tr onclick="highlightTr(this)"><td><input type="checkbox" name="checkbox_tab1" value="admin"></td><td>시스템운영자</td><td>admin</td><td>김관리</td><td>00시</td><td>재난상황실</td><td>주무관</td><td>2022-02-15 18:08:25</td><td><button class="ico_edit" onclick="showUserInfo('admin')"></button></td></tr><tr onclick="highlightTr(this)"><td><input type="checkbox" name="checkbox_tab1" value="user"></td><td>작성자</td><td>user</td><td>사용자</td><td>OO시</td><td>OOOO과</td><td>주임</td><td>2022-02-16 16:44:32</td><td><button class="ico_edit" onclick="showUserInfo('user')"></button></td></tr><tr onclick="highlightTr(this)"><td><input type="checkbox" name="checkbox_tab1" value="jobi2000"></td><td>승인자</td><td>jobi2000</td><td>손현석</td><td>한국방송통신산업협동조합</td><td>부설연구소</td><td>차장</td><td>-</td><td><button class="ico_edit" onclick="showUserInfo('jobi2000')"></button></td></tr><tr onclick="highlightTr(this)"><td><input type="checkbox" name="checkbox_tab1" value="app"></td><td>승인자</td><td>app</td><td>승인자</td><td>00기관1</td><td>00부서1</td><td></td><td>-</td><td><button class="ico_edit" onclick="showUserInfo('app')"></button></td></tr><tr onclick="highlightTr(this)"><td><input type="checkbox" name="checkbox_tab1" value="ddfdfd"></td><td>승인자</td><td>ddfdfd</td><td>테스트</td><td>1</td><td>1</td><td></td><td>-</td><td><button class="ico_edit" onclick="showUserInfo('ddfdfd')"></button></td></tr><tr onclick="highlightTr(this)"><td><input type="checkbox" name="checkbox_tab1" value="onecast"></td><td>승인자</td><td>onecast</td><td>홍기룡</td><td>(주)원캐스트</td><td>사업총괄사업부</td><td>부사장</td><td>-</td><td><button class="ico_edit" onclick="showUserInfo('onecast')"></button></td></tr></tbody>
+            </table>
+          </div>
+        </div>
+        @@include('../../inc/cmmn/pagination.html')       
+      </div>
+    </main>
+  </div>  
+</div>
+@@include('../../inc/script.html')
+</body>
+</html>
