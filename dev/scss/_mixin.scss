@@ -112,10 +112,10 @@
 @mixin fontello($ic:default){
   display:inline-block;font-family:"fontello";font-weight:normal;content:$ic;line-height:1;
 }
-@mixin ico_only($font:none){font-size:0;vertical-align:middle;line-height:1;
-  @if($font == none){
+@mixin ico_only($font:none){vertical-align:middle;line-height:1;
+  @if($font == none){@include f_blind;
     &::before{@include shape(26px,26px);background:url(../images/ico.png) 0 0 no-repeat;@content;}  
-  }@else{
+  }@else{font-size:0;
     &::before{@include fontello($font);font-size:13px;color:#848890;@content;}
   }
 }

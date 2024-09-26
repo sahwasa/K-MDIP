@@ -49,7 +49,7 @@
         <span><b id="top_user_nm">김관리</b>님</span>
       </li>
 
-      <li><a href="../../html/set/admin.html" class="btn set">환경설정</a></li>
+      <li><a href="../../html/set/user.html" class="btn set">환경설정</a></li>
       
       <li class="alert_wrap" title="재난발령요청">
         <a href="#" class="btn alert">재난발령요청</a>
@@ -283,10 +283,140 @@
     </main>
   </div>  
 </div>
-
+<dialog id="pop_report" class="pop_report" style="--width:1000px">
+  <div class="p_header">
+    <h1>발령이력 보고서</h1>
+    <button type="button" class="btn_cross">닫기</button>
+  </div>
+  <div class="p_body">
+    <article class="report_wrap">
+      <div class="report_tit">
+        <h1>발령이력 보고서</h1>
+        <span class="report_date">보고일 ( 2023-10-10 )</span>
+      </div>
+      <div class="report_body">
+        <section>
+          <h2>유형</h2>
+          <span>자동, 실제</span>
+        </section>          
+        <section>
+          <h2>재난정보</h2>
+          <span>자연재난 &sol; 호우 긴급정보</span>
+        </section>          
+        <section>
+          <h2>발생시각</h2>
+          <span>2024-05-06 10:32:02</span>
+        </section>          
+        <section>
+          <h2>발령지역</h2>
+          <span>포항시 북구, 포항시 남구</span>
+        </section>
+        <section>
+          <h2>발령내용</h2>
+          <dl class="msg_lst">
+  <dt><label for="source_kr">경보 발령의 근거 제공자</label></dt>
+  <dd><textarea id="source_kr" maxlength="20" rows="1"></textarea></dd>
+  <dt>
+    <label for="text_40_kr">재해문자전광판</label>
+    <span class="size"><span id="nowByte40_kr">0</span> / 40 bytes</span>
+  </dt>
+  <dd>
+    <textarea id="text_40_kr" onkeyup="fn_checkByte(this, 80, 'nowByte80_kr')" maxlength="80" rows="2"></textarea>                   
+  </dd>
+  <dt>
+    <label for="text_80_kr">재해문자전광판</label>
+    <span class="size"><span id="nowByte80_kr">0</span> / 80 bytes</span>
+  </dt>
+  <dd>
+    <textarea id="text_80_kr" onkeyup="fn_checkByte(this, 80, 'nowByte80_kr')" maxlength="80" rows="2"></textarea>                   
+  </dd>
+  <dt>
+    <label for="text_180_kr">버스정보시스템/포털</label>
+    <span class="size"><span id="nowByte180_kr">0</span> / 180 bytes</span>
+  </dt>
+  <dd><textarea id="text_180_kr" onkeyup="fn_checkByte(this, 180, 'nowByte180_kr')" rows="3"></textarea></dd>
+  <dt>
+    <label for="text_voice_kr">마을방송/자동음성통보/자동우량경보</label>
+  </dt>
+  <dd>
+    <textarea id="text_voice_kr" rows="3"></textarea>
+  </dd>
+  <dt><label for="text_broadcast_kr">재난방송(TV, UHD)</label></dt>
+  <dd>
+    <textarea id="text_broadcast_kr" rows="3"></textarea>
+  </dd>
+  <dt>음성파일</dt>
+  <dd>
+    <audio controls="">
+      <source src="" type="audio/mp3">
+    </audio>
+  </dd>                 
+</dl>
+        </section>
+        <section>
+          <h2>수신처별 발령이력</h2>            
+          <div class="tbl_wrap">                
+            <table class="tbl_default tbl_comprehensive_safety">
+              <caption>수신처별 발령이력</caption>
+              <thead>
+                <tr>
+                  <th scope="col">발령매체</th>
+                  <th scope="col">수신처명</th>
+                  <th scope="col">수신자 ID</th>
+                  <th scope="col">전송시각</th>
+                  <th scope="col">응답시각</th>
+                </tr>
+              </thead>
+              <tbody>                   
+                <tr>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section>
+          <h2>단말기별 발령이력</h2>            
+          <div class="tbl_wrap">                
+            <table class="tbl_default tbl_comprehensive_safety">
+              <caption>단말기별 발령이력</caption>
+              <thead>
+                <tr>
+                  <th scope="col">발령매체</th>
+                  <th scope="col">예경보 시스템명</th>
+                  <th scope="col">단말기명</th>
+                  <th scope="col">설치주소</th>
+                  <th scope="col">발송시각</th>
+                  <th scope="col">성공여부</th>
+                  <th scope="col">메모</th>
+                </tr>
+              </thead>
+              <tbody>                   
+                <tr>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>          
+      </div>
+    </article>
+  </div>
+</dialog>
 <script type="text/javascript">
   $(function(){
-    var path = window.location.pathname.split('/')[2];
+    var path_arr=window.location.pathname.split('/')
+    var path = path_arr[path_arr.length-2];
     $('head').append( $('<link rel="stylesheet" />').attr('href', '../../css/' + path + '.css') );
     init();
     initSlideshow();

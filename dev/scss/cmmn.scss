@@ -32,15 +32,25 @@
   &_setting::before{content:'\e6ee';top:2px;}
   &_del::before{content:'\e6ad';top:1px;}
   &_send::before{content:'\e002';margin-right:10px;}
-  &_edit::before{content:'\e896';top:0px;font-size:12px;font-weight:bold;}
+  // &_edit::before{content:'\e896';top:0px;font-size:12px;font-weight:bold;}
   &_cross{font-size:0;vertical-align:middle;line-height:1;
     &::before{content:"×";font-weight:700;line-height:1;}
   }
+  &_edit{@include ico_only{background-position-x: -54px;};}
   &_locate{@include ico_only('\e969'){font-size:20px;color:#f18282;margin:0 3px;};}
   &_reset{@include btn(#fff,$skyblue,$skyblue,$addTxt:'\e84c');}
-  &_equip{@include ico_only(){border:1px solid #c2c3c5;border-radius:3px;background-position:1px 1px;};}
+  &_equip{@include ico_only{border:1px solid #c2c3c5;border-radius:3px;background-position:1px 1px;};}
   &_info{@include ico_only('\f086');}
 }
+/* icon */
+.ico_edit{position:relative;
+  &::before{position:absolute;top:-18px;left:-12px;display:inline-block;width:25px;height:25px;content:'';margin-right:10px;background:url(../images/btn_edit.png)no-repeat;background-size:cover;}
+  &:hover::before{background:url(../images/btn_edit_r.png)no-repeat;}
+}
+.ico_arrow.horizontal{position:relative;left:50%;cursor:pointer;width:36px;height:36px;margin:20px 0;background: url(../images/ico_arrow.png);align-self:center;transform:rotate(90deg);
+  &:hover{background-position-y:100%;}
+}
+
 .btn_switch_single{text-align:center;position:relative;
 	& > label{position:relative;display:inline-flex;width:100%;font-size:13px;gap:5px;color:#999;
 		&:has(input[type=checkbox]:checked){background-color:red;color:#fff;}
@@ -322,14 +332,6 @@ table .selected td{background-color:#f3e1e1!important;}
   th, td{height:25px;padding:3px;border:1px solid #d7d7d7;}
 }
 
-/* icon */
-.ico_edit{position:relative;
-  &::before{position:absolute;top:-18px;left:-12px;display:inline-block;width:25px;height:25px;content:'';margin-right:10px;background:url(../images/btn_edit.png)no-repeat;background-size:cover;}
-  &:hover::before{background:url(../images/btn_edit_r.png)no-repeat;}
-}
-.ico_arrow.horizontal{position:relative;left:50%;cursor:pointer;width:36px;height:36px;margin:20px 0;background: url(../images/ico_arrow.png);align-self:center;transform:rotate(90deg);
-  &:hover{background-position-y:100%;}
-}
 
 /* input */
 input:disabled{border-color:transparent;}

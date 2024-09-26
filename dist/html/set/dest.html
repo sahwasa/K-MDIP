@@ -49,7 +49,7 @@
         <span><b id="top_user_nm">김관리</b>님</span>
       </li>
 
-      <li><a href="../../html/set/admin.html" class="btn set">환경설정</a></li>
+      <li><a href="../../html/set/user.html" class="btn set">환경설정</a></li>
       
       <li class="alert_wrap" title="재난발령요청">
         <a href="#" class="btn alert">재난발령요청</a>
@@ -72,15 +72,15 @@
   <div class="con_wrap">
     <section class="lnb_panel">
   <div class="panel_wrap">
-    <header class="tit blind">
+    <header class="tit">
       <h1>시스템관리</h1>
     </header>    
     <nav class="lnb lnb_set">
       <ul id="left_menu">
-        <li class="on"><a href="../../html/warning/monitoring.html">사용자관리</a></li>       
-        <li><a href="../../html/warning/terminalAdmin.html">공통코드관리</a></li>       
-        <li><a href="../../html/warning/addrAdmin.html">재난코드관리</a></li>
-        <li><a href="../../html/warning/dest.html">수신처관리</a></li>       
+        <li class="on"><a href="../../html/set/user.html">사용자관리</a></li>       
+        <li><a href="../../html/set/cmmnCode.html">공통코드관리</a></li>       
+        <li><a href="../../html/set/disasterCode.html">재난코드관리</a></li>
+        <li><a href="../../html/set/dest.html">수신처관리</a></li>       
       </ul>
     </nav>      
   </div>  
@@ -144,7 +144,8 @@
 </div>
 <script type="text/javascript">
   $(function(){
-    var path = window.location.pathname.split('/')[2];
+    var path_arr=window.location.pathname.split('/')
+    var path = path_arr[path_arr.length-2];
     $('head').append( $('<link rel="stylesheet" />').attr('href', '../../css/' + path + '.css') );
     init();
     initSlideshow();

@@ -49,7 +49,7 @@
         <span><b id="top_user_nm">김관리</b>님</span>
       </li>
 
-      <li><a href="../../html/set/admin.html" class="btn set">환경설정</a></li>
+      <li><a href="../../html/set/user.html" class="btn set">환경설정</a></li>
       
       <li class="alert_wrap" title="재난발령요청">
         <a href="#" class="btn alert">재난발령요청</a>
@@ -190,7 +190,8 @@
 </div>  
 <script type="text/javascript">
   $(function(){
-    var path = window.location.pathname.split('/')[2];
+    var path_arr=window.location.pathname.split('/')
+    var path = path_arr[path_arr.length-2];
     $('head').append( $('<link rel="stylesheet" />').attr('href', '../../css/' + path + '.css') );
     init();
     initSlideshow();
