@@ -1,0 +1,8 @@
+<script type="text/javascript">
+  $(function(){
+    var path = window.location.pathname.split('/')[2];
+    $('head').append( $('<link rel="stylesheet" />').attr('href', '../../css/' + path + '.css') );
+    init();
+    initSlideshow();
+  })
+</script>

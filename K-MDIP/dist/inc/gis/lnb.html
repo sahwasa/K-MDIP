@@ -1,0 +1,51 @@
+<section class="lnb_panel gis_ctrl">
+  <div class="panel_wrap">
+    <header class="tit blind">
+      <h1>GIS 상황판</h1>
+    </header>
+    <div class="section_body">    
+      <ul class="tab_list">
+        <li><button type="button" class="on">기상특보</button></li>
+        <li><button type="button">지진정보</button></li>
+        <li><button type="button">대규모화재</button></li>
+        <li><button type="button">산불</button></li>
+        <li><button type="button">자체발령</button></li>
+      </ul>
+      <section class="panel">      
+        <header class="tit"><h2>기상특보 현황</h2></header>
+        <div class="panel_content">
+          <div class="tbl_wrap">
+            <table class="tbl_default tbl_hover">
+              <thead>
+                <tr>
+                  <th scope="col">특보구역</th>
+                  <th scope="col">특보종류</th>
+                  <th scope="col">발표시각</th>
+                  <th scope="col">통보여부</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>서울시</td>
+                  <td>호우경보</td>
+                  <td>2024.09.01 16:00</td>
+                  <td><i class="notified">통보</i></td>
+                </tr>
+                <tr>
+                  <td>서울시</td>
+                  <td>호우경보</td>
+                  <td>2024.09.01 16:00</td>
+                  <td><i class="unnotified">미통보</i></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <div class="btn_switch_single btn_slide">
+    <input type="checkbox" id="btn_panel">
+    <label for="btn_panel">패널 여닫기 버튼</label>
+  </div>
+</section>
