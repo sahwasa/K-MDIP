@@ -203,9 +203,15 @@
 	label{display:inline-block;width:calc(100% - 40px);font-size:15px;}
 }
 
+.history{
+	.linked_down .tbl_wrap{--h:calc(100vh - 646px);min-height:154px;}
+}
 .stats{
 	.flex_wrap > section{flex:1;}
 	.chart_wrap{height:340px;}
+}
+.terminal{
+	.panel_main .tbl_wrap{height:calc(100vh - 281px);}
 }
 .std_tmpl{
 	.vertical{flex:2.5;}
