@@ -100,8 +100,8 @@
 	&.on{background-color:#dcf5ff;}
 	h3{display:flex;gap:15px;align-items:center;font-size:16px;font-weight:600;}		
 }
-
-.type_wrap{display:inline-flex;gap:5px;align-items:center;margin-left:auto;
+.tit .type_wrap{display:inline-flex;gap:5px;align-items:center;margin-left:auto;}
+.type_wrap{
 	i{background:url(../images/ico_state.png) 50% no-repeat;@include shape(30px,16px);
 		&.request{width:36px;}
 	}

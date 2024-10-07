@@ -179,7 +179,8 @@ $('.btn_weather_close').on('click', function () {
 
 // alert
 $('.alert').on('click', function () {
-  $('.p_alert').parents('.pop_overlay').show();
+  // $('.p_alert').parents('.pop_overlay').show();
+  $('#p_alert')[0].showModal();
 })
 
 // toggle button

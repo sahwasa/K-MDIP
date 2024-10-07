@@ -144,7 +144,7 @@
         <section class="panel">
           <div class="panel_content flex_vertical">
             <div class="btn_top">              
-              <button type="button" class="btn_skyblueline" onclick="getTemplate()">발령이력 참조</button>
+              <button type="button" class="btn_skyblueline" onclick="document.querySelector('.pop_wrap_refer').show();">발령이력 참조</button>
               <button type="button" class="btn_skyblue" onclick="getTemplate()">문안생성</button>
             </div>
             <div id="generated_img" class="generated_img">
@@ -173,7 +173,6 @@
       </div>
     </main>      
   </div>
-  <!-- @@include('../../inc/pop/pop_refer.html') -->
 </div>
 <dialog id="reserve_set" class="reserve_set" style="--width:700px;--top:30vh" open>
   <header class="p_header">

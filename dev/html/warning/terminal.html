@@ -1,0 +1,102 @@
+@@include('../../inc/top.html')
+<body>
+<div id="wrap">
+  @@include('../../inc/header.html')
+  <div class="con_wrap">
+    @@include('../../inc/warning/lnb.html')
+    <main class="contents">
+      <div class="panel_wrap manual">
+        <section class="panel">
+          <header class="tit">
+            <h1>수동발령 <em>단말기발송</em></h1>
+          </header>
+          <div class="panel_content">
+            <dl class="dl_list">
+              <dt><label for="type">재난유형</label></dt>
+              <dd class="code_wrap">
+                <select title="대분류" id="code1" onchange="setCode2()"><option value="">전체</option><option value="T1">자연재난</option><option value="T2">사회재난</option><option value="T3">기타재난</option></select>
+                <select title="중분류" id="code2" onchange="setCode3()"><option value="">전체</option></select>
+                <select title="소분류" id="code3" onchange="setTitle()"><option value="">선택</option></select>
+              </dd>
+              <dt><label for="_status">재난상황</label></dt>
+              <dd id="_status">               
+                <label for="status_Actual"><input type="radio" name="status" value="Actual" id="status_Actual">실제</label>
+                <label for="status_Test"><input type="radio" name="status" value="Test" id="status_Test">시험</label>
+              </dd>
+              <dt><label for="headline">제목</label></dt>
+              <dd>
+                <input type="text" id="headline" placeholder="제목을 입력하세요">
+              </dd>
+              <dt><label for="type1">발령매체</label></dt>
+              <dd>
+                <ul class="media_select" id="media_select">                  
+                  <li><input type="checkbox" name="deviceType" value="VNS" id="media_VNS"><label for="media_VNS">버스정보시스템</label></li>
+                  <li><input type="checkbox" name="deviceType" value="VNS" id="media_VNS"><label for="media_VNS">재해문자전광판</label></li>
+                  <li><input type="checkbox" name="deviceType" value="VNS" id="media_VNS"><label for="media_VNS">마을방송시스템</label></li>
+                  <li><input type="checkbox" name="deviceType" value="VNS" id="media_VNS"><label for="media_VNS">자동음성통보시스템</label></li>
+                </ul>
+              </dd>
+              <dt>발생시각</dt>
+              <dd>
+                <span class="datetimepicker_wrap">
+                  <input type="text" id="datetimepicker_" title="date" class="input_calendar" value="발생시각 선택">
+                </span>
+                <button type="button" class="btn_skyblue" onclick="setDateTimeNow()">현재시각</button>
+              </dd>
+            </dl>
+          </div>
+        </section>
+        <section class="panel">
+          <div class="panel_content">
+            <section>
+              <header>
+                <h1>발송 대상자</h1>
+              </header>
+              <div class="tbl_wrap" style="--h:318px"></div>
+                <table class="tbl_default">
+                  <caption>발송대상자</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">번호</th>
+                      <th scope="col">단말기명</th>
+                      <th scope="col">단말기번호</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>(지좌동)마장 경로당</td>
+                      <td>012-3456-7891</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+            </section>           
+          </div>
+        </section>
+        <section class="panel">
+          <div class="panel_content flex_vertical">
+            <div class="btn_top">              
+              <button type="button" class="btn_skyblueline" onclick="getTemplate()">메시지함</button>              
+            </div>
+            <div class="msg">
+              <textarea name="" id="" placeholder="방송내용"></textarea>
+            </div>
+            <div class="btn_wrap">
+              <button type="button" class="btn_blueline" id="btn_sendRequest" onclick="sendRequest()">예약발송</button>
+              <button type="button" class="btn_blue" id="btn_sendRequest" onclick="sendRequest()">승인요청</button>
+              <!-- <button type="button" class="btn_blue" id="btn_save" onclick="sendRequest()">저장</button> -->
+              <!-- <button type="button" class="btn_pink" id="btn_cancel" onclick="updateProcess()">취소</button> -->
+            </div>
+          </div>      
+        </section>
+      </div>
+    </main>      
+  </div>
+  <!-- @@include('../../inc/pop/pop_refer.html') -->
+</div>
+
+@@include('../../inc/warning/pop_refer.html')
+@@include('../../inc/script.html')
+</body>
+</html>
