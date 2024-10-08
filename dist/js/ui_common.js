@@ -110,7 +110,50 @@ $(function () {
   $('.btn_subclose').on('click', function () {
     $('.panel_sub').hide();
   })
-
+  // table_row checked
+  $('.row_check').on({
+    click: function (e) {
+      e.stopPropagation()
+    },
+    change: function () {
+      var cur = $(this).prop('checked'),
+          checkName = 'select_tr',
+          thisP = $(this).parents('.tbl_wrap');
+      childBody = thisP.find('tbody');
+      if ($(this).hasClass('all_check')) {
+        var childCheckIpt = childBody.find('.row_check');
+        childCheckIpt.each(function () {
+          var elRow = $(this).parents('tr')
+          $(this).prop('checked', cur)
+          cur ? elRow.addClass(checkName) : elRow.removeClass(checkName)
+        })
+      } else {
+        var thisRow = $(this).parents('tr');
+        if ($(this).prop('type') == 'radio') $(this).parents('table').find('tr').removeClass(checkName);
+        cur ? thisRow.addClass(checkName) : thisRow.removeClass(checkName);
+        var checkSize = childBody.find('.row_check:checked').length,
+            allCtrl = thisP.find('.all_check');
+        childBody.find('input:checkbox').length <= checkSize
+            ? allCtrl.prop('checked', true)
+            : allCtrl.prop('checked', false)
+      }
+    },
+  })
+  // tbl_list Handle checked
+  $('.tbl_list .row_check').on({
+    click: function (e) {
+      e.stopPropagation()
+    },
+    change: function () {
+      var cur = $(this).prop('checked')
+      var thisLi = $(this).closest('li')
+      if (cur) {
+        thisLi.addClass('select_li')
+      } else {
+        thisLi.removeClass('select_li')
+      }
+    },
+  })
   // list all check
   function all_check_evt(el) {
     const allCtrl = el.prop('checked'),

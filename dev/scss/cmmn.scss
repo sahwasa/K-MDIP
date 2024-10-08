@@ -43,6 +43,9 @@
   &_info{@include ico_only('\f086');}
   &_modify{@include ico_only('\e832');}
   &_delete{@include ico_only('\e926');}
+  &_txt{@include btn(transparent,$border:transparent);font-weight:600;
+    &:hover{background-color:$bg_blue;}
+  }
 }
 /* icon */
 .ico_edit{position:relative;
