@@ -11,9 +11,10 @@ dialog{max-width:var(--width);width:100vw;min-width:360px;box-shadow:2px 2px 29p
       &::before{font-size:16px;color:#000;};
     }
   }
-  .p_body{max-height:calc(100vh - 240px);overflow-y:auto;font-size:13px;letter-spacing:-0.33px;}
+  .p_body{max-height:calc(100vh - 200px);overflow-y:auto;font-size:13px;letter-spacing:-0.33px;}
   .p_foot{display:flex;justify-content:flex-end;align-items:center;gap:3px;margin-top:8px;
     button{line-height:32px;padding:0 22px;}
+    .renewal_time{margin-right:auto;color:#657383;}
   }
   &::backdrop{background:rgb(190 190 190 / 50%);}
   .search_area{padding:0;border-width:0;}
@@ -37,5 +38,3 @@ dialog[open]{position:fixed;left:calc(50vw - (var(--width) / 2));top:var(--top, 
 .pop_box{width:100%;padding:15px 20px;border:1px solid #c7c7c7;border-width:1px 0;text-align:center;}
 .pop_box .alert{display:inline-block;width:30px;height:30px;margin:10px 0 15px;background:url(../images/ico_warning.png)no-repeat;text-indent:-9999px;text-align:center;}
 .pop_box p{align-self:center;font-size:13px;line-height:23px;}
-
-.pop_changePassword .box_gray{margin-bottom:15px;}

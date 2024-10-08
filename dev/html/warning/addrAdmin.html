@@ -1,0 +1,195 @@
+@@include('../../inc/top.html')
+<body>
+<div id="wrap">
+  @@include('../../inc/header.html')
+  <div class="con_wrap">
+     @@include('../../inc/warning/lnb.html')
+     <main class="contents">
+        <div class="panel_wrap addr">
+          <section class="panel panel_main">
+            <header class="tit">
+              <h1>주소록 관리</h1>
+            </header>
+            <div class="panel_content">      
+              <div class="lst_status all_lst_ctrl">
+                <label for="all" class="all"><input type="checkbox" id="all">전체선택</label>
+                <div class="tool">
+                  <button type="button" class="btn_skyblue" data-click="add_group">그룹추가</button>               
+                </div>
+              </div>
+              <ul  id="addrLst" class="addr_lst lst_ctrl">
+                <li>
+                  <strong>
+                    <label for="dong1"><input type="checkbox">이·통·반장</label>
+                    <button type="button" class="btn_modify" title="수정" data-clickevt="modify">수정</button>
+                    <button type="button" class="btn_cross" title="삭제" data-clickevt="del">삭제</button>
+                  </strong>
+                </li>
+                <li>
+                  <strong>
+                    <label for=""><input type="checkbox">재난도우미</label>
+                    <button type="button" class="btn_modify" title="수정" data-clickevt="modify">수정</button>
+                    <button type="button" class="btn_cross" title="삭제" data-clickevt="del">삭제</button>
+                  </strong>
+                </li>
+                <li>
+                  <strong>
+                    <label for=""><input type="checkbox">노인도우미</label>
+                    <button type="button" class="btn_modify" title="수정" data-clickevt="modify">수정</button>
+                    <button type="button" class="btn_cross" title="삭제" data-clickevt="del">삭제</button>
+                  </strong>
+                </li>
+              </ul>
+            </div>
+          </section>
+          <section class="panel panel_sub">
+            <div class="panel_content flex_panel">
+              <div class="tbl_area">
+                <div class="tbl_top">
+                  <button type="button">연락처 추가</button>
+                  <button type="button">삭제</button>
+                  <button type="button">그룹이동</button>
+                  <button type="button">주소록 복사</button>
+                  <div class="tool">
+                    <button type="button" class="btn_green">엑셀 업로드</button>
+                    <button type="button" class="btn_greenline">엑셀 다운로드</button>
+                  </div>
+                </div>
+                <div class="tbl_search">
+
+                </div>
+                <div class="tbl_wrap">
+                  <table class="tbl_default">
+                    <thead>
+                      <tr>
+                        <th scope="col"><input type="checkbox" title="전체선택"></th>
+                        <th scope="col">번호</th>
+                        <th scope="col">그룹</th>
+                        <th scope="col">성명</th>
+                        <th scope="col">모바일</th>
+                        <th scope="col">전화번호</th>
+                        <th scope="col">팩스</th>
+                        <th scope="col">이메일</th>
+                        <th scope="col">소속</th>
+                        <th scope="col">직위</th>
+                        <th scope="col">직급</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><input type="checkbox" title="줄선택"></td>
+                        <td>1</td>
+                        <td><span>2023년 재난도우미</span></td>
+                        <td>홍길동</td>
+                        <td>010-1234-5678</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+     </main>
+  </div>
+</div>
+<dialog id="pop_addrAdmin" class="pop_addrAdmin" style="--width:600px">
+  <div class="p_header">
+    <h1>연락처 추가 및 수정</h1>
+    <button type="button" class="btn_cross">닫기</button>
+  </div>
+  <div class="p_body">    
+    <dl class="dl_list">
+      <dt><label for="">그룹</label></dt>
+      <dd><select name="" id=""><option value="">선택</option></select></dd>
+      <dt><label for="">성명</label></dt>
+      <dd><input type="text"></dd>
+      <dt><label for="">모바일</label></dt>
+      <dd><input type="text"></dd>
+      <dt><label for="">전화번호</label></dt>
+      <dd><input type="text"></dd>
+      <dt><label for="">팩스</label></dt>
+      <dd><input type="text"></dd>
+      <dt><label for="">이메일</label></dt>
+      <dd><input type="text"></dd>
+      <dt><label for="">소속</label></dt>
+      <dd><input type="text"></dd>
+      <dt><label for="">직위</label></dt>
+      <dd><input type="text"></dd>
+      <dt><label for="">직급</label></dt>
+      <dd><input type="text"></dd>      
+      <dt><label for="">비고</label></dt>
+      <dd><textarea name="" id="" rows="1"></textarea></dd>
+    </dl>
+    <div class="p_foot">
+      <button type="button" class="btn_blue" onclick="">저장</button>
+      <button type="button" class="btn_gray" onclick="">취소</button>
+    </div>
+  </div>
+</dialog>
+@@include('../../inc/script.html')
+<script>
+$('#addrLst').sortable({placeholder: "ui-state-highlight"});
+$.editNewBox = function () {
+    const editIptWrap = $(this).parent('strong')
+    let editedIpt = $(this).val()
+    if (editedIpt === '') editedIpt = '새그룹 '
+    let btns = `<button type="button" class="btn_modify" title="수정" data-clickevt="modify">수정</button>
+                <button type="button" class="btn_cross" title="삭제" data-clickevt="del">삭제</button>`
+    let html =`<label for=""><input type="checkbox">${editedIpt}</label>${btns}`;
+    $(editIptWrap).html(html).children('[type="text"]').remove()
+  }
+  // add item
+  const iptEvt = ipt => {
+    const value = ipt.val();
+    ipt.focus()   
+    if(value != '') ipt.val('');
+    ipt.val(value);//커서 맨뒤로 보내기
+    ipt.focusout($.editNewBox)
+    ipt.on('keydown', function (e) {
+      if (e.keyCode == 13) ipt.focusout()
+    })
+  }
+  const confirmBtn = `<button type="button" class="btn_grayline">확인</button>`;
+  $('[data-click="add_group"]').on('click', function () {
+    const target = $(this).parents('.panel_content').find('.addr_lst');
+    const addLi = document.createElement('li');
+    const newBtn = `<button type="button">그룹 접기/열기</button>`;
+    let tmpl = `<strong><input type='text' placeholder='새그룹'>${confirmBtn}</strong>`;   
+    addLi.innerHTML = tmpl;
+    const ipt = target.append(addLi).find('[type="text"]')
+    iptEvt(ipt)
+  })
+  // delete,edit item
+  $('.addr_lst').on('click', '[data-clickevt]', function (e) {
+    let btnType = e.target.dataset.clickevt;
+    console.log(btnType)
+    if (btnType == 'del') {
+      !confirm(
+          '선택한 그룹을 정말 삭제하시겠습니까? \n 해당 그룹에 속한 연락처는 어떻게 되나요??'
+      )
+        ? alert('취소 되었습니다.')
+        : $(this).parentsUntil('ul').remove();
+    } else if (btnType == 'modify') {
+      const target = $(this).parentsUntil('li')
+      const getTxt = target.find('label')
+          .contents()
+          .filter(function () {
+            return this.nodeType === 3 // Select only text nodes
+          })
+          .text()
+          .trim();
+      let editNewIpt = `<input type="text" value="${getTxt}" />${confirmBtn}`;
+      const editIpt = target.html(editNewIpt).find('input')
+      iptEvt(editIpt)
+    }
+  })
+</script>
+</body>
+</html>

@@ -82,10 +82,13 @@
                 <button type="button" class="axi axi-close" title="닫기">닫기</button>
                 <strong>00지구 00회관(단말기명)</strong>
                 <ul class="lst">
-                  <li><em>유형</em>재해문자전광판 (행정안전부)</li>
-                  <li><em>시스템</em>00군 재해문자전광판 (행정안전부)</li>
-                  <li><em>주소</em>단말기 설치 주소 (100자리 이내)</li>                
-                  <li><em>메모</em>-</li>
+                  <li><em>유형</em>마을방송시스템</li>
+                  <li><em>예경보시스템</em>..???</li>
+                  <li><em>단말기고유번호</em>01234567890</li>
+                  <li><em>모델명</em>단말기 모델명</li>
+                  <li><em>위경도</em>12.345 &sol; 123.456</li>
+                  <li><em>설치주소</em>단말기 설치 주소 (100자리 이내)</li>                
+                  <li><em>설치일자</em>2024-05-04</li>
                 </ul>
               </div>
             </div>            
@@ -150,16 +153,24 @@
       <dt><label for="">설치자</label></dt>
       <dd><input type="text"></dd>
       <dt><label for="">설치일자</label></dt>
-      <dd><input type="text"></dd>
+      <dd><input type="text" data-datepicker="date" class="input_calendar"></dd>
       <dt><label for="">시작일자</label></dt>
-      <dd><input type="text"></dd>
+      <dd><input type="text" data-datepicker="date" class="input_calendar"></dd>
       <dt><label for="">종료일자</label></dt>
-      <dd><input type="text"></dd>
+      <dd><input type="text" data-datepicker="date" class="input_calendar"></dd>
+      <dt><label for="">사용여부</label></dt>
+      <dd>
+        <div class="switch_toggle">
+          <input type="checkbox" id="useYN1"><label class="useYN" for="useYN1">사용여부</label>
+        </div> 
+      </dd>
       <dt><label for="">비고</label></dt>
       <dd><textarea name="" id="" rows="1"></textarea></dd>
     </dl>
     <div class="p_foot">
-      <button type="button" class="btn_blue" onclick="_popReferFn.apply()">저장</button>
+      <div class="renewal_time">(갱신시각 : 2024-07-01 10:10:10)</div>
+      <button type="button" class="btn_blue" onclick="">저장</button>
+      <button type="button" class="btn_gray" onclick="">취소</button>
     </div>
   </div>
 </dialog>

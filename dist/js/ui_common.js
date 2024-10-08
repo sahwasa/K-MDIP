@@ -10,82 +10,34 @@ $(function () {
     }
   });
   $('dialog:has(.p_header)').draggable({ handle: ".p_header", cursor: "move" ,containment: "#wrap",scroll: true, scrollSensitivity: 100, scrollSpeed: 100});
-  $.datetimepicker.setLocale('kr');
-  $('#datetimepicker').datetimepicker();
 
-  $('#date_timepicker_start0').datetimepicker({
-    format: 'Y-m-d',
-    onShow: function (ct) {
-      this.setOptions({
-        maxDate: $('#date_timepicker_end0').val() ? $('#date_timepicker_end0').val() : false
-      })
-    },
-    timepicker: false
-  });
-  $('#date_timepicker_start').datetimepicker({
-    format: 'Y-m-d',
+  function DatetimepickerDefaults(opts) {
+    return $.extend({},{
+      locale: 'ko',
+      format: 'Y-m-d',
+      timepicker: false
+    }, opts);
+  }
+  $('[data-datepicker="date"]').datetimepicker(DatetimepickerDefaults());
+  $('[data-datepicker="datetime"]').datetimepicker(DatetimepickerDefaults({
+      format: 'Y-m-d h:m',
+      timepicker: true
+  }));
+  $('#date_timepicker_start').datetimepicker(DatetimepickerDefaults({
     onShow: function (ct) {
       this.setOptions({
         maxDate: $('#date_timepicker_end').val() ? $('#date_timepicker_end').val() : false
       })
-    },
-    timepicker: false
-  });
-  $('#date_timepicker_start2').datetimepicker({
-    format: 'Y-m-d',
-    onShow: function (ct) {
-      this.setOptions({
-        maxDate: $('#date_timepicker_end2').val() ? $('#date_timepicker_end2').val() : false
-      })
-    },
-    timepicker: false
-  });
-  $('#date_timepicker_start3').datetimepicker({
-    format: 'Y-m-d',
-    onShow: function (ct) {
-      this.setOptions({
-        maxDate: $('#date_timepicker_end3').val() ? $('#date_timepicker_end3').val() : false
-      })
-    },
-    timepicker: false
-  });
-
-  $('#date_timepicker_end0').datetimepicker({
-    format: 'Y-m-d',
-    onShow: function (ct) {
-      this.setOptions({
-        minDate: $('#date_timepicker_start0').val() ? $('#date_timepicker_start0').val() : false
-      })
-    },
-    timepicker: false
-  });
-  $('#date_timepicker_end').datetimepicker({
-    format: 'Y-m-d',
+    }
+  })); 
+  $('#date_timepicker_end').datetimepicker(DatetimepickerDefaults({
     onShow: function (ct) {
       this.setOptions({
         minDate: $('#date_timepicker_start').val() ? $('#date_timepicker_start').val() : false
       })
-    },
-    timepicker: false
-  });
-  $('#date_timepicker_end2').datetimepicker({
-    format: 'Y-m-d',
-    onShow: function (ct) {
-      this.setOptions({
-        minDate: $('#date_timepicker_start2').val() ? $('#date_timepicker_start2').val() : false
-      })
-    },
-    timepicker: false
-  });
-  $('#date_timepicker_end3').datetimepicker({
-    format: 'Y-m-d',
-    onShow: function (ct) {
-      this.setOptions({
-        minDate: $('#date_timepicker_start3').val() ? $('#date_timepicker_start3').val() : false
-      })
-    },
-    timepicker: false
-  });
+    }
+  }));
+ 
 
   // tab
   var tab_conts = $('.tab_conts'),
@@ -155,13 +107,35 @@ $(function () {
     }
     $(this).next('label').text(txt);
   })
-
-
   $('.btn_subclose').on('click', function () {
     $('.panel_sub').hide();
   })
- 
- 
+
+  // list all check
+  function all_check_evt(el) {
+    const allCtrl = el.prop('checked'),
+          thisChild = el.closest('.all_lst_ctrl').next('.lst_ctrl').find('input:checkbox');
+    thisChild.prop('checked', allCtrl)
+  }
+  function all_check(el) {
+    var thisP = el.parents('.lst_ctrl'),
+        checkSize = thisP.find('input:checked').length,
+        allCtrl = thisP.prev('.all_lst_ctrl').find('input:checkbox')
+    thisP.find('input:checkbox').length <= checkSize
+        ? allCtrl.prop('checked', true)
+        : allCtrl.prop('checked', false)
+  }
+  $('.all_lst_ctrl').on('click change', 'input:checkbox', function () {
+    all_check_evt($(this))
+  })
+  $('.lst_ctrl').on('click change', 'input:checkbox', function () {
+    all_check($(this))
+  })
+  $('.lst_ctrl')
+    .find('input:checkbox')
+    .each(function (index, item) {
+      all_check($(item))
+  })
 })
 
 
@@ -295,3 +269,5 @@ function prevSlide() {
   slideIndex--;
   showSlides();
 }
+
+
