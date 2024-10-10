@@ -94,7 +94,7 @@
       <div class="panel_wrap manual">
         <section class="panel">
           <header class="tit">
-            <h1>수동발령 <em>단말기발송</em></h1>
+            <h1>수동발령 <em>문자발송</em></h1>
           </header>
           <div class="panel_content">
             <dl class="dl_list">
@@ -135,9 +135,9 @@
         <section class="panel">
           <div class="panel_content">
             <header class="dot_tit">
-              <h1>발송대상 단말기</h1>
+              <h1>발송 대상자</h1>
               <div class="tool">
-                <button type="button" class="btn_skyblue" onclick="document.querySelector('#pop_terminalBook').show()">단말기 선택</button>
+                <button type="button" class="btn_skyblue" onclick="document.querySelector('#pop_addrBook').show()">주소록</button>
                 <button type="button" class="btn_reset" onclick="">초기화</button>                  
               </div>
             </header>
@@ -149,18 +149,7 @@
                 <div class="tool">
                   <ul class="search">
                     <li>
-                      <select title="시군구" id="">
-                        <option value="">시군구</option>
-                      </select>
-                      <select title="읍면동" id="">
-                        <option value="">읍면동</option>
-                      </select>                  
-                    </li>                 
-                    <li>
-                      <select title="단말기 유형" id="auto_yn">
-                      <option value="">단말기 유형</option>
-                    </select>
-                      <input type="text" title="location" placeholder="장비명, 지역명" id="" onkeydown="">
+                      <input type="text" title="location" placeholder="성명 or 모바일번호" id="" onkeydown="">
                       <button type="button" class="btn_skyblue" onclick="search();">검색</button>
                     </li>
                   </ul>
@@ -172,15 +161,15 @@
                   <thead>
                     <tr>
                       <th scope="col">번호</th>
-                      <th scope="col">단말기명</th>
-                      <th scope="col">단말기번호</th>
+                      <th scope="col">성명</th>
+                      <th scope="col">모바일</th>
                       <th scope="col">삭제</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td>1</td>
-                      <td>(지좌동)마장 경로당</td>
+                      <td>도우너</td>
                       <td>012-3456-7891</td>
                       <td><button type="button" class="btn_del">삭제</button></td>
                     </tr>
@@ -209,60 +198,90 @@
     </main>      
   </div>
 </div>
-<dialog id="pop_terminalBook" class="pop_terminalBook" style="--width:1100px">
+<dialog id="pop_addrBook" class="pop_addrBook" style="--width:1100px">
   <div class="p_header">
-    <h1>단말기 선택</h1>
+    <h1>주소록</h1>
     <button type="button" class="btn_cross">닫기</button>
   </div>
   <div class="p_body">
-    <div class="search_area">                
-      <ul class="search">
+    <div class="layout_flex">
+      <div class="lst_wrap">      
+        <div class="lst_status all_lst_ctrl">
+          <label for="all" class="all"><input type="checkbox" id="all">전체선택</label>            
+        </div>
+        <ul  id="addrLst" class="addr_lst lst_ctrl">
           <li>
-            <select title="시군구" id="">
-              <option value="">시군구</option>
-            </select>
-            <select title="읍면동" id="">
-              <option value="">읍면동</option>
-            </select>                  
-          </li>                 
+            <strong>
+              <label for="dong1"><input type="checkbox">이·통·반장</label>
+              <button type="button" class="btn_modify" title="수정" data-clickevt="modify">수정</button>
+              <button type="button" class="btn_cross" title="삭제" data-clickevt="del">삭제</button>
+            </strong>
+          </li>
           <li>
-            <select title="단말기 유형" id="auto_yn">
-            <option value="">단말기 유형</option>
-          </select>
-            <input type="text" title="location" placeholder="장비명, 지역명" id="" onkeydown="">
-            <button type="button" class="btn_skyblue" onclick="search();">검색</button>
+            <strong>
+              <label for=""><input type="checkbox">재난도우미</label>
+              <button type="button" class="btn_modify" title="수정" data-clickevt="modify">수정</button>
+              <button type="button" class="btn_cross" title="삭제" data-clickevt="del">삭제</button>
+            </strong>
+          </li>
+          <li>
+            <strong>
+              <label for=""><input type="checkbox">노인도우미</label>
+              <button type="button" class="btn_modify" title="수정" data-clickevt="modify">수정</button>
+              <button type="button" class="btn_cross" title="삭제" data-clickevt="del">삭제</button>
+            </strong>
           </li>
         </ul>
-    </div>
-    <div class="tbl_area">
-      <div class="tbl_top">
-        <p>
-          전체 <span id="count_all">556</span>건 /
-          <b class="font_blue">(<span id="count_R">0</span>개 선택됨)</b>
-        </p>
       </div>
-      <div class="tbl_wrap" style="--h:512px">
-        <table class="tbl_default tbl_hover tbl_s">
-          <thead>
-            <tr>
-              <th scope="col"><input type="checkbox" title="전체선택" class="all_check row_check"></th>
-              <th scope="col">구분</th>
-              <th scope="col">단말번호</th>
-              <th scope="col">단말기명</th>
-              <th scope="col">위치</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><input type="checkbox" title="줄선택" class="row_check"></td>
-              <td>마을방송</td>
-              <td>01234567890</td>
-              <td>OO마을회관</td>
-              <td>OO면 OO리 OO번</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>    
+      <div class="tbl_area">                
+        <div class="tbl_top">
+          <p>
+            전체 <span id="count_all">556</span>건 /
+            <b class="font_blue">(<span id="count_R">0</span>개 선택됨)</b>
+          </p>            
+          <div class="tool">
+            <ul class="search">                               
+              <li>
+                <select title="검색 유형" id="">
+                  <option value="">성명</option>
+                  <option value="">그룹명</option>
+                </select>
+                <input type="text" title="검색어" placeholder="검색어" id="">
+                <button type="button" class="btn_skyblue" onclick="search();">검색</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="tbl_wrap">
+          <table class="tbl_default">
+            <thead>
+              <tr>
+                <th scope="col"><input type="checkbox" title="전체선택" class="all_check row_check"></th>
+                <th scope="col">번호</th>
+                <th scope="col">그룹</th>
+                <th scope="col">성명</th>
+                <th scope="col">모바일</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" title="줄선택" class="row_check"></td>
+                <td>1</td>
+                <td><span class="tag_group">2023년 재난도우미</span></td>
+                <td>고길동</td>
+                <td>010-1234-5678</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" title="줄선택" class="row_check"></td>
+                <td>2</td>
+                <td><span class="tag_group">이·통·반장</span><span class="tag_group">재난도우미</span><span class="tag_group">노인도우미</span></td>
+                <td>둘리</td>
+                <td>010-1234-5678</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
     <div class="p_foot">
       <button type="button" class="btn_blue" onclick="_popReferFn.apply()">발송대상 단말기 목록으로 추가</button>

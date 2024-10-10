@@ -20,7 +20,7 @@ $(function () {
   }
   $('[data-datepicker="date"]').datetimepicker(DatetimepickerDefaults());
   $('[data-datepicker="datetime"]').datetimepicker(DatetimepickerDefaults({
-      format: 'Y-m-d h:m',
+      format: 'Y-m-d H:i',
       timepicker: true
   }));
   $('#date_timepicker_start').datetimepicker(DatetimepickerDefaults({

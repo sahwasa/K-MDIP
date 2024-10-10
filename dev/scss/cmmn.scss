@@ -7,6 +7,7 @@
 }
 
 /* Btn */
+.btn_wrap{display:flex;justify-content:center;align-items:center;gap:5px;}
 .btn{width:75px;height:27px;font-size:16px;color:#f8f8f8;line-height:24px;text-align:center;
   &_s{height:25px;padding:0 6px;border-radius:4px;font-size:13px;color:#f8f8f8;line-height:22px;text-align:center;word-break:keep-all;white-space:nowrap;}
   &_m{height:32px;padding:0 10px;border-radius:4px;font-size:14px;color:#f8f8f8;line-height:30px;text-align:center;}
@@ -24,14 +25,9 @@
   &_greenline{@include btn(#fff,$leaf,$leaf);}
   &_pink{@include btn($coral,#fff,$coral);}
   &_pinkline{@include btn(#fff,$coral, $coral);}
-  // &_axi{height:25px;line-height:20px;padding:0 6px;font-size:12px;border-radius:3px;font-size:14px;font-weight:bold;
-  //   &::before{position:relative;top:2px;display:inline-block;margin-right:2px;font-family:'axicon';font-size:18px;font-weight:normal;}
-  // }
-  // &_file::before{content:'\f0c7';margin-right:5px;}
-  // &_upload::before{content:'\e125';top:1px;}
-  // &_search::before{content:'\f2f5';top:1px;}
-  // &_setting::before{content:'\e6ee';top:2px;}
-  &_del::before{content:'\e6ad';top:1px;}
+  &_del{@include btn($color:#657383,$addTxt:'\eb2e');
+    &::before{color:$coral;}
+  }
   &_send::before{content:'\e002';margin-right:10px;}
   &_cross{font-size:0;vertical-align:middle;line-height:1;
     &::before{content:"×";font-weight:700;line-height:1;font-size:13px;}
@@ -43,7 +39,7 @@
   &_info{@include ico_only('\f086');}
   &_modify{@include ico_only('\e832');}
   &_delete{@include ico_only('\e926');}
-  &_txt{@include btn(transparent,$border:transparent);font-weight:600;
+  &_txt{@include btn(transparent,$border:transparent);&{font-weight:600;}
     &:hover{background-color:$bg_blue;}
   }
 }
@@ -57,6 +53,10 @@
 }
 .linked_down{position:relative;
   &::before{@include fontello('\f0ab');&{display:block;text-align:center;color:#d9d9d9;font-size:36px;margin:15px 0;}}
+}
+.linked_right{display:flex;gap:25px;align-items:center;
+  &::before{@include fontello('\f0a9');&{display:block;text-align:center;color:#d9d9d9;font-size:36px;}}
+  div{flex:1;}
 }
 .btn_switch_single{text-align:center;position:relative;
 	& > label{position:relative;display:inline-flex;width:100%;font-size:13px;gap:5px;color:#999;
@@ -245,17 +245,19 @@ main{position:relative;flex:1 1 auto;
 .tool{margin-left:auto;flex-shrink:0;display:flex;align-items:center;gap:5px;}
 
 // list
+$dlH:33px;
 .dl_list{display:grid;grid-template-columns:100px 1fr;row-gap:10px;align-items:start;
-  dt{display:flex;align-items:center;gap:5px;min-height:33px;font-weight:600;
+  dt{display:flex;align-items:center;gap:5px;min-height:$dlH;font-weight:600;
     &::before{content:'·';}
   }
   dd{display:flex;align-items:center;gap:10px;
     label{flex-shrink:0;
-      &:has(input){line-height:33px;}
-    }    
-    .switch_toggle{min-height:33px;}
-    button:not(.btn_locate){flex-shrink:0;@include btnType(M);}
-    p{line-height:33px;}
+      &:has(input){line-height:$dlH;}
+    }
+    & > strong{line-height:$dlH;}
+    .switch_toggle{min-height:$dlH;}
+    button:not(:is(.btn_locate,.btn_cross)){flex-shrink:0;@include btnType(M);}
+    p{line-height:$dlH;}
     & + dd{grid-column:2;}
   }
   .code_wrap{flex-wrap:wrap;
