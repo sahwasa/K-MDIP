@@ -21,20 +21,12 @@
               <dt><label for="_status">재난상황</label></dt>
               <dd id="_status">               
                 <label for="status_Actual"><input type="radio" name="status" value="Actual" id="status_Actual">실제</label>
+                <label for="status_Exercise"><input type="radio" name="status" value="Exercise" id="status_Exercise">훈련</label>
                 <label for="status_Test"><input type="radio" name="status" value="Test" id="status_Test">시험</label>
               </dd>
               <dt><label for="headline">제목</label></dt>
               <dd>
                 <input type="text" id="headline" placeholder="제목을 입력하세요">
-              </dd>
-              <dt><label for="type1">발령매체</label></dt>
-              <dd>
-                <ul class="media_select" id="media_select">                  
-                  <li><input type="checkbox" name="deviceType" value="VNS" id="media_VNS"><label for="media_VNS">버스정보시스템</label></li>
-                  <li><input type="checkbox" name="deviceType" value="VNS" id="media_VNS"><label for="media_VNS">재해문자전광판</label></li>
-                  <li><input type="checkbox" name="deviceType" value="VNS" id="media_VNS"><label for="media_VNS">마을방송시스템</label></li>
-                  <li><input type="checkbox" name="deviceType" value="VNS" id="media_VNS"><label for="media_VNS">자동음성통보시스템</label></li>
-                </ul>
               </dd>
               <dt>발생시각</dt>
               <dd>
@@ -59,15 +51,7 @@
               <div class="tbl_top">
                 <b class="font_blue">
                   전체 <span id="count_all">556</span>개
-                </b>
-                <div class="tool">
-                  <ul class="search">
-                    <li>
-                      <input type="text" title="location" placeholder="성명 or 모바일번호" id="" onkeydown="">
-                      <button type="button" class="btn_skyblue" onclick="search();">검색</button>
-                    </li>
-                  </ul>
-                </div>
+                </b>                
               </div>
               <div class="tbl_wrap">
                 <table class="tbl_default">
@@ -75,16 +59,20 @@
                   <thead>
                     <tr>
                       <th scope="col">번호</th>
+                      <th scope="col">그룹</th>
                       <th scope="col">성명</th>
                       <th scope="col">모바일</th>
+                      <th scope="col">지역</th>
                       <th scope="col">삭제</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td>1</td>
+                      <td><span class="tag_group">2023년 재난도우미</span></td>
                       <td>도우너</td>
                       <td>012-3456-7891</td>
+                      <td>서울시</td>
                       <td><button type="button" class="btn_del">삭제</button></td>
                     </tr>
                   </tbody>
@@ -95,12 +83,29 @@
         </section>
         <section class="panel">
           <div class="panel_content flex_vertical">
-            <div class="msg">
-              <div class="btn_top">              
-                <button type="button" class="btn_skyblueline" onclick="getTemplate()">메시지함</button>              
+            <div class="btn_top">              
+              <button type="button" class="btn_skyblueline" onclick="document.querySelector('.pop_wrap_refer').show();">참조</button>
+              <button type="button" class="btn_skyblue" onclick="getTemplate()">문안생성</button>
+            </div>
+            <div id="tabs" class="tab_wrap">
+              <ul>
+                <li><a href="#tabs-1">한국어</a></li>
+                <li><a href="#tabs-2">영어</a></li>
+              </ul>
+              <div id="tabs-1">
+                <dl class="msg_lst">
+                  <dt>
+                    <label for="text_80_kr">문자메시지</label>
+                    <span class="size"><b class="font_blue">LMS or SMS</b> (<span id="nowByte80_kr">0</span> bytes)</span>
+                  </dt>
+                  <dd>
+                    <textarea id="text_80_kr" onkeyup="fn_checkByte(this, 80, 'nowByte80_kr')" maxlength="80" rows="8"></textarea>                   
+                  </dd>
+                </dl>
               </div>
-              <input type="text" title="제목" placeholder="제목">
-              <textarea name="" id="" rows="10" placeholder="방송내용"></textarea>
+              <div id="tabs-2">
+              </div>
+            </div>
               <div class="btn_wrap">
                 <button type="button" class="btn_blueline" id="btn_sendRequest" onclick="sendRequest()">예약발송</button>
                 <button type="button" class="btn_blue" id="btn_sendRequest" onclick="sendRequest()">승인요청</button>                
@@ -113,7 +118,6 @@
   </div>
 </div>
 @@include('../../inc/warning/pop_addrBook.html')
-
 @@include('../../inc/warning/pop_refer.html')
 @@include('../../inc/script.html')
 </body>

@@ -4,79 +4,281 @@
   @@include('../../inc/header.html')
   <div class="con_wrap">
     @@include('../../inc/warning/lnb.html')
-    <main class="contents">
-      <div class="panel_wrap reserve">
-        <section class="panel panel_main">
-          <header class="tit">
-            <h1>예약발송</h1>
-          </header>           
-          <div class="panel_content">
-            <div class="lst_status">
-              <select name="" id=""><option value="">예약자</option></select>              
-            </div>
-            <ul class="monitoring_wrap">
-              <li class="on">
-                <header class="tit">
-                  <h3><img src="../../images/symbol/HWA.png" width="38" height="32">강풍 주의보</h3>
-                  <div class="type_wrap">
-                    <i class="Actual">실제</i><i class="manual">수동</i>
-                  </div>
-                </header>
-                <dl class="monitoring_dtl">
-                  <dt>예  약  자</dt>
-                  <dd><em>김관리</em>(2024-02-13 15:37:05)</dd>
-                  <dt>발령매체</dt>
-                  <dd>재난방송, 재해문자전광판(지자체), 마을방송시스템</dd>
-                  <dt>기       간</dt>
-                  <dd>2024-06-22 ~ 2024-08-31</dd>
-                  <dt>발송시각</dt>
-                  <dd>15:35</dd>
-                  <dt>발송주기</dt>
-                  <dd>매주(토,일)</dd>
-                  <dt>발송지역</dt>
-                  <dd>울산(동구)</dd>
-                  <dt>상       태</dt>
-                  <dd>일시중지</dd>
-                </dl>
-              </li>              
-            </ul>
+    <main class="contents reserve">
+      <header class="tit">
+        <h1>정기발령</h1>
+      </header>
+      <div class="content">
+        <div class="search_area">
+          <ul class="search">
+            <li>
+              <select title="대분류" id="code1" onchange="setCode2()"><option value="">전체</option><option value="T1">자연재난</option><option value="T2">사회재난</option><option value="T3">기타재난</option></select>
+            </li>
+            <li>
+              <select title="중분류" id="code2"><option value="">전체</option><option value="T10101">강풍</option><option value="T10102">낙뢰</option></select>
+            </li>
+            <li>
+              <input type="text" title="검색어" placeholder="제목" id="" onkeydown="fn_onKeyDown();">
+              <button type="button" class="btn_skyblue" onclick="search();">검색</button>
+            </li>
+          </ul>
+          <div class="tool">
+            <button type="button" class="btn_skyblue" onclick="excelDown(1)">정기발령 추가</button>
+          </div>
+        </div>
+        <section class="tbl_area">         
+          <div class="tbl_wrap" style="--h:223px">
+            <table class="tbl_default tbl_hover">
+              <caption>정기발령 목록</caption>         
+              <thead>               
+                <tr>
+                  <th scope="col">번호</th>
+                  <th scope="col">기간</th>
+                  <th scope="col">주기</th>
+                  <th scope="col">방송시각</th>
+                  <th scope="col">제목</th>
+                  <th scope="col">발령지역</th>
+                  <th scope="col">예약자</th>
+                  <th scope="col">상태</th>
+                  <th scope="col">관리</th>
+                </tr>
+              </thead>            
+              <tbody>
+                <tr>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </section>
-        <section class="panel panel_sub">
-          <div class="panel_content">
-            <header class="tit">
-              <h3 id="detail_title">
-                <img id="detail_icon" src="../../images/symbol/HWA.png" width="38" height="32">강풍주의보</h3>
-            </header>
-            <div class="flex_vertical">
-              <dl class="issue_dtl">
-                <dt>발령매체</dt>
-                <dd id="media_select"></dd>
-                <dt>발생시각</dt>
-                <dd id="detail_creat_dt">2024-02-13 15:35</dd>
-                <dt>신고내용</dt>
-                <dd id="detail_frw">-</dd>                
-                <dt>발령지역</dt>
-                <dd id="detail_areadesc">울산(동구)</dd>
-              </dl>        
-              <div class="slide_container_wrap">
-                <ul class="slide_container">
-                  <li class="slide_item">
-                    <img src="http://122.199.200.232:9200//noti/2024/KR.T10101-2024900002_HWA_1/IMG/KR.T10101-2024900002_HWA_1_MAP.png?refesh='0.15003963318223512" alt="slide" />
-                  </li>
-                  <li class="slide_item">
-                    <img src="https://picsum.photos/400/250?random=1" alt="slide" />
-                  </li>                  
+        <section class="linked_down">
+          <div class="layout_flex">
+            <section>
+              <p class="box_gray">환경설정 > 메시지함에 입력된 내용을 기본으로 불러옵니다.</p>
+              <!-- 그룹, 유형, 제목을 선택 -->
+              <dl class="dl_list">
+                <dt><label for="">그룹</label></dt>
+                <dd>               
+                  <select name="" id=""><option value="">일반</option></select>
+                </dd>
+                <dt><label for="">유형</label></dt>
+                <dd>               
+                  <select name="" id=""><option value="">단말기</option></select>
+                </dd>
+                <dt><label for="headline">제목</label></dt>
+                <dd>
+                  <select name="" id=""><option value="">호우대비안내</option></select>
+                </dd>
+                <dt>재난유형</dt>
+                <dd><strong>자연재난 > 호우 > 호우 안내정보</strong></dd>
+                <dt><label for="_status">재난상황</label></dt>
+                <dd id="_status">               
+                  <label for="status_Actual"><input type="radio" name="status" value="Actual" id="status_Actual">실제</label>
+                  <label for="status_Exercise"><input type="radio" name="status" value="Exercise" id="status_Exercise">훈련</label>
+                  <label for="status_Test"><input type="radio" name="status" value="Test" id="status_Test">시험</label>
+                </dd>                
+                <dt><label for="type1">발령매체</label></dt>
+                <dd>
+                  <ul class="media_select" id="media_select">
+                    <li><label for="media_BIS"><input type="checkbox" name="deviceType" value="BIS" id="media_BIS">버스정보시스템</label></li>
+                    <li><input type="checkbox" name="deviceType" value="CDB" id="media_CDB"><label for="media_CDB">재해문자전광판(행정안전부)</label></li>
+                    <li><input type="checkbox" name="deviceType" value="LDB" id="media_LDB"><label for="media_LDB">재해문자전광판(지자체)</label></li>
+                    <li><input type="checkbox" name="deviceType" value="VBS" id="media_VBS"><label for="media_VBS">마을방송시스템</label></li>
+                    <li><input type="checkbox" name="deviceType" value="VNS" id="media_VNS"><label for="media_VNS">자동음성통보시스템</label></li>
+                    </ul>
+                </dd>
+                <dt>주기</dt>
+                <dd>      
+                  <select name="" id="" title="반복 단위" data-selectEvt>
+                    <option value="every_day" selected>매일</option>
+                    <option value="every_week">매주</option>
+                    <option value="every_month">매월</option>
+                    <option value="every_year">매년</option>
+                  </select>
+                  <span class="divide" id="every_month" data-selectTarget>                
+                    <input type="number" min="1" max="31">일     
+                  </span>
+                  <span class="divide" id="every_year" data-selectTarget>
+                    <select name="" id="" title="월"><option value="">1월</option></select>
+                    <input type="number" min="1" max="31">일     
+                  </span>
+                </dd>
+                <dd id="every_week" data-selectTarget>
+                  <ul class="check_group">
+                    <li><label for="sun"><input type="checkbox" id="sun">일</label></li>
+                    <li><label for="mon"><input type="checkbox" id="mon">월</label></li>
+                    <li><label for="tue"><input type="checkbox" id="tue">화</label></li>
+                    <li><label for="wed"><input type="checkbox" id="wed">수</label></li>
+                    <li><label for="thu"><input type="checkbox" id="thu">목</label></li>
+                    <li><label for="fri"><input type="checkbox" id="fri">금</label></li>
+                    <li><label for="sat"><input type="checkbox" id="sat">토</label></li>
+                  </ul>
+                </dd>    
+                <dt><label for="">발송시각</label></dt>
+                <dd>
+                  <span class="datetimepicker_wrap">
+                    <input type="text" id="" data-datepicker="datetime" class="input_calendar" value="발송시각 선택">
+                  </span>
+                </dd>
+                <dt>시작일</dt>
+                <dd>
+                  <span class="datetimepicker_wrap">                  
+                    <input type="text" id="date_timepicker_start" class="input_calendar" value="YYYY-MM-DD" placeholder="기간 시작일 선택" title="기간 시작일 선택">
+                  </span>
+                </dd>
+                <dt>종료일</dt>
+                <dd>
+                  <span class="datetimepicker_wrap">
+                    <input type="text" id="date_timepicker_end" class="input_calendar" value="YYYY-MM-DD" placeholder="기간 종료일 선택" title="기간 종료일 선택">
+                  </span>               
+                  <label for="indefinitely"><input type="checkbox" id="indefinitely">무기한</label>
+                </dd>                
+              </dl>
+            </section>
+            <section class="target_select">
+              <div class="tab box_tab">
+                <ul class="tab_list">
+                  <li><a href="#tab01" class="on">지역 선택</a></li>
+                  <li><a href="#tab02">단말기 선택</a></li>
+                  <li><a href="#tab03">문자 수신자 선택</a></li>
                 </ul>
-                <div class="slideRemote">
-                  <button type="button" class="slide_prev" onclick="prevSlide()">&#10094;</button>
-                  <button type="button" class="slide_next" onclick="nextSlide()">&#10095;</button>
+              </div>
+              <div class="tab_conts">
+                <section id="tab01" class="tab_cont">                
+                  <div class="selectlocate_wrap">                    
+                    <div class="selectlocate">
+                      <header class="dot_tit">
+                        <h1>선택된 발령지역</h1>
+                      </header>                                   
+                      <ul class="selected_lst">
+                        <li>울산<button type="button" class="btn_cross" onclick="removeSelected('3100000000')">선택해제</button></li>                                   
+                      </ul>
+                    </div>
+                    <div class="selected_aside">
+                      <button class="btn_reset">초기화</button>
+                      <button class="btn btn_skyblue btn_apply">적용</button>
+                    </div>
+                  </div>
+                  <div class="flex_wrap">
+                    <div class="tree_wrap">      
+                      <div class="tree_ctrl">
+                        <span class="btn_switch_single tgl_tree">
+                          <input type="checkbox" id="cctv_lst">
+                          <label for="cctv_lst">전체접기</label>
+                        </span>
+                      </div>
+                      <ul class="tree">                        
+                        <li>
+                          <button type="button">그룹 접기/열기</button>
+                          <label for="si1"><input type="checkbox" id="sido1">시도1</label>
+                          <ul>
+                            <li>
+                              <button type="button">그룹 접기/열기</button>          
+                              <label for="si1"><input type="checkbox" id="si1">시군구1</label>
+                              <ul>
+                                <li>
+                                  <button type="button">그룹 접기/열기</button>
+                                  <label for="dong1"><input type="checkbox" id="dong1">읍면동1</label>
+                                  <ul>
+                                    <li>
+                                      <label for=""><input type="checkbox" id="">리1</label>
+                                    </li>
+                                    <li>
+                                      <label for=""><input type="checkbox" id="">리2</label>
+                                    </li>
+                                  </ul>
+                                </li>
+                                <li>
+                                  <button type="button">그룹 접기/열기</button>
+                                  <label for="dong2"><input type="checkbox" id="dong2">읍면동2</label>                             
+                                </li>
+                              </ul>
+                            </li>
+                            <li>
+                              <label for="si2"><input type="checkbox" id="si2">시군구1</label>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="select_map">                      
+                    </div>
+                  </div>                  
+                </section>
+                <section id="tab02" class="tab_cont">
+                  <div class="tbl_area target_terminal">
+                    <div class="tbl_top">
+                      <b class="font_blue">
+                        전체 <span id="count_all">556</span>개
+                      </b>
+                      <div class="tool">
+                        <button type="button" class="btn_pink">지도보기</button>
+                        <button type="button" class="btn_pink" onclick="document.querySelector('.pop_terminalBook').show();">단말기선택</button>
+                      </div>
+                    </div>
+                    <div class="tbl_wrap">
+                      <table class="tbl_default">
+                        <caption>발송대상자</caption>
+                        <thead>
+                          <tr>
+                            <th scope="col">번호</th>
+                            <th scope="col">단말기명</th>
+                            <th scope="col">단말기번호</th>
+                            <th scope="col">위치</th>
+                            <th scope="col">삭제</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>1</td>
+                            <td>(지좌동)마장 경로당</td>
+                            <td>012-3456-7891</td>
+                            <td>서울시 금천구</td>
+                            <td><button type="button" class="btn_del">삭제</button></td>
+                          </tr>
+                        </tbody>
+                      </table>          
+                    </div>
+                  </div>
+                </section>
+                <section id="tab03" class="tab_cont">
+                <div class="tbl_area target_terminal">
+                  <div class="tbl_top">
+                    <b class="font_blue">
+                      전체 <span id="count_all">556</span>개
+                    </b>                
+                  </div>
+                  <div class="tbl_wrap">
+                    <table class="tbl_default">
+                      <caption>발송대상자</caption>
+                      <thead>
+                        <tr>
+                          <th scope="col">번호</th>
+                          <th scope="col">그룹</th>
+                          <th scope="col">성명</th>
+                          <th scope="col">모바일</th>
+                          <th scope="col">지역</th>
+                          <th scope="col">삭제</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td><span class="tag_group">2023년 재난도우미</span></td>
+                          <td>도우너</td>
+                          <td>012-3456-7891</td>
+                          <td>서울시</td>
+                          <td><button type="button" class="btn_del">삭제</button></td>
+                        </tr>
+                      </tbody>
+                    </table>          
+                  </div>
                 </div>
-                <div class="dots_container"></div>
+
+
+                </section>
               </div>
-              <div id="no_image_div" class="alignR">
-                <label for="no_image"><input type="checkbox" id="no_image" />이미지 전송 제외</label>
-              </div>
+            </section>
+            <section class="flex_vertical msg_lst">
               <div id="tabs" class="tab_wrap">
                 <ul>
                   <li><a href="#tabs-1">한국어</a></li>
@@ -87,91 +289,77 @@
                 </div>              
                 <div id="tabs-2">
                   @@include('../../inc/warning/msg_lst.html')
-                </div>             
+                </div>          
               </div>
-              <div id="buttons" class="btn_wrap">              
-                <button type="button" class="btn_pink" onclick="updateCap()">수정</button>
-                <button type="button" class="btn_gray" onclick="">삭제</button>
-                <button type="button" class="btn_blueline" onclick="">일시중지</button>
-                <button type="button" class="btn_blueline" onclick="">다시시작</button>
-              </div>            
-            </div>
+              <div class="btn_wrap">              
+                <button type="button" class="btn_blue" id="btn_sendRequest" onclick="sendRequest()">저장</button>
+                <button type="button" class="btn_blue" id="btn_sendRequest" onclick="sendRequest()">수정</button>
+                <button type="button" class="btn_blue" id="btn_sendRequest" onclick="sendRequest()">삭제</button>
+              </div>
+            </section>
           </div>
-          <button type="button" class="btn_subclose">상세패널 닫기</button>
         </section>
-        <span class="btn_switch_single btn_slide">
-          <input type="checkbox" id="btn_panel">
-          <label for="btn_panel">패널 여닫기 버튼</label>
-        </span>
       </div>
-      <div class="map_content">
-        <div class="request_wrap" id="map">
-          <div class="btn_wrap btn_map">
-            <button class="btn on" id="mapmode_1" onclick="mapMode(1)">기본지도</button>
-            <button class="btn" id="mapmode_2" onclick="mapMode(2)">2D지도</button>
-            <button class="btn" id="mapmode_3" onclick="mapMode(3)">위성지도</button>
-          </div>        
-          <div class="ol-viewport"> 
-          </div>
-          <div class="symbols">
-            <div class="symbol" style="--left:1100px;--top:50px">
-              <button type="button" class="BIS">00지구 00회관(단말기명)</button>
-              <div class="layer" style="display: block;">
-                <button type="button" class="btn_cross" title="닫기">닫기</button>
-                <strong>00지구 00회관(단말기명)</strong>
-                <ul class="lst">
-                  <li><em>유형</em>버스정보시스템</li>
-                  <li><em>시스템</em>00운수 버스정보시스템</li>
-                  <li><em>고유번호</em>단말기 고유식별번호 (30자리 이내)</li>
-                  <li><em>위도</em>37.12345</li>
-                  <li><em>경도</em>123.12345</li>
-                  <li><em>주소</em>단말기 설치 주소 (100자리 이내)</li>                
-                </ul>
-              </div>
-            </div>
-            <div class="symbol" style="--left:1100px;--top:350px">
-              <button type="button" class="VBS">00지구 00회관(단말기명)</button>
-              <div class="layer" style="display: block;">
-                <button type="button" class="btn_cross" title="닫기">닫기</button>
-                <strong>00지구 00회관(단말기명)</strong>
-                <ul class="lst">
-                  <li><em>유형</em>0마을방송시스템</li>
-                  <li><em>시스템</em>00군 마을방송시스템</li>
-                  <li><em>고유번호</em>단말기 고유식별번호 (30자리 이내)</li>
-                  <li><em>위도</em>37.12345</li>
-                  <li><em>경도</em>123.12345</li>
-                  <li><em>주소</em>단말기 설치 주소 (100자리 이내)</li>                
-                </ul>
-              </div>
-            </div>
-            <div class="symbol_legend">
-              <span class="btn_switch_single folding">
-                <input type="checkbox" id="fold" checked>
-                <label for="fold">범례</label>
-              </span>
-              <div class="lst_wrap" style="--h:178px">
-                <ul class="symbol_lst">
-                  <li><i class="BIS">버스정보시스템</i></li>
-                  <li><i class="CDB">재해문자전광판(행정안전부)</i></li>
-                  <li><i class="LDB">재해문자전광판(지자체)</i></li>
-                  <li><i class="TDB">교통전광판</i></li>
-                  <li><i class="PDB">전광판(민간)</i></li>
-                  <li><i class="ADD">자율주행표시장치(C-ITS)</i></li>
-                  <li><i class="VBS">마을방송시스템</i></li>
-                  <li><i class="VNS">자동음성통보시스템</i></li>
-                  <li><i class="VNI">자동음성통보시스템(실내)</i></li>
-                  <li><i class="VNO">자동음성통보시스템(실외)</i></li>
-                  <li><i class="RAS">자동우량경보시스템</i></li>
-                  <li><i class="DSB">디지털사이니지</i></li>
-                </ul>           
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>   
-  </div>
+    </main>
+  </div>  
 </div>
+<dialog id="reserve_set" class="reserve_set" style="--width:600px;--top:30vh">
+  <header class="p_header">
+    <h1>예약발송</h1>
+    <button type="button" class="btn_cross">닫기</button>
+  </header>
+  <div class="p_body">
+    <p class="box_gray">예약발송은 확인 즉시 승인되며, 실제 발송 전에는 모니터링 메뉴에서 취소 가능합니다. </p>
+    <dl class="dl_list">
+    <dt>주기</dt>
+    <dd>      
+      <select name="" id="" title="반복 단위" data-selectEvt>
+        <option value="every_day" selected>매일</option>
+        <option value="every_week">매주</option>
+        <option value="every_month">매월</option>
+        <option value="every_year">매년</option>
+      </select>
+      <ul id="every_week" class="check_group divide" data-selectTarget>
+        <li><label for="sun"><input type="checkbox" id="sun">일</label></li>
+        <li><label for="mon"><input type="checkbox" id="mon">월</label></li>
+        <li><label for="tue"><input type="checkbox" id="tue">화</label></li>
+        <li><label for="wed"><input type="checkbox" id="wed">수</label></li>
+        <li><label for="thu"><input type="checkbox" id="thu">목</label></li>
+        <li><label for="fri"><input type="checkbox" id="fri">금</label></li>
+        <li><label for="sat"><input type="checkbox" id="sat">토</label></li>
+      </ul>
+      <span class="divide" id="every_month" data-selectTarget>                
+        <input type="number" min="1" max="31">일     
+      </span>
+      <span class="divide" id="every_year" data-selectTarget>
+        <select name="" id="" title="월"><option value="">1월</option></select>
+        <input type="number" min="1" max="31">일     
+      </span>
+    </dd>    
+    <dt><label for="">발송시각</label></dt>
+    <dd>
+      <span class="datetimepicker_wrap">
+        <input type="text" id="" data-datepicker="datetime" class="input_calendar" value="발송시각 선택">
+      </span>
+    </dd>
+    <dt>기간</dt>
+    <dd>
+      <span class="period period_multi">
+        <input type="text" id="date_timepicker_start" class="input_calendar" value="YYYY-MM-DD" placeholder="기간 시작일 선택" title="기간 시작일 선택">
+        <input type="text" id="date_timepicker_end" class="input_calendar" value="YYYY-MM-DD" placeholder="기간 종료일 선택" title="기간 종료일 선택">
+      </span>
+      <label for="indefinitely"><input type="checkbox" id="indefinitely">무기한</label>
+    </dd> 
+    <dt>요약</dt>
+    <dd><p>매주 화요일,토요일 마다 (2023-12-10 ~ 무기한 )</p></dd>
+  </dl>
+  </div>
+  <div class="p_foot">
+    <button type="button" class="btn_blue" onclick="">확인</button>
+  </div>
+</dialog>
+@@include('../../inc/warning/pop_terminalBook.html')
 @@include('../../inc/script.html')
 </body>
 </html>
+

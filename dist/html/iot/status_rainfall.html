@@ -66,75 +66,156 @@
   </div>
 </header>
   <div class="con_wrap">
-    <section class="lnb_panel">
+    <section class="lnb_panel lnb_iot">
   <div class="panel_wrap">
     <header class="tit">
-      <h1>시스템관리</h1>
+      <h1>IOT 관측자료</h1>
     </header>    
-    <nav class="lnb lnb_set">
+    <nav class="lnb">
       <ul id="left_menu">
-        <li class="on"><a href="../../html/set/user.html">사용자관리</a></li>       
-        <li><a href="../../html/set/cmmnCode.html">공통코드관리</a></li>       
-        <li><a href="../../html/set/disasterCode.html">재난코드관리</a></li>
-        <li><a href="../../html/set/dest.html">수신처관리</a></li>       
+        <li><a href="../../html/iot/iot_integrated.html">통합상황판</a></li>       
+        <li class="on"><a href="../../html/iot/status_rainfall.html">실시간현황</a>
+          <ul>
+            <li class="on"><a href="../../html/iot/status_rainfall.html">강우</a></li>
+            <li><a href="../../html/iot/status_watergauge.html">수위</a></li>
+            <li><a href="../../html/iot/status_snowgauge.html">적설</a></li>
+            <li><a href="../../html/iot/status_seismicAcc.html">지진가속도</a></li>
+            <li><a href="../../html/iot/status_aws.html">기상(AWS)</a></li>
+          </ul>
+        </li>       
+        <li><a href="../../html/iot/history_rainfall.html">이력조회</a>
+          <ul>
+            <li><a href="../../html/iot/history_rainfall.html">강우</a></li>
+            <li><a href="../../html/iot/history_watergauge.html">수위</a></li>
+            <li><a href="../../html/iot/history_snowgauge.html">적설</a></li>
+            <li><a href="../../html/iot/history_seismicAcc.html">지진가속도</a></li>
+            <li><a href="../../html/iot/history_aws.html">기상(AWS)</a></li>
+          </ul>
+        </li>
+        <li><a href="../../html/iot/iot_admin.html">장비관리</a></li>       
       </ul>
     </nav>      
   </div>  
 </section>
     <main class="contents">
       <header class="tit">
-        <h1>수신처관리</h1>
+        <h1>실시간 관측자료 현황 <b>강우</b></h1>
       </header>
-      <div class="content">
+      <div class="content status">
         <div class="search_area">
           <ul class="search">
             <li>
-              <input type="text" title="location" id="search_dest_id" placeholder="수신처명" onkeydown="fn_onKeyDown(4);">
-              <button type="button" class="btn_skyblue" onclick="getDestList()">검색</button>
+              <span class="period period_multi">
+                <input type="text" id="date_timepicker_start" class="input_calendar" value="YYYY-MM-DD" placeholder="기간 시작일 선택" title="기간 시작일 선택">
+                <input type="text" id="date_timepicker_end" class="input_calendar" value="YYYY-MM-DD" placeholder="기간 종료일 선택" title="기간 종료일 선택">
+              </span>
+            </li>
+            <li>
+              <select title="유형" id="auto_yn">
+                <option value="">전체</option>
+                <option value="0">자동</option>
+                <option value="9">수동</option>
+              </select>
+            </li>
+            <li>
+              <select title="재난상황" id="_status"><option value="">전체</option><option value="Actual">실제</option><option value="Exercise">훈련</option><option value="Test">시험</option></select>
+            </li>
+            <li>
+              <select title="대분류" id="code1" onchange="setCode2()"><option value="">전체</option><option value="T1">자연재난</option><option value="T2">사회재난</option><option value="T3">기타재난</option></select>
+            </li>
+            <li>
+              <select title="중분류" id="code2"><option value="">전체</option><option value="T10101">강풍</option><option value="T10102">낙뢰</option></select>
+            </li>
+            <li>
+              <input type="text" title="location" placeholder="발령지역" id="areadesc" onkeydown="fn_onKeyDown();">
+              <button type="button" class="btn_skyblue" onclick="search();">검색</button>
             </li>
           </ul>
         </div>
-        <div class="tbl_area">
+        <section class="tbl_area">          
           <div class="tbl_top">
-            <div class="tool">
-              <button type="button" class="btn_axi btn_add btn_skyblueline btn_receiver">추가</button>
-              <button type="button" class="btn_axi btn_minus btn_grayline" onclick="deleteDest()">삭제</button>
-            </div>
+            <p>* 조회일자 : 2024-07-01 10:20 (<b class="font_blue" id="">10</b> 건)</p>
+            <div class="unit">(단위 ㎜)</div>
           </div>
-          <div class="tbl_wrap" style="--h:595px">
-            <table class="tbl_default">
-              <caption>수신처관리 제목</caption>
-              <colgroup>
-                <col style="width:80px">
-                <col style="width:200px">
-                <col style="width:200px">
-                <col style="width:200px">
-                <col style="width:200px">
-                <col style="width:200px">
-                <col style="width:200px">
-                <col style="width:200px">
-                <col style="width:auto">
-                <col class="fix_scroll">
-              </colgroup>
+          <div class="tbl_wrap">
+            <table class="tbl_default tbl_hover">
+              <caption>발령이력 제목</caption>         
               <thead>
                 <tr>
-                  <th scope="col">선택</th>
-                  <th scope="col">수신처명</th>
-                  <th scope="col">ID</th>
-                  <th scope="col">IP</th>
-                  <th scope="col">담당자</th>
-                  <th scope="col">연락처</th>
-                  <th scope="col">등록일</th>
-                  <th scope="col">사용여부</th>
-                  <th scope="col">수정</th>
-                  <th scope="col"></th>
+                  <th scope="col" rowspan="2">번호</th>
+                  <th scope="col" rowspan="2">지역명</th>
+                  <th scope="col" rowspan="2">지점명</th>
+                  <th scope="col" rowspan="2">경보단계</th>
+                  <th scope="col" colspan="5">최대강우(㎜)</th>
+                  <th scope="col" rowspan="2">마지막 수신일시</th>
+                  <th scope="col" rowspan="2">통신상태</th>
                 </tr>
-              </thead>              
-              <tbody id="tab4_list"><tr onclick="highlightTr(this)" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab4" value="kbs_uhd"></td><td>KBS 울산방송</td><td>kbs_uhd</td><td>122.199.200.232</td><td>KBS 울산방송</td><td>010-0000-0000</td><td>2023-11-21 12:29:45</td><td><span datavalue="on" class="btn_toggle" onclick="useDest(this, 'kbs_uhd')"></span></td><td><button class="ico_edit" onclick="showDestInfo('kbs_uhd')"></button></td></tr><tr onclick="highlightTr(this)" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab4" value="idsp"></td><td>UHD 수신테스트</td><td>idsp</td><td>122.199.200.232</td><td>테스트</td><td>010-0000-9050</td><td>2021-02-23 15:28:59</td><td><span datavalue="on" class="btn_toggle" onclick="useDest(this, 'idsp')"></span></td><td><button class="ico_edit" onclick="showDestInfo('idsp')"></button></td></tr><tr onclick="highlightTr(this)" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab4" value="dids"></td><td>구례 DIDS</td><td>dids</td><td>119.197.110.148</td><td>000 담당</td><td>010-0000-0000</td><td>2022-09-13 15:06:45</td><td><span datavalue="off" class="btn_toggle" onclick="useDest(this, 'dids')"></span></td><td><button class="ico_edit" onclick="showDestInfo('dids')"></button></td></tr><tr onclick="highlightTr(this)" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab4" value="us_gateway"></td><td>울산게이트웨이</td><td>us_gateway</td><td>222.235.103.114</td><td>울산 예경보</td><td>010-0000-0000</td><td>2022-12-13 16:16:59</td><td><span datavalue="off" class="btn_toggle" onclick="useDest(this, 'us_gateway')"></span></td><td><button class="ico_edit" onclick="showDestInfo('us_gateway')"></button></td></tr></tbody>
+                <tr>
+                  <th scope="col">10분</th>
+                  <th scope="col">30분</th>
+                  <th scope="col">1시간</th>
+                  <th scope="col">3시간</th>
+                  <th scope="col">1일</th>
+                </tr>
+              </thead>            
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>서울시 구로구 ㅇㅇ동</td>
+                  <td>ㅇㅇ교</td>
+                  <td>-</td>
+                  <td>5.5</td>
+                  <td>15.5</td>
+                  <td>20.3</td>
+                  <td>10.2</td>
+                  <td>5.0</td>
+                  <td>2024-09-01 12:20</td>
+                  <td><i class="connection default">정상</i></td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>서울시 구로구 ㅇㅇ동</td>
+                  <td>ㅇㅇ교</td>
+                  <td><i class="riskLv lv1">주의</i></td>
+                  <td>5.5</td>
+                  <td>15.5</td>
+                  <td>20.3</td>
+                  <td>10.2</td>
+                  <td>5.0</td>
+                  <td>2024-09-01 12:20</td>
+                  <td><i class="connection default">정상</i></td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>서울시 구로구 ㅇㅇ동</td>
+                  <td>ㅇㅇ교</td>
+                  <td><i class="riskLv lv2">경계</i></td>
+                  <td>5.5</td>
+                  <td>15.5</td>
+                  <td>20.3</td>
+                  <td>10.2</td>
+                  <td>5.0</td>
+                  <td>2024-09-01 12:20</td>
+                  <td><i class="connection no-signal">미수신</i></td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>서울시 구로구 ㅇㅇ동</td>
+                  <td>ㅇㅇ교</td>
+                  <td><i class="riskLv lv3">위험</i></td>
+                  <td>5.5</td>
+                  <td>15.5</td>
+                  <td>20.3</td>
+                  <td>10.2</td>
+                  <td>5.0</td>
+                  <td>2024-09-01 12:20</td>
+                  <td><i class="connection error">오류</i></td>
+                </tr>
+              </tbody>
             </table>
           </div>
-        </div>
-      </div>      
+        </section>
+      </div>
     </main>
   </div>  
 </div>

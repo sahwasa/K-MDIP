@@ -38,9 +38,10 @@
     <ul class="gnb_lst">
       <li class="on"><a href="../../html/gis/gis_mntr.html">GIS 상황판</a></li>
       <li><a href="../../html/cctv/integrated_ctrl.html">CCTV 통합관제</a></li>
-      <li><a href="">IOT 관측자료</a></li>
+      <li><a href="../../html/iot/iot_integrated.html">IOT 관측자료</a></li>
       <li><a href="../../html/warning/monitoring.html">재난예경보</a></li>
     </ul>
+    <a href="../../html/set/user.html" class="btn set" title="시스템관리">시스템관리</a>
   </nav>
   <div class="util_wrap">
     <ul class="util_lst">
@@ -48,19 +49,14 @@
         <button type="button" class="btn user" onclick="document.querySelector('#pop_myInfo').show()">내정보 보기 및 수정</button>
         <span><b id="top_user_nm">김관리</b>님</span>
       </li>
-
-      <li><a href="../../html/set/user.html" class="btn set">환경설정</a></li>
-      
       <li class="alert_wrap" title="재난발령요청">
         <a href="javascript:(document.querySelector('#p_alert').show())" class="btn alert">재난발령요청</a>
         <span class="on" id="alert_counter">0</span>
       </li>      
-      
       <li class="alert_wrap" onclick="open_accdent_popup()" title="돌발상황">
         <a href="#" class="btn unexpected">돌발상황</a>
         <span class="on" id='accident_counter'>2</span>
       </li>
-      
       <li title="연계상태"><a href="javascript:(document.querySelector('#p_stats').show())" class="system">연계상태</a></li>
       <li title="로그아웃"><a href="/login.do" class="btn log">로그아웃</a></li>
     </ul>
@@ -119,6 +115,7 @@
               <div class="tbl_area">
                 <div class="tbl_top">
                   <div class="tool">
+                    <button type="button" class="btn_skyblue" onclick="document.querySelector('#pop_terminalAdmin').show();">예경보서버</button>
                     <button type="button" class="btn_skyblue" onclick="document.querySelector('#pop_terminalAdmin').show();">추가</button>
                     <button type="button" class="btn_greenline" onclick="excelDown()">엑셀다운</button>
                   </div>
@@ -128,7 +125,7 @@
                     <thead>
                       <tr>
                         <th scope="col">구분</th>
-                        <th scope="col">단말번호</th>
+                        <th scope="col">예경보서버</th>
                         <th scope="col">단말기명</th>
                         <th scope="col">위치</th>
                         <th scope="col">관리</th>
@@ -137,7 +134,7 @@
                     <tbody>
                       <tr>
                         <td>마을방송</td>
-                        <td>01234567890</td>
+                        <td>예경보서버명</td>
                         <td>OO마을회관</td>
                         <td>OO면 OO리 OO번</td>
                         <td><button type="button" class="btn_edit" title="수정">수정</button></td>
@@ -169,8 +166,8 @@
                 <strong>00지구 00회관(단말기명)</strong>
                 <ul class="lst">
                   <li><em>유형</em>마을방송시스템</li>
-                  <li><em>예경보시스템</em>..???</li>
-                  <li><em>단말기고유번호</em>01234567890</li>
+                  <li><em>예경보시스템</em>..???예경보서버?</li>
+                  <li><em>고유번호</em>01234567890</li>
                   <li><em>모델명</em>단말기 모델명</li>
                   <li><em>위경도</em>12.345 &sol; 123.456</li>
                   <li><em>설치주소</em>단말기 설치 주소 (100자리 이내)</li>                
@@ -205,29 +202,33 @@
      </main>
   </div>
 </div>
-<dialog id="pop_terminalAdmin" class="pop_terminalAdmin" style="--width:600px" open>
+<dialog id="pop_terminalAdmin" class="pop_terminalAdmin" style="--width:650px" open>
   <div class="p_header">
     <h1>단말기 추가 및 수정</h1>
     <button type="button" class="btn_cross">닫기</button>
   </div>
   <div class="p_body">    
-    <dl class="dl_list">
+    <dl class="dl_list column2">
+      <dt><label for="">예경보 송출서버</label></dt>
+      <dd><select name="" id=""><option value="">선택</option></select></dd>
       <dt><label for="">단말기 구분</label></dt>
       <dd><select name="" id=""><option value="">선택</option></select></dd>
       <dt><label for="">고유번호</label></dt>
-      <dd><input type="text"></dd>
+      <dd class="full"><input type="text"></dd>
       <dt><label for="">단말기명</label></dt>
-      <dd><input type="text"></dd>
+      <dd class="full"><input type="text"></dd>
       <dt><label for="">단말기 위치</label></dt>
-      <dd>
+      <dd class="full">
         <select name="" id=""><option value="">시군구</option></select>
         <select name="" id=""><option value="">읍면동</option></select>
       </dd>
-      <dd >
+      <dd class="full">
         <input type="text" placeholder="나머지 주소">
       </dd>
-      <dt>위도 &sol; 경도</dt>
-      <dd><input type="text" title="위도"> &sol; <input type="text" title=경도></dd>
+      <dt><label>위도</label></dt>
+      <dd><input type="text" title="위도"></dd>
+      <dt><label>경도</label></dt>
+      <dd><input type="text" title=경도></dd>
       <dt><label for="">모델명</label></dt>
       <dd><select name="" id=""><option value="">선택</option></select></dd>
       <dt><label for="">전원방식</label></dt>
@@ -236,7 +237,7 @@
       <dd><select name="" id=""><option value="">선택</option></select></dd>
       <dt><label for="">설치형태</label></dt>
       <dd><select name="" id=""><option value="">선택</option></select></dd>
-      <dt><label for="">설치자</label></dt>
+      <dt class="link"><label for="">설치자</label></dt>
       <dd><input type="text"></dd>
       <dt><label for="">설치일자</label></dt>
       <dd><input type="text" data-datepicker="date" class="input_calendar"></dd>
@@ -245,13 +246,13 @@
       <dt><label for="">종료일자</label></dt>
       <dd><input type="text" data-datepicker="date" class="input_calendar"></dd>
       <dt><label for="">사용여부</label></dt>
-      <dd>
+      <dd class="full">
         <div class="switch_toggle">
           <input type="checkbox" id="useYN1"><label class="useYN" for="useYN1">사용여부</label>
         </div> 
       </dd>
       <dt><label for="">비고</label></dt>
-      <dd><textarea name="" id="" rows="1"></textarea></dd>
+      <dd class="full"><textarea name="" id="" rows="2"></textarea></dd>
     </dl>
     <div class="p_foot">
       <div class="renewal_time">(갱신시각 : 2024-07-01 10:10:10)</div>

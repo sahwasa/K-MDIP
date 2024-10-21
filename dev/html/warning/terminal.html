@@ -21,6 +21,7 @@
               <dt><label for="_status">재난상황</label></dt>
               <dd id="_status">               
                 <label for="status_Actual"><input type="radio" name="status" value="Actual" id="status_Actual">실제</label>
+                <label for="status_Exercise"><input type="radio" name="status" value="Exercise" id="status_Exercise">훈련</label>
                 <label for="status_Test"><input type="radio" name="status" value="Test" id="status_Test">시험</label>
               </dd>
               <dt><label for="headline">제목</label></dt>
@@ -105,17 +106,57 @@
           </div>
         </section>
         <section class="panel">
-          <div class="panel_content flex_vertical">
-            <div class="msg">
-              <div class="btn_top">              
-                <button type="button" class="btn_skyblueline" onclick="getTemplate()">메시지함</button>              
+          <div class="panel_content flex_vertical">           
+            <div class="btn_top">              
+              <button type="button" class="btn_skyblueline" onclick="document.querySelector('.pop_wrap_refer').show();">참조</button>
+              <button type="button" class="btn_skyblue" onclick="getTemplate()">문안생성</button>
+            </div>
+            <div id="tabs" class="tab_wrap">
+              <ul>
+                <li><a href="#tabs-1">한국어</a></li>
+                <li><a href="#tabs-2">영어</a></li>
+              </ul>
+              <div id="tabs-1">
+                <dl class="msg_lst">
+                  <dt>
+                    <label for="text_40_kr">재해문자전광판</label>
+                    <span class="size"><span id="nowByte40_kr">0</span> / 40 bytes</span>
+                  </dt>
+                  <dd>
+                    <textarea id="text_40_kr" onkeyup="fn_checkByte(this, 80, 'nowByte80_kr')" maxlength="80" rows="2"></textarea>                   
+                  </dd>
+                  <dt>
+                    <label for="text_80_kr">재해문자전광판</label>
+                    <span class="size"><span id="nowByte80_kr">0</span> / 80 bytes</span>
+                  </dt>
+                  <dd>
+                    <textarea id="text_80_kr" onkeyup="fn_checkByte(this, 80, 'nowByte80_kr')" maxlength="80" rows="2"></textarea>                   
+                  </dd>
+                  <dt>
+                    <label for="text_180_kr">버스정보시스템/포털</label>
+                    <span class="size"><span id="nowByte180_kr">0</span> / 180 bytes</span>
+                  </dt>
+                  <dd><textarea id="text_180_kr" onkeyup="fn_checkByte(this, 180, 'nowByte180_kr')" rows="3"></textarea></dd>
+                  <dt>
+                    <label for="text_voice_kr">마을방송/자동음성통보/자동우량경보</label>
+                  </dt>
+                  <dd>
+                    <textarea id="text_voice_kr" rows="3"></textarea>
+                  </dd>              
+                  <dt>음성파일</dt>
+                  <dd>
+                    <audio controls="">
+                      <source src="" type="audio/mp3">
+                    </audio>
+                  </dd>                 
+                </dl>
               </div>
-              <input type="text" title="제목" placeholder="제목">
-              <textarea name="" id="" rows="10" placeholder="방송내용"></textarea>
-              <div class="btn_wrap">
-                <button type="button" class="btn_blueline" id="btn_sendRequest" onclick="sendRequest()">예약발송</button>
-                <button type="button" class="btn_blue" id="btn_sendRequest" onclick="sendRequest()">승인요청</button>                
+              <div id="tabs-2">
               </div>
+            </div>
+            <div class="btn_wrap">
+              <button type="button" class="btn_blueline" id="btn_sendRequest" onclick="sendRequest()">예약발송</button>
+              <button type="button" class="btn_blue" id="btn_sendRequest" onclick="sendRequest()">승인요청</button>                
             </div>
           </div>      
         </section>
@@ -124,7 +165,6 @@
   </div>
 </div>
 @@include('../../inc/warning/pop_terminalBook.html')
-
 @@include('../../inc/warning/pop_refer.html')
 @@include('../../inc/script.html')
 </body>

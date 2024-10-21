@@ -136,11 +136,10 @@ $panelWidth : 370px;
       &::before{@include fontello('\e9f6');}      
     }
   }
-  $colors:#ffd200,#ff8b00,#fd1515;
   @for $i from 1 through 3{
-    &.lv#{$i}{border-color:darken(nth($colors, $i), 10);
-      strong{background-color:nth($colors, $i);@if $i== 1 {color:#000;}}
-      &::before{border-color:darken(nth($colors, $i), 10);border-width:0 1px 1px 0;}
+    &.lv#{$i}{border-color:darken(nth($riskLevel, $i), 10);
+      strong{background-color:nth($riskLevel, $i);@if $i== 1 {color:#000;}}
+      &::before{border-color:darken(nth($riskLevel, $i), 10);border-width:0 1px 1px 0;}
     }
   }
 }

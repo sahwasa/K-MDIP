@@ -8,47 +8,7 @@ $panelWidth : 350px;
   .section_body{flex:1;background-color:$bg_gray;overflow-y:auto;}
   .tab{margin-bottom:0;}
 }
-// tree
-.tree_ctrl{border-bottom:1px solid $border_gray;text-align:right;padding:10px 15px;z-index:5;
-  .tgl_tree{@include btn();
-    &{display:inline-flex;align-items:center;gap:5px;}
-    label{color:#555;}
-    &::before{@include shape(13px, 13px);background:url(../images/ico.png) -31px -26px no-repeat;}
-    &:has(:checked)::before{background-position-y:-3px;}
-  }
-}
-.tree_wrap{
-  .tree{display:flex;flex-direction:column;height:calc(100vh - 235px);min-height:528px;overflow-y:auto;
-    li{position:relative;padding-left:17px;display:flex;flex-wrap:wrap;align-items:center;column-gap:5px;row-gap:5px;
-      &::before, &::after {content:'';position:absolute;left:5px;top:13px;}
-      &::before{border-left:1px dotted #000;height:100%;top:-10px;}
-      &::after {border-top:1px dotted #000;width:10px;}
-      &:last-child::before{height:21px}
-      & > button{z-index:5;font-size:0;z-index:1;}
-      &:has(> button){        
-        & > button::before{position:relative;@include fontello("\f0fe");font-size:14px;color:$skyblue;}
-      }
-      ul:not(:has(>  ul)){
-        &::before {top:-10px}
-        &::after {top:12px;width:15px;}        
-      }
-      ul{width:100%;margin-bottom:5px;}           
-      & > label,
-      & > strong{flex:1;display:flex;align-items:center;gap:5px;padding:5px 15px 5px 0;cursor:pointer;vertical-align:middle;word-break:break-all;letter-spacing:-.12px;font-weight:normal;
-        &:hover,&.on{background-color:#f9fafc;color:$blue;font-weight:bold;}
-      }
-    }
-    & > li{
-      &:not(:has(>ul)){padding-left:34px;}
-    }
-    & > li::before, & > li::after{display:none;border:0; }
-    input[type=checkbox]{width:12px;height:12px;margin-top:2px;align-self:start;}        
-  }
-  .close{
-    & > button:first-child::before{content:'\f146';}
-    & > ul{display:none;}
-  }  
-}
+.tree{height:calc(100vh - 235px);min-height:528px;}
 
 .tgl_cctv_lst{position:relative;
   label{@include label_item(true, $blue);&{font-size:0;padding:7px 8px;}

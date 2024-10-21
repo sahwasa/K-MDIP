@@ -1,17 +1,4 @@
 @charset "utf-8";
 @import "./mixin.scss";
 
-$panelWidth : 220px;
-.lnb_panel{width:$panelWidth;box-shadow:0.3px 4px 5px 0 rgba(0, 0, 0, 0.2);
-  .panel_wrap{width:$panelWidth;}
-  .tit{padding:20px 15px 15px 20px;}
-  .lnb{background-color:#f9fafc;
-    li{
-    &:not(:first-child){margin-top:10px;}
-    &:hover,&.on{background-color:$skyblue;
-      a{color:#fff;}
-    }
-    }
-    a{color:#222;font-size:16px;font-weight:600;padding:10px 40px;}
-  }
-}
+

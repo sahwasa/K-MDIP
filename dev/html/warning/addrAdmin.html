@@ -45,7 +45,13 @@
           <section class="panel panel_sub">
             <div class="panel_content flex_panel">
               <div class="search_area">                
-                <ul class="search">                               
+                <ul class="search">
+                  <li>
+                    <select name="" id=""><option value="">시도</option></select>
+                  </li>                          
+                  <li>
+                    <select name="" id=""><option value="">시군구</option></select>
+                  </li>                          
                   <li>
                     <select title="검색 유형" id="">
                       <option value="">성명</option>
@@ -66,7 +72,6 @@
                     <button type="button" class="btn_txt" onclick="document.querySelector('#pop_addrAdmin').show()">연락처 추가</button>
                     <button type="button" class="btn_txt" onclick="document.querySelector('#pop_addrAdmin').show()">선택수정</button>
                     <button type="button" class="btn_txt">선택삭제</button>
-                    <button type="button" class="btn_txt">주소록 복사???</button>
                     <span class="divide">
                       <button type="button" class="btn_green">엑셀 업로드</button>
                       <button type="button" class="btn_greenline">엑셀 다운로드</button>
@@ -83,14 +88,11 @@
                         <th scope="col">성명</th>
                         <th scope="col">모바일</th>
                         <th scope="col">전화번호</th>
-                        <th scope="col">팩스</th>
-                        <th scope="col">이메일</th>
+                        <th scope="col">지역</th>
                         <th scope="col">소속</th>
-                        <th scope="col">직위</th>
-                        <th scope="col">직급</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody>                      
                       <tr>
                         <td><input type="checkbox" title="줄선택" class="row_check"></td>
                         <td>1</td>
@@ -98,11 +100,8 @@
                         <td>고길동</td>
                         <td>010-1234-5678</td>
                         <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
+                        <td>서울시 도봉구 쌍문동</td>
+                        <td>민간인</td>
                       </tr>
                       <tr>
                         <td><input type="checkbox" title="줄선택" class="row_check"></td>
@@ -111,10 +110,7 @@
                         <td>둘리</td>
                         <td>010-1234-5678</td>
                         <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
+                        <td>경기도 부천시 원미구 상1동</td>
                         <td>-</td>
                       </tr>
                     </tbody>
@@ -145,6 +141,13 @@
       <dd><input type="text"></dd>
       <dt><label for="">전화번호</label></dt>
       <dd><input type="text"></dd>
+      <dt><label for="">지역</label></dt>
+      <dd>
+        <select name="" id=""><option value="">시도</option></select>
+        <select name="" id=""><option value="">시군구</option></select>      
+        <select name="" id=""><option value="">읍면동</option></select>
+        <select name="" id=""><option value="">리</option></select>
+      </dd>
       <dt><label for="">팩스</label></dt>
       <dd><input type="text"></dd>
       <dt><label for="">이메일</label></dt>

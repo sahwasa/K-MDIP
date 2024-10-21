@@ -38,9 +38,10 @@
     <ul class="gnb_lst">
       <li class="on"><a href="../../html/gis/gis_mntr.html">GIS 상황판</a></li>
       <li><a href="../../html/cctv/integrated_ctrl.html">CCTV 통합관제</a></li>
-      <li><a href="">IOT 관측자료</a></li>
+      <li><a href="../../html/iot/iot_integrated.html">IOT 관측자료</a></li>
       <li><a href="../../html/warning/monitoring.html">재난예경보</a></li>
     </ul>
+    <a href="../../html/set/user.html" class="btn set" title="시스템관리">시스템관리</a>
   </nav>
   <div class="util_wrap">
     <ul class="util_lst">
@@ -48,19 +49,14 @@
         <button type="button" class="btn user" onclick="document.querySelector('#pop_myInfo').show()">내정보 보기 및 수정</button>
         <span><b id="top_user_nm">김관리</b>님</span>
       </li>
-
-      <li><a href="../../html/set/user.html" class="btn set">환경설정</a></li>
-      
       <li class="alert_wrap" title="재난발령요청">
         <a href="javascript:(document.querySelector('#p_alert').show())" class="btn alert">재난발령요청</a>
         <span class="on" id="alert_counter">0</span>
       </li>      
-      
       <li class="alert_wrap" onclick="open_accdent_popup()" title="돌발상황">
         <a href="#" class="btn unexpected">돌발상황</a>
         <span class="on" id='accident_counter'>2</span>
       </li>
-      
       <li title="연계상태"><a href="javascript:(document.querySelector('#p_stats').show())" class="system">연계상태</a></li>
       <li title="로그아웃"><a href="/login.do" class="btn log">로그아웃</a></li>
     </ul>

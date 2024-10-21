@@ -38,9 +38,10 @@
     <ul class="gnb_lst">
       <li class="on"><a href="../../html/gis/gis_mntr.html">GIS 상황판</a></li>
       <li><a href="../../html/cctv/integrated_ctrl.html">CCTV 통합관제</a></li>
-      <li><a href="">IOT 관측자료</a></li>
+      <li><a href="../../html/iot/iot_integrated.html">IOT 관측자료</a></li>
       <li><a href="../../html/warning/monitoring.html">재난예경보</a></li>
     </ul>
+    <a href="../../html/set/user.html" class="btn set" title="시스템관리">시스템관리</a>
   </nav>
   <div class="util_wrap">
     <ul class="util_lst">
@@ -48,19 +49,14 @@
         <button type="button" class="btn user" onclick="document.querySelector('#pop_myInfo').show()">내정보 보기 및 수정</button>
         <span><b id="top_user_nm">김관리</b>님</span>
       </li>
-
-      <li><a href="../../html/set/user.html" class="btn set">환경설정</a></li>
-      
       <li class="alert_wrap" title="재난발령요청">
         <a href="javascript:(document.querySelector('#p_alert').show())" class="btn alert">재난발령요청</a>
         <span class="on" id="alert_counter">0</span>
       </li>      
-      
       <li class="alert_wrap" onclick="open_accdent_popup()" title="돌발상황">
         <a href="#" class="btn unexpected">돌발상황</a>
         <span class="on" id='accident_counter'>2</span>
       </li>
-      
       <li title="연계상태"><a href="javascript:(document.querySelector('#p_stats').show())" class="system">연계상태</a></li>
       <li title="로그아웃"><a href="/login.do" class="btn log">로그아웃</a></li>
     </ul>
@@ -156,6 +152,13 @@
                       <tr onclick="selectRow(this, 'KR.T10107-2024000001_HRE_1', '3100000000')" style="cursor:pointer;" value="KR.T10107-2024000001_HRE_1">
                         <td>
                           <div class="type_wrap">
+                            <i class="Test">시험</i><i class="Reserve">예약</i>
+                          </div>
+                        </td>
+                        <td>호우 긴급정보</td><td>울산광역시</td><td>2024-02-06 10:32:02</td><td>승인</td></tr>
+                      <tr onclick="selectRow(this, 'KR.T10107-2024000001_HRE_1', '3100000000')" style="cursor:pointer;" value="KR.T10107-2024000001_HRE_1">
+                        <td>
+                          <div class="type_wrap">
                             <i class="Actual">실제</i><i class="manual">수동</i>
                           </div>
                         </td>
@@ -203,14 +206,14 @@
                       </ul>
                       <div id="tabs-1">
                         <dl class="msg_lst">
-  <dt><label for="source_kr">경보 발령의 근거 제공자</label></dt>
-  <dd><textarea id="source_kr" maxlength="20" rows="1"></textarea></dd>
+  <!-- <dt><label for="source_kr">경보 발령의 근거 제공자</label></dt>
+  <dd><textarea id="source_kr" maxlength="20" rows="1"></textarea></dd> -->
   <dt>
     <label for="text_40_kr">재해문자전광판</label>
     <span class="size"><span id="nowByte40_kr">0</span> / 40 bytes</span>
   </dt>
   <dd>
-    <textarea id="text_40_kr" onkeyup="fn_checkByte(this, 80, 'nowByte80_kr')" maxlength="80" rows="2"></textarea>                   
+    <textarea id="text_40_kr" onkeyup="fn_checkByte(this, 80, 'nowByte80_kr')" maxlength="80" rows="1"></textarea>                   
   </dd>
   <dt>
     <label for="text_80_kr">재해문자전광판</label>
@@ -234,25 +237,25 @@
   <dd>
     <textarea id="text_broadcast_kr" rows="3"></textarea>
   </dd>
-  <dt>음성파일</dt>
+  <!-- <dt>음성파일</dt>
   <dd>
     <audio controls="">
       <source src="" type="audio/mp3">
     </audio>
-  </dd>                 
+  </dd>                  -->
 </dl>
                       </div>
                     
                       <div id="tabs-2">
                         <dl class="msg_lst">
-  <dt><label for="source_kr">경보 발령의 근거 제공자</label></dt>
-  <dd><textarea id="source_kr" maxlength="20" rows="1"></textarea></dd>
+  <!-- <dt><label for="source_kr">경보 발령의 근거 제공자</label></dt>
+  <dd><textarea id="source_kr" maxlength="20" rows="1"></textarea></dd> -->
   <dt>
     <label for="text_40_kr">재해문자전광판</label>
     <span class="size"><span id="nowByte40_kr">0</span> / 40 bytes</span>
   </dt>
   <dd>
-    <textarea id="text_40_kr" onkeyup="fn_checkByte(this, 80, 'nowByte80_kr')" maxlength="80" rows="2"></textarea>                   
+    <textarea id="text_40_kr" onkeyup="fn_checkByte(this, 80, 'nowByte80_kr')" maxlength="80" rows="1"></textarea>                   
   </dd>
   <dt>
     <label for="text_80_kr">재해문자전광판</label>
@@ -276,12 +279,12 @@
   <dd>
     <textarea id="text_broadcast_kr" rows="3"></textarea>
   </dd>
-  <dt>음성파일</dt>
+  <!-- <dt>음성파일</dt>
   <dd>
     <audio controls="">
       <source src="" type="audio/mp3">
     </audio>
-  </dd>                 
+  </dd>                  -->
 </dl>
                       </div>						  
                     </div>						
@@ -513,14 +516,14 @@
         <section>
           <h2>발령내용</h2>
           <dl class="msg_lst">
-  <dt><label for="source_kr">경보 발령의 근거 제공자</label></dt>
-  <dd><textarea id="source_kr" maxlength="20" rows="1"></textarea></dd>
+  <!-- <dt><label for="source_kr">경보 발령의 근거 제공자</label></dt>
+  <dd><textarea id="source_kr" maxlength="20" rows="1"></textarea></dd> -->
   <dt>
     <label for="text_40_kr">재해문자전광판</label>
     <span class="size"><span id="nowByte40_kr">0</span> / 40 bytes</span>
   </dt>
   <dd>
-    <textarea id="text_40_kr" onkeyup="fn_checkByte(this, 80, 'nowByte80_kr')" maxlength="80" rows="2"></textarea>                   
+    <textarea id="text_40_kr" onkeyup="fn_checkByte(this, 80, 'nowByte80_kr')" maxlength="80" rows="1"></textarea>                   
   </dd>
   <dt>
     <label for="text_80_kr">재해문자전광판</label>
@@ -544,12 +547,12 @@
   <dd>
     <textarea id="text_broadcast_kr" rows="3"></textarea>
   </dd>
-  <dt>음성파일</dt>
+  <!-- <dt>음성파일</dt>
   <dd>
     <audio controls="">
       <source src="" type="audio/mp3">
     </audio>
-  </dd>                 
+  </dd>                  -->
 </dl>
         </section>
         <section>

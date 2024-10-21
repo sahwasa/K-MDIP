@@ -1,0 +1,36 @@
+@charset "utf-8";
+@import "./mixin.scss";
+
+.lnb_iot{
+  .lnb > ul > li{
+    & > a::before{@include shape(22px,22px);background:url(../images/iot_menu.png) 0 no-repeat;}
+    :is(&:hover, &.on) > a::before{background-image:url(../images/iot_menu_on.png);}
+    @for $i from 1 through 4{
+      &:nth-child(#{$i}) > a::before{background-position-y:(($i - 1) * - 32px);}
+    }
+  }
+}
+.status{
+  .tbl_wrap{--h:calc(100vh - 265px);min-height:535px;}
+  td:nth-child(4){height:45px;}
+}
+.connection,
+.riskLv{@include dot($size:10px);&{display:inline-flex;gap:8px;align-items:center;border:2px solid transparent;border-radius:15px;padding:5px 10px;color:#555;white-space:nowrap;font-size:13px;letter-spacing:-.7px;}}
+.connection{width:75px;
+  &::before{border-radius:3px;}
+  &.default{border-color:nth($connection, 1);
+    &::before{background-color:nth($connection, 1);}
+  }
+  &.no-signal{border-color:nth($connection, 2);
+    &::before{background-color:nth($connection, 2);}
+  }
+  &.error{border-color:nth($connection, 3);
+    &::before{background-color:nth($connection, 3);}
+  }
+}
+@for $i from 1 through 3{
+  .riskLv.lv#{$i}{border-color:nth($riskLevel, $i);
+    &::before{background-color:nth($riskLevel, $i);}
+  }
+}
+

@@ -157,3 +157,23 @@
   @if($border){border:1px solid $border;border-width:0 0 1px 1px;}
   @if($center){left:50%;margin-left:calc((#{$size} / 2) * -1);}
 }
+@mixin alignL($numbers,$reverse : false){
+  @each $num in $numbers{
+    &{text-align:center;}
+    @if($reverse){
+      &:nth-last-of-type(#{$num}){text-align:left;@content;}      
+    }@else{
+      &:nth-of-type(#{$num}){text-align:left;@content;}
+    }
+  } 
+}
+@mixin marginL($numbers, $gap:30px, $reverse : false){
+  @each $num in $numbers{
+    &{text-align:center;}
+    @if($reverse){
+      &:nth-last-of-type(#{$num}){margin-left:$gap;@content;}      
+    }@else{
+      &:nth-of-type(#{$num}){margin-left:$gap;@content;}
+    }
+  } 
+}
