@@ -5,15 +5,42 @@
   <div class="con_wrap">
      @@include('../../inc/warning/lnb.html')
      <main class="contents terminal">
-        <div class="panel_wrap">
+        <div class="panel_wrap">          
           <section class="panel panel_main">
             <header class="tit">
               <h1>단말기 관리</h1>
             </header>
+            <div class="panel_content">      
+              <div class="lst_status all_lst_ctrl">
+                <label for="all" class="all"><input type="checkbox" id="all">전체선택</label>
+                <div class="tool">
+                  <button type="button" class="btn_skyblue" onclick="document.querySelector('.pop_sendingServer').show();">추가</button>
+                </div>
+              </div>
+              <ul id="" class="server_lst lst_ctrl">
+                <li>
+                  <strong>
+                    <label for="dong1"><input type="checkbox">예경보서버1</label>
+                    <button type="button" class="btn_dtl" title="상세보기" onclick="document.querySelector('.pop_sendingServer').show();">상세보기</button>
+                  </strong>
+                </li>
+                <li>
+                  <strong>
+                    <label for="dong1"><input type="checkbox">예경보서버2</label>
+                    <button type="button" class="btn_dtl" title="상세보기" onclick="document.querySelector('.pop_sendingServer').show();">상세보기</button>
+                  </strong>
+                </li>
+              </ul>
+            </div>
+          </section>
+          <section class="panel panel_sub">            
             <div class="panel_content">
               <div class="search_area">                
                 <ul class="search">
                   <li>
+                    <select title="시도" id="">
+                      <option value="">시도</option>
+                    </select>
                     <select title="시군구" id="">
                       <option value="">시군구</option>
                     </select>
@@ -21,10 +48,7 @@
                       <option value="">읍면동</option>
                     </select>                  
                   </li>                 
-                  <li>
-                    <select title="단말기 유형" id="auto_yn">
-                    <option value="">단말기 유형</option>
-                  </select>
+                  <li>                    
                     <input type="text" title="location" placeholder="장비명, 지역명" id="" onkeydown="">
                     <button type="button" class="btn_skyblue" onclick="search();">검색</button>
                   </li>
@@ -33,7 +57,6 @@
               <div class="tbl_area">
                 <div class="tbl_top">
                   <div class="tool">
-                    <button type="button" class="btn_skyblue" onclick="document.querySelector('#pop_terminalAdmin').show();">예경보서버</button>
                     <button type="button" class="btn_skyblue" onclick="document.querySelector('#pop_terminalAdmin').show();">추가</button>
                     <button type="button" class="btn_greenline" onclick="excelDown()">엑셀다운</button>
                   </div>
@@ -45,6 +68,7 @@
                         <th scope="col">구분</th>
                         <th scope="col">예경보서버</th>
                         <th scope="col">단말기명</th>
+                        <th scope="col">단말기번호</th>
                         <th scope="col">위치</th>
                         <th scope="col">관리</th>
                       </tr>
@@ -52,9 +76,10 @@
                     <tbody>
                       <tr>
                         <td>마을방송</td>
-                        <td>예경보서버명</td>
+                        <td>예경보서버1</td>
                         <td>OO마을회관</td>
-                        <td>OO면 OO리 OO번</td>
+                        <td>010-1234-5678</td>
+                        <td>경북 포항</td>
                         <td><button type="button" class="btn_edit" title="수정">수정</button></td>
                       </tr>
                     </tbody>
@@ -120,7 +145,48 @@
      </main>
   </div>
 </div>
-<dialog id="pop_terminalAdmin" class="pop_terminalAdmin" style="--width:650px" open>
+<dialog id="pop_sendingServer" class="pop_sendingServer" open style="--width:600px">
+  <div class="p_header">
+    <h1>예경보서버 추가 및 수정</h1>
+    <button type="button" class="btn_cross">닫기</button>
+  </div>
+  <div class="p_body">
+    <dl class="dl_list">
+      <dt><label for="">시스템명</label></dt>
+      <dd><input type="text"></dd>
+      <dt><label for="">서버IP</label></dt>
+      <dd><input type="text" value="123.123.1.1234" /></dd>
+      <dt><label for="">통보대상지역</label></dt>
+      <dd>
+        <select name="" id=""><option value="">시도</option></select>
+        <select name="" id=""><option value="">시군구</option></select>      
+        <select name="" id=""><option value="">읍면동</option></select>
+        <select name="" id=""><option value="">리</option></select>
+      </dd>
+      <dt><label for="">단말기 유형</label></dt>
+      <dd><select name="" id=""><option value="">단말기 유형(공통코드)</option></select></dd>      
+      <dt>접속상태</dt>
+      <dd><p>정상 (최근접속일시 : 2024-05-04 12:34:20)</p></dd>
+      <dt>비고</dt>
+      <dd><input type="text"></dd>
+      <dt><label for="">사용여부</label></dt>
+      <dd class="full">
+        <div class="switch_toggle">
+          <input type="checkbox" id="useYN1"><label class="useYN" for="useYN1">사용여부</label>
+        </div> 
+      </dd>
+    </dl>
+    <div class="p_foot">
+      <div class="renewal_time">(갱신시각 : 2024-07-01 10:10:10)</div>
+      <button type="button" class="btn_blue" onclick="">저장</button>
+      <button type="button" class="btn_blue" onclick="">수정</button>
+      <button type="button" class="btn_blue" onclick="">삭제</button>
+      <button type="button" class="btn_gray" onclick="">취소</button>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="pop_terminalAdmin" class="pop_terminalAdmin" style="--width:650px">
   <div class="p_header">
     <h1>단말기 추가 및 수정</h1>
     <button type="button" class="btn_cross">닫기</button>

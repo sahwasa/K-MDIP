@@ -42,6 +42,7 @@
   &_equip{@include ico_only{border:1px solid #c2c3c5;border-radius:3px;background-position:1px 1px;};}
   &_info{@include ico_only('\f086');}
   &_modify{@include ico_only('\e832');}
+  &_dtl{@include ico_only('\e84a');}
   &_delete{@include ico_only('\e926');}
   &_txt{@include btn(transparent,$border:transparent);&{font-weight:600;}
     &:hover{background-color:$bg_blue;}
@@ -325,6 +326,7 @@ $dlH:33px;
     p{line-height:$dlH;}
     & + dd{grid-column:2;}
   }
+  &.dd_line_fix dd{line-height:$dlH;}
   .code_wrap{flex-wrap:wrap;
     select{flex:1 0 auto;}
     select:last-of-type{width:100%;}
