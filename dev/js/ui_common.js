@@ -91,7 +91,7 @@ $(function () {
     }
     return false
   })
-  $('.tree_ctrl').on('change','input',function(){
+  $('.tree_ctrl .tgl_tree').on('change','input',function(){
     var cur = $(this).prop('checked');
     var treelst = $('.tree').find('ul > li');
     var txt = $(this);

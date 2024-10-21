@@ -99,7 +99,7 @@
                   <button type="button" class="btn_skyblue" onclick="document.querySelector('.pop_sendingServer').show();">추가</button>
                 </div>
               </div>
-              <ul id="" class="server_lst lst_ctrl">
+              <ul id="" class="check_lst lst_ctrl">
                 <li>
                   <strong>
                     <label for="dong1"><input type="checkbox">예경보서버1</label>
@@ -227,7 +227,7 @@
      </main>
   </div>
 </div>
-<dialog id="pop_sendingServer" class="pop_sendingServer" open style="--width:600px">
+<dialog id="pop_sendingServer" class="pop_sendingServer" style="--width:600px">
   <div class="p_header">
     <h1>예경보서버 추가 및 수정</h1>
     <button type="button" class="btn_cross">닫기</button>
@@ -268,32 +268,32 @@
   </div>
 </dialog>
 
-<dialog id="pop_terminalAdmin" class="pop_terminalAdmin" style="--width:650px">
+<dialog id="pop_terminalAdmin" class="pop_terminalAdmin" open style="--width:650px">
   <div class="p_header">
     <h1>단말기 추가 및 수정</h1>
     <button type="button" class="btn_cross">닫기</button>
   </div>
   <div class="p_body">    
     <dl class="dl_list column2">
-      <dt><label for="">예경보 송출서버</label></dt>
+      <dt><label for="" class="required">예경보 송출서버</label></dt>
       <dd><select name="" id=""><option value="">선택</option></select></dd>
-      <dt><label for="">단말기 구분</label></dt>
+      <dt><label for="" class="required">단말기 구분</label></dt>
       <dd><select name="" id=""><option value="">선택</option></select></dd>
-      <dt><label for="">고유번호</label></dt>
-      <dd class="full"><input type="text"></dd>
-      <dt><label for="">단말기명</label></dt>
-      <dd class="full"><input type="text"></dd>
-      <dt><label for="">단말기 위치</label></dt>
+      <dt><label for="" class="required">고유번호</label></dt>
+      <dd><input type="text"></dd>
+      <dt><label for="" class="required">단말기명</label></dt>
+      <dd><input type="text"></dd>
+      <dt><label for="" class="required">단말기 위치</label></dt>
       <dd class="full">
+        <select name="" id=""><option value="">시도</option></select>
         <select name="" id=""><option value="">시군구</option></select>
         <select name="" id=""><option value="">읍면동</option></select>
-      </dd>
-      <dd class="full">
-        <input type="text" placeholder="나머지 주소">
-      </dd>
-      <dt><label>위도</label></dt>
+        <select name="" id=""><option value="">리</option></select>
+      </dd>      
+      <dd class="full"><input type="text" placeholder="나머지 주소(필수 아님)"></dd>
+      <dt><label for="">위도</label></dt>
       <dd><input type="text" title="위도"></dd>
-      <dt><label>경도</label></dt>
+      <dt><label for="">경도</label></dt>
       <dd><input type="text" title=경도></dd>
       <dt><label for="">모델명</label></dt>
       <dd><select name="" id=""><option value="">선택</option></select></dd>
@@ -303,7 +303,7 @@
       <dd><select name="" id=""><option value="">선택</option></select></dd>
       <dt><label for="">설치형태</label></dt>
       <dd><select name="" id=""><option value="">선택</option></select></dd>
-      <dt class="link"><label for="">설치자</label></dt>
+      <dt><label for="">설치자</label></dt>
       <dd><input type="text"></dd>
       <dt><label for="">설치일자</label></dt>
       <dd><input type="text" data-datepicker="date" class="input_calendar"></dd>
@@ -311,14 +311,14 @@
       <dd><input type="text" data-datepicker="date" class="input_calendar"></dd>
       <dt><label for="">종료일자</label></dt>
       <dd><input type="text" data-datepicker="date" class="input_calendar"></dd>
+      <dt><label for="">비고</label></dt>
+      <dd class="full"><textarea name="" id="" rows="2"></textarea></dd>
       <dt><label for="">사용여부</label></dt>
       <dd class="full">
         <div class="switch_toggle">
           <input type="checkbox" id="useYN1"><label class="useYN" for="useYN1">사용여부</label>
         </div> 
       </dd>
-      <dt><label for="">비고</label></dt>
-      <dd class="full"><textarea name="" id="" rows="2"></textarea></dd>
     </dl>
     <div class="p_foot">
       <div class="renewal_time">(갱신시각 : 2024-07-01 10:10:10)</div>

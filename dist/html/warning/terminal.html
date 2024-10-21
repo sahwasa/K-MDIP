@@ -263,13 +263,16 @@
         <div class="tab_conts">
           <section id="tab01" class="tab_cont">
             <div class="tree_wrap">      
-              <div class="tree_ctrl">
-                <span class="btn_switch_single tgl_tree">
-                  <input type="checkbox" id="cctv_lst">
-                  <label for="cctv_lst">전체접기</label>
-                </span>
+              <div class="tree_ctrl lst_status all_lst_ctrl">
+                <label for="all_check" class="all"><input type="checkbox" id="all_check">전체선택</label>
+                <div class="tool">
+                  <span class="btn_switch_single tgl_tree">
+                    <input type="checkbox" id="loc_lst">
+                    <label for="loc_lst">전체접기</label>
+                  </span>
+                </div>
               </div>
-              <ul class="tree">                        
+              <ul class="tree lst_ctrl">                        
                 <li>
                   <button type="button">그룹 접기/열기</button>
                   <label for="si1"><input type="checkbox" id="sido1">시도1</label>
@@ -300,6 +303,35 @@
                       <label for="si2"><input type="checkbox" id="si2">시군구1</label>
                     </li>
                   </ul>
+                </li>
+              </ul>
+            </div>
+          </section>
+          <section id="tab02" class="tab_cont">
+            <div class="">      
+              <div class="lst_status all_lst_ctrl">
+                <label for="all" class="all"><input type="checkbox" id="all">전체선택</label>
+              </div>
+              <ul id="" class="check_lst lst_ctrl">
+                <li>
+                  <strong>
+                    <label for=""><input type="checkbox">버스정보시스템</label>
+                  </strong>
+                </li>
+                <li>
+                  <strong>
+                    <label for=""><input type="checkbox">재해문자전광판</label>
+                  </strong>
+                </li>
+                <li>
+                  <strong>
+                    <label for=""><input type="checkbox">마을방송시스템</label>
+                  </strong>
+                </li>
+                <li>
+                  <strong>
+                    <label for=""><input type="checkbox">자동음성통보시스템</label>
+                  </strong>
                 </li>
               </ul>
             </div>
