@@ -9,7 +9,67 @@
         <h1>통합상황판</h1>
       </header>
       <div class="content">
-
+        <div class="tab box_tab">
+          <ul class="tab_list">
+            <li><a href="#tab01" class="on">관측현황</a></li>
+            <li><a href="#tab02">장비상태</a></li>
+          </ul>
+        </div>
+        <div class="tab_conts">
+          <section id="tab02" class="tab_cont">
+            <div class="tbl_wrap">
+              <table class="tbl_default">
+                <thead>
+                  <tr>
+                    <th scope="col" rowspan="2">지역명</th>
+                    <th scope="col" rowspan="2">장비명</th>
+                    <th scope="col" colspan="4">전원</th>
+                    <th scope="col" colspan="3">배터리</th>
+                    <th scope="col" rowspan="2">로거</th>
+                    <th scope="col" rowspan="2">도어</th>
+                    <th scope="col" rowspan="2">센서</th>
+                    <th scope="col" colspan="2">메인엠프</th>
+                    <th scope="col" rowspan="2">볼륨</th>
+                    <th scope="col" rowspan="2">스피커</th>
+                    <th scope="col" rowspan="2">최종로깅시각</th>
+                  </tr>
+                  <tr>
+                    <th scope="col">상전 (AC)</th>
+                    <th scope="col">태양전지 (DC)</th>
+                    <th scope="col">전압 (V)</th>
+                    <th scope="col">충전전류 (A)</th>
+                    <th scope="col">전압(V) (18V 이상)</th>
+                    <th scope="col">소비전류1 (A)</th>
+                    <th scope="col">소비전류2 (A)</th>
+                    <th scope="col">상태</th>
+                    <th scope="col">전원</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>00동</td>
+                    <td>00교</td>
+                    <td>O</td>
+                    <td>O</td>
+                    <td>39.20</td>
+                    <td>0.20</td>
+                    <td>27.20</td>
+                    <td>0.15</td>
+                    <td>0.00</td>
+                    <td>정상</td>
+                    <td>닫힘</td>
+                    <td>정상</td>
+                    <td>정상</td>
+                    <td>정상</td>
+                    <td>58</td>
+                    <td>HDLC</td>
+                    <td>2024-09-05 12:00:00</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
       </div>
     </main>
   </div>  

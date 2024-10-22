@@ -4,11 +4,11 @@
 $panelWidth : 350px;
 .cctv_ctrl{width:$panelWidth;box-shadow:0.3px 4px 5px 0 rgba(0, 0, 0, 0.2);
   .panel_wrap{width:$panelWidth;}
-  .tit{padding:20px 15px 15px 20px;}
+  .tit{padding:20px 15px 15px 20px;border-bottom-width:0;}
   .section_body{flex:1;background-color:$bg_gray;overflow-y:auto;}
   .tab{margin-bottom:0;}
 }
-.tree{height:calc(100vh - 235px);min-height:528px;}
+.tree{height:calc(100vh - 234px);min-height:529px;}
 
 .tgl_cctv_lst{position:relative;
   label{@include label_item(true, $blue);&{font-size:0;padding:7px 8px;}

@@ -53,7 +53,7 @@
 			.panel_content{padding:0;border-top-width:0;}
 			.tree{height:calc(100vh - 158px);}
 		}
-		.panel_sub{flex:1;width:auto;}
+		.panel_sub{flex:1;width:auto;transition:none;}
 	}
 	.tab{margin-bottom:0;}
 	.btn_wrap button{@include btnType(L);}
@@ -212,7 +212,7 @@
 			.tree_wrap{flex:0 0 200px;}
 			.select_map{flex:1;}
 		}
-		.tbl_wrap{--h:519px;}
+		.tbl_wrap{--h:526px;}
 	}
 	.msg_lst{flex:.8;}
 }
@@ -234,7 +234,7 @@
 		.panel_content{padding:0;border-top-width:0;}
 		.tree{height:calc(100vh - 158px);}
 	}
-	.panel_sub{flex:1;
+	.panel_sub{flex:1;transition:none;
 		.tbl_wrap{height:calc(100vh - 177px);min-height:623px;}
 	} 
 }
@@ -246,7 +246,9 @@
 
 // 주소록관리
 .addr .panel_sub{
-	.tbl_wrap{height:calc(100vh - 193px);min-height:608px;}
+	.tbl_wrap{height:calc(100vh - 193px);min-height:608px;
+		td{@include alignL(3, true);}
+	}
 }
 .tag_group{@include tag($bg_gray);&{display:inline-flex;align-items:center;gap:3px;margin:1px;color:#555;}
 	.btn_cross::before{color:$coral;}
