@@ -66,12 +66,12 @@
   </div>
 </header>
   <div class="con_wrap">
-    <section class="lnb_panel">
+    <section class="lnb_panel lnb_set">
   <div class="panel_wrap">
     <header class="tit">
       <h1>시스템관리</h1>
     </header>    
-    <nav class="lnb lnb_set">
+    <nav class="lnb">
       <ul id="left_menu">
         <li class="on"><a href="../../html/set/user.html">사용자관리</a></li>       
         <li><a href="../../html/set/cmmnCode.html">공통코드관리</a></li>       
@@ -85,7 +85,7 @@
       <header class="tit">
         <h1>수신처관리</h1>
       </header>
-      <div class="content">
+      <div class="content dest_admin">
         <div class="search_area">
           <ul class="search">
             <li>
@@ -101,9 +101,9 @@
               <button type="button" class="btn_grayline" onclick="deleteDest()">삭제</button>
             </div>
           </div>
-          <div class="tbl_wrap" style="--h:595px">
-            <table class="tbl_default">
-              <caption>수신처관리 제목</caption>              
+          <div class="tbl_wrap">
+            <table class="tbl_default tbl_hover">
+              <caption>수신처관리</caption>              
               <thead>
                 <tr>
                   <th scope="col">선택</th>
@@ -117,7 +117,7 @@
                   <th scope="col">수정</th>
                 </tr>
               </thead>              
-              <tbody id="tab4_list">
+              <tbody>
                 <tr>
                   <td><input type="checkbox" name="checkbox_tab4" value="kbs_uhd"></td>
                   <td>KBS 울산방송</td>

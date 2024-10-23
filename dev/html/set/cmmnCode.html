@@ -8,7 +8,7 @@
       <header class="tit">
         <h1>공통코드관리</h1>
       </header>
-      <div class="content">
+      <div class="content cmmn_code">
         <div class="layout_flex">
           <section class="section">
             <header class="tit">
@@ -20,9 +20,9 @@
 <!--                       <button type="button" class="btn_s btn_mintline"><b>미사용</b></button> -->
               </div>
             </header>
-            <div class="tbl_area tbl_wrap" style="--h:660px">
-              <table class="tbl_default">
-                <caption>공통코드관리 제목</caption>               
+            <div class="tbl_area tbl_wrap">
+              <table class="tbl_default tbl_hover">
+                <caption>그룹코드</caption>               
                 <thead>
                   <tr>
                     <th scope="col">선택</th>
@@ -32,8 +32,8 @@
                     <th scope="col">사용여부</th>
                   </tr>
                 </thead>                  
-                <tbody id="tab2_left">
-                  <tr onclick="selectGroupCode(this, 'AUTH', '사용자권한', '사용자권한', 'on')" style="cursor:pointer;">
+                <tbody>
+                  <tr onclick="selectGroupCode(this, 'AUTH', '사용자권한', '사용자권한', 'on')">
                     <td><input type="checkbox" name="checkbox_tab2_left" value="AUTH"></td>
                     <td>AUTH</td>
                     <td>사용자권한</td>
@@ -57,9 +57,9 @@
                 <button type="button" class="btn_grayline" onclick="deleteCode()">삭제</button>
               </div>
             </header>
-            <div class="tbl_area tbl_wrap" style="--h:660px">
-              <table class="tbl_default">
-                <caption>상세코드 제목</caption>              
+            <div class="tbl_area tbl_wrap">
+              <table class="tbl_default tbl_hover">
+                <caption>상세코드</caption>              
                 <thead>
                   <tr>
                     <th scope="col">선택</th>
@@ -69,7 +69,7 @@
                     <th scope="col">사용여부</th>
                   </tr>
                 </thead>
-                <tbody id="tab2_right">
+                <tbody>
                   <tr>
                     <td></td>
                     <td></td>

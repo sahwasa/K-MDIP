@@ -10,3 +10,14 @@
 .tit .tool{
   button{@include btnType(S);}
 }
+.user_admin,
+.dest_admin{
+  .tbl_wrap{--h:calc(100vh - 275px); min-height:513px;}
+}
+.cmmn_code{
+  .tbl_wrap{--h:calc(100vh - 209px); min-height:590px;}
+}
+.disaster_code{
+  .tbl_wrap{--h:calc(100vh - 209px); min-height:590px;}
+  .vertical .tbl_wrap{--h:calc(50vh - 135px); min-height:265px;}
+}

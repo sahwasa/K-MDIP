@@ -66,12 +66,12 @@
   </div>
 </header>
   <div class="con_wrap">
-    <section class="lnb_panel">
+    <section class="lnb_panel lnb_set">
   <div class="panel_wrap">
     <header class="tit">
       <h1>시스템관리</h1>
     </header>    
-    <nav class="lnb lnb_set">
+    <nav class="lnb">
       <ul id="left_menu">
         <li class="on"><a href="../../html/set/user.html">사용자관리</a></li>       
         <li><a href="../../html/set/cmmnCode.html">공통코드관리</a></li>       
@@ -85,7 +85,7 @@
       <header class="tit">
         <h1>재난코드관리</h1>
       </header>
-      <div class="content">
+      <div class="content disaster_code">
         <div class="layout_flex">
           <div class="layout_flex vertical">
             <section class="section">
@@ -96,8 +96,8 @@
                   <button type="button" class="btn_grayline" onclick="">삭제</button>
                 </div>
               </header>
-              <div class="tbl_wrap" style="--h:200px">
-                <table class="tbl_default">
+              <div class="tbl_wrap">
+                <table class="tbl_default tbl_hover">
                   <caption>대분류제목</caption>                 
                   <thead>
                     <tr>
@@ -107,8 +107,18 @@
                       <th scope="col">사용여부</th>
                     </tr>
                   </thead>
-                  <tbody id="tab3_left1">
-                    <tr onclick="selectDisasterCode1(this, 'T1')">
+                  <tbody>
+                    <tr onclick="selectDisasterCode1(this, 'T1')" class="on">
+                      <td>T1</td>
+                      <td>자연재난</td>
+                      <td>재난코드 대분류</td>
+                      <td>
+                        <div class="switch_toggle">
+                          <input type="checkbox" id="useYN1"><label class="useYN" for="useYN1">사용여부</label>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr onclick="selectDisasterCode1(this, 'T2')">
                       <td>T1</td>
                       <td>자연재난</td>
                       <td>재난코드 대분류</td>
@@ -130,7 +140,7 @@
                   <button type="button" class="btn_grayline" onclick="">삭제</button>
                 </div>
               </header>
-              <div class="tbl_wrap" style="--h:390px">
+              <div class="tbl_wrap tbl_hover">
                 <table class="tbl_default">
                   <caption>중분류제목</caption>            
                   <thead>
@@ -141,7 +151,7 @@
                       <th>사용여부</th>
                     </tr>
                   </thead>                  
-                  <tbody id="tab3_left2">
+                  <tbody>
                   </tbody>
                 </table>
               </div>              
@@ -155,7 +165,7 @@
                 <button type="button" class="btn_grayline" onclick="">삭제</button>
               </div>
             </header>
-            <div class="tbl_wrap" style="--h:660px">
+            <div class="tbl_wrap">
               <table class="tbl_default">
                 <caption>상세그룹 제목</caption>
                 <thead>
@@ -167,7 +177,7 @@
                     <th scope="col">상세보기</th>
                   </tr>
                 </thead>                 
-                <tbody id="tab3_right">
+                <tbody>
                 </tbody>
               </table>
             </div>

@@ -66,12 +66,12 @@
   </div>
 </header>
   <div class="con_wrap">
-    <section class="lnb_panel">
+    <section class="lnb_panel lnb_set">
   <div class="panel_wrap">
     <header class="tit">
       <h1>시스템관리</h1>
     </header>    
-    <nav class="lnb lnb_set">
+    <nav class="lnb">
       <ul id="left_menu">
         <li class="on"><a href="../../html/set/user.html">사용자관리</a></li>       
         <li><a href="../../html/set/cmmnCode.html">공통코드관리</a></li>       
@@ -85,7 +85,7 @@
       <header class="tit">
         <h1>공통코드관리</h1>
       </header>
-      <div class="content">
+      <div class="content cmmn_code">
         <div class="layout_flex">
           <section class="section">
             <header class="tit">
@@ -97,9 +97,9 @@
 <!--                       <button type="button" class="btn_s btn_mintline"><b>미사용</b></button> -->
               </div>
             </header>
-            <div class="tbl_area tbl_wrap" style="--h:660px">
-              <table class="tbl_default">
-                <caption>공통코드관리 제목</caption>               
+            <div class="tbl_area tbl_wrap">
+              <table class="tbl_default tbl_hover">
+                <caption>그룹코드</caption>               
                 <thead>
                   <tr>
                     <th scope="col">선택</th>
@@ -109,8 +109,8 @@
                     <th scope="col">사용여부</th>
                   </tr>
                 </thead>                  
-                <tbody id="tab2_left">
-                  <tr onclick="selectGroupCode(this, 'AUTH', '사용자권한', '사용자권한', 'on')" style="cursor:pointer;">
+                <tbody>
+                  <tr onclick="selectGroupCode(this, 'AUTH', '사용자권한', '사용자권한', 'on')">
                     <td><input type="checkbox" name="checkbox_tab2_left" value="AUTH"></td>
                     <td>AUTH</td>
                     <td>사용자권한</td>
@@ -134,9 +134,9 @@
                 <button type="button" class="btn_grayline" onclick="deleteCode()">삭제</button>
               </div>
             </header>
-            <div class="tbl_area tbl_wrap" style="--h:660px">
-              <table class="tbl_default">
-                <caption>상세코드 제목</caption>              
+            <div class="tbl_area tbl_wrap">
+              <table class="tbl_default tbl_hover">
+                <caption>상세코드</caption>              
                 <thead>
                   <tr>
                     <th scope="col">선택</th>
@@ -146,7 +146,7 @@
                     <th scope="col">사용여부</th>
                   </tr>
                 </thead>
-                <tbody id="tab2_right">
+                <tbody>
                   <tr>
                     <td></td>
                     <td></td>
