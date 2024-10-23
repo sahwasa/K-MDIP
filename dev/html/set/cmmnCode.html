@@ -10,77 +10,81 @@
       </header>
       <div class="content">
         <div class="layout_flex">
-                <section class="section">
-                  <header class="tit">
-                    <h3>그룹코드</h3>
-                    <div class="tool">
-                      <button type="button" class="btn_skyblue" onclick="showGroupcodePopup('C')">추가</button>
-                      <button type="button" class="btn_pinkline" onclick="showGroupcodePopup('U')">수정 </button>
-                      <button type="button" class="btn_grayline" onclick="deleteCode('')">삭제</button>
-    <!--                       <button type="button" class="btn_s btn_mintline"><b>미사용</b></button> -->
-                    </div>
-                  </header>
-                  <div class="tbl_area tbl_wrap" style="--h:660px">
-                    <table class="tbl_default">
-                      <caption>공통코드관리 제목</caption>
-                      <colgroup>
-                        <col style="width:80px">
-                        <col style="width:120px">
-                        <col style="width:180px">
-                        <col style="width:auto">
-                        <col style="width:78px">
-                        <col class="fix_scroll">
-                      </colgroup>
-                      <thead>
-                        <tr>
-                          <th>선택</th>
-                          <th>코드</th>
-                          <th>코드명</th>
-                          <th>설명</th>
-                          <th>사용여부</th>
-                          <th></th>
-                        </tr>
-                      </thead>                  
-                      <tbody id="tab2_left"><tr onclick="selectGroupCode(this, 'AUTH', '사용자권한', '사용자권한', 'on')" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab2_left" value="AUTH"></td><td>AUTH</td><td>사용자권한</td><td>사용자권한</td><td><span datavalue="on" class="btn_toggle" onclick="useCode(this, 'AUTH_')"></span></td></tr><tr onclick="selectGroupCode(this, 'T1', '자연재난', '재난코드 대분류', 'on')" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab2_left" value="T1"></td><td>T1</td><td>자연재난</td><td>재난코드 대분류</td><td><span datavalue="on" class="btn_toggle" onclick="useCode(this, 'T1_')"></span></td></tr><tr onclick="selectGroupCode(this, 'T2', '사회재난', '재난코드 대분류', 'on')" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab2_left" value="T2"></td><td>T2</td><td>사회재난</td><td>재난코드 대분류</td><td><span datavalue="on" class="btn_toggle" onclick="useCode(this, 'T2_')"></span></td></tr><tr onclick="selectGroupCode(this, 'T3', '기타재난', '재난코드 대분류', 'on')" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab2_left" value="T3"></td><td>T3</td><td>기타재난</td><td>재난코드 대분류</td><td><span datavalue="on" class="btn_toggle" onclick="useCode(this, 'T3_')"></span></td></tr><tr onclick="selectGroupCode(this, 'msgType', '통보구분 코드', 'cap 파라메터', 'on')" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab2_left" value="msgType"></td><td>msgType</td><td>통보구분 코드</td><td>cap 파라메터</td><td><span datavalue="on" class="btn_toggle" onclick="useCode(this, 'msgType_')"></span></td></tr><tr onclick="selectGroupCode(this, 'category', '재난유형 분류코드', 'cap 파라메터', 'on')" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab2_left" value="category"></td><td>category</td><td>재난유형 분류코드</td><td>cap 파라메터</td><td><span datavalue="on" class="btn_toggle" onclick="useCode(this, 'category_')"></span></td></tr><tr onclick="selectGroupCode(this, 'urgency', '대응 행위의 긴급성', 'cap 파라메터', 'on')" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab2_left" value="urgency"></td><td>urgency</td><td>대응 행위의 긴급성</td><td>cap 파라메터</td><td><span datavalue="on" class="btn_toggle" onclick="useCode(this, 'urgency_')"></span></td></tr><tr onclick="selectGroupCode(this, 'certainty', '재난의 발생 확률', 'cap 파라메터', 'on')" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab2_left" value="certainty"></td><td>certainty</td><td>재난의 발생 확률</td><td>cap 파라메터</td><td><span datavalue="on" class="btn_toggle" onclick="useCode(this, 'certainty_')"></span></td></tr><tr onclick="selectGroupCode(this, 'Priority', '우선순위', 'cap 파라메터', 'on')" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab2_left" value="Priority"></td><td>Priority</td><td>우선순위</td><td>cap 파라메터</td><td><span datavalue="on" class="btn_toggle" onclick="useCode(this, 'Priority_')"></span></td></tr><tr onclick="selectGroupCode(this, 'Broadcastflag', '의무방송구분', 'cap 파라메터', 'on')" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab2_left" value="Broadcastflag"></td><td>Broadcastflag</td><td>의무방송구분</td><td>cap 파라메터</td><td><span datavalue="on" class="btn_toggle" onclick="useCode(this, 'Broadcastflag_')"></span></td></tr><tr onclick="selectGroupCode(this, 'status', '통보발령상황 코드', 'cap 파라메터', 'on')" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab2_left" value="status"></td><td>status</td><td>통보발령상황 코드</td><td>cap 파라메터</td><td><span datavalue="on" class="btn_toggle" onclick="useCode(this, 'status_')"></span></td></tr><tr onclick="selectGroupCode(this, 'DeviceType', '수신기 유형 구분', 'cap 파라메터', 'on')" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab2_left" value="DeviceType"></td><td>DeviceType</td><td>수신기 유형 구분</td><td>cap 파라메터</td><td><span datavalue="on" class="btn_toggle" onclick="useCode(this, 'DeviceType_')"></span></td></tr><tr onclick="selectGroupCode(this, 'severity', '이벤트 피해규모', 'cap 파라메터2', 'on')" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab2_left" value="severity"></td><td>severity</td><td>이벤트 피해규모</td><td>cap 파라메터2</td><td><span datavalue="on" class="btn_toggle" onclick="useCode(this, 'severity_')"></span></td></tr><tr onclick="selectGroupCode(this, 'code', '메시지 처리방법', 'cap 파라메터', 'on')" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab2_left" value="code"></td><td>code</td><td>메시지 처리방법</td><td>cap 파라메터</td><td><span datavalue="on" class="btn_toggle" onclick="useCode(this, 'code_')"></span></td></tr><tr onclick="selectGroupCode(this, 'stt', '통보문 승인 상태', '', 'on')" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab2_left" value="stt"></td><td>stt</td><td>통보문 승인 상태</td><td></td><td><span datavalue="on" class="btn_toggle" onclick="useCode(this, 'stt_')"></span></td></tr><tr onclick="selectGroupCode(this, 'settings', '설정변수', '설정변수', 'on')" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab2_left" value="settings"></td><td>settings</td><td>설정변수</td><td>설정변수</td><td><span datavalue="on" class="btn_toggle" onclick="useCode(this, 'settings_')"></span></td></tr></tbody>
-                    </table>
-                  </div>
-                </section>
-                <section>
-                  <header class="tit">
-                    <h3>상세코드</h3>
-                    <div class="tool">
-                      <button type="button" class="btn_axi btn_add btn_skyblueline btn_code_2" onclick="showCodePopup('C')">추가</button>
-                      <button type="button" class="btn_axi btn_edit btn_pinkline" onclick="showCodePopup('U')">수정 </button>
-                      <button type="button" class="btn_axi btn_minus btn_grayline" onclick="deleteCode()">삭제</button>
-    <!--                       <button type="button" class="btn_s btn_mintline"><b>미사용</b></button> -->
-                    </div>
-                  </header>
-                  <div class="tbl_area tbl_wrap" style="--h:660px">
-                    <table class="tbl_default">
-                      <caption>상세코드 제목</caption>
-                      <colgroup>
-                        <col style="width:80px">
-                        <col style="width:120px">
-                        <col style="width:180px">
-                        <col style="width:auto">
-                        <col style="width:78px">
-                        <col class="fix_scroll">
-                      </colgroup>
-                      <thead>
-                        <tr>
-                          <th>선택</th>
-                          <th>코드</th>
-                          <th>코드명</th>
-                          <th>설명</th>
-                          <th>사용여부</th>
-                          <th></th>
-                        </tr>
-                      </thead>
-                      <tbody id="tab2_right">
-                      </tbody>
-                    </table>
-                  </div>
-                </section>
+          <section class="section">
+            <header class="tit">
+              <h3>그룹코드</h3>
+              <div class="tool">
+                <button type="button" class="btn_skyblue" onclick="showGroupcodePopup('C')">추가</button>
+                <button type="button" class="btn_deepline" onclick="showGroupcodePopup('U')">수정 </button>
+                <button type="button" class="btn_grayline" onclick="deleteCode('')">삭제</button>
+<!--                       <button type="button" class="btn_s btn_mintline"><b>미사용</b></button> -->
+              </div>
+            </header>
+            <div class="tbl_area tbl_wrap" style="--h:660px">
+              <table class="tbl_default">
+                <caption>공통코드관리 제목</caption>               
+                <thead>
+                  <tr>
+                    <th scope="col">선택</th>
+                    <th scope="col">코드</th>
+                    <th scope="col">코드명</th>
+                    <th scope="col">설명</th>
+                    <th scope="col">사용여부</th>
+                  </tr>
+                </thead>                  
+                <tbody id="tab2_left">
+                  <tr onclick="selectGroupCode(this, 'AUTH', '사용자권한', '사용자권한', 'on')" style="cursor:pointer;">
+                    <td><input type="checkbox" name="checkbox_tab2_left" value="AUTH"></td>
+                    <td>AUTH</td>
+                    <td>사용자권한</td>
+                    <td>사용자권한</td>
+                    <td>
+                      <div class="switch_toggle">
+                        <input type="checkbox" id="useYN1"><label class="useYN" for="useYN1">사용여부</label>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+          <section>
+            <header class="tit">
+              <h3>상세코드</h3>
+              <div class="tool">
+                <button type="button" class="btn_skyblue" onclick="showCodePopup('C')">추가</button>
+                <button type="button" class="btn_deepline" onclick="showCodePopup('U')">수정 </button>
+                <button type="button" class="btn_grayline" onclick="deleteCode()">삭제</button>
+              </div>
+            </header>
+            <div class="tbl_area tbl_wrap" style="--h:660px">
+              <table class="tbl_default">
+                <caption>상세코드 제목</caption>              
+                <thead>
+                  <tr>
+                    <th scope="col">선택</th>
+                    <th scope="col">코드</th>
+                    <th scope="col">코드명</th>
+                    <th scope="col">설명</th>
+                    <th scope="col">사용여부</th>
+                  </tr>
+                </thead>
+                <tbody id="tab2_right">
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                      <div class="switch_toggle">
+                        <input type="checkbox" id="useYN1-1"><label class="useYN" for="useYN1-1">사용여부</label>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
         </div>
       </div>      
     </main>

@@ -20,25 +20,13 @@
         <div class="tbl_area">
           <div class="tbl_top">
             <div class="tool">
-              <button type="button" class="btn_axi btn_add btn_skyblueline btn_receiver">추가</button>
-              <button type="button" class="btn_axi btn_minus btn_grayline" onclick="deleteDest()">삭제</button>
+              <button type="button" class="btn_skyblue">추가</button>
+              <button type="button" class="btn_grayline" onclick="deleteDest()">삭제</button>
             </div>
           </div>
           <div class="tbl_wrap" style="--h:595px">
             <table class="tbl_default">
-              <caption>수신처관리 제목</caption>
-              <colgroup>
-                <col style="width:80px">
-                <col style="width:200px">
-                <col style="width:200px">
-                <col style="width:200px">
-                <col style="width:200px">
-                <col style="width:200px">
-                <col style="width:200px">
-                <col style="width:200px">
-                <col style="width:auto">
-                <col class="fix_scroll">
-              </colgroup>
+              <caption>수신처관리 제목</caption>              
               <thead>
                 <tr>
                   <th scope="col">선택</th>
@@ -50,10 +38,25 @@
                   <th scope="col">등록일</th>
                   <th scope="col">사용여부</th>
                   <th scope="col">수정</th>
-                  <th scope="col"></th>
                 </tr>
               </thead>              
-              <tbody id="tab4_list"><tr onclick="highlightTr(this)" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab4" value="kbs_uhd"></td><td>KBS 울산방송</td><td>kbs_uhd</td><td>122.199.200.232</td><td>KBS 울산방송</td><td>010-0000-0000</td><td>2023-11-21 12:29:45</td><td><span datavalue="on" class="btn_toggle" onclick="useDest(this, 'kbs_uhd')"></span></td><td><button class="ico_edit" onclick="showDestInfo('kbs_uhd')"></button></td></tr><tr onclick="highlightTr(this)" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab4" value="idsp"></td><td>UHD 수신테스트</td><td>idsp</td><td>122.199.200.232</td><td>테스트</td><td>010-0000-9050</td><td>2021-02-23 15:28:59</td><td><span datavalue="on" class="btn_toggle" onclick="useDest(this, 'idsp')"></span></td><td><button class="ico_edit" onclick="showDestInfo('idsp')"></button></td></tr><tr onclick="highlightTr(this)" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab4" value="dids"></td><td>구례 DIDS</td><td>dids</td><td>119.197.110.148</td><td>000 담당</td><td>010-0000-0000</td><td>2022-09-13 15:06:45</td><td><span datavalue="off" class="btn_toggle" onclick="useDest(this, 'dids')"></span></td><td><button class="ico_edit" onclick="showDestInfo('dids')"></button></td></tr><tr onclick="highlightTr(this)" style="cursor:pointer;"><td><input type="checkbox" name="checkbox_tab4" value="us_gateway"></td><td>울산게이트웨이</td><td>us_gateway</td><td>222.235.103.114</td><td>울산 예경보</td><td>010-0000-0000</td><td>2022-12-13 16:16:59</td><td><span datavalue="off" class="btn_toggle" onclick="useDest(this, 'us_gateway')"></span></td><td><button class="ico_edit" onclick="showDestInfo('us_gateway')"></button></td></tr></tbody>
+              <tbody id="tab4_list">
+                <tr>
+                  <td><input type="checkbox" name="checkbox_tab4" value="kbs_uhd"></td>
+                  <td>KBS 울산방송</td>
+                  <td>kbs_uhd</td>
+                  <td>122.199.200.232</td>
+                  <td>KBS 울산방송</td>
+                  <td>010-0000-0000</td>
+                  <td>2023-11-21 12:29:45</td>
+                  <td>
+                    <div class="switch_toggle">
+                      <input type="checkbox" id="useYN1-1"><label class="useYN" for="useYN1-1">사용여부</label>
+                    </div>
+                  </td>
+                  <td><button type="button" class="btn_edit" onclick="showDestInfo('kbs_uhd')">수정</button></td>
+                </tr>
+              </tbody>
             </table>
           </div>
         </div>

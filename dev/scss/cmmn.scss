@@ -27,15 +27,18 @@
   &_greenline{@include btn(#fff,$leaf,$leaf);}
   &_pink{@include btn($coral,#fff,$coral);}
   &_pinkline{@include btn(#fff,$coral, $coral);}
-  &_del{@include btn($color:#657383,$addTxt:'\eb2e');
-    &::before{color:$coral;}
-  }
+  // &_del{@include btn($color:#657383,$addTxt:'\eb2e');
+  //   &::before{color:$coral;}
+  // }
   &_send::before{content:'\e002';margin-right:10px;}
   &_cross{font-size:0;vertical-align:middle;line-height:1;
     &::before{content:"×";font-weight:700;line-height:1;font-size:13px;}
   }
-  &_edit{@include btn(#f2f5f8,$btn_blue,$btn_blue);}
-  &_cancel{@include btn(#fff,$skyblue,$skyblue);padding:1px 4px;
+  &_del{@include ico_only{width:24px;height:24px;background-position-y:-49px};}
+  &_edit{@include ico_only{width:24px;height:24px;background-position-y:-83px};}
+  &_del_s{@include ico_only{width:14px;height:14px;background-position:-31px -49px};}
+  &_modify_s{@include ico_only{width:14px;height:14px;background-position:-31px -73px};}
+  &_cancel{@include btn(#fff,$skyblue,$skyblue);&{padding:1px 4px;}
     &::before{content:"×";margin-right:3px;font-weight:600;}
   }
   &_locate{@include ico_only('\e969'){font-size:20px;color:#f18282;margin:0 3px;};}
@@ -418,7 +421,7 @@ table .selected td{background-color:#f3e1e1!important;}
     &.on{background:#fffbd0;}   
     &.on:hover{background-color:#dcf5ff;}
   }
-  button{@include btnType(S);}
+  button:not(:is(.btn_edit,.btn_del)){@include btnType(S);}
 }
 .tbl_analysis tbody tr:first-child{
   th,td{background-color:#f3e1e1;color:#313f53;}

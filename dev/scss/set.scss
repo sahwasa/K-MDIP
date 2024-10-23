@@ -1,4 +1,12 @@
 @charset "utf-8";
 @import "./mixin.scss";
-
-
+.lnb_set li{
+  a::before{@include shape(22px,22px);background:url(../images/set_menu.png) 0 no-repeat;}
+  :is(&:hover, &.on) > a::before{background-image:url(../images/set_menu_on.png);}
+  @for $i from 1 through 4{
+    &:nth-child(#{$i}) > a::before{background-position-y:(($i - 1) * - 32px);}
+  }
+}
+.tit .tool{
+  button{@include btnType(S);}
+}

@@ -103,22 +103,22 @@
                 <li>
                   <strong>
                     <label for="dong1"><input type="checkbox">이·통·반장</label>
-                    <button type="button" class="btn_modify" title="수정" data-clickevt="modify">수정</button>
-                    <button type="button" class="btn_cross" title="삭제" data-clickevt="del">삭제</button>
+                    <button type="button" class="btn_modify_s" title="수정" data-clickevt="modify">수정</button>
+                    <button type="button" class="btn_del_s" title="삭제" data-clickevt="del">삭제</button>
                   </strong>
                 </li>
                 <li>
                   <strong>
                     <label for=""><input type="checkbox">재난도우미</label>
-                    <button type="button" class="btn_modify" title="수정" data-clickevt="modify">수정</button>
-                    <button type="button" class="btn_cross" title="삭제" data-clickevt="del">삭제</button>
+                    <button type="button" class="btn_modify_s" title="수정" data-clickevt="modify">수정</button>
+                    <button type="button" class="btn_del_s" title="삭제" data-clickevt="del">삭제</button>
                   </strong>
                 </li>
                 <li>
                   <strong>
                     <label for=""><input type="checkbox">노인도우미</label>
-                    <button type="button" class="btn_modify" title="수정" data-clickevt="modify">수정</button>
-                    <button type="button" class="btn_cross" title="삭제" data-clickevt="del">삭제</button>
+                    <button type="button" class="btn_modify_s" title="수정" data-clickevt="modify">수정</button>
+                    <button type="button" class="btn_del_s" title="삭제" data-clickevt="del">삭제</button>
                   </strong>
                 </li>
               </ul>
@@ -186,7 +186,7 @@
                         <td>민간인</td>
                         <td>
                           <button type="button" class="btn_edit">수정</button>
-                          <button type="button" class="btn_grayline">삭제</button>
+                          <button type="button" class="btn_del">삭제</button>
                         </td>
                       </tr>
                       <tr>
@@ -200,7 +200,7 @@
                         <td>-</td>
                         <td>
                           <button type="button" class="btn_edit">수정</button>
-                          <button type="button" class="btn_grayline">삭제</button>
+                          <button type="button" class="btn_del">삭제</button>
                         </td>
                       </tr>
                     </tbody>
@@ -402,8 +402,8 @@
     const editIptWrap = $(this).parent('strong')
     let editedIpt = $(this).val()
     if (editedIpt === '') editedIpt = '새그룹 '
-    let btns = `<button type="button" class="btn_modify" title="수정" data-clickevt="modify">수정</button>
-                <button type="button" class="btn_cross" title="삭제" data-clickevt="del">삭제</button>`
+    let btns = `<button type="button" class="btn_modify_s" title="수정" data-clickevt="modify">수정</button>
+                <button type="button" class="btn_del_s" title="삭제" data-clickevt="del">삭제</button>`
     let html =`<label for=""><input type="checkbox">${editedIpt}</label>${btns}`;
     $(editIptWrap).html(html).children('[type="text"]').remove()
   }

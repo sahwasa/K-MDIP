@@ -12,7 +12,7 @@
         <div class="tab box_tab">
           <ul class="tab_list">
             <li><a href="#tab01" class="on">표준문안관리</a></li>
-            <li><a href="#tab02" title="재난코드와 무관한 메시지 관리(예약어 해당 없음)">메시지함 관리</a></li>
+            <li><a href="#tab02">메시지함 관리</a></li>
           </ul>
         </div>
         <div class="tab_conts">
@@ -150,6 +150,7 @@
                         <th scope="col">재난유형</th>
                         <th scope="col">작성자</th>
                         <th scope="col">작성일</th>
+                        <th scope="col">관리</th>
                       </tr>
                     </thead>             
                     <tbody>
@@ -161,6 +162,9 @@
                         <td>자연재난 > 호우 > 호우경보</td>
                         <td>admin</td>
                         <td>2024-01-22</td>
+                        <td>
+                          <button type="button" class="btn_edit">삭제?</button>
+                        </td>
                       </tr>
                       <tr>
                         <td><input type="checkbox" title="줄선택" class="row_check"></td>
@@ -170,18 +174,16 @@
                         <td>자연재난 > 호우 > 호우경보해제</td>
                         <td>admin</td>
                         <td>2024-01-22</td>
+                        <td>
+                          <button type="button" class="btn_edit">삭제?</button>
+                        </td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
               </section>
               <section class="linked_right">
-                <div>
-                  <div class="btn_top">
-                    <button type="button" class="btn_blue">저장</button>
-                    <button type="button" class="btn_deep">수정</button>
-                    <button type="button" class="btn_gray">삭제</button>
-                  </div>
+                <div class="flex_vertical">                  
                   <dl class="dl_list">
                     <dt><label for="type">그룹</label></dt>
                     <dd><select name="" id=""><option value="">그룹</option></select></dd>
@@ -238,6 +240,12 @@
                     </div>              
                     <div id="tabs-2">                      
                     </div>          
+                  </div>
+                  <div class="btn_wrap">
+                    <button type="button" class="btn_blue">저장</button>
+                    <button type="button" class="btn_deep">수정</button>
+                    <button type="button" class="btn_gray">삭제</button>
+                    <button type="button" class="btn_gray">취소</button>
                   </div>
                 </div>
               </section>

@@ -93,8 +93,9 @@
 	.btn_map{position:absolute;right:10px;top:10px;}
 }
 .selected_aside{flex-shrink:0;display:flex;flex-direction:column;gap:5px;width:102px;
-	button{width:100%;height:32px;font-size:15px;border-radius:5px;padding:0;}
-	.btn_apply{flex:1;}
+	button{width:100%;font-size:15px;padding:0;}
+	.btn_reset{height:32px;color:$btn_deep;border:none;justify-content:flex-end;padding-right:5px;}
+	.btn_apply{flex:1;border-radius:5px;}
 }
 
 .lst_status{display:flex;align-items:center;gap:10px;padding:0 15px;height:44px;border:1px solid #2287f3;border-width:1px 0;margin-bottom:0;font-size:13px;
@@ -264,8 +265,8 @@
 	label{cursor:pointer;}
   strong{
     input[type="text"]{flex:1;}
-    .btn_modify,.btn_cross,.btn_dtl{display:none;
-      &:hover::before{color:$coral;}
+    .btn_modify_s,.btn_del_s,.btn_dtl{display:none;
+      &:hover::before{filter:contrast(3.5);}
     }
     &:hover button{display:inline-block;}
   }
@@ -280,7 +281,7 @@
 		}
 		.dl_list{margin-bottom:10px;}
 		.linked_right{flex:.6;}
-		.tab_wrap > .ui-tabs-panel{margin-top:10px;height:calc(100vh - 530px);overflow-y:auto;min-height:270px;}
+		.tab_wrap > .ui-tabs-panel{margin-top:10px;height:calc(100vh - 550px);overflow-y:auto;min-height:250px;}
 	}	
 }
 
