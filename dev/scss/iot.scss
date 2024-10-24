@@ -34,3 +34,13 @@
   }
 }
 
+.risk_filter{display:flex;gap:15px;
+  @for $i from 3 through 2{
+    $color :darken(nth($riskLevel, $i), 6);
+    li:nth-child(#{$i}){
+      strong{color:$color;}
+      input[type="checkbox"]{accent-color:$color;}
+    } 
+  }
+}
+.unit{@include dot(#555){margin-right:5px;};}

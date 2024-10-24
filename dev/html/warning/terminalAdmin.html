@@ -135,15 +135,21 @@
       <dd><input type="text"></dd>
       <dt><label for="">서버IP</label></dt>
       <dd><input type="text" value="123.123.1.1234" /></dd>
+      <dt><label for="">단말기 유형</label></dt>
+      <dd><select name="" id=""><option value="">단말기 유형(공통코드)</option></select></dd>      
       <dt><label for="">통보대상지역</label></dt>
       <dd>
         <select name="" id=""><option value="">시도</option></select>
         <select name="" id=""><option value="">시군구</option></select>      
         <select name="" id=""><option value="">읍면동</option></select>
         <select name="" id=""><option value="">리</option></select>
+        <button type="button" class="btn_skyblue">추가</button>
       </dd>
-      <dt><label for="">단말기 유형</label></dt>
-      <dd><select name="" id=""><option value="">단말기 유형(공통코드)</option></select></dd>      
+      <dd>
+        <ul class="selected_lst">
+          <li>울산<button type="button" class="btn_cross" onclick="removeSelected('3100000000')">선택해제</button></li>                               
+        </ul>
+      </dd>
       <dt>접속상태</dt>
       <dd><p>정상 (최근접속일시 : 2024-05-04 12:34:20)</p></dd>
       <dt>비고</dt>

@@ -5,8 +5,11 @@
   <div class="con_wrap">
     @@include('../../inc/iot/lnb.html')
     <main class="contents">
-      <header class="tit">
+      <header class="tit blind">
         <h1>통합상황판</h1>
+        <div class="tool">
+        
+        </div>
       </header>
       <div class="content">
         <div class="tab box_tab">
@@ -16,6 +19,36 @@
           </ul>
         </div>
         <div class="tab_conts">
+          <section id="tab01" class="tab_cont">
+            <section>
+              <header class="tit">
+                <h1>강우 관측 현황</h1>
+                <div class="tool">
+                  <ul class="risk_filter">
+                    <li><label for=""><input type="checkbox">전체<strong>22</strong></label></li>
+                    <li><label for=""><input type="checkbox">경계<strong>3</strong></label></li>
+                    <li><label for=""><input type="checkbox">심각<strong>4</strong></label></li>
+                  </ul>
+                  <b class="unit">강우</b>
+                  <select name="" id=""><option value="">시간</option></select>
+                </div>
+              </header>
+              <ul>
+                <li>
+                  <strong>수도 2우량</strong>
+                  <div>
+                    <span>12.3</span>㎜
+                  </div>
+                </li>
+                <li class="error">
+                  <strong>수도 2우량</strong>
+                  <div>
+                    <span>12.3</span>㎜
+                  </div>
+                </li>
+              </ul>
+            </section>
+          </section>
           <section id="tab02" class="tab_cont">
             <div class="tbl_wrap">
               <table class="tbl_default">
