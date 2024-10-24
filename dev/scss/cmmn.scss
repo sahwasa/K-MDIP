@@ -308,7 +308,7 @@ main{position:relative;flex:1 1 auto;
 
 .tit{display:flex;align-items:center;
   h1{display:flex;align-items:flex-end;gap:10px;font-size:20px;font-weight:600;color:#000;
-    em{color:$rust;font-size:16px;letter-spacing:-.8px;font-weight:normal;}
+    em{color:$bg_deep;font-size:16px;letter-spacing:-.8px;font-weight:normal;}
   }
 }
 .tool{margin-left:auto;flex-shrink:0;display:flex;align-items:center;gap:5px;}
@@ -328,6 +328,7 @@ $dlH:33px;
     button:not(:is(.btn_locate,.btn_cross)){flex-shrink:0;@include btnType(M);}
     p{line-height:$dlH;}
     & + dd{grid-column:2;}
+    textarea{line-height:1.2;min-height:$dlH;padding:5px}
   }
   &.dd_line_fix dd{line-height:$dlH;}
   .code_wrap{flex-wrap:wrap;

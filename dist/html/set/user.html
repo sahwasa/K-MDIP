@@ -98,7 +98,7 @@
         <div class="tbl_area">
           <div class="tbl_top">
             <div class="tool">
-              <button type="button" class="btn_skyblue">추가</button>
+              <button type="button" class="btn_skyblue" onclick="document.querySelector('.pop_userInfo').show();">추가</button>
               <button type="button" class="btn_grayline" onclick="deleteUser()">삭제</button>
             </div>
           </div>
@@ -118,8 +118,8 @@
                   <th scope="col">수정</th>
                 </tr>
               </thead>
-              <tbody id="tab1_table">
-                <tr onclick="highlightTr(this)">
+              <tbody>
+                <tr>
                   <td><input type="checkbox" name="checkbox_tab1" value="admin"></td>
                   <td>시스템운영자</td>
                   <td>admin</td>
@@ -128,9 +128,12 @@
                   <td>재난상황실</td>
                   <td>주무관</td>
                   <td>2022-02-15 18:08:25</td>
-                  <td><button class="btn_edit" onclick="showUserInfo('admin')">수정</button></td>
+                  <td>
+                    <button class="btn_edit" onclick="showUserInfo('admin')">수정</button>
+                    <button class="btn_del" onclick="">삭제</button>
+                  </td>
                 </tr>
-                <tr onclick="highlightTr(this)">
+                <tr>
                   <td><input type="checkbox" name="checkbox_tab1" value="user"></td>
                   <td>작성자</td>
                   <td>user</td>
@@ -139,7 +142,10 @@
                   <td>OOOO과</td>
                   <td>주임</td>
                   <td>2022-02-16 16:44:32</td>
-                  <td><button class="btn_edit" onclick="showUserInfo('user')">수정</button></td>
+                  <td>
+                    <button class="btn_edit" onclick="showUserInfo('user')">수정</button>
+                    <button class="btn_del" onclick="">삭제</button>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -148,6 +154,45 @@
       </div>
     </main>
   </div>  
+</div>
+<dialog id="pop_userInfo" class="pop_userInfo" style="--width:400px">
+  <header class="p_header">
+    <h1>사용자 추가 및 수정</h1>
+    <button type="button" class="btn_cross">닫기</button>
+  </header>
+  <div class="p_body">
+    <dl class="dl_list my_info">
+      <dt>ID</dt>
+      <dd id="common_user_id"><strong>admin</strong></dd>
+      <dt><label for="" class="required">사용자명</label></dt>
+      <dd><input type="text"></dd>
+      <dt><label for="" class="required">비밀번호</label></dt>
+      <dd>
+        <input type="password" value="abcdefg"/><button type="button" class="btn_skyblue">변경</button>
+      </dd>
+      <dt><label for="common_org_nm" class="required">소속기관</label></dt>
+      <dd><input type="text" id="common_org_nm" maxlength="20"></dd>
+      <dt><label for="common_department_nm" class="required">부서</label></dt>
+      <dd><input type="text" id="common_department_nm" maxlength="20"></dd>
+      <dt><label for="common_rank_nm">직급</label></dt>
+      <dd><input type="text" id="common_rank_nm" maxlength="20"></dd>
+      <dt><label for="common_phone">연락처</label></dt>
+      <dd><input type="text" id="common_phone" maxlength="20"></dd>
+      <dt><label for="common_email">이메일</label></dt>
+      <dd><input type="text" id="common_email" maxlength="50"></dd>     
+      <dt><label for="common_auth">권한</label></dt>
+      <dd>
+        <select id="common_auth" disabled>
+          <option value="1">작성자</option><option value="2">승인자</option><option value="3">시스템운영자</option>
+        </select>
+      </dd>
+    </dl>
+    <div class="p_foot">
+      <button type="button" class="btn_deep">수정</button>
+      <button type="button" class="btn_gray">취소</button>
+    </div>
+  </div>
+</dialog>
 </div>
 
 <!-- popup 비밀번호변경 -->
@@ -191,7 +236,7 @@
   <div class="p_body">
     <dl class="dl_list my_info">
       <dt>ID</dt>
-      <dd id="common_user_id">admin</dd>
+      <dd id="common_user_id"><strong>admin</strong></dd>
       <dt><label for="" class="required">비밀번호</label></dt>
       <dd>
         <input type="password" value="abcdefg"/><button type="button" class="btn_skyblue">변경</button>
@@ -214,7 +259,7 @@
       </dd>
     </dl>
     <div class="p_foot">
-      <button type="button" class="btn_pink">수정</button>
+      <button type="button" class="btn_deep">수정</button>
       <button type="button" class="btn_gray">취소</button>
     </div>
   </div>

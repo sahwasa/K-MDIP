@@ -137,25 +137,32 @@
     <button type="button" class="btn_cross">닫기</button>
   </div>
   <div class="p_body">    
-    <dl class="dl_list">
+    <dl class="dl_list column2">
       <dt><label for="" class="required">그룹</label></dt>
-      <dd><select name="" id=""><option value="">선택</option></select></dd>
-      <dd>
-        <span class="tag_group">이·통·반장<button type="button" class="btn_cross" onclick="">선택해제</button></span>
-        <span class="tag_group">재난도우미<button type="button" class="btn_cross" onclick="">선택해제</button></span></dd>
+      <dd class="full"><select name="" id=""><option value="">선택</option></select></dd>
+      <dd class="full">
+        <ul class="tag_lst">
+          <li>
+            <span class="tag_group">이·통·반장<button type="button" class="btn_cross" onclick="">선택해제</button></span>
+          </li>
+          <li>
+            <span class="tag_group">재난도우미<button type="button" class="btn_cross" onclick="">선택해제</button></span>
+          </li>
+        </ul>
+      </dd>
+      <dt><label for="" class="required">지역</label></dt>
+      <dd class="full">
+        <select name="" id=""><option value="">시도</option></select>
+        <select name="" id=""><option value="">시군구</option></select>      
+        <select name="" id=""><option value="">읍면동</option></select>
+        <select name="" id=""><option value="">리</option></select>
+      </dd>
       <dt><label for="" class="required">성명</label></dt>
       <dd><input type="text"></dd>
       <dt><label for="" class="required">모바일</label></dt>
       <dd><input type="text"></dd>
       <dt><label for="">전화번호</label></dt>
       <dd><input type="text"></dd>
-      <dt><label for="">지역</label></dt>
-      <dd>
-        <select name="" id=""><option value="">시도</option></select>
-        <select name="" id=""><option value="">시군구</option></select>      
-        <select name="" id=""><option value="">읍면동</option></select>
-        <select name="" id=""><option value="">리</option></select>
-      </dd>
       <dt><label for="">팩스</label></dt>
       <dd><input type="text"></dd>
       <dt><label for="">이메일</label></dt>
@@ -167,7 +174,13 @@
       <dt><label for="">직급</label></dt>
       <dd><input type="text"></dd>      
       <dt><label for="">비고</label></dt>
-      <dd><textarea name="" id="" rows="1"></textarea></dd>
+      <dd class="full"><textarea name="" id="" rows="2"></textarea></dd>
+      <dt><label for="">사용여부</label></dt>
+      <dd class="full">
+        <div class="switch_toggle">
+          <input type="checkbox" id="useYN1"><label class="useYN" for="useYN1">사용여부</label>
+        </div> 
+      </dd>
     </dl>
     <div class="p_foot">
       <button type="button" class="btn_blue" onclick="">저장</button>

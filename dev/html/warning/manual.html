@@ -8,7 +8,7 @@
       <div class="panel_wrap manual">
         <section class="panel">
           <header class="tit">
-            <h1>수동발령 <em>통합발령</em></h1>
+            <h1>통합발령 <em>수동발령</em></h1>
           </header>
           <div class="panel_content">
             <dl class="dl_list">
@@ -37,6 +37,7 @@
                   <li><input type="checkbox" name="deviceType" value="LDB" id="media_LDB"><label for="media_LDB">재해문자전광판(지자체)</label></li>
                   <li><input type="checkbox" name="deviceType" value="VBS" id="media_VBS"><label for="media_VBS">마을방송시스템</label></li>
                   <li><input type="checkbox" name="deviceType" value="VNS" id="media_VNS"><label for="media_VNS">자동음성통보시스템</label></li>
+                  <li><input type="checkbox" name="deviceType" value="" id=""><label for="">문자발송</label></li>
                   </ul>
               </dd>
               <dt>발생시각</dt>
@@ -62,7 +63,20 @@
               </dd>
               <dt><label for="locate">발령지역</label></dt>
               <dd>
-                <textarea id="locate" disabled="" placeholder="우측에서 선택해 주세요"></textarea>
+                <ul class="selected_lst">
+                  <li>울산<button type="button" class="btn_cross" onclick="removeSelected('3100000000')">선택해제</button></li>                                   
+                </ul>
+              </dd>
+              <dt>예약발송</dt>
+              <dd>
+                <div class="switch_toggle">
+                  <input type="checkbox" id="reserveYN" data-checkEvt="reserveTime"><label class="useYN" for="reserveYN">사용여부</label>
+                </div>
+              </dd>
+              <dd id="reserveTime" data-selectTarget>
+                <span class="datetimepicker_wrap">
+                  <input type="text" id="" data-datepicker="datetime" class="input_calendar" value="발송시각 선택">
+                </span>
               </dd>
             </dl>
           </div>
@@ -73,25 +87,10 @@
               <ul class="tab_list">
                 <li><a href="#tab01" class="on">지도에서 선택</a></li>
                 <li><a href="#tab02">지역 선택</a></li>
-                <li><a href="#tab03">단말기 선택</a></li>
               </ul>
             </div>
             <div class="tab_conts">
               <section id="tab01" class="tab_cont">                
-                <div class="selectlocate_wrap">                    
-                  <div class="selectlocate">
-                    <header class="dot_tit">
-                      <h1>선택된 발령지역</h1>
-                    </header>                                   
-                    <ul class="selected_lst">
-                      <li>울산<button type="button" class="btn_cross" onclick="removeSelected('3100000000')">선택해제</button></li>                                   
-                    </ul>
-                  </div>
-                  <div class="selected_aside">
-                    <button class="btn_reset">초기화</button>
-                    <button class="btn_skyblueline btn_apply">적용</button>
-                  </div>
-                </div>                  
                 <div class="select_map">
                   <div class="list_select_map_box">
                     <div class="request_wrap" id="map">
@@ -104,20 +103,7 @@
                   </div>
                 </div>
               </section>
-              <section id="tab02" class="tab_cont">
-                <div class="selectlocate_wrap">
-                  <div class="selectlocate">
-                    <header class="dot_tit">
-                      <h1>선택된 발령지역</h1>
-                    </header>
-                    <ul class="selected_lst tempSelected">
-                    </ul>
-                  </div>                  
-                  <div class="selected_aside">
-                    <button type="button" class="btn_reset">초기화</button>
-                    <button type="button" class="btn_skyblueline btn_apply">적용</button>
-                  </div>                  
-                </div>
+              <section id="tab02" class="tab_cont">                
                 <div class="select_box_wrap">                  
                   <div>
                     <h4>시도 선택</h4>
@@ -144,7 +130,7 @@
         <section class="panel">
           <div class="panel_content flex_vertical">
             <div class="btn_top">              
-              <button type="button" class="btn_skyblueline" onclick="document.querySelector('.pop_wrap_refer').show();">참조</button>
+              <button type="button" class="btn_skyblueline" onclick="document.querySelector('.pop_wrap_refer').show();">문안 불러오기</button>
               <button type="button" class="btn_skyblue" onclick="getTemplate()">문안생성</button>
             </div>
             <div id="generated_img" class="generated_img">
@@ -162,8 +148,7 @@
                 @@include('../../inc/warning/msg_lst.html')
               </div>          
             </div>
-            <div class="btn_wrap">
-              <button type="button" class="btn_skyblue" id="btn_sendRequest" onclick="sendRequest()">예약발송</button>
+            <div class="btn_wrap">             
               <button type="button" class="btn_blue" id="btn_sendRequest" onclick="sendRequest()">승인요청</button>
               <button type="button" class="btn_blue" id="btn_save" onclick="sendRequest()">저장</button>
               <button type="button" class="btn_gray" id="btn_cancel" onclick="updateProcess()">취소</button>
@@ -174,26 +159,6 @@
     </main>      
   </div>
 </div>
-<dialog id="reserve_set" class="reserve_set" style="--width:300px;--top:30vh" open>
-  <header class="p_header">
-    <h1>예약발송</h1>
-    <button type="button" class="btn_cross">닫기</button>
-  </header>
-  <div class="p_body">
-    <p class="box_gray">예약발송은 확인 즉시 승인되며, 실제 발송 전에는 모니터링 메뉴에서 취소 가능합니다. </p>
-    <dl class="dl_list">
-    <dt><label for="">발송시각</label></dt>
-    <dd>
-      <span class="datetimepicker_wrap">
-        <input type="text" id="" data-datepicker="datetime" class="input_calendar" value="발송시각 선택">
-      </span>
-    </dd>
-  </dl>
-  </div>
-  <div class="p_foot">
-    <button type="button" class="btn_blue" onclick="">확인</button>
-  </div>
-</dialog>
 
 @@include('../../inc/warning/pop_refer.html')
 @@include('../../inc/script.html')

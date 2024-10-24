@@ -191,10 +191,17 @@
   <dd>
     <textarea id="text_voice_kr" rows="3"></textarea>
   </dd>
-  <dt><label for="text_broadcast_kr">재난방송(TV, UHD)</label></dt>
+  <dt>
+    <label for="">문자방송</label>
+    <span class="size"><span id="nowByte315_kr">0</span> / 315 bytes</span>
+  </dt>
+  <dd>
+    <textarea id="" rows="3"></textarea>
+  </dd>
+  <!-- <dt><label for="text_broadcast_kr">재난방송(TV, UHD)</label></dt>
   <dd>
     <textarea id="text_broadcast_kr" rows="3"></textarea>
-  </dd>
+  </dd> -->
   <!-- <dt>음성파일</dt>
   <dd>
     <audio controls="">
@@ -237,19 +244,13 @@
             <div class="layout_flex">
               <section class="tbl_area">
                 <div class="search_area">
-                  <!-- 그룹,유형은 공통코드 추가 -->
+                  <!-- 메시지 구분은 공통코드 추가 -->
                   <ul class="search">
                     <li>
-                      <select name="" id="" title="그룹">
-                        <option value="">그룹</option>
-                        <option value="">일반</option>
-                        <option value="">경보 등...</option>
-                      </select>
-                    </li>
-                    <li>
-                      <select name="" id="" title="유형">
+                      <select name="" id="" title="메시지 구분">
                         <option value="">문자</option>
-                        <option value="">단말기??</option>
+                        <option value="">단말기</option>
+                        <option value="">음성 등..?</option>
                       </select>
                     </li>
                     <li><input type="text" title="제목" placeholder="제목" /></li>
@@ -264,8 +265,7 @@
                     <thead>
                       <tr>
                         <th scope="col"><input type="checkbox" title="전체선택" class="all_check row_check"></th>
-                        <th scope="col">그룹</th>
-                        <th scope="col">유형</th>
+                        <th scope="col">메시지 구분</th>
                         <th scope="col">제목</th>
                         <th scope="col">재난유형</th>
                         <th scope="col">작성자</th>
@@ -276,7 +276,6 @@
                     <tbody>
                       <tr>
                         <td><input type="checkbox" title="줄선택" class="row_check"></td>
-                        <td>일반</td>
                         <td>문자</td>
                         <td>장비 시험 방송 1</td>
                         <td>자연재난 > 호우 > 호우경보</td>
@@ -288,7 +287,6 @@
                       </tr>
                       <tr>
                         <td><input type="checkbox" title="줄선택" class="row_check"></td>
-                        <td>일반</td>
                         <td>단말기</td>
                         <td>장비 시험 방송 1</td>
                         <td>자연재난 > 호우 > 호우경보해제</td>
@@ -305,10 +303,14 @@
               <section class="linked_right">
                 <div class="flex_vertical">                  
                   <dl class="dl_list">
-                    <dt><label for="type">그룹</label></dt>
-                    <dd><select name="" id=""><option value="">그룹</option></select></dd>
-                    <dt><label for="type">유형</label></dt>
-                    <dd><select name="" id=""><option value="">유형</option></select></dd>
+                    <dt><label for="type">메시지 구분</label></dt>
+                    <dd>
+                       <select name="" id="" title="메시지 구분">
+                        <option value="">문자</option>
+                        <option value="">단말기</option>
+                        <option value="">음성 등..?</option>
+                      </select>
+                    </dd>
                     <dt><label for="type">재난유형</label></dt>
                     <dd class="code_wrap">
                       <select title="대분류" id="code1" onchange="setCode2()"><option value="">전체</option><option value="T1">자연재난</option><option value="T2">사회재난</option><option value="T3">기타재난</option></select>
@@ -325,38 +327,51 @@
                     </ul>
                     <div id="tabs-1">
                       <dl class="msg_lst">
-                        <dt>
-                          <label for="text_40_kr">재해문자전광판</label>
-                          <span class="size"><span id="nowByte40_kr">0</span> / 40 bytes</span>
-                        </dt>
-                        <dd>
-                          <textarea id="text_40_kr" onkeyup="fn_checkByte(this, 80, 'nowByte80_kr')" maxlength="80" rows="1"></textarea>                   
-                        </dd>
-                        <dt>
-                          <label for="text_80_kr">재해문자전광판</label>
-                          <span class="size"><span id="nowByte80_kr">0</span> / 80 bytes</span>
-                        </dt>
-                        <dd>
-                          <textarea id="text_80_kr" onkeyup="fn_checkByte(this, 80, 'nowByte80_kr')" maxlength="80" rows="2"></textarea>                   
-                        </dd>
-                        <dt>
-                          <label for="text_180_kr">버스정보시스템/포털</label>
-                          <span class="size"><span id="nowByte180_kr">0</span> / 180 bytes</span>
-                        </dt>
-                        <dd><textarea id="text_180_kr" onkeyup="fn_checkByte(this, 180, 'nowByte180_kr')" rows="3"></textarea></dd>
-                        <dt>
-                          <label for="text_voice_kr">마을방송/자동음성통보/자동우량경보</label>
-                        </dt>
-                        <dd>
-                          <textarea id="text_voice_kr" rows="3"></textarea>
-                        </dd>              
-                        <dt>음성파일</dt>
-                        <dd>
-                          <audio controls="">
-                            <source src="" type="audio/mp3">
-                          </audio>
-                        </dd>                 
-                      </dl>
+  <!-- <dt><label for="source_kr">경보 발령의 근거 제공자</label></dt>
+  <dd><textarea id="source_kr" maxlength="20" rows="1"></textarea></dd> -->
+  <dt>
+    <label for="text_40_kr">재해문자전광판</label>
+    <span class="size"><span id="nowByte40_kr">0</span> / 40 bytes</span>
+  </dt>
+  <dd>
+    <textarea id="text_40_kr" onkeyup="fn_checkByte(this, 80, 'nowByte80_kr')" maxlength="80" rows="1"></textarea>                   
+  </dd>
+  <dt>
+    <label for="text_80_kr">재해문자전광판</label>
+    <span class="size"><span id="nowByte80_kr">0</span> / 80 bytes</span>
+  </dt>
+  <dd>
+    <textarea id="text_80_kr" onkeyup="fn_checkByte(this, 80, 'nowByte80_kr')" maxlength="80" rows="2"></textarea>                   
+  </dd>
+  <dt>
+    <label for="text_180_kr">버스정보시스템/포털</label>
+    <span class="size"><span id="nowByte180_kr">0</span> / 180 bytes</span>
+  </dt>
+  <dd><textarea id="text_180_kr" onkeyup="fn_checkByte(this, 180, 'nowByte180_kr')" rows="3"></textarea></dd>
+  <dt>
+    <label for="text_voice_kr">마을방송/자동음성통보/자동우량경보</label>
+  </dt>
+  <dd>
+    <textarea id="text_voice_kr" rows="3"></textarea>
+  </dd>
+  <dt>
+    <label for="">문자방송</label>
+    <span class="size"><span id="nowByte315_kr">0</span> / 315 bytes</span>
+  </dt>
+  <dd>
+    <textarea id="" rows="3"></textarea>
+  </dd>
+  <!-- <dt><label for="text_broadcast_kr">재난방송(TV, UHD)</label></dt>
+  <dd>
+    <textarea id="text_broadcast_kr" rows="3"></textarea>
+  </dd> -->
+  <!-- <dt>음성파일</dt>
+  <dd>
+    <audio controls="">
+      <source src="" type="audio/mp3">
+    </audio>
+  </dd>                  -->
+</dl>
                     </div>              
                     <div id="tabs-2">                      
                     </div>          
@@ -383,10 +398,14 @@
   </header>
   <div class="p_body">
     <dl class="dl_list">    
-      <dt><label for="">그룹</label></dt>
-      <dd><select name="" id=""><option value="">그룹</option></select></dd>
-      <dt><label for="">유형</label></dt>
-      <dd><select name="" id=""><option value="">유형</option></select></dd>
+      <dt><label for="">메시지 구분</label></dt>
+      <dd>
+         <select name="" id="" title="메시지 구분">
+            <option value="">문자</option>
+            <option value="">단말기</option>
+            <option value="">음성 등..?</option>
+          </select>
+      </dd>
       <dt><label for="">제목</label></dt>
       <dd><input type="text" id="" placeholder="제목"></dd>
     </dl>
@@ -437,7 +456,7 @@
   <div class="p_body">
     <dl class="dl_list my_info">
       <dt>ID</dt>
-      <dd id="common_user_id">admin</dd>
+      <dd id="common_user_id"><strong>admin</strong></dd>
       <dt><label for="" class="required">비밀번호</label></dt>
       <dd>
         <input type="password" value="abcdefg"/><button type="button" class="btn_skyblue">변경</button>
@@ -460,7 +479,7 @@
       </dd>
     </dl>
     <div class="p_foot">
-      <button type="button" class="btn_pink">수정</button>
+      <button type="button" class="btn_deep">수정</button>
       <button type="button" class="btn_gray">취소</button>
     </div>
   </div>

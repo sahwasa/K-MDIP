@@ -105,7 +105,7 @@
             </li>
           </ul>
           <div class="tool">
-            <button type="button" class="btn_skyblue" onclick="excelDown(1)">정기발령 추가</button>
+            <button type="button" class="btn_skyblue" onclick="">정기발령 추가</button>
           </div>
         </div>
         <section class="tbl_area">         
@@ -396,10 +396,17 @@
   <dd>
     <textarea id="text_voice_kr" rows="3"></textarea>
   </dd>
-  <dt><label for="text_broadcast_kr">재난방송(TV, UHD)</label></dt>
+  <dt>
+    <label for="">문자방송</label>
+    <span class="size"><span id="nowByte315_kr">0</span> / 315 bytes</span>
+  </dt>
+  <dd>
+    <textarea id="" rows="3"></textarea>
+  </dd>
+  <!-- <dt><label for="text_broadcast_kr">재난방송(TV, UHD)</label></dt>
   <dd>
     <textarea id="text_broadcast_kr" rows="3"></textarea>
-  </dd>
+  </dd> -->
   <!-- <dt>음성파일</dt>
   <dd>
     <audio controls="">
@@ -437,10 +444,17 @@
   <dd>
     <textarea id="text_voice_kr" rows="3"></textarea>
   </dd>
-  <dt><label for="text_broadcast_kr">재난방송(TV, UHD)</label></dt>
+  <dt>
+    <label for="">문자방송</label>
+    <span class="size"><span id="nowByte315_kr">0</span> / 315 bytes</span>
+  </dt>
+  <dd>
+    <textarea id="" rows="3"></textarea>
+  </dd>
+  <!-- <dt><label for="text_broadcast_kr">재난방송(TV, UHD)</label></dt>
   <dd>
     <textarea id="text_broadcast_kr" rows="3"></textarea>
-  </dd>
+  </dd> -->
   <!-- <dt>음성파일</dt>
   <dd>
     <audio controls="">
@@ -641,19 +655,19 @@
             <thead>
               <tr>
                 <th scope="col"><input type="checkbox" title="전체선택" class="all_check row_check"></th>
-                <th scope="col">구분</th>
+                <th scope="col">단말기 유형</th>
+                <th scope="col">설치지역</th>
                 <th scope="col">단말번호</th>
                 <th scope="col">단말기명</th>
-                <th scope="col">위치</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td><input type="checkbox" title="줄선택" class="row_check"></td>
                 <td>마을방송</td>
+                <td>OO시 OO구 OO면 OO리</td>
                 <td>01234567890</td>
                 <td>OO마을회관</td>
-                <td>OO면 OO리 OO번</td>
               </tr>
             </tbody>
           </table>
@@ -805,7 +819,7 @@
   <div class="p_body">
     <dl class="dl_list my_info">
       <dt>ID</dt>
-      <dd id="common_user_id">admin</dd>
+      <dd id="common_user_id"><strong>admin</strong></dd>
       <dt><label for="" class="required">비밀번호</label></dt>
       <dd>
         <input type="password" value="abcdefg"/><button type="button" class="btn_skyblue">변경</button>
@@ -828,7 +842,7 @@
       </dd>
     </dl>
     <div class="p_foot">
-      <button type="button" class="btn_pink">수정</button>
+      <button type="button" class="btn_deep">수정</button>
       <button type="button" class="btn_gray">취소</button>
     </div>
   </div>

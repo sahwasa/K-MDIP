@@ -20,7 +20,7 @@
         <div class="tbl_area">
           <div class="tbl_top">
             <div class="tool">
-              <button type="button" class="btn_skyblue">추가</button>
+              <button type="button" class="btn_skyblue" onclick="document.querySelector('.pop_destAdmin').show();">추가</button>
               <button type="button" class="btn_grayline" onclick="deleteDest()">삭제</button>
             </div>
           </div>
@@ -54,7 +54,10 @@
                       <input type="checkbox" id="useYN1-1"><label class="useYN" for="useYN1-1">사용여부</label>
                     </div>
                   </td>
-                  <td><button type="button" class="btn_edit" onclick="showDestInfo('kbs_uhd')">수정</button></td>
+                  <td>
+                    <button type="button" class="btn_edit" onclick="showDestInfo('kbs_uhd')">수정</button>
+                    <button type="button" class="btn_del">삭제</button>                  
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -64,6 +67,47 @@
     </main>
   </div>  
 </div>
+<!-- popup -->
+<dialog id="pop_destAdmin" class="pop_destAdmin" style="--width:400px;">
+  <header class="p_header">
+    <h1>수신처 추가 및 수정</h1>
+    <button type="button" class="btn_cross">닫기</button>
+  </header>
+  <div class="p_body">
+    <dl class="dl_list">
+      <dt><label for="" class="required">수신처명</label></dt>
+      <dd>
+        <input type="text" id="" >
+      </dd>
+      <dt><label for="" class="required">ID</label></dt>
+      <dd>
+        <input type="text" value="abcdefg"/><button type="button" class="btn_skyblue">중복확인</button>
+      </dd>
+      <dt><label for="" class="required">IP</label></dt>
+      <dd>
+        <input type="text" id="" >
+      </dd>
+      <dt><label for="">담당자</label></dt>
+      <dd>
+        <input type="text" id="" >
+      </dd>
+      <dt><label for="">연락처</label></dt>
+      <dd>
+        <input type="text" id="" >
+      </dd>
+      <dt>사용여부</dt>
+      <dd>
+        <div class="switch_toggle">
+          <input type="checkbox" id="useYN1"><label class="useYN" for="useYN1">사용여부</label>
+        </div> 
+      </dd>
+    </dl>
+    <div class="p_foot">
+      <button type="button" class="btn_blue">확인</button>
+      <button type="button" class="btn_gray">취소</button>
+    </div>
+  </div>
+</dialog>
 @@include('../../inc/script.html')
 </body>
 </html>

@@ -92,7 +92,7 @@
               <header class="tit">
                 <h3>대분류그룹</h3>
                 <div class="tool">
-                  <button type="button" class="btn_skyblue" onclick="">추가</button>
+                  <button type="button" class="btn_skyblue" onclick="document.querySelector('.pop_codeAdmin').show();">추가</button>
                   <button type="button" class="btn_grayline" onclick="">삭제</button>
                 </div>
               </header>
@@ -187,6 +187,39 @@
     </main>
   </div>  
 </div>
+<!-- popup -->
+<dialog id="pop_codeAdmin" class="pop_codeAdmin" style="--width:400px;">
+  <header class="p_header">
+    <h1>코드 추가 및 수정</h1>
+    <button type="button" class="btn_cross">닫기</button>
+  </header>
+  <div class="p_body">
+    <dl class="dl_list">
+      <dt><label for="" class="required">코드</label></dt>
+      <dd>
+        <input type="text" value="abcdefg"/><button type="button" class="btn_skyblue">중복확인</button>
+      </dd>
+      <dt><label for="common_pwd" class="required">코드명</label></dt>
+      <dd>
+        <input type="text" id="" >
+      </dd>
+      <dt><label for="">설명</label></dt>
+      <dd>
+        <input type="text" id="" >
+      </dd>
+      <dt>사용여부</dt>
+      <dd>
+        <div class="switch_toggle">
+          <input type="checkbox" id="useYN1"><label class="useYN" for="useYN1">사용여부</label>
+        </div> 
+      </dd>
+    </dl>
+    <div class="p_foot">
+      <button type="button" class="btn_blue">확인</button>
+      <button type="button" class="btn_gray">취소</button>
+    </div>
+  </div>
+</dialog>
 
 <!-- popup 비밀번호변경 -->
 <dialog id="pop_changePassword" class="pop_changePassword" style="--width:400px;">
@@ -229,7 +262,7 @@
   <div class="p_body">
     <dl class="dl_list my_info">
       <dt>ID</dt>
-      <dd id="common_user_id">admin</dd>
+      <dd id="common_user_id"><strong>admin</strong></dd>
       <dt><label for="" class="required">비밀번호</label></dt>
       <dd>
         <input type="password" value="abcdefg"/><button type="button" class="btn_skyblue">변경</button>
@@ -252,7 +285,7 @@
       </dd>
     </dl>
     <div class="p_foot">
-      <button type="button" class="btn_pink">수정</button>
+      <button type="button" class="btn_deep">수정</button>
       <button type="button" class="btn_gray">취소</button>
     </div>
   </div>

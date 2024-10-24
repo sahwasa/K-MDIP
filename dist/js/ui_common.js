@@ -1,4 +1,16 @@
 $(function () {
+  //addOPT
+  $('[data-checkEvt]').on('change', function (e) {
+    const getTarget = e.target.dataset.checkevt.split('!')
+    let target
+    if (getTarget[1]) {
+      target = $('#' + getTarget[1])
+      $(this).prop('checked') ? target.hide() : target.show()
+    } else {
+      target = $('#' + getTarget[0])
+      $(this).prop('checked') ? target.show() : target.hide()
+    }
+  }); 
   $('[data-selectTarget]').hide();
   $('[data-selectEvt]').on('change', function (e) {
     const getTarget = e.target.dataset.selectevt;
@@ -217,7 +229,6 @@ $('.slide_tit i').on('click', function () {
 $('.axi-close').on('click', function () {
   $(this).parent('li').remove();
 })
-
 $('.btn_reset').on('click', function () {
   $('.selectlocate_wrap').remove();
 })

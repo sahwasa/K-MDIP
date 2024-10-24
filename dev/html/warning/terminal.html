@@ -8,7 +8,7 @@
       <div class="panel_wrap manual">
         <section class="panel">
           <header class="tit">
-            <h1>수동발령 <em>단말기발송</em></h1>
+            <h1>단말기발송<em>수동발령</em></h1>
           </header>
           <div class="panel_content">
             <dl class="dl_list">
@@ -44,6 +44,17 @@
                 </span>
                 <button type="button" class="btn_skyblue" onclick="setDateTimeNow()">현재시각</button>
               </dd>
+              <dt>예약발송</dt>
+              <dd>
+                <div class="switch_toggle">
+                  <input type="checkbox" id="reserveYN" data-checkEvt="reserveTime"><label class="useYN" for="reserveYN">사용여부</label>
+                </div>
+              </dd>
+              <dd id="reserveTime" data-selectTarget>
+                <span class="datetimepicker_wrap">
+                  <input type="text" id="" data-datepicker="datetime" class="input_calendar" value="발송시각 선택">
+                </span>
+              </dd>
             </dl>
           </div>
         </section>
@@ -51,42 +62,30 @@
           <div class="panel_content">
             <header class="dot_tit">
               <h1>발송대상 단말기</h1>
+              <b class="count">
+                (전체 <span id="count_all">556</span>개)
+              </b> 
               <div class="tool">
                 <button type="button" class="btn_skyblue" onclick="document.querySelector('#pop_terminalBook').show()">단말기 선택</button>
-                <button type="button" class="btn_reset" onclick="">초기화</button>                  
+                <button type="button" class="btn_gray" onclick="">선택삭제</button>                  
+                <button type="button" class="btn_skyblueline" onclick="document.querySelector('.pop_map').showModal();">지도보기</button>                  
               </div>
             </header>
             <div class="tbl_area target_terminal">
-              <div class="tbl_top">
+              <!-- <div class="tbl_top">
                 <b class="font_blue">
                   전체 <span id="count_all">556</span>개
-                </b>
-                <div class="tool">
-                  <ul class="search">
-                    <li>
-                      <select title="시군구" id="">
-                        <option value="">시군구</option>
-                      </select>
-                      <select title="읍면동" id="">
-                        <option value="">읍면동</option>
-                      </select>                  
-                    </li>                 
-                    <li>
-                      <select title="단말기 유형" id="auto_yn">
-                      <option value="">단말기 유형</option>
-                    </select>
-                      <input type="text" title="location" placeholder="장비명, 지역명" id="" onkeydown="">
-                      <button type="button" class="btn_skyblue" onclick="search();">검색</button>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+                </b>                
+              </div> -->
               <div class="tbl_wrap">
                 <table class="tbl_default">
                   <caption>발송대상자</caption>
                   <thead>
                     <tr>
+                      <th scope="col"><input type="checkbox" title="전체선택" class="all_check row_check"></th>
                       <th scope="col">번호</th>
+                      <th scope="col">단말기 유형</th>
+                      <th scope="col">설치지역</th>
                       <th scope="col">단말기명</th>
                       <th scope="col">단말기번호</th>
                       <th scope="col">삭제</th>
@@ -94,7 +93,10 @@
                   </thead>
                   <tbody>
                     <tr>
+                      <td><input type="checkbox" id="" class="row_check" title="줄선택"></td>
                       <td>1</td>
+                      <td>마을방송</td>
+                      <td>울산 지좌동</td>
                       <td>(지좌동)마장 경로당</td>
                       <td>012-3456-7891</td>
                       <td><button type="button" class="btn_del">삭제</button></td>
@@ -108,8 +110,7 @@
         <section class="panel">
           <div class="panel_content flex_vertical">           
             <div class="btn_top">              
-              <button type="button" class="btn_skyblueline" onclick="document.querySelector('.pop_wrap_refer').show();">참조</button>
-              <button type="button" class="btn_skyblue" onclick="getTemplate()">문안생성</button>
+              <button type="button" class="btn_skyblueline" onclick="document.querySelector('.pop_wrap_refer').show();">문안 불러오기</button>
             </div>
             <div id="tabs" class="tab_wrap">
               <ul>
@@ -117,45 +118,12 @@
                 <li><a href="#tabs-2">영어</a></li>
               </ul>
               <div id="tabs-1">
-                <dl class="msg_lst">
-                  <dt>
-                    <label for="text_40_kr">재해문자전광판</label>
-                    <span class="size"><span id="nowByte40_kr">0</span> / 40 bytes</span>
-                  </dt>
-                  <dd>
-                    <textarea id="text_40_kr" onkeyup="fn_checkByte(this, 80, 'nowByte80_kr')" maxlength="80" rows="2"></textarea>                   
-                  </dd>
-                  <dt>
-                    <label for="text_80_kr">재해문자전광판</label>
-                    <span class="size"><span id="nowByte80_kr">0</span> / 80 bytes</span>
-                  </dt>
-                  <dd>
-                    <textarea id="text_80_kr" onkeyup="fn_checkByte(this, 80, 'nowByte80_kr')" maxlength="80" rows="2"></textarea>                   
-                  </dd>
-                  <dt>
-                    <label for="text_180_kr">버스정보시스템/포털</label>
-                    <span class="size"><span id="nowByte180_kr">0</span> / 180 bytes</span>
-                  </dt>
-                  <dd><textarea id="text_180_kr" onkeyup="fn_checkByte(this, 180, 'nowByte180_kr')" rows="3"></textarea></dd>
-                  <dt>
-                    <label for="text_voice_kr">마을방송/자동음성통보/자동우량경보</label>
-                  </dt>
-                  <dd>
-                    <textarea id="text_voice_kr" rows="3"></textarea>
-                  </dd>              
-                  <dt>음성파일</dt>
-                  <dd>
-                    <audio controls="">
-                      <source src="" type="audio/mp3">
-                    </audio>
-                  </dd>                 
-                </dl>
+                @@include('../../inc/warning/msg_lst.html')
               </div>
               <div id="tabs-2">
               </div>
             </div>
             <div class="btn_wrap">
-              <button type="button" class="btn_skyblue" id="btn_sendRequest" onclick="sendRequest()">예약발송</button>
               <button type="button" class="btn_blue" id="btn_sendRequest" onclick="sendRequest()">승인요청</button>                
             </div>
           </div>      
@@ -166,6 +134,7 @@
 </div>
 @@include('../../inc/warning/pop_terminalBook.html')
 @@include('../../inc/warning/pop_refer.html')
+@@include('../../inc/warning/pop_map.html')
 @@include('../../inc/script.html')
 </body>
 </html>

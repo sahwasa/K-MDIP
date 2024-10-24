@@ -14,10 +14,9 @@
             <header class="tit">
               <h3>그룹코드</h3>
               <div class="tool">
-                <button type="button" class="btn_skyblue" onclick="showGroupcodePopup('C')">추가</button>
+                <button type="button" class="btn_skyblue" onclick="document.querySelector('.pop_codeAdmin').show();">추가</button>
                 <button type="button" class="btn_deepline" onclick="showGroupcodePopup('U')">수정 </button>
                 <button type="button" class="btn_grayline" onclick="deleteCode('')">삭제</button>
-<!--                       <button type="button" class="btn_s btn_mintline"><b>미사용</b></button> -->
               </div>
             </header>
             <div class="tbl_area tbl_wrap">
@@ -90,6 +89,7 @@
     </main>
   </div>  
 </div>
+@@include('../../inc/set/pop_codeAdmin.html')
 @@include('../../inc/script.html')
 </body>
 </html>
