@@ -110,15 +110,6 @@ $panelWidth : 370px;
   }
   &::before{position:absolute;overflow:hidden;transform:scaleX(1.2) rotate(45deg);background-color:#fc6c6d; border: 1px solid #ff0405;border-width: 0 1px 1px 0;left:29px;bottom:-4px;@include shape(7px,7px);}
 }
-.iot{
-  button{background-image:url(../images/ico_iot_marker.png);@include shape(32px,33px);}
-  .rainGauge{background-position:0 0;}
-  .waterGauge{background-position:-35px 0;}
-  .snowGauge{background-position:-70px 0;}
-  .AWS{background-position:0 -35px;}
-  .seismicMeter{background-position:-35px -35px;}
-  .cctv{background-position:-70px -35px;}
-}
 .iot_desc{position:absolute;left:0;bottom:47px;width:90px;background-color:#fff;border-radius:5px;border:1px solid #000;text-align:center;
   &:has(.aws_val){min-width:160px;}
   .val{font-weight:800;font-size:30px;color:#333;line-height:1;}

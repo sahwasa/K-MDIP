@@ -33,8 +33,18 @@
     &::before{background-color:nth($riskLevel, $i);}
   }
 }
+.integrated{display:flex;gap:30px;
+  .tit{
+    &::before{margin-right:5px;}
+    h1{font-size:16px;}
+  } 
+  section .tit{border-bottom:1px solid $border_gray;padding-bottom:5px;}
+  .flex_vertical{gap:60px;}
+  .iot_area{flex:1;}
+  aside{width:350px; }
+}
 
-.risk_filter{display:flex;gap:15px;
+.risk_filter{display:flex;gap:15px;margin-right:30px;
   @for $i from 3 through 2{
     $color :darken(nth($riskLevel, $i), 6);
     li:nth-child(#{$i}){
@@ -44,3 +54,67 @@
   }
 }
 .unit{@include dot(#555){margin-right:5px;};}
+.iot_lst{display:grid;grid-template-columns:repeat(auto-fill, minmax(122px, auto));gap:4px;
+  li{display:flex;flex-direction:column;border:1px solid $border_gray;
+    &>div{text-align:center;font-size:13px;color:#777;padding:10px;margin-top:auto;}
+    &.error strong::after{background-color:#f00;border-color:#c00000;}
+  }
+  strong{display:flex;gap:5px;font-size:12px;letter-spacing:-.1em;color:#2865a8;padding:7px 5px 3px 10px;
+    &::after{@include shape(10px,10px);border-radius:50%;background-color:#3cff00;border:1px solid #2db503;margin:1px 0 0 auto;}
+  }
+  .data{font-size:20px;font-weight:600;color:#333;margin-right:3px;}
+
+}
+
+.forecast{border:1px solid $border_gray;border-radius:3px;padding:15px;
+  $border-color:#d0cdcd;
+  .tbl_wrap{width:100px; display:flex;border:1px solid #a2acc8;border-radius:5px;padding:10px 13px 20px;}  
+  .head{flex:0 0 36px;margin-top:28px;
+    th{width:36px;font-size:12px;color:#000;border-right:1px solid $border-color;}
+    tr:nth-child(1){height:47px;}
+    tr:nth-child(2){height:113px;}
+    tr:nth-child(3){height:82px;}
+    tr:nth-child(4){height:105px;}
+    tr:nth-child(5){height:76px;}
+  }
+  .tbl_weather{width:100%;text-align:center;
+    tr{border-top: 1px solid $border-color;
+      &:first-child {border-top-width:0;padding:0;}    
+    }
+    td{width:46px;font-size:11px;font-weight:700;color:#686868;padding:15px 0;
+      &:first-of-type{width:56px;padding-left:10px;}
+    }
+    @property --p{
+      syntax: '<number>';
+      inherits: true;
+      initial-value: 1;
+    }
+    .precipitation td{position:relative;
+      i{ --p:calc(var(--val)*-1% + 100%);
+        position:relative;@include shape(21px,21px);display:block;margin:7px auto;background:#f0f3ff;border-radius:0 95% 45% 50% / 0 50% 45% 95%;transform:rotate(45deg);
+      &::before{position:absolute;bottom:0;left:0;@include shape(100%,27px);background-color:#5e8cff;transform:rotate(-45deg) translate(-10%,var(--p));}
+      }
+      &{color:#5e8cff;font-weight:normal;}
+    }
+    .humidity td{
+      p{display:flex;flex-direction:column;justify-content:flex-end;height:60px;margin-top:15px;
+        --p:calc(var(--val)*1%);
+        &::after{flex-shrink:0;@include shape(calc(100% - 1px),var(--p));; border-top:3px solid #45ccfb;background-color:#c5f0ff;}
+      }
+    }
+    .temp td{padding-bottom:0;
+      .chart_wrap{height:53px;}
+      }
+    .weathers{border-top-color:transparent;
+      i{@include shape(24px,24px);background-position:50%;background-size:contain;}
+      td{padding-top:0;}
+    }
+    .winds td{
+      i{@include shape(14px,19px);display:block;background:url(../images/weather/img_weather_wind.png) 50% / contain no-repeat;margin:0 auto;}
+      @for $i from 1 to 9{
+        .wind#{$i}{transform: rotate($i * 45deg);}
+      }
+      &{color:#5e8cff;}
+    }
+  } 
+}

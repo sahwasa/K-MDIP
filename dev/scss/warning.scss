@@ -87,7 +87,8 @@
 		&:hover{background-color:#2287f3;color:#fff;border-color:transparent;
 			::before{color:#fff;}
 		}
-		.btn_cross::before{font-size:14px;color:$coral;}
+		.btn_cross::before,
+		.btn_delete_s::before{font-size:14px;color:$coral;}
 	}
 }
 .select_map{position:relative;background-color:$bg_gray;height:100%;

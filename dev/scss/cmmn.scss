@@ -31,6 +31,7 @@
   //   &::before{color:$coral;}
   // }
   &_send::before{content:'\e002';margin-right:10px;}
+  &_delete_s,
   &_cross{font-size:0;vertical-align:middle;line-height:1;
     &::before{content:"×";font-weight:700;line-height:1;font-size:13px;}
   }
@@ -53,6 +54,25 @@
   }
 }
 /* icon */
+$bg-positions: (
+  rainGauge: 0 0,
+  waterGauge: -35px 0,
+  snowGauge: -70px 0,
+  AWS: 0 -35px,
+  seismicMeter: -35px -35px,
+  cctv: -70px -35px
+);
+@mixin gaugeStyle($gauge, $bg-pos) {
+  .#{$gauge}, .integrated .#{$gauge} .tit::before {
+    background-position: $bg-pos;
+  }
+}
+$iots: rainGauge, waterGauge, snowGauge, AWS, seismicMeter, cctv;
+.integrated .tit::before,
+.iot button{background-image:url(../images/ico_iot_marker.png);@include shape(32px,33px);}
+@each $iot in $iots {
+  @include gaugeStyle($iot, map-get($bg-positions, $iot));
+}
 .ico_edit{position:relative;
   &::before{position:absolute;top:-18px;left:-12px;display:inline-block;width:25px;height:25px;content:'';margin-right:10px;background:url(../images/btn_edit.png)no-repeat;background-size:cover;}
   &:hover::before{background:url(../images/btn_edit_r.png)no-repeat;}
@@ -325,7 +345,7 @@ $dlH:33px;
     }
     & > strong{line-height:$dlH;}
     .switch_toggle{min-height:$dlH;}
-    button:not(:is(.btn_locate,.btn_cross)){flex-shrink:0;@include btnType(M);}
+    button:not(:is(.btn_locate,.btn_cross,.btn_delete_s)){flex-shrink:0;@include btnType(M);}
     p{line-height:$dlH;}
     & + dd{grid-column:2;}
     textarea{line-height:1.2;min-height:$dlH;padding:5px}

@@ -11,98 +11,300 @@
         
         </div>
       </header>
-      <div class="content">
-        <div class="tab box_tab">
-          <ul class="tab_list">
-            <li><a href="#tab01" class="on">관측현황</a></li>
-            <li><a href="#tab02">장비상태</a></li>
-          </ul>
-        </div>
-        <div class="tab_conts">
-          <section id="tab01" class="tab_cont">
-            <section>
-              <header class="tit">
-                <h1>강우 관측 현황</h1>
-                <div class="tool">
-                  <ul class="risk_filter">
-                    <li><label for=""><input type="checkbox">전체<strong>22</strong></label></li>
-                    <li><label for=""><input type="checkbox">경계<strong>3</strong></label></li>
-                    <li><label for=""><input type="checkbox">심각<strong>4</strong></label></li>
-                  </ul>
-                  <b class="unit">강우</b>
-                  <select name="" id=""><option value="">시간</option></select>
-                </div>
-              </header>
-              <ul>
-                <li>
-                  <strong>수도 2우량</strong>
-                  <div>
-                    <span>12.3</span>㎜
+      <div class="content integrated">
+        <div class="iot_area">
+          <div class="tab box_tab">
+            <ul class="tab_list">
+              <li><a href="#tab01" class="on">관측현황</a></li>
+              <li><a href="#tab02">장비상태</a></li>
+            </ul>
+          </div>
+          <div class="tab_conts">
+            <section id="tab01" class="tab_cont flex_vertical">
+              <section class="rainGauge">
+                <header class="tit">
+                  <h1>강우 관측 현황</h1>
+                  <div class="tool">
+                    <ul class="risk_filter">
+                      <li><label for=""><input type="checkbox">전체<strong>22</strong></label></li>
+                      <li><label for=""><input type="checkbox">경계<strong>3</strong></label></li>
+                      <li><label for=""><input type="checkbox">심각<strong>4</strong></label></li>
+                    </ul>
+                    <b class="unit">강우</b>
+                    <select name="" id=""><option value="">시간</option></select>
                   </div>
-                </li>
-                <li class="error">
-                  <strong>수도 2우량</strong>
-                  <div>
-                    <span>12.3</span>㎜
+                </header>
+                <ul class="iot_lst">
+                  <li>
+                    <strong>수도 2우량수도 2우량</strong>
+                    <div>
+                      <span class="data">12.3</span>㎜
+                    </div>
+                  </li>
+                  <li class="error">
+                    <strong>수도 2우량</strong>
+                    <div>
+                      <span class="data">12.3</span>㎜
+                    </div>
+                  </li>
+                  <li>
+                    <strong>수도 2우량</strong>
+                    <div>
+                      <span class="data">12.3</span>㎜
+                    </div>
+                  </li>
+                  <li class="error">
+                    <strong>수도 2우량</strong>
+                    <div>
+                      <span class="data">12.3</span>㎜
+                    </div>
+                  </li>
+                  <li>
+                    <strong>수도 2우량</strong>
+                    <div>
+                      <span class="data">12.3</span>㎜
+                    </div>
+                  </li>
+                  <li class="error">
+                    <strong>수도 2우량</strong>
+                    <div>
+                      <span class="data">12.3</span>㎜
+                    </div>
+                  </li>
+                  <li>
+                    <strong>수도 2우량</strong>
+                    <div>
+                      <span class="data">12.3</span>㎜
+                    </div>
+                  </li>
+                  <li class="error">
+                    <strong>수도 2우량</strong>
+                    <div>
+                      <span class="data">12.3</span>㎜
+                    </div>
+                  </li>
+                </ul>
+              </section>
+              <section class="waterGauge">
+                <header class="tit">
+                  <h1>수위 관측 현황</h1>
+                  <div class="tool">
+                    <ul class="risk_filter">
+                      <li><label for=""><input type="checkbox">전체<strong>22</strong></label></li>
+                      <li><label for=""><input type="checkbox">경계<strong>3</strong></label></li>
+                      <li><label for=""><input type="checkbox">심각<strong>4</strong></label></li>
+                    </ul>
+                    <b class="unit">최대수위</b>
+                    <select name="" id=""><option value="">시간</option></select>
                   </div>
-                </li>
-              </ul>
+                </header>
+                <ul class="iot_lst">
+                  <li>
+                    <strong>수도 2우량</strong>
+                    <div>
+                      <span class="data">12.3</span>㎜
+                    </div>
+                  </li>
+                  <li class="error">
+                    <strong>수도 2우량</strong>
+                    <div>
+                      <span class="data">12.3</span>㎜
+                    </div>
+                  </li>
+                </ul>
+              </section>
+              <section class="snowGauge">
+                <header class="tit">
+                  <h1>적설 관측 현황</h1>
+                  <div class="tool">
+                    <ul class="risk_filter">
+                      <li><label for=""><input type="checkbox">전체<strong>22</strong></label></li>
+                      <li><label for=""><input type="checkbox">경계<strong>3</strong></label></li>
+                      <li><label for=""><input type="checkbox">심각<strong>4</strong></label></li>
+                    </ul>
+                    <b class="unit">신적설</b>
+                    <select name="" id=""><option value="">시간</option></select>
+                  </div>
+                </header>
+                <ul class="iot_lst">
+                  <li>
+                    <strong>수도 2우량</strong>
+                    <div>
+                      <span class="data">12.3</span>㎝
+                    </div>
+                  </li>
+                  <li class="error">
+                    <strong>수도 2우량</strong>
+                    <div>
+                      <span class="data">12.3</span>㎝
+                    </div>
+                  </li>
+                </ul>
+              </section>
+              <section class="AWS">
+                <header class="tit">
+                  <h1>지자체 AWS 관측 현황</h1>
+                  <div class="tool">
+                    <ul class="risk_filter">
+                      <li><label for=""><input type="checkbox">전체<strong>25</strong></label></li>                      
+                    </ul>
+                  </div>
+                </header>
+                <ul class="iot_lst">
+                  <li>
+                    <strong>수도 2우량</strong>
+                    <div>
+                      <span class="data">12.3</span>㎜
+                    </div>
+                  </li>
+                  <li class="error">
+                    <strong>수도 2우량</strong>
+                    <div>
+                      <span class="data">12.3</span>㎜
+                    </div>
+                  </li>
+                </ul>
+              </section>
             </section>
-          </section>
-          <section id="tab02" class="tab_cont">
-            <div class="tbl_wrap">
-              <table class="tbl_default">
-                <thead>
-                  <tr>
-                    <th scope="col" rowspan="2">지역명</th>
-                    <th scope="col" rowspan="2">장비명</th>
-                    <th scope="col" colspan="4">전원</th>
-                    <th scope="col" colspan="3">배터리</th>
-                    <th scope="col" rowspan="2">로거</th>
-                    <th scope="col" rowspan="2">도어</th>
-                    <th scope="col" rowspan="2">센서</th>
-                    <th scope="col" colspan="2">메인엠프</th>
-                    <th scope="col" rowspan="2">볼륨</th>
-                    <th scope="col" rowspan="2">스피커</th>
-                    <th scope="col" rowspan="2">최종로깅시각</th>
-                  </tr>
-                  <tr>
-                    <th scope="col">상전 (AC)</th>
-                    <th scope="col">태양전지 (DC)</th>
-                    <th scope="col">전압 (V)</th>
-                    <th scope="col">충전전류 (A)</th>
-                    <th scope="col">전압(V) (18V 이상)</th>
-                    <th scope="col">소비전류1 (A)</th>
-                    <th scope="col">소비전류2 (A)</th>
-                    <th scope="col">상태</th>
-                    <th scope="col">전원</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>00동</td>
-                    <td>00교</td>
-                    <td>O</td>
-                    <td>O</td>
-                    <td>39.20</td>
-                    <td>0.20</td>
-                    <td>27.20</td>
-                    <td>0.15</td>
-                    <td>0.00</td>
-                    <td>정상</td>
-                    <td>닫힘</td>
-                    <td>정상</td>
-                    <td>정상</td>
-                    <td>정상</td>
-                    <td>58</td>
-                    <td>HDLC</td>
-                    <td>2024-09-05 12:00:00</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </section>
+            <section id="tab02" class="tab_cont">
+              <div class="tbl_wrap">
+                <table class="tbl_default">
+                  <thead>
+                    <tr>
+                      <th scope="col" rowspan="2">지역명</th>
+                      <th scope="col" rowspan="2">장비명</th>
+                      <th scope="col" colspan="4">전원</th>
+                      <th scope="col" colspan="3">배터리</th>
+                      <th scope="col" rowspan="2">로거</th>
+                      <th scope="col" rowspan="2">도어</th>
+                      <th scope="col" rowspan="2">센서</th>
+                      <th scope="col" colspan="2">메인엠프</th>
+                      <th scope="col" rowspan="2">볼륨</th>
+                      <th scope="col" rowspan="2">스피커</th>
+                      <th scope="col" rowspan="2">최종로깅시각</th>
+                    </tr>
+                    <tr>
+                      <th scope="col">상전 (AC)</th>
+                      <th scope="col">태양전지 (DC)</th>
+                      <th scope="col">전압 (V)</th>
+                      <th scope="col">충전전류 (A)</th>
+                      <th scope="col">전압(V) (18V 이상)</th>
+                      <th scope="col">소비전류1 (A)</th>
+                      <th scope="col">소비전류2 (A)</th>
+                      <th scope="col">상태</th>
+                      <th scope="col">전원</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>00동</td>
+                      <td>00교</td>
+                      <td>O</td>
+                      <td>O</td>
+                      <td>39.20</td>
+                      <td>0.20</td>
+                      <td>27.20</td>
+                      <td>0.15</td>
+                      <td>0.00</td>
+                      <td>정상</td>
+                      <td>닫힘</td>
+                      <td>정상</td>
+                      <td>정상</td>
+                      <td>정상</td>
+                      <td>58</td>
+                      <td>HDLC</td>
+                      <td>2024-09-05 12:00:00</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+          </div>
         </div>
+        <aside class="flex_vertical">
+          <article class="forecast">
+            <h1>경상북도 김천시 (15시 기준)</h1>
+            <div class="today_weather">
+
+              
+            </div>
+            <table class="tbl_weather">
+              <tr class="temp">
+                <td colspan="6">
+                  <div class="chart_wrap">
+                    <canvas id="chart_temp"></canvas>
+                  </div>
+                </td>              
+              </tr>
+              <tr class="weathers">
+                <td><i class="weather1" title="맑음"></i></td>
+                <td><i class="weather2" title="맑음(밤)"></i></td>
+                <td><i class="weather3" title="구름 조금"></i></td>
+                <td><i class="weather4" title="구름 조금(밤)"></i></td>
+                <td><i class="weather5" title="구름 많음"></i></td>
+                <td><i class="weather6" title="구름 많음(밤)"></i></td>
+                <!-- <td><i class="weather7" title="흐림"></i></td>
+                <td><i class="weather8" title="낙뢰와 비"></i></td>
+                <td><i class="weather9" title="소나기"></i></td>
+                <td><i class="weather10" title="한때 비"></i></td>
+                <td><i class="weather11" title="눈"></i></td>
+                <td><i class="weather12" title="한때 눈"></i></td>
+                <td><i class="weather13" title="빗방울"></i></td>
+                <td><i class="weather14" title="눈날림"></i></td>
+                <td><i class="weather15" title="낙뢰"></i></td>
+                <td><i class="weather16" title="안개"></i></td>
+                <td><i class="weather1" title="맑음"></i></td>
+                <td><i class="weather2" title="맑음(밤)"></i></td> -->
+              </tr>
+              <tr class="times">
+                <td>15시</td><td>16시</td><td>17시</td><td>18시</td><td>19시</td><td>20시</td>
+              </tr>
+              <tr class="precipitation">
+                <td><i style="--val:0;"></i>-</td>
+                <td><i style="--val:0;"></i>-</td>
+                <td><i style="--val:20;"></i>20%</td>
+                <td><i style="--val:70;"></i>70%</td>
+                <td><i style="--val:80;"></i>80%</td>
+                <td><i style="--val:100;"></i>100%</td>
+              </tr>
+              <tr class="humidity">
+                <td><p style="--val:90;">90</p></td>
+                <td><p style="--val:90;">90</p></td>
+                <td><p style="--val:90;">90</p></td>
+                <td><p style="--val:100;">100</p></td>
+                <td><p style="--val:80;">80</p></td>
+                <td><p style="--val:80;">80</p></td>
+              </tr>
+              <tr class="winds">
+                <td><i class="wind1" title="북서풍"></i>북서풍</td>
+                <td><i class="wind2" title="북풍"></i>북풍</td>
+                <td><i class="wind3" title="북동풍"></i>북동풍</td>
+                <td><i class="wind4" title="동풍"></i>동풍</td>
+                <td><i class="wind5" title="남동풍"></i>남동풍</td>
+                <td><i class="wind6" title="남풍"></i>남풍</td>
+                <!-- <td><i class="wind7" title="남서풍"></i>남서풍</td>
+                <td><i class="wind8" title="서풍"></i>서풍</td> -->
+              </tr>
+            </table>        
+          </article>
+          <section class="seismicMeter">
+            <header class="tit">
+              <h1>지진 및 진동감지 현황</h1>
+            </header>
+            <ul>
+              <li>
+                <strong>지진 1</strong>
+                <dl>
+                  <dt>발생시각</dt>
+                  <dd></dd>
+                  <dt>이벤트명</dt>
+                  <dd></dd>
+                </dl>
+              </li>
+            </ul>
+          </section>
+        </aside>
       </div>
     </main>
   </div>  
