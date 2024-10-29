@@ -16,6 +16,7 @@ $(function () {
     const getTarget = e.target.dataset.selectevt;
     const result = $(this).val();
     let target = $('#' + getTarget + result);
+    console.log(target)
     $('[data-selectTarget]').hide();
     if(target.length){
       target.show();
@@ -27,7 +28,8 @@ $(function () {
     return $.extend({},{
       locale: 'ko',
       format: 'Y-m-d',
-      timepicker: false
+      timepicker: false,
+      step:10
     }, opts);
   }
   $('[data-datepicker="date"]').datetimepicker(DatetimepickerDefaults());

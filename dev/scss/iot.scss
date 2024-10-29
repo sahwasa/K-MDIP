@@ -33,17 +33,23 @@
     &::before{background-color:nth($riskLevel, $i);}
   }
 }
-.integrated{display:flex;gap:30px;
+.integrated{display:flex;gap:30px;height:100%;padding-bottom:0;
   .tit{
     &::before{margin-right:5px;}
     h1{font-size:16px;}
-  } 
+  }   
   section .tit{border-bottom:1px solid $border_gray;padding-bottom:5px;}
-  .flex_vertical{gap:60px;}
-  .iot_area{flex:1;}
-  aside{width:350px; }
+  .iot_area{flex:1;
+    .tit .tool{width:350px;justify-content:flex-end;}
+    .flex_vertical{gap:60px;}
+    .risk_filter{margin-right:auto;}
+    .tab_conts{height:calc(100% - 53px);overflow-y:scroll;@include scrollbarW;}
+  }
+  aside{width:350px;gap:20px;height:100%;overflow-y:scroll;@include scrollbarW;}
+  .dl_list{row-gap:5px;padding:10px 15px;}
+  dt,dd{min-height:auto;}
+  dt{color:#999;white-space:pre;letter-spacing:.03em;}
 }
-
 .risk_filter{display:flex;gap:15px;margin-right:30px;
   @for $i from 3 through 2{
     $color :darken(nth($riskLevel, $i), 6);
@@ -54,67 +60,81 @@
   }
 }
 .unit{@include dot(#555){margin-right:5px;};}
+.tgl_viewType{position:relative;align-self:start;
+  label{@include label_item(true, $blue);&{font-size:0;padding:7px 8px;}
+    &::before{@include fontello('\eb69');font-size:16px;}
+    &:has(:checked)::before{content:"\eb67";}
+  }
+}
 .iot_lst{display:grid;grid-template-columns:repeat(auto-fill, minmax(122px, auto));gap:4px;
   li{display:flex;flex-direction:column;border:1px solid $border_gray;
     &>div{text-align:center;font-size:13px;color:#777;padding:10px;margin-top:auto;}
     &.error strong::after{background-color:#f00;border-color:#c00000;}
+    @for $i from 1 through 2{
+      $color:nth($riskLevel, ($i * 2) - 1);
+      &.lv#{$i}{border-color:$color;background-color:rgba(red($color),green($color),blue($color),.1);}
+    }
   }
   strong{display:flex;gap:5px;font-size:12px;letter-spacing:-.1em;color:#2865a8;padding:7px 5px 3px 10px;
     &::after{@include shape(10px,10px);border-radius:50%;background-color:#3cff00;border:1px solid #2db503;margin:1px 0 0 auto;}
   }
   .data{font-size:20px;font-weight:600;color:#333;margin-right:3px;}
-
 }
 
-.forecast{border:1px solid $border_gray;border-radius:3px;padding:15px;
-  $border-color:#d0cdcd;
-  .tbl_wrap{width:100px; display:flex;border:1px solid #a2acc8;border-radius:5px;padding:10px 13px 20px;}  
-  .head{flex:0 0 36px;margin-top:28px;
-    th{width:36px;font-size:12px;color:#000;border-right:1px solid $border-color;}
-    tr:nth-child(1){height:47px;}
-    tr:nth-child(2){height:113px;}
-    tr:nth-child(3){height:82px;}
-    tr:nth-child(4){height:105px;}
-    tr:nth-child(5){height:76px;}
+.forecast{display:flex;flex-direction:column;gap:14px;border:1px solid $border_gray;border-radius:3px;padding:10px;$border-color:#d0cdcd;
+  section:not(:first-of-type){position:relative;border:1px solid #cae2fc;border-radius:5px;padding:20px 15px 10px;}
+  h2{position:absolute;left:9px;top:-11px;display:inline-block;padding:3px 6px;border-radius:10px; background-color:$skyblue;color:#fff;}
+  ul{display:flex;padding-bottom:5px;border-bottom:1px dashed #777;} 
+  li{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;font-size:11px;font-weight:600;line-height:1;
+    &::after{content:attr(data-hour)'시';font-size:11px;color:#a1a3a7;margin-top:5px;font-weight:600;}
+    &:first-child::after{color:$coral;}
   }
-  .tbl_weather{width:100%;text-align:center;
-    tr{border-top: 1px solid $border-color;
-      &:first-child {border-top-width:0;padding:0;}    
-    }
-    td{width:46px;font-size:11px;font-weight:700;color:#686868;padding:15px 0;
-      &:first-of-type{width:56px;padding-left:10px;}
-    }
-    @property --p{
-      syntax: '<number>';
-      inherits: true;
-      initial-value: 1;
-    }
-    .precipitation td{position:relative;
-      i{ --p:calc(var(--val)*-1% + 100%);
-        position:relative;@include shape(21px,21px);display:block;margin:7px auto;background:#f0f3ff;border-radius:0 95% 45% 50% / 0 50% 45% 95%;transform:rotate(45deg);
-      &::before{position:absolute;bottom:0;left:0;@include shape(100%,27px);background-color:#5e8cff;transform:rotate(-45deg) translate(-10%,var(--p));}
-      }
-      &{color:#5e8cff;font-weight:normal;}
-    }
-    .humidity td{
-      p{display:flex;flex-direction:column;justify-content:flex-end;height:60px;margin-top:15px;
-        --p:calc(var(--val)*1%);
-        &::after{flex-shrink:0;@include shape(calc(100% - 1px),var(--p));; border-top:3px solid #45ccfb;background-color:#c5f0ff;}
-      }
-    }
-    .temp td{padding-bottom:0;
-      .chart_wrap{height:53px;}
-      }
-    .weathers{border-top-color:transparent;
-      i{@include shape(24px,24px);background-position:50%;background-size:contain;}
-      td{padding-top:0;}
-    }
-    .winds td{
-      i{@include shape(14px,19px);display:block;background:url(../images/weather/img_weather_wind.png) 50% / contain no-repeat;margin:0 auto;}
-      @for $i from 1 to 9{
-        .wind#{$i}{transform: rotate($i * 45deg);}
-      }
-      &{color:#5e8cff;}
-    }
-  } 
+}
+.today_weather{display:flex;align-items:center;justify-content:center;gap:50px;background-color:#eaf4ff;border-radius:5px;padding:10px 10px 10px 0;
+  .dl_list{grid-template-columns:50px 1fr;font-size:13px;row-gap:3px;padding:0;
+    dt,dd{font-size:13px;}
+    dt::before{display:none;}
+    dd{font-weight:600;}
+  }
+  i{display:grid;grid-template-columns:42px 1fr;column-gap:15px;color:#555;background:none;
+    &::before{@include shape(42px,42px);grid-column-start:1;grid-row:1 / 2 span;}
+  }
+  strong{color:#000;font-size:22px;}
+}
+.weathers{
+  i{@include shape(24px,24px);background-position:50%;background-size:contain;}
+  .chart_wrap{height:40px;margin-top:-10px;}
+}
+@for $i from 1 through 16{
+  .weather#{$i},
+  .weather#{$i}::before{background-image:url(../images/weather/ico_weather#{$i}.png);}
+}
+
+.precipitation li{position:relative;
+  i{ --p:calc(var(--val)*-1% + 100%);
+    position:relative;@include shape(16px,16px);display:block;margin:3px auto;background:#f0f3ff;border-radius:0 95% 45% 50% / 0 50% 45% 95%;transform:rotate(45deg);
+  &::before{position:absolute;bottom:0;left:0;@include shape(100%,21px);background-color:#226AFF;transform:rotate(-45deg) translate(-10%,var(--p));}
+  }
+  &{color:#226AFF;}
+}
+.humidity li{display:flex;flex-direction:column;justify-content:flex-end;height:60px;gap:3px;color:#999;font-size:11px;
+  i{--p:calc((var(--val) * 1% ) - 20px);border-radius:2px 2px 0 0;
+    flex-shrink:0;@include shape(calc(100% - 1px),var(--p));; border-top:3px solid #45ccfb;background-color:#c5f0ff;}
+}
+.winds{
+  ul{border-bottom:none;}
+  li{position:relative;color:#3c8bce;
+    &::after{width:100%;position:absolute;left:0;top:62px;}
+  }
+  i{@include shape(14px,19px);display:block;background:url(../images/weather/img_weather_wind.png) 50% / contain no-repeat;margin:0 auto;}
+  @for $i from 1 to 9{
+    .wind#{$i}{transform: rotate($i * 45deg);}
+  }
+  .chart_wrap{height:30px;box-sizing:content-box;padding-bottom:20px;border-bottom:1px dashed #777;} 
+}
+.seismicMeter{
+  ul{display:flex;flex-direction:column;gap:5px;}
+  li{border:1px solid $border-gray;}
+  strong{display:block;background-color:$bg_gray;border-bottom:1px solid $border-gray;padding:5px 15px;}
+  
 }

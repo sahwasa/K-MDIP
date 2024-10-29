@@ -44,11 +44,15 @@
                 </span>
                 <button type="button" class="btn_skyblue" onclick="setDateTimeNow()">현재시각</button>
               </dd>
-              <dt>예약발송</dt>
+              <dt>발송구분</dt>
               <dd>
-                <div class="switch_toggle">
-                  <input type="checkbox" id="reserveYN" data-checkEvt="reserveTime"><label class="useYN" for="reserveYN">사용여부</label>
-                </div>
+                <label for="instantly"><input type="radio" name="send_type" id="instantly" data-selectEvt checked>즉시발송</label>
+                <label for="reserve"><input type="radio" name="send_type" value="Time" id="reserve" data-selectEvt="reserve">예약발송</label>
+              </dd>
+              <dd id="reserveTime" data-selectTarget>
+                <span class="datetimepicker_wrap">
+                  <input type="text" id="" data-datepicker="datetime" class="input_calendar" value="발송시각 선택">
+                </span>
               </dd>
               <dd id="reserveTime" data-selectTarget>
                 <span class="datetimepicker_wrap">

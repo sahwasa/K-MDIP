@@ -371,8 +371,8 @@ $dlH:33px;
 
 /* tab */
 .tab_ctrl{display:flex;margin-bottom:5px;}
-.tab{border-bottom:1px solid $bg_deep;margin-bottom:15px;
-  ul{display:flex;overflow:hidden;}
+.tab{display:flex;border-bottom:1px solid $bg_deep;margin-bottom:15px;  
+  ul{display:flex;width:100%;overflow:hidden;}
   li{flex:1;max-width:250px;background-color:#fff;border:1px solid $border_gray;border-bottom-width:0;
     &:not(:first-child){border-left-width:0;}
     @at-root .lnb_panel .tab li:last-child{border-right-width:0;}
@@ -381,6 +381,7 @@ $dlH:33px;
     }
   }
   a{width:100%;text-align:center;line-height:36px;}
+  .tool{margin-left:auto;}
 }
 .lnb_panel .tab{border-color:$skyblue;
   li:has(.on){background-color:$skyblue;}
