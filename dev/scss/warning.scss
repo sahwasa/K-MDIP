@@ -7,6 +7,7 @@
 		@for $i from 1 through 9{
 			&:nth-child(#{$i}){background-position-y:($i - 1) * -70px + 15px;}
 		}
+		&:nth-child(2){display:none;} //정기발령 보류
 		& > a{display:block;height:100%;padding-top:50px;text-align:center;font-size:13px;color:#fff; letter-spacing:-.7px;}
 		&:has(ul){position:relative;
 			&:hover ul{display:block;}
@@ -99,7 +100,6 @@
 	.btn_reset{height:32px;color:$btn_deep;border:none;justify-content:flex-end;padding-right:5px;}
 	.btn_apply{flex:1;border-radius:5px;}
 }
-
 .lst_status{display:flex;align-items:center;gap:10px;padding:0 15px;height:44px;border:1px solid #2287f3;border-width:1px 0;margin-bottom:0;font-size:13px;
 	@at-root .monitoring &::after{@include fontello('\f0f3');font-size:18px;color:$skyblue;}
 	&:has(.tgl_tree){padding-right:0;}
@@ -226,7 +226,10 @@
 	.tbl_wrap{--h:calc(100vh - 120px);min-height:680px;}
 }
 .history{
-	.linked_down .tbl_wrap{--h:calc(100vh - 646px);min-height:154px;}
+	.linked_down{
+		.tbl_top .search{@include divide;}
+		.tbl_wrap{--h:calc(100vh - 650px);min-height:158px;}
+	} 
 }
 .stats{
 	.flex_wrap > section{flex:1;}
@@ -257,9 +260,9 @@
 	.btn_cross::before{color:$coral;}
 }
 .check_lst{display:flex;flex-direction:column;height:calc(100vh - 158px);min-height:642px;overflow-y:auto;padding:10px 0;
-  li{position:relative;display:flex;flex-wrap:wrap;align-items:center;column-gap:5px;row-gap:5px;
+  li{position:relative;display:flex;flex-wrap:wrap;align-items:center;column-gap:5px;row-gap:5px;min-height:26px;
     & > strong{flex:1;display:flex;align-items:center;gap:5px;padding:5px 15px;cursor:pointer;vertical-align:middle;word-break:break-all;letter-spacing:-.12px;font-weight:normal;
-        &:hover,&.on{background-color:#f9fafc;color:$blue;font-weight:bold;}
+			&:hover,&.on{background-color:#f9fafc;color:$blue;font-weight:bold;}
     }
   }
   .btn_dtl::before,
@@ -412,7 +415,7 @@ button[disabled]:hover{background-color:#ccc;cursor:default;border-color:transpa
 .VNO::before, .TDB::before{background-position-y:-75px;}
 .RAS::before, .PDB::before{background-position-y:-100px;}
 .DSB::before, .ADD::before{background-position-y:-125px;}
-
+.slide_container .slide_item{min-width:330px;height:431px;background-color:#cfcfcf;text-align:center;}
 // pop
 .pop_wrap_refer{
 	.tbl_wrap{--h:535px;}
@@ -469,4 +472,8 @@ button[disabled]:hover{background-color:#ccc;cursor:default;border-color:transpa
 .pop_map{
 	.map_content{position:relative;height:800px;background-color:$bg_gray;}
 	.btn_map{display:inline-flex;position:absolute;right:10px;top:10px;}
+}
+.pop_approval{
+	.alert_box{margin-bottom:15px;}
+	strong{color:$deepNavy;font-size:16px;}
 }

@@ -69,7 +69,7 @@
     <nav class="lnb lnb_warning">
   <ul id="left_menu">
     <li class="on"><a href="../../html/warning/monitoring.html">모니터링</a></li>
-    <li><a href="../../html/warning/reserve.html">정기발령</a></li>
+    <li><a href="../../html/warning/reserve.html">(보류)정기발령</a></li>
     <li><a href="../../html/warning/result.html">발령현황</a></li>
     <li><a href="../../html/warning/manual.html">수동발령</a>
       <ul>
@@ -130,7 +130,7 @@
               <button type="button" class="btn_greenline" onclick="excelDown(1)">엑셀다운</button>
             </div>
           </div>
-          <div class="tbl_wrap" style="--h:223px">
+          <div class="tbl_wrap" style="--h:219px">
             <table class="tbl_default tbl_hover">
               <caption>발령이력 제목</caption>         
               <thead>
@@ -153,7 +153,7 @@
                   <th scope="col">상태</th>
                 </tr>
               </thead>            
-              <tbody id="table_list">
+              <tbody id="">
                 <tr>
                   <td>
                     <div class="type_wrap">
@@ -172,15 +172,17 @@
                   <td></td>
                   <td><button class="btn_skyblueline">CAP 다운로드</button></td>
                 </tr>
-              <tr onclick="selectRow(this, 'KR.T10107-2024000001_HRE_1')" style="cursor:pointer;"><td><div class="type_wrap">
-                            <i class="Actual">실제</i><i class="manual">수동</i>
-                          </div></td><td>호우 긴급정보</td><td>울산광역시</td><td>2024-02-06 10:32:02</td><td>자동</td><td>2024-02-06 10:32:02</td><td>-</td><td>승인</td><td><i class="i_success">성공</i></td><td>지역 경보</td><td>재해문자전광판(지자체),마을방송시스템</td><td><button type="button" class="btn_skyblueline" onclick="capDownload('KR.T10107-2024000001_HRE_1')">CAP 다운로드</button></td></tr><tr onclick="selectRow(this, 'KR.T10101-2024000001_HWE_1')" style="cursor:pointer;"><td><div class="type_wrap">
-                            <i class="Actual">실제</i><i class="manual">수동</i>
-                          </div></td><td>강풍 긴급정보</td><td>울산광역시</td><td>2024-02-05 17:42:08</td><td>자동</td><td>2024-02-05 17:42:08</td><td>-</td><td>승인</td><td><i class="i_success">성공</i></td><td>지역 경보</td><td>재해문자전광판(지자체),마을방송시스템</td><td><button type="button" class="btn_skyblueline" onclick="capDownload('KR.T10101-2024000001_HWE_1')">CAP 다운로드</button></td></tr><tr onclick="selectRow(this, 'KR.T10103-2024000002_HSE_1')" style="cursor:pointer;"><td><ul class="type_wrap"><li class="auto"></li><li class="Test"></li></ul></td><td>대설 긴급정보</td><td>울산광역시</td><td>2024-01-22 13:50:08</td><td>자동</td><td>2024-01-22 13:50:09</td><td>-</td><td>승인</td><td><i class="i_success">성공</i></td><td>지역 경보</td><td>재해문자전광판(지자체),마을방송시스템</td><td><button type="button" class="btn_skyblueline" onclick="capDownload('KR.T10103-2024000002_HSE_1')">CAP 다운로드</button></td></tr><tr onclick="selectRow(this, 'KR.T10103-2024000001_HSE_1')" style="cursor:pointer;"><td><ul class="type_wrap"><li class="auto"></li><li class="Test"></li></ul></td><td>대설 긴급정보</td><td>울산광역시</td><td>2024-01-22 13:44:51</td><td>자동</td><td>2024-01-22 13:44:51</td><td>-</td><td>승인</td><td><i class="i_success">성공</i></td><td>지역 경보</td><td>재해문자전광판(지자체),마을방송시스템</td><td><button type="button" class="btn_skyblueline" onclick="capDownload('KR.T10103-2024000001_HSE_1')">CAP 다운로드</button></td></tr><tr onclick="selectRow(this, 'KR.T10107-2024000001_HRE_1')" style="cursor:pointer;"><td><div class="type_wrap">
-                            <i class="Actual">실제</i><i class="manual">수동</i>
-                          </div></td><td>호우 긴급정보</td><td>울산광역시</td><td>2024-02-06 10:32:02</td><td>자동</td><td>2024-02-06 10:32:02</td><td>-</td><td>승인</td><td><i class="i_success">성공</i></td><td>지역 경보</td><td>재해문자전광판(지자체),마을방송시스템</td><td><button type="button" class="btn_skyblueline" onclick="capDownload('KR.T10107-2024000001_HRE_1')">CAP 다운로드</button></td></tr><tr onclick="selectRow(this, 'KR.T10101-2024000001_HWE_1')" style="cursor:pointer;"><td><div class="type_wrap">
-                            <i class="Actual">실제</i><i class="manual">수동</i>
-                          </div></td><td>강풍 긴급정보</td><td>울산광역시</td><td>2024-02-05 17:42:08</td><td>자동</td><td>2024-02-05 17:42:08</td><td>-</td><td>승인</td><td><i class="i_success">성공</i></td><td>지역 경보</td><td>재해문자전광판(지자체),마을방송시스템</td><td><button type="button" class="btn_skyblueline" onclick="capDownload('KR.T10101-2024000001_HWE_1')">CAP 다운로드</button></td></tr><tr onclick="selectRow(this, 'KR.T10103-2024000002_HSE_1')" style="cursor:pointer;"><td><ul class="type_wrap"><li class="auto"></li><li class="Test"></li></ul></td><td>대설 긴급정보</td><td>울산광역시</td><td>2024-01-22 13:50:08</td><td>자동</td><td>2024-01-22 13:50:09</td><td>-</td><td>승인</td><td><i class="i_success">성공</i></td><td>지역 경보</td><td>재해문자전광판(지자체),마을방송시스템</td><td><button type="button" class="btn_skyblueline" onclick="capDownload('KR.T10103-2024000002_HSE_1')">CAP 다운로드</button></td></tr><tr onclick="selectRow(this, 'KR.T10103-2024000001_HSE_1')" style="cursor:pointer;"><td><ul class="type_wrap"><li class="auto"></li><li class="Test"></li></ul></td><td>대설 긴급정보</td><td>울산광역시</td><td>2024-01-22 13:44:51</td><td>자동</td><td>2024-01-22 13:44:51</td><td>-</td><td>승인</td><td><i class="i_success">성공</i></td><td>지역 경보</td><td>재해문자전광판(지자체),마을방송시스템</td><td><button type="button" class="btn_skyblueline" onclick="capDownload('KR.T10103-2024000001_HSE_1')">CAP 다운로드</button></td></tr></tbody>
+              <tr>
+                <td>
+                  <div class="type_wrap">
+                   <i class="Actual">실제</i><i class="manual">수동</i>
+                   </div>
+                </td>
+                <td>호우 긴급정보</td><td>울산광역시</td><td>2024-02-06 10:32:02</td><td>자동</td><td>2024-02-06 10:32:02</td><td>-</td><td>승인</td>
+                <td><i class="i_success">성공</i></td>
+                <td>지역 경보</td><td>재해문자전광판(지자체),마을방송시스템</td><td><button type="button" class="btn_skyblueline" onclick="capDownload('KR.T10107-2024000001_HRE_1')">CAP 다운로드</button></td>
+              </tr>
+              </tbody>
             </table>
           </div>
         </section>
@@ -233,6 +235,13 @@
                   <p>전체 <b class="font_blue" id="count_all">4</b>건 /
                       성공 <b class="font_blue" id="count_0">4</b>건 /
                       실패 <b class="font_blue" id="count_9">0</b>건</p>
+                  <ul class="search">
+                    <li><select name="" id=""><option value="">단말기 유형</option></select></li>
+                    <li><select name="" id=""><option value="">예경보시스템</option></select></li>
+                    <li>
+                      <select name="" id=""><option value="">성공여부</option></select> <button type="button" class="btn_skyblue">검색</button>
+                    </li>
+                  </ul>
                   <div class="tool">
                     <button type="button" class="btn_greenline" onclick="excelDown(1)">엑셀다운</button>
                   </div>
@@ -240,19 +249,9 @@
                 <div class="tbl_wrap">
                   <table class="tbl_default">
                     <caption>단말기별 통보결과 제목</caption>
-                    <colgroup>
-                      <col style="width:80px">
-                      <col style="width:150px">
-                      <col style="width:300px">
-                      <col style="width:200px">
-                      <col style="width:auto">
-                      <col style="width:150px">
-                      <col style="width:80px">
-                      <col style="width:200px">
-                    </colgroup>
                     <thead>
                       <tr>
-                        <th scope="col">매체구분</th>
+                        <th scope="col">단말기 유형</th>
                         <th scope="col">예경보 시스템명</th>
                         <th scope="col">단말기 고유번호</th>
                         <th scope="col">단말기명</th>
@@ -264,17 +263,17 @@
                     </thead>                
                     <tbody id="table_list">
                       <tr>
-                        <td>VBS</td>
-                        <td>00군 마을방송시스템</td>
-                        <td>단말기 고유식별번호 (30자리 이내)</td>
-                        <td>00지구 00회관</td>
-                        <td>단말기 설치 주소 (100자리 이내)</td>
+                        <td>문자방송</td>
+                        <td>문자방송</td>
+                        <td>핸드폰번호</td>
+                        <td>홍길동</td>
+                        <td>주소록에 저장된 주소</td>
                         <td>2024-02-06 10:32:02</td>
                         <td><i class="i_success">성공</i></td>
                         <td>-</td>
                       </tr>
                       <tr>
-                        <td>VBS</td>
+                        <td>마을방송</td>
                         <td>00군 마을방송시스템</td>
                         <td>단말기 고유식별번호 (30자리 이내)</td>
                         <td>00지구 00회관</td>

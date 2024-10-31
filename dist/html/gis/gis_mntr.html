@@ -73,21 +73,21 @@
     </header>
     <div class="section_body">    
       <ul class="tab_list">
-        <li><button type="button" class="on">기상특보</button></li>
-        <li><button type="button">지진정보</button></li>
-        <li><button type="button">대규모화재</button></li>
-        <li><button type="button">산불</button></li>
-        <li><button type="button">자체발령</button></li>
+        <li><label for="filter1"><input type="checkbox" id="filter1" checked>기상특보</label></li>
+        <li><label for="filter2"><input type="checkbox" id="filter2" checked>지진정보</label></li>
+        <li><label for="filter3"><input type="checkbox" id="filter3" checked>대규모화재</label></li>
+        <li><label for="filter4"><input type="checkbox" id="filter4" checked>산불</label></li>
+        <li><label for="filter5"><input type="checkbox" id="filter5" checked>자체발령</label></li>
       </ul>
       <section class="panel">      
-        <header class="tit"><h2>기상특보 현황</h2></header>
+        <header class="tit"><h2>재난발령현황</h2></header>
         <div class="panel_content">
           <div class="tbl_wrap">
             <table class="tbl_default tbl_hover">
               <thead>
                 <tr>
-                  <th scope="col">특보구역</th>
-                  <th scope="col">특보종류</th>
+                  <th scope="col">지역</th>
+                  <th scope="col">재난종류</th>
                   <th scope="col">발표시각</th>
                   <th scope="col">통보여부</th>
                 </tr>
@@ -219,8 +219,8 @@
             <!-- .rainGauge:강우계 .waterGauge:수위계 .snowGauge:적설계 .seismicMeter:지진계 .AWS .cctv -->
               <div class="symbol" style="--right:1100px;--top:550px">
                 <button type="button" onclick="document.querySelector('.dataMonitor').show();" class="rainGauge">강우계 OOO회관</button>
-                <!-- lv1:노랑,2:주황,3,빨강 -->
-                <div class="iot_desc lv3">
+                <!-- lv1:노랑,2,빨강 -->
+                <div class="iot_desc lv1">
                   <a href="javascript:(document.querySelector('.dataMonitor').show())">
                     <strong>OOOOOO OOO 회관</strong>
                     <div>

@@ -15,20 +15,22 @@ i{
 .tab_list{display:flex;padding:20px;border-bottom:1px solid $border_gray;
   li{flex:1;
     @for $i from 1 through 5{
-      &:nth-child(#{$i}) button::before{background-position-x: (($i - 1) * - 43px) + 9px ;}
+      &:nth-child(#{$i}) label::before{background-position-x: (($i - 1) * - 43px) + 9px ;}
     }
   }
-  button{width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;font-size:12px;letter-spacing:-.05em;
+  label{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;font-size:12px;letter-spacing:-.05em;font-size:13px;gap:5px;color:#999;cursor:pointer;
     &::before{@include shape(43px,43px);border-radius:50%;background:url(../images/ico_gis_lnb.png) 0 8px no-repeat, #f4f5f7;}
-    &.on{color:$skyblue;font-weight:600;
-      &::before{background-position-y:-33px;background-color:$skyblue;}
+    &:has(input[type=checkbox]:checked){color:$skyblue;font-weight:600;
+      &::before{background-position-y:-33px;background-color:$skyblue;}    
     }
   }
+  input{-webkit-appearance:none;-moz-appearance:none;-o-appearance:none;appearance:none;outline:none;box-shadow:none;vertical-align:middle;overflow:hidden;}
+  input[type=checkbox]{position:absolute;width:0px;height:0px;overflow:hidden;opacity:0;}
 }
 $panelWidth : 370px;
 .gis_ctrl{width:$panelWidth;box-shadow:0.3px 4px 5px 0 rgba(0, 0, 0, 0.2);
   .panel_wrap{width:$panelWidth;}
-  .tit{padding:20px 15px 15px 20px;}
+  .tit{padding:20px 15px 15px 20px;border-bottom-width:0;}
   .section_body{flex:1;overflow-y:auto;}
   .tab{margin-bottom:0;}
 }
@@ -127,10 +129,10 @@ $panelWidth : 370px;
       &::before{@include fontello('\e9f6');}      
     }
   }
-  @for $i from 1 through 3{
-    &.lv#{$i}{border-color:darken(nth($riskLevel, $i), 10);
-      strong{background-color:nth($riskLevel, $i);@if $i== 1 {color:#000;}}
-      &::before{border-color:darken(nth($riskLevel, $i), 10);border-width:0 1px 1px 0;}
+  @for $i from 1 through 2{
+    &.lv#{$i}{border-color:darken(nth($riskLevel, $i), 5);
+      strong{background-color:nth($riskLevel, $i);@if $i== 1 {color:#000;background-color:lighten(nth($riskLevel, $i), 20);}}
+      &::before{border-color:darken(nth($riskLevel, $i), 5);border-width:0 1px 1px 0;}
     }
   }
 }
