@@ -23,5 +23,8 @@
 }
 .pop_codeAdmin .dl_list{grid-template-columns:120px 1fr;}
 .pop_destAdmin{
-  .column2 dt{@include marginL(even);}
+  .column2 dt{@include marginL(even);
+    &.break{margin-left:0;}
+  }
+  .media_select{width:100%;display:grid;grid-template-columns:repeat(auto-fill, minmax(150px, auto));}
 } 

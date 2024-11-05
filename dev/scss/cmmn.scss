@@ -359,6 +359,7 @@ $dlH:33px;
   input[type=number]{max-width:110px;}
   &.column2{grid-template-columns:repeat(2, 130px 1fr);
     .full{grid-column:2 / span 3;}
+    .break{grid-column-start:1;}
   }
 }
 .lst_num{counter-reset:list_num;
