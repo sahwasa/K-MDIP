@@ -66,154 +66,196 @@
   </div>
 </header>
   <div class="con_wrap">
-    <section class="lnb_panel lnb_set">
+    <section class="lnb_panel lnb_iot">
   <div class="panel_wrap">
     <header class="tit">
-      <h1>시스템관리</h1>
+      <h1>IOT 관측자료</h1>
     </header>    
     <nav class="lnb">
       <ul id="left_menu">
-        <li class="on"><a href="../../html/set/user.html">사용자관리</a></li>       
-        <li><a href="../../html/set/cmmnCode.html">공통코드관리</a></li>       
-        <li><a href="../../html/set/disasterCode.html">재난코드관리</a></li>
-        <li><a href="../../html/set/dest.html">수신처관리</a></li>       
+        <li><a href="../../html/iot/iot_integrated.html">통합상황판</a></li>       
+        <li class="on"><a href="../../html/iot/status_rainGauge.html">실시간현황</a>
+          <ul>
+            <li class="on"><a href="../../html/iot/status_rainGauge.html">강우</a></li>
+            <li><a href="../../html/iot/status_waterGauge.html">수위</a></li>
+            <li><a href="../../html/iot/status_snowGauge.html">적설</a></li>
+            <li><a href="../../html/iot/status_seismicMeter.html">지진가속도</a></li>
+            <li><a href="../../html/iot/status_AWS.html">기상</a></li>
+          </ul>
+        </li>       
+        <li><a href="../../html/iot/history_rainGauge.html">이력조회</a>
+          <ul>
+            <li><a href="../../html/iot/history_rainGauge.html">강우</a></li>
+            <li><a href="../../html/iot/history_waterGauge.html">수위</a></li>
+            <li><a href="../../html/iot/history_snowGauge.html">적설</a></li>
+            <li><a href="../../html/iot/history_seismicMeter.html">지진가속도</a></li>
+            <li><a href="../../html/iot/history_AWS.html">기상</a></li>
+          </ul>
+        </li>
+        <li><a href="../../html/iot/admin_rainGauge.html">장비관리</a>
+           <ul>
+            <li><a href="../../html/iot/admin_rainGauge.html">강우계</a></li>
+            <li><a href="../../html/iot/admin_waterGauge.html">수위계</a></li>
+            <li><a href="../../html/iot/admin_snowGauge.html">적설계</a></li>
+            <li><a href="../../html/iot/admin_seismicMeter.html">지진가속도계</a></li>
+            <li><a href="../../html/iot/admin_AWS.html">기상청(AWS)</a></li>
+          </ul>
+        </li>       
       </ul>
     </nav>      
   </div>  
 </section>
     <main class="contents">
       <header class="tit">
-        <h1>공통코드관리</h1>
+        <h1>이력조회 <b>강우</b></h1>
       </header>
-      <div class="content cmmn_code">
-        <div class="layout_flex">
-          <section class="section">
-            <header class="tit">
-              <h3>그룹코드</h3>
-              <div class="tool">
-                <button type="button" class="btn_skyblue" onclick="document.querySelector('.pop_codeAdmin').show();">추가</button>
-                <button type="button" class="btn_deepline" onclick="showGroupcodePopup('U')">수정 </button>
-                <button type="button" class="btn_grayline" onclick="deleteCode('')">삭제</button>
-              </div>
-            </header>
-            <div class="tbl_area tbl_wrap">
-              <table class="tbl_default tbl_hover">
-                <caption>그룹코드</caption>               
-                <thead>
-                  <tr>
-                    <th scope="col">선택</th>
-                    <th scope="col">코드</th>
-                    <th scope="col">코드명</th>
-                    <th scope="col">설명</th>
-                    <th scope="col">사용여부</th>
-                  </tr>
-                </thead>                  
-                <tbody>
-                  <tr onclick="selectGroupCode(this, 'AUTH', '사용자권한', '사용자권한', 'on')">
-                    <td><input type="checkbox" name="checkbox_tab2_left" value="AUTH"></td>
-                    <td>AUTH</td>
-                    <td>사용자권한</td>
-                    <td>사용자권한</td>
-                    <td>
-                      <div class="switch_toggle">
-                        <input type="checkbox" id="useYN1"><label class="useYN" for="useYN1">사용여부</label>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </section>
-          <section>
-            <header class="tit">
-              <h3>상세코드</h3>
-              <div class="tool">
-                <button type="button" class="btn_skyblue" onclick="showCodePopup('C')">추가</button>
-                <button type="button" class="btn_deepline" onclick="showCodePopup('U')">수정 </button>
-                <button type="button" class="btn_grayline" onclick="deleteCode()">삭제</button>
-              </div>
-            </header>
-            <div class="tbl_area tbl_wrap">
-              <table class="tbl_default tbl_hover">
-                <caption>상세코드</caption>              
-                <thead>
-                  <tr>
-                    <th scope="col">선택</th>
-                    <th scope="col">코드</th>
-                    <th scope="col">코드명</th>
-                    <th scope="col">설명</th>
-                    <th scope="col">사용여부</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                      <div class="switch_toggle">
-                        <input type="checkbox" id="useYN1-1"><label class="useYN" for="useYN1-1">사용여부</label>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </section>
+      <div class="content status">
+        <div class="search_area">
+          <ul class="search">
+            <li>
+              <span class="period">
+                <input type="text" id="date_timepicker" class="input_calendar" data-datepicker="date" value="YYYY-MM-DD" placeholder="기간 시작일 선택" title="기간 시작일 선택">
+              </span>
+            </li>
+            <li><select name="" id="" title="경보단계"><option value="">경보단계</option></select></li>
+            <li><select name="" id="" title="시군구"><option value="">시군구</option></select>            
+            <select name="" id="" title="읍면동"><option value="">읍면동</option></select>
+            </li>
+            <li>
+            <input type="text" title="location" placeholder="장비명, 지역명" id="" onkeydown="">
+            <button type="button" class="btn_skyblue" onclick="search();">검색</button>
+            </li>
+          </ul>
+          <div class="tool">
+            <button type="button" class="btn_greenline">엑셀 다운로드</button>
+          </div>
         </div>
-      </div>      
+        <section class="tbl_area">          
+          <div class="tbl_top">
+            <p>* 조회일자 : 2024-07-01 10:20 (<b class="font_blue" id="">10</b> 건)</p>
+            <div class="unit">(단위 ㎜)</div>
+          </div>
+          <div class="tbl_wrap">
+            <table class="tbl_default tbl_hover">
+              <caption>강우계 목록</caption>         
+              <thead>
+                <tr>
+                  <th scope="col">지역명</th>
+                  <th scope="col">장비명</th>
+                  <th scope="col">00시</th>
+                  <th scope="col">01시</th>
+                  <th scope="col">02시</th>
+                  <th scope="col">03시</th>
+                  <th scope="col">04시</th>
+                  <th scope="col">05시</th>
+                  <th scope="col">06시</th>
+                  <th scope="col">07시</th>
+                  <th scope="col">08시</th>
+                  <th scope="col">09시</th>
+                  <th scope="col">10시</th>
+                  <th scope="col">11시</th>
+                  <th scope="col">12시</th>
+                  <th scope="col">13시</th>
+                  <th scope="col">14시</th>
+                  <th scope="col">15시</th>
+                  <th scope="col">16시</th>
+                  <th scope="col">17시</th>
+                  <th scope="col">18시</th>
+                  <th scope="col">19시</th>
+                  <th scope="col">20시</th>
+                  <th scope="col">21시</th>
+                  <th scope="col">22시</th>
+                  <th scope="col">23시</th>
+                  <th scope="col">누계</th>
+                </tr>
+              </thead>            
+              <tbody>
+                <tr>
+                  <td>서울시 구로구 ㅇㅇ동</td>
+                  <td>ㅇㅇ교</td>
+                  <td>15.5</td>
+                  <td>20.3</td>
+                  <td>10.2</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>415.0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
     </main>
   </div>  
 </div>
-<!-- popup -->
-<dialog id="pop_codeAdmin" class="pop_codeAdmin" style="--width:400px;">
+<dialog id="dataMonitor" class="dataMonitor" style="--width:700px">
   <header class="p_header">
-    <h1>코드 추가 및 수정</h1>
+    <h1>실시간 관측자료 현황</h1>
     <button type="button" class="btn_cross">닫기</button>
   </header>
   <div class="p_body">
-    <dl class="dl_list">
-      <dt>대분류코드</dt>
-      <dd><input type="text" disabled value="T1"></dd>
-      <dt>중분류코드</dt>
-      <dd><input type="text" disabled value="T10102"></dd>
-      <dt><label for="" class="required">코드</label></dt>
-      <dd>
-        <input type="text" value="abcdefg"/><button type="button" class="btn_skyblue">중복확인</button>
-      </dd>
-      <dt><label for="common_pwd" class="required">코드명</label></dt>
-      <dd>
-        <input type="text" id="" >
-      </dd>
-      <dt><label for="">통보구분</label></dt>
-      <dd><select name="" id=""><option value="">Alert</option></select></dd>
-      <dt><label for="">재난유형 분류코드</label></dt>
-      <dd><select name="" id=""><option value="">Geo</option></select></dd>
-      <dt><label for="">대응 행위의 긴급성</label></dt>
-      <dd><select name="" id=""><option value="">Immediate</option></select></dd>
-      <dt><label for="">재난의 발생 확률</label></dt>
-      <dd><select name="" id=""><option value="">Observed</option></select></dd>
-      <dt><label for="">우선순위</label></dt>
-      <dd><select name="" id=""><option value="">0(테스트 또는 관리 신호 메시지)</option></select></dd>
-      <dt><label for="">의무방송 구분</label></dt>
-      <dd><select name="" id=""><option value="">0(자막 자율)</option></select></dd>
-      <dt><label for="">설명</label></dt>
-      <dd>
-        <input type="text" id="" >
-      </dd>
-      <dt>사용여부</dt>
-      <dd>
-        <div class="switch_toggle">
-          <input type="checkbox" id="useYN1"><label class="useYN" for="useYN1">사용여부</label>
-        </div> 
-      </dd>
-    </dl>
-    <div class="p_foot">
-      <button type="button" class="btn_blue">확인</button>
-      <button type="button" class="btn_gray">취소</button>
+    <strong>OOO동사무소</strong>
+    <div class="search_area">                
+      <ul class="search">
+        <li>
+          <span class="datetimepicker_wrap">
+            <input type="text" id="date_timepicker_start" title="date" class="input_calendar" data-datepicker="datetime" value="시작시각"> ~
+            <input type="text" id="date_timepicker_end" title="date" class="input_calendar" data-datepicker="datetime" value="종료시각">
+          </span>  
+        </li>
+        <li>
+          <select name="" id=""><option value="">1시간</option></select>
+        </li>
+      </ul>
+      <button type="button" class="btn_skyblue" onclick="search();">검색</button>
     </div>
-  </div>
+    <div class="flex_wrap">
+      <div id="iotChart" class="chart_wrap"></div>
+      <div class="tbl_area">
+        <div class="tbl_top">
+          <span class="unit">(단위 : ㎜)</span>
+        </div>
+        <div class="tbl_wrap">
+          <table class="tbl_default">
+            <caption>실시간 관측자료</caption>
+            <thead>
+              <tr>
+                <th scope="col">관측일시</th>
+                <th scope="col">강우량</th>
+                <th scope="col">누적 강우량</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>oo구</td>
+                <td>oo교</td>                
+                <td>24.9</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>             
 </dialog>
 
 <!-- popup 비밀번호변경 -->
@@ -353,6 +395,110 @@
     init();
     initSlideshow();
   })
+</script>
+<script> 
+$.get(
+  '../../js/sample.json',
+  function (_rawData) {
+    run(_rawData);
+  }
+);
+function run(_rawData) {
+  const countries = [
+    'Australia'
+  ];
+  const datasetWithFilters = [];
+  const seriesList = [];
+  var iotChart = echarts.init(document.getElementById('iotChart'));
+  echarts.util.each(countries, function (country) {
+    var datasetId = 'dataset_' + country;
+    datasetWithFilters.push({
+      id: datasetId,
+      fromDatasetId: 'dataset_raw',
+      transform: {
+        type: 'filter',
+        config: {
+          and: [
+            { dimension: 'Year', gte: 1980 },
+            { dimension: 'Country', '=': country }
+          ]
+        }
+      }
+    });
+    seriesList.push({
+      type:'bar',
+      name:"강우량",
+      color:'#22b6f3',
+      datasetId: datasetId,
+      encode: {
+        x: 'Year',
+        y: 'Life Expectancy'
+      },
+      markLine: {
+        symbol: 'none',
+        lineStyle: {
+          color: "#fc6c6d",
+          type:'solid'
+        },
+        label:{show:false},
+        data: [{
+          type: 'max',
+          name: 'Max Value'
+        } ]
+      }
+    },
+    {
+      type: 'line',
+      datasetId: datasetId,
+      showSymbol: false,
+      name: '누적강우량',
+      yAxisIndex: 1,
+      color:'#0a1e99',
+      encode: {
+        x: 'Year',
+        y: 'Income'
+      } ,
+    });
+  });
+  option = {  
+    dataset: [
+      {
+        id: 'dataset_raw',
+        source: _rawData
+      },
+      ...datasetWithFilters
+    ],
+    legend: {
+      bottom : 0,
+      data: ['강우량', '누적강우량']
+    },
+    tooltip: {
+      order: 'valueDesc',
+      trigger: 'axis',
+      
+    },
+    xAxis: {
+      type: 'category'
+    },
+    yAxis:[ {
+      name: '강우량(㎜)',
+      nameLocation: "middle",
+      nameGap: 25
+    },{
+      name: '누적강우량(㎜)',
+      nameLocation: "middle",
+      nameGap: 30
+    }],
+    grid: {
+      top:40,
+      left: 60,
+      right: 65
+    },
+    series: seriesList
+  };
+  iotChart.setOption(option);
+};
+    
 </script>
 </body>
 </html>

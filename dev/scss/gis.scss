@@ -158,13 +158,7 @@ $panelWidth : 370px;
     button{@include btn(#DFEEFD,#1171d7,#1171d7,$x:10px,$y:5px);&{border-radius:12px;font-size:12px;}}
   }
 }
-.dataMonitor{
-  strong{display:flex;align-items:center;gap:5px;font-size:14px;color:$skyblue;margin-bottom:15px;
-    &::before{@include shape(6px,6px);background-color:#a6a6a6;border:3px solid #dbdbdb;border-radius:50%;}
-  }
-  .flex_wrap{gap:10px;}
-  .tbl_area{flex:1;margin-top:-19px;height:305px;}
-}
+
 .warningLog{
   .status{display:inline-flex;margin-left:auto;gap:10px;
     li{
@@ -175,6 +169,4 @@ $panelWidth : 370px;
   .tbl_area{height:305px;}
   .i_success{@include tag($mistblue);}
   .i_fail{@include tag($coral);}
-
-
 }

@@ -10,10 +10,6 @@
     }
   }
 }
-.status{
-  .tbl_wrap{--h:calc(100vh - 265px);min-height:535px;}
-  td:nth-child(4){height:45px;}
-}
 .riskLv{@include dot($size:10px);&{display:inline-flex;gap:3px;align-items:center;border-radius:15px;color:#555;white-space:nowrap;font-size:13px;letter-spacing:-.7px;}}
 .connection{border-radius:50%;vertical-align:middle;@include shape(11px, 11px);
   &.default{border-color:nth($connection, 1);background-color:nth($connection, 1);}
@@ -37,6 +33,7 @@
   .flex_vertical{gap:40px;}
   .iot_area{flex:1;
     .tit .tool{width:350px;justify-content:flex-end;}
+    .unit{font-weight:normal;@include dot(#555){margin-right:5px;};}
     .risk_filter{margin-right:auto;}
     .tab_conts{height:calc(100% - 53px);overflow-y:scroll;@include scrollbarW;}
     .tab:has(:checked) + .tab_conts{
@@ -83,7 +80,6 @@
     } 
   }
 }
-.unit{font-weight:normal;@include dot(#555){margin-right:5px;};}
 .tgl_viewType{position:relative;
   label{@include label_item(true, $blue);&{font-size:0;padding:7px 8px;}
     &::before{@include fontello('\eb69');font-size:16px;}
@@ -150,4 +146,10 @@
   ul{display:flex;flex-direction:column;gap:5px;}
   li{border:1px solid $border-gray;}
   strong{display:block;background-color:$bg_gray;border-bottom:1px solid $border-gray;padding:5px 15px;}  
+}
+// status
+.status{
+  .tbl_wrap{--h:calc(100vh - 265px);min-height:535px;}
+  td:nth-child(4){height:45px;}
+  .rainfall{thead tr:last-of-type th:nth-child(3), td:nth-child(6){background-color:$bg_yellow;}}
 }

@@ -19,7 +19,7 @@
             <!-- 단말기 -->
             <div class="terminal">
               <div class="symbol" style="--right:1100px;--top:50px">
-                <button type="button" class="BIS">00지구 00회관(단말기명)</button>
+                <button type="button" class="BIS" title="버스정보시스템">00지구 00회관(단말기명)</button>
                 <div class="layer" style="display: block;">
                   <header>                  
                     <strong>
@@ -37,7 +37,7 @@
               </div>
               <div class="symbol" style="--right:1150px;--top:50px">
                 <!-- 수신 불량은 fail 추가. 필요할까요??? 설계에는 없습니다 -->
-                <button type="button" class="BIS fail">00지구 00회관(단말기명)</button>                
+                <button type="button" class="BIS fail" title="버스정보시스템">00지구 00회관(단말기명)</button>                
               </div>
             </div>
             <!-- 예경보 발령현황 -->
@@ -105,7 +105,7 @@
             <div class="iot">
             <!-- .rainGauge:강우계 .waterGauge:수위계 .snowGauge:적설계 .seismicMeter:지진계 .AWS .cctv -->
               <div class="symbol" style="--right:1100px;--top:550px">
-                <button type="button" onclick="document.querySelector('.dataMonitor').show();" class="rainGauge">강우계 OOO회관</button>
+                <button type="button" title="강우계" onclick="document.querySelector('.dataMonitor').show();" class="rainGauge">강우계 OOO회관</button>
                 <!-- lv1:노랑,2,빨강 -->
                 <div class="iot_desc lv1">
                   <a href="javascript:(document.querySelector('.dataMonitor').show())">
@@ -118,7 +118,7 @@
                 </div>
               </div>
               <div class="symbol" style="--right:900px;--top:550px">
-                <button type="button" onclick="document.querySelector('.dataMonitor').show();"  class="waterGauge">강우계 OOO회관</button>
+                <button type="button" title="수위계" onclick="document.querySelector('.dataMonitor').show();"  class="waterGauge">수위계 OOO교</button>
                 <!-- lv1:노랑,2:주황,3,빨강 -->
                 <div class="iot_desc lv2">
                   <a href="javascript:(document.querySelector('.dataMonitor').show())">
@@ -131,7 +131,7 @@
                 </div>
               </div>
               <div class="symbol" style="--right:700px;--top:650px">
-                <button type="button" onclick="document.querySelector('.dataMonitor').show();" class="AWS">강우계 OOO회관</button>
+                <button type="button" title="AWS" onclick="document.querySelector('.dataMonitor').show();" class="AWS">AWS OOO동 주민복지센터</button>
                 <!-- lv1:노랑,2:주황,3,빨강 -->
                 <div class="iot_desc lv1">
                   <a href="javascript:(document.querySelector('.dataMonitor').show())">
@@ -156,7 +156,7 @@
     <strong>[기상특보]</strong> 호우경보 2024. 09. 01 12:20
   </div>
 </div>
-<dialog id="dataMonitor" class="dataMonitor" style="--width:700px">
+<dialog id="dataMonitor" class="dataMonitor" open style="--width:700px">
   <header class="p_header">
     <h1>실시간 관측자료 현황</h1>
     <button type="button" class="btn_cross">닫기</button>
@@ -167,23 +167,25 @@
       <ul class="search">
         <li>
           <span class="datetimepicker_wrap">
-            <input type="text" id="datetimepicker_" title="date" class="input_calendar" value="시작시각"> ~
-            <input type="text" id="datetimepicker_" title="date" class="input_calendar" value="종료시각">
+            <input type="text" id="date_timepicker_start" title="date" class="input_calendar" data-datepicker="datetime" value="시작시각"> ~
+            <input type="text" id="date_timepicker_end" title="date" class="input_calendar" data-datepicker="datetime" value="종료시각">
           </span>  
+        </li>
+        <li>
+          <select name="" id=""><option value="">1시간</option></select>
         </li>
       </ul>
       <button type="button" class="btn_skyblue" onclick="search();">검색</button>
     </div>
     <div class="flex_wrap">
-      <div class="graph_wrap">
-        <img src="http://placehold.it/355x305" alt="">
-      </div>
+      <div id="iotChart" class="chart_wrap"></div>
       <div class="tbl_area">
         <div class="tbl_top">
-          <span class="unit">단위 : ㎜</span>
+          <span class="unit">(단위 : ㎜)</span>
         </div>
         <div class="tbl_wrap">
           <table class="tbl_default">
+            <caption>실시간 관측자료</caption>
             <thead>
               <tr>
                 <th scope="col">관측일시</th>
@@ -248,6 +250,110 @@
   </div>             
 </dialog>
 @@include('../../inc/script.html')
+<script> 
+$.get(
+  '../../js/sample.json',
+  function (_rawData) {
+    run(_rawData);
+  }
+);
+function run(_rawData) {
+  const countries = [
+    'Australia'
+  ];
+  const datasetWithFilters = [];
+  const seriesList = [];
+  var iotChart = echarts.init(document.getElementById('iotChart'));
+  echarts.util.each(countries, function (country) {
+    var datasetId = 'dataset_' + country;
+    datasetWithFilters.push({
+      id: datasetId,
+      fromDatasetId: 'dataset_raw',
+      transform: {
+        type: 'filter',
+        config: {
+          and: [
+            { dimension: 'Year', gte: 1980 },
+            { dimension: 'Country', '=': country }
+          ]
+        }
+      }
+    });
+    seriesList.push({
+      type:'bar',
+      name:"강우량",
+      color:'#22b6f3',
+      datasetId: datasetId,
+      encode: {
+        x: 'Year',
+        y: 'Life Expectancy'
+      },
+      markLine: {
+        symbol: 'none',
+        lineStyle: {
+          color: "#fc6c6d",
+          type:'solid'
+        },
+        label:{show:false},
+        data: [{
+          type: 'max',
+          name: 'Max Value'
+        } ]
+      }
+    },
+    {
+      type: 'line',
+      datasetId: datasetId,
+      showSymbol: false,
+      name: '누적강우량',
+      yAxisIndex: 1,
+      color:'#0a1e99',
+      encode: {
+        x: 'Year',
+        y: 'Income'
+      } ,
+    });
+  });
+  option = {  
+    dataset: [
+      {
+        id: 'dataset_raw',
+        source: _rawData
+      },
+      ...datasetWithFilters
+    ],
+    legend: {
+      bottom : 0,
+      data: ['강우량', '누적강우량']
+    },
+    tooltip: {
+      order: 'valueDesc',
+      trigger: 'axis',
+      
+    },
+    xAxis: {
+      type: 'category'
+    },
+    yAxis:[ {
+      name: '강우량(㎜)',
+      nameLocation: "middle",
+      nameGap: 25
+    },{
+      name: '누적강우량(㎜)',
+      nameLocation: "middle",
+      nameGap: 30
+    }],
+    grid: {
+      top:40,
+      left: 60,
+      right: 65
+    },
+    series: seriesList
+  };
+  iotChart.setOption(option);
+};
+    
+</script>
 </body>
 </html>
 

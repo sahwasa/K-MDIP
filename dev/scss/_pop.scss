@@ -11,7 +11,12 @@ dialog{max-width:var(--width);width:100vw;min-width:360px;box-shadow:2px 2px 29p
       &::before{font-size:16px;color:#000;};
     }
   }
-  .p_body{max-height:calc(100vh - 200px);overflow-y:auto;font-size:13px;letter-spacing:-0.33px;}
+  .p_body{font-size:13px;letter-spacing:-0.33px;}
+  .tit{margin-bottom:5px;
+    h2{display:flex;gap:8px;align-items:center;font-size:15px;font-weight:600;color:#000;
+      &::before{@include shape(5px, 15px);background-color:$deepNavy;}
+    }
+  }
   .p_foot{display:flex;justify-content:flex-end;align-items:center;gap:3px;margin-top:8px;
     button{line-height:32px;padding:0 22px;}
     .renewal_time{margin-right:auto;color:#657383;}

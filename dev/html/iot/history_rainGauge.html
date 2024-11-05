@@ -1,0 +1,265 @@
+@@include('../../inc/top.html')
+<body>
+<div id="wrap">
+  @@include('../../inc/header.html')
+  <div class="con_wrap">
+    @@include('../../inc/iot/lnb.html')
+    <main class="contents">
+      <header class="tit">
+        <h1>이력조회 <b>강우</b></h1>
+      </header>
+      <div class="content status">
+        <div class="search_area">
+          <ul class="search">
+            <li>
+              <span class="period">
+                <input type="text" id="date_timepicker" class="input_calendar" data-datepicker="date" value="YYYY-MM-DD" placeholder="기간 시작일 선택" title="기간 시작일 선택">
+              </span>
+            </li>
+            <li><select name="" id="" title="경보단계"><option value="">경보단계</option></select></li>
+            <li><select name="" id="" title="시군구"><option value="">시군구</option></select>            
+            <select name="" id="" title="읍면동"><option value="">읍면동</option></select>
+            </li>
+            <li>
+            <input type="text" title="location" placeholder="장비명, 지역명" id="" onkeydown="">
+            <button type="button" class="btn_skyblue" onclick="search();">검색</button>
+            </li>
+          </ul>
+          <div class="tool">
+            <button type="button" class="btn_greenline">엑셀 다운로드</button>
+          </div>
+        </div>
+        <section class="tbl_area">          
+          <div class="tbl_top">
+            <p>* 조회일자 : 2024-07-01 10:20 (<b class="font_blue" id="">10</b> 건)</p>
+            <div class="unit">(단위 ㎜)</div>
+          </div>
+          <div class="tbl_wrap">
+            <table class="tbl_default tbl_hover">
+              <caption>강우계 목록</caption>         
+              <thead>
+                <tr>
+                  <th scope="col">지역명</th>
+                  <th scope="col">장비명</th>
+                  <th scope="col">00시</th>
+                  <th scope="col">01시</th>
+                  <th scope="col">02시</th>
+                  <th scope="col">03시</th>
+                  <th scope="col">04시</th>
+                  <th scope="col">05시</th>
+                  <th scope="col">06시</th>
+                  <th scope="col">07시</th>
+                  <th scope="col">08시</th>
+                  <th scope="col">09시</th>
+                  <th scope="col">10시</th>
+                  <th scope="col">11시</th>
+                  <th scope="col">12시</th>
+                  <th scope="col">13시</th>
+                  <th scope="col">14시</th>
+                  <th scope="col">15시</th>
+                  <th scope="col">16시</th>
+                  <th scope="col">17시</th>
+                  <th scope="col">18시</th>
+                  <th scope="col">19시</th>
+                  <th scope="col">20시</th>
+                  <th scope="col">21시</th>
+                  <th scope="col">22시</th>
+                  <th scope="col">23시</th>
+                  <th scope="col">누계</th>
+                </tr>
+              </thead>            
+              <tbody>
+                <tr>
+                  <td>서울시 구로구 ㅇㅇ동</td>
+                  <td>ㅇㅇ교</td>
+                  <td>15.5</td>
+                  <td>20.3</td>
+                  <td>10.2</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>5.0</td>
+                  <td>415.0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>  
+</div>
+<dialog id="dataMonitor" class="dataMonitor" style="--width:700px">
+  <header class="p_header">
+    <h1>실시간 관측자료 현황</h1>
+    <button type="button" class="btn_cross">닫기</button>
+  </header>
+  <div class="p_body">
+    <strong>OOO동사무소</strong>
+    <div class="search_area">                
+      <ul class="search">
+        <li>
+          <span class="datetimepicker_wrap">
+            <input type="text" id="date_timepicker_start" title="date" class="input_calendar" data-datepicker="datetime" value="시작시각"> ~
+            <input type="text" id="date_timepicker_end" title="date" class="input_calendar" data-datepicker="datetime" value="종료시각">
+          </span>  
+        </li>
+        <li>
+          <select name="" id=""><option value="">1시간</option></select>
+        </li>
+      </ul>
+      <button type="button" class="btn_skyblue" onclick="search();">검색</button>
+    </div>
+    <div class="flex_wrap">
+      <div id="iotChart" class="chart_wrap"></div>
+      <div class="tbl_area">
+        <div class="tbl_top">
+          <span class="unit">(단위 : ㎜)</span>
+        </div>
+        <div class="tbl_wrap">
+          <table class="tbl_default">
+            <caption>실시간 관측자료</caption>
+            <thead>
+              <tr>
+                <th scope="col">관측일시</th>
+                <th scope="col">강우량</th>
+                <th scope="col">누적 강우량</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>oo구</td>
+                <td>oo교</td>                
+                <td>24.9</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>             
+</dialog>
+@@include('../../inc/script.html')
+<script> 
+$.get(
+  '../../js/sample.json',
+  function (_rawData) {
+    run(_rawData);
+  }
+);
+function run(_rawData) {
+  const countries = [
+    'Australia'
+  ];
+  const datasetWithFilters = [];
+  const seriesList = [];
+  var iotChart = echarts.init(document.getElementById('iotChart'));
+  echarts.util.each(countries, function (country) {
+    var datasetId = 'dataset_' + country;
+    datasetWithFilters.push({
+      id: datasetId,
+      fromDatasetId: 'dataset_raw',
+      transform: {
+        type: 'filter',
+        config: {
+          and: [
+            { dimension: 'Year', gte: 1980 },
+            { dimension: 'Country', '=': country }
+          ]
+        }
+      }
+    });
+    seriesList.push({
+      type:'bar',
+      name:"강우량",
+      color:'#22b6f3',
+      datasetId: datasetId,
+      encode: {
+        x: 'Year',
+        y: 'Life Expectancy'
+      },
+      markLine: {
+        symbol: 'none',
+        lineStyle: {
+          color: "#fc6c6d",
+          type:'solid'
+        },
+        label:{show:false},
+        data: [{
+          type: 'max',
+          name: 'Max Value'
+        } ]
+      }
+    },
+    {
+      type: 'line',
+      datasetId: datasetId,
+      showSymbol: false,
+      name: '누적강우량',
+      yAxisIndex: 1,
+      color:'#0a1e99',
+      encode: {
+        x: 'Year',
+        y: 'Income'
+      } ,
+    });
+  });
+  option = {  
+    dataset: [
+      {
+        id: 'dataset_raw',
+        source: _rawData
+      },
+      ...datasetWithFilters
+    ],
+    legend: {
+      bottom : 0,
+      data: ['강우량', '누적강우량']
+    },
+    tooltip: {
+      order: 'valueDesc',
+      trigger: 'axis',
+      
+    },
+    xAxis: {
+      type: 'category'
+    },
+    yAxis:[ {
+      name: '강우량(㎜)',
+      nameLocation: "middle",
+      nameGap: 25
+    },{
+      name: '누적강우량(㎜)',
+      nameLocation: "middle",
+      nameGap: 30
+    }],
+    grid: {
+      top:40,
+      left: 60,
+      right: 65
+    },
+    series: seriesList
+  };
+  iotChart.setOption(option);
+};
+    
+</script>
+</body>
+</html>
