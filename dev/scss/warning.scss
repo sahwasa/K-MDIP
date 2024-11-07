@@ -1,25 +1,6 @@
 @charset "utf-8";
 @import "./mixin.scss";
-.lnb_warning{position:fixed;left:0;top:56px;z-index:500;width:75px;height:calc(100vh - 56px);background-color:#242D3F;@include scrollbarW;
-	& > ul > li{width:100%;height:80px;background:url(../images/ico_menu.png) 50% no-repeat;
-		&:hover,
-		&.on{background-color:#c94040;}
-		@for $i from 1 through 9{
-			&:nth-child(#{$i}){background-position-y:($i - 1) * -70px + 15px;}
-		}
-		&:nth-child(2){display:none;} //정기발령 보류
-		& > a{display:block;height:100%;padding-top:50px;text-align:center;font-size:13px;color:#fff; letter-spacing:-.7px;}
-		&:has(ul){position:relative;
-			&:hover ul{display:block;}
-		}
-		ul{display:none;position:absolute;top:50%;left:72px;padding:8px 0;border:1px solid #d8d8d8;transform:translateY(-50%);background-color:#fff;border-radius:5px;box-shadow:1px 1px 5px rgba(0, 0, 0, 0.1);
-			&::before{@include down_arrow(8px){transform:scaleX(1.5) rotate(135deg);left:-4px;top:50%;};margin-top:-4px;}
-			a{min-width:140px;white-space:pre;text-align:left;padding:0 18px;line-height:26px;font-size:13px;color:#555;}
-		}
-		li:is(:hover,.on, :focus-within) a{position:relative;color:#000;background-color:#ffe6e6;z-index:10;}
-	}
-	& + .contents{margin-left:75px;}
-}
+.lnb_warning{position:fixed;left:0;top:56px;}
 
 .panel_wrap{position:absolute;top:0;left:0;display:flex;z-index:300;height:100%;background-color:#fff;box-shadow: 0.3px 4px 5px 0 rgba(0, 0, 0, 0.2);transition:transform .6s ease-in-out;opacity:1;
 	&:has(.btn_slide input:checked){transform:translateX(-100%);}

@@ -169,6 +169,7 @@ $iots: rainGauge, waterGauge, snowGauge, AWS, seismicMeter, cctv;
 // layout
 #wrap{display:flex;flex-direction:column;width:100%;min-width:1400px;height:100vh;min-height:800px;}
 #header{flex-shrink:0;position:sticky;left:0;top:0;display:flex;justify-content:space-between;align-items:center;gap:40px; height:56px;z-index:1000;background-color:#242D3F;padding:0 30px;color:#fff;
+  .main_logo a{display:flex;align-items:center;gap:16px;color:#fff;font-size:20px;letter-spacing:-.05em;white-space:nowrap;}
 }
 
 .dot_list>li{line-height:25px;
@@ -243,10 +244,27 @@ $panelWidth : 220px;
 		&.on{animation:blink 0.8s infinite;}
 	}
 }
-.con_wrap{display:flex;align-items:stretch;flex:1 1 auto;overflow:auto;@include scrollbarW;
-  // .lnb,
-  // .cctv_ctrl{flex-shrink:0;height:100%;}
+.lnb_warning{z-index:500;width:75px;height:calc(100vh - 56px);background-color:#242D3F;@include scrollbarW;
+	& > ul > li{width:100%;height:80px;background:url(../images/ico_menu.png) 50% no-repeat;
+		&:hover,
+		&.on{background-color:#c94040;}
+		@for $i from 1 through 10{
+			&:nth-child(#{$i}){background-position-y:($i - 1) * -70px + 15px;}
+		}
+		&:nth-child(2){display:none;} //정기발령 보류
+		& > a{display:block;height:100%;padding-top:50px;text-align:center;font-size:13px;color:#fff; letter-spacing:-.7px;}
+		&:has(ul){position:relative;
+			&:hover ul{display:block;}
+		}
+		ul{display:none;position:absolute;top:50%;left:72px;padding:8px 0;border:1px solid #d8d8d8;transform:translateY(-50%);background-color:#fff;border-radius:5px;box-shadow:1px 1px 5px rgba(0, 0, 0, 0.1);
+			&::before{@include down_arrow(8px){transform:scaleX(1.5) rotate(135deg);left:-4px;top:50%;};margin-top:-4px;}
+			a{min-width:140px;white-space:pre;text-align:left;padding:0 18px;line-height:26px;font-size:13px;color:#555;}
+		}
+		li:is(:hover,.on, :focus-within) a{position:relative;color:#000;background-color:#ffe6e6;z-index:10;}
+	}
+	& + .contents{margin-left:75px;}
 }
+.con_wrap{display:flex;align-items:stretch;flex:1 1 auto;overflow:auto;@include scrollbarW;}
 main{position:relative;flex:1 1 auto;
   &:not(:has(.map_content)){padding:30px 30px 0;}
   &:has(.panel){padding:0;}
@@ -580,3 +598,33 @@ a.ui-button:active,
   .tbl_area{flex:1;margin-top:-19px;}
   .tbl_wrap{height:$h;}  
 }
+
+//admin
+.lnb_admin li{
+  a::before{@include shape(22px,22px);background:url(../images/admin_menu.png) 0 no-repeat;}
+  :is(&:hover, &.on) > a::before{background-image:url(../images/admin_menu_on.png);}
+  @for $i from 1 through 4{
+    &:nth-child(#{$i}) > a::before{background-position-y:(($i - 1) * - 32px);}
+  }
+}
+.tit .tool{
+  button{@include btnType(S);}
+}
+.user_admin,
+.dest_admin{
+  .tbl_wrap{--h:calc(100vh - 275px); min-height:513px;}
+}
+.cmmn_code{
+  .tbl_wrap{--h:calc(100vh - 209px); min-height:590px;}  
+}
+.disaster_code{
+  .tbl_wrap{--h:calc(100vh - 209px); min-height:590px;}
+  .vertical .tbl_wrap{--h:calc(50vh - 135px); min-height:265px;}
+}
+.pop_codeAdmin .dl_list{grid-template-columns:120px 1fr;}
+.pop_destAdmin{
+  .column2 dt{@include marginL(even);
+    &.break{margin-left:0;}
+  }
+  .media_select{width:100%;display:grid;grid-template-columns:repeat(auto-fill, minmax(150px, auto));}
+} 
