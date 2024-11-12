@@ -1,0 +1,96 @@
+@@include('../../inc/top.html')
+<body>
+<div id="wrap">
+  @@include('../../inc/header.html')
+  <div class="con_wrap">
+    @@include('../../inc/iot/lnb.html')
+    <main class="contents">
+      <header class="tit">
+        <h1>실시간현황 <b>지진가속도</b></h1>
+      </header>
+      <div class="content">
+        <div class="search_area">
+          <ul class="search">
+            <li><select name="" id="" title="시군구"><option value="">시군구</option></select>            
+            <select name="" id="" title="읍면동"><option value="">읍면동</option></select>
+            </li>
+            <li>
+            <input type="text" title="location" placeholder="장비명, 지역명" id="" onkeydown="">
+            <button type="button" class="btn_skyblue" onclick="search();">검색</button>
+            </li>
+          </ul>
+        </div>
+        <div class="seismic_chart">
+          <ul>
+            <li>
+              <strong>자유장 (3축) <span>(PS_PSG)</span></strong>
+              <div class="chart_wrap">
+              </div>
+              <div class="desc">
+                <div class="present">
+                  <!-- data-val 진도에따라 color(숫자변경) -->
+                  <div class="step" data-val="0">무감</div>
+                  <input type="text" value="00" disabled>
+                  <input type="text" value="00" disabled>
+                </div>                
+                <ul class="seismic_legend">
+                  <li>Ⅸ</li><li>Ⅷ</li><li>Ⅶ</li><li>Ⅵ</li><li>Ⅴ</li>
+                  <li>Ⅳ</li><li>Ⅲ</li><li>Ⅱ</li><li>Ⅰ</li><li>&nbsp;</li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <strong>자유장 (3축) <span>(PS_PSG)</span></strong>
+              <div class="chart_wrap">
+              </div>
+              <div class="desc">
+                <div class="present">
+                  <!-- data-val 진도에따라 color(숫자변경) -->
+                  <div class="step" data-val="1">Ⅰ</div>
+                  <input type="text" value="00" disabled>
+                  <input type="text" value="00" disabled>
+                </div>                
+                <ul class="seismic_legend">
+                  <li>Ⅸ</li><li>Ⅷ</li><li>Ⅶ</li><li>Ⅵ</li><li>Ⅴ</li>
+                  <li>Ⅳ</li><li>Ⅲ</li><li>Ⅱ</li><li>Ⅰ</li><li>&nbsp;</li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <section class="tbl_area">     
+          <div class="tbl_top">
+            <p>* 24시간 이벤트 목록 (<b class="font_blue" id="">10</b> 건)</p>
+            <div class="unit">(단위 gal)</div>
+          </div>
+          <div class="tbl_wrap">
+            <table class="tbl_default tbl_hover">
+              <caption>이벤트 발생현황</caption>         
+              <thead>              
+                <tr>
+                  <th scope="col">이벤트 발생시각</th>
+                  <th scope="col">계측소명</th>
+                  <th scope="col">계측소 코드</th>
+                  <th scope="col">최대가속도</th>
+                </tr>
+              </thead>            
+              <tbody>
+                <tr>
+                  <td>2024-05-10 11:17:25</td>
+                  <td>울산시청</td>
+                  <td>12345</td>
+                  <td>20.5</td>                 
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>  
+</div>
+@@include('../../inc/script.html')
+<script> 
+</script>
+</body>
+</html>

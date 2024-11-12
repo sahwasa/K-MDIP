@@ -142,12 +142,10 @@
   }  
 }
 @mixin text_stroke($color:inherit){
-  @supports (-webkit-text-stroke: $color){
-    -webkit-text-stroke:1px $color;
-  }
-  @supports not(-webkit-text-stroke: $color){
-    text-shadow: -1px 0 $color, 0 1px $color, 1px 0 $color, 0 -1px $color;
-  }
+  // @supports (-webkit-text-stroke: $color){
+  //   -webkit-text-stroke:1px $color;
+  // } 
+  text-shadow: -1px 0 $color, 0 1px $color, 1px 0 $color, 0 -1px $color;
 }
 @mixin dot($col:#9da7b8,$size:2px){
   &::before{@include shape($size,$size);flex-shrink:0;border-radius:50%;background-color:$col;vertical-align:middle;@content;}

@@ -25,6 +25,21 @@ $border_deep:#8b94ad;
 // $riskLevel:#ffd200,#ff8b00,#fd1515;
 $riskLevel:#e7b900,#fd1515;
 $connection:#86bf56,$coral;
+$seismic:#36af07,#00ccfe,#0269fc,#0102fd,#ecff4f,#ddd709,#e0a70b,#de520a,#eb0803,#ba041d;
+$reversed-seismic: reverse($seismic);
+@function reverse($list, $recursive: false) {
+   $result: ();
+   @for $i from length($list)*-1 through -1 {
+      @if type-of(nth($list, abs($i))) == list and $recursive {
+        $result: append($result, reverse(nth($list, abs($i)), $recursive));      
+      }
+      @else {
+        $result: append($result, nth($list, abs($i)));
+      }
+   }
+   @return $result;
+}
+$reverse_seismic:reverse($seismic);
 //font
 @font-face {
   font-family:'NanumGothic';

@@ -153,3 +153,37 @@
   td:nth-child(4){height:45px;}
   .rainfall{thead tr:last-of-type th:nth-child(3), td:nth-child(6){background-color:$bg_yellow;}}
 }
+.seismic_chart{margin-bottom:30px;
+  & > ul{display:flex;flex-direction:column;
+    & > li{display:flex;border:1px solid $border_gray;
+      &:not(:first-child){border-top-width:0;}
+    }
+  }
+  strong{flex:0 0 130px;display:flex;flex-direction:column;align-items:center;justify-content:center;background-color:$bg_gray;padding:10px;}
+  .chart_wrap{flex:1;}
+}
+.desc{width:120px;display:flex;
+  .present{display:flex;flex-direction:column;
+    .step{flex:1;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:20px;color:#000;@include text_stroke(#fff);
+      @for $i from 1 through length($seismic){
+        &[data-val="#{$i - 1}"]{
+          background-color: nth($seismic , $i);
+        }
+      }
+    }
+    input{width:100%;text-align:center;border:1px solid $border-gray;border-bottom-width:0;background-color:#fff;}
+  }
+}
+.seismic_legend{flex-shrink:0;display:flex;flex-direction:column;padding:5px 10px;
+  li{flex:1;
+    &::before{@include shape(15px,100%);margin-right:5px;vertical-align:middle;}
+    @for $i from 1 through length($reverse_seismic){
+      &:nth-child(#{$i})::before {
+        background-color: nth($reverse_seismic , $i);
+      }
+    }
+  }
+  .present{border:1px solid $border_deep;}
+
+
+}
