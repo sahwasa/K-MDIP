@@ -69,7 +69,7 @@
                 </tr>
               </thead>            
               <tbody>
-                <tr>
+                <tr onclick="document.querySelector('.dataHistory').show();">
                   <td>서울시 구로구 ㅇㅇ동</td>
                   <td>ㅇㅇ교</td>
                   <td>15.5</td>
@@ -106,54 +106,84 @@
     </main>
   </div>  
 </div>
-<dialog id="dataMonitor" class="dataMonitor" style="--width:700px">
+<dialog id="dataHistory" class="dataHistory" style="--width:700px">
   <header class="p_header">
-    <h1>실시간 관측자료 현황</h1>
+    <h1>관측자료 이력조회</h1>
     <button type="button" class="btn_cross">닫기</button>
   </header>
   <div class="p_body">
     <strong>OOO동사무소</strong>
-    <div class="search_area">                
-      <ul class="search">
-        <li>
-          <span class="datetimepicker_wrap">
-            <input type="text" id="date_timepicker_start" title="date" class="input_calendar" data-datepicker="datetime" value="시작시각"> ~
-            <input type="text" id="date_timepicker_end" title="date" class="input_calendar" data-datepicker="datetime" value="종료시각">
-          </span>  
-        </li>
-        <li>
-          <select name="" id=""><option value="">1시간</option></select>
-        </li>
-      </ul>
-      <button type="button" class="btn_skyblue" onclick="search();">검색</button>
-    </div>
-    <div class="flex_wrap">
-      <div id="iotChart" class="chart_wrap"></div>
-      <div class="tbl_area">
-        <div class="tbl_top">
-          <span class="unit">(단위 : ㎜)</span>
-        </div>
-        <div class="tbl_wrap">
-          <table class="tbl_default">
-            <caption>실시간 관측자료</caption>
-            <thead>
-              <tr>
-                <th scope="col">관측일시</th>
-                <th scope="col">강우량</th>
-                <th scope="col">누적 강우량</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>oo구</td>
-                <td>oo교</td>                
-                <td>24.9</td>
-              </tr>
-            </tbody>
-          </table>
+    <section>
+      <header class="tbl_top">
+        <h2>관측현황 : 2024-05-05</h2>
+        <span class="tool">(단위 : ㎜)</span>
+      </header>
+      <div class="flex_wrap">
+        <div id="iotChart" class="chart_wrap"></div>
+        <div class="tbl_area">        
+          <div class="tbl_top">
+          </div>
+          <div class="tbl_wrap">
+            <table class="tbl_default">
+              <caption>실시간 관측자료</caption>
+              <thead>
+                <tr>
+                  <th scope="col">관측일시</th>
+                  <th scope="col">강우량</th>
+                  <th scope="col">누적 강우량</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>oo구</td>
+                  <td>oo교</td>                
+                  <td>24.9</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>        
         </div>
       </div>
-    </div>
+    </section>
+    <section class="warning_status">
+      <div class="tbl_top">
+        <h2>경보현황</h2>
+        <span class="unit">(단위 : ㎜)</span>
+      </div>
+      <div class="tbl_wrap">
+        <table class="tbl_default">
+          <caption>경보현황</caption>
+          <thead>
+            <tr>
+              <th scope="col">경보단계</th>
+              <th scope="col">관측일시</th>
+              <th scope="col">강우량</th>
+              <th scope="col">누적 기준치</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>-</td>
+              <td>2024-05-15 11:12:13</td>
+              <td>15.1</td>                
+              <td>24.9</td>
+            </tr>
+            <tr>
+              <td><i class="riskLv lv1">경계</i></td>
+              <td>2024-05-15 11:12:13</td>
+              <td>15.1</td>                
+              <td>24.9</td>
+            </tr>
+            <tr>
+              <td><i class="riskLv lv2">심각</i></td>
+              <td>2024-05-15 11:12:13</td>
+              <td>15.1</td>                
+              <td>24.9</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>        
+    </section>
   </div>             
 </dialog>
 @@include('../../inc/script.html')

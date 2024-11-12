@@ -373,7 +373,7 @@ $dlH:33px;
     select{flex:1 0 auto;}
     select:last-of-type{width:100%;}
   }
-  input:not([type=radio],[type=checkbox]){width:100%;}
+  input:not([type=radio],[type=checkbox],[size]){flex:1;}
   input[type=number]{max-width:110px;}
   &.column2{grid-template-columns:repeat(2, 130px 1fr);
     .full{grid-column:2 / span 3;}
@@ -595,8 +595,15 @@ a.ui-button:active,
   .flex_wrap{gap:10px;}
   $h:305px;
   .chart_wrap{width:300px;height:$h;border:1px solid $border_gray;}
-  .tbl_area{flex:1;margin-top:-19px;}
-  .tbl_wrap{height:$h;}  
+  .flex_wrap .tbl_area{flex:1;margin-top:-19px;
+    .tbl_wrap{height:$h;}  
+  }
+}
+.dataHistory{@extend .dataMonitor;
+  .flex_wrap{margin-bottom:15px;
+    .tbl_area{margin-top:-5px;}
+  }
+  .warning_status .tbl_wrap{height:181px;}
 }
 
 //admin

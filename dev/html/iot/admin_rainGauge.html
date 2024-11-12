@@ -21,7 +21,7 @@
             </li>
           </ul>
           <div class="tool">
-            <button type="button" class="btn_skyblue">추가</button>
+            <button type="button" class="btn_skyblue" onclick="document.querySelector('.admin_rainGauge').show();">추가</button>
           </div>
         </div>
         <section class="tbl_area">          
@@ -46,7 +46,7 @@
                 </tr>
               </thead>            
               <tbody>
-                <tr>
+                <tr onclick="document.querySelector('.admin_rainGauge').show();">
                   <td>서울시 구로구 ㅇㅇ동</td>
                   <td>ㅇㅇ교</td>
                   <td>15.5</td>
@@ -58,7 +58,7 @@
                   <td><i class="connection default">정상</i></td>
                   <td>Y</td>
                 </tr>
-                <tr onclick="document.querySelector('.dataMonitor').show();">
+                <tr onclick="document.querySelector('.admin_rainGauge').show();">
                   <td>서울시 구로구 ㅇㅇ동</td>
                   <td>ㅇㅇ교</td>
                   <td>15.5</td>
@@ -70,7 +70,7 @@
                   <td><i class="connection error">미수신</i></td>
                   <td>Y</td>
                 </tr>
-                <tr>
+                <tr onclick="document.querySelector('.admin_rainGauge').show();">
                   <td>서울시 구로구 ㅇㅇ동</td>
                   <td>ㅇㅇ교</td>
                   <td>15.5</td>
@@ -90,160 +90,53 @@
     </main>
   </div>  
 </div>
-<dialog id="dataMonitor" class="dataMonitor" style="--width:700px">
+<dialog id="admin_rainGauge" class="admin_rainGauge" style="--width:700px">
   <header class="p_header">
-    <h1>실시간 관측자료 현황</h1>
+    <h1>강우계 장비관리</h1>
     <button type="button" class="btn_cross">닫기</button>
   </header>
   <div class="p_body">
-    <strong>OOO동사무소</strong>
-    <div class="search_area">                
-      <ul class="search">
-        <li>
-          <span class="datetimepicker_wrap">
-            <input type="text" id="date_timepicker_start" title="date" class="input_calendar" data-datepicker="datetime" value="시작시각"> ~
-            <input type="text" id="date_timepicker_end" title="date" class="input_calendar" data-datepicker="datetime" value="종료시각">
-          </span>  
-        </li>
-        <li>
-          <select name="" id=""><option value="">1시간</option></select>
-        </li>
-      </ul>
-      <button type="button" class="btn_skyblue" onclick="search();">검색</button>
-    </div>
-    <div class="flex_wrap">
-      <div id="iotChart" class="chart_wrap"></div>
-      <div class="tbl_area">
-        <div class="tbl_top">
-          <span class="unit">(단위 : ㎜)</span>
-        </div>
-        <div class="tbl_wrap">
-          <table class="tbl_default">
-            <caption>실시간 관측자료</caption>
-            <thead>
-              <tr>
-                <th scope="col">관측일시</th>
-                <th scope="col">강우량</th>
-                <th scope="col">누적 강우량</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>2024.09.01 18:00</td>
-                <td>2.3</td>
-                <td>24.9</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+    <dl class="dl_list column2 dd_line_fix">
+      <dt><label for="">장비명</label></dt>
+      <dd><input type="text" value="oo저수지 강우량계(장비명)" /></dd>
+      <dt>고유번호</dt>
+      <dd>1234</dd>     
+      <dt>설치지역</dt>
+      <dd class="full">oo시 oo동 (행정코드 : 4715044028)</dd>
+      <dt>위도</dt>
+      <dd>00.000000</dd>
+      <dt>경도</dt>
+      <dd>000.000001</dd>
+      <dt>회선</dt>
+      <dd>TCP/IP</dd>
+      <dt>모델</dt>
+      <dd>HS920M</dd>
+      <dt>통신정보</dt>
+      <dd>012-0000-0000</dd>
+      <dt>Port</dt>
+      <dd>1</dd>
+      <dt>임계치 설정</dt>
+      <dd class="full">
+        <label for="" class="required">경계</label><input type="text" size="8" />
+        <label for="" class="required">심각</label><input type="text" size="8" />
+        <p>※ 1시간 최대강우 기준</p>
+      </dd>
+      <dt><label for="">내용</label></dt>
+      <dd class="full"><textarea name="" id="" rows="3"></textarea></dd>
+      <dt><label for="">사용여부</label></dt>
+      <dd class="full">
+        <div class="switch_toggle">
+          <input type="checkbox" id="useYN1"><label class="useYN" for="useYN1">사용여부</label>
+        </div> 
+      </dd>
+    </dl>
+    <div class="p_foot">
+      <div class="renewal_time">(갱신시각 : 2024-07-01 10:10:10)</div>
+      <button type="button" class="btn_blue" onclick="">저장</button>
+      <button type="button" class="btn_gray" onclick="">취소</button>
     </div>
   </div>             
 </dialog>
 @@include('../../inc/script.html')
-<script> 
-$.get(
-  '../../js/sample.json',
-  function (_rawData) {
-    run(_rawData);
-  }
-);
-function run(_rawData) {
-  const countries = [
-    'Australia'
-  ];
-  const datasetWithFilters = [];
-  const seriesList = [];
-  var iotChart = echarts.init(document.getElementById('iotChart'));
-  echarts.util.each(countries, function (country) {
-    var datasetId = 'dataset_' + country;
-    datasetWithFilters.push({
-      id: datasetId,
-      fromDatasetId: 'dataset_raw',
-      transform: {
-        type: 'filter',
-        config: {
-          and: [
-            { dimension: 'Year', gte: 1980 },
-            { dimension: 'Country', '=': country }
-          ]
-        }
-      }
-    });
-    seriesList.push({
-      type:'bar',
-      name:"강우량",
-      color:'#22b6f3',
-      datasetId: datasetId,
-      encode: {
-        x: 'Year',
-        y: 'Life Expectancy'
-      },
-      markLine: {
-        symbol: 'none',
-        lineStyle: {
-          color: "#fc6c6d",
-          type:'solid'
-        },
-        label:{show:false},
-        data: [{
-          type: 'max',
-          name: 'Max Value'
-        } ]
-      }
-    },
-    {
-      type: 'line',
-      datasetId: datasetId,
-      showSymbol: false,
-      name: '누적강우량',
-      yAxisIndex: 1,
-      color:'#0a1e99',
-      encode: {
-        x: 'Year',
-        y: 'Income'
-      } ,
-    });
-  });
-  option = {  
-    dataset: [
-      {
-        id: 'dataset_raw',
-        source: _rawData
-      },
-      ...datasetWithFilters
-    ],
-    legend: {
-      bottom : 0,
-      data: [{name:'강우량'},{name:'누적강우량',lineStyle:{width:2}}],
-    },
-    tooltip: {
-      order: 'valueDesc',
-      trigger: 'axis',
-      
-    },
-    xAxis: {
-      type: 'category'
-    },
-    yAxis:[ {
-      name: '강우량(㎜)',
-      nameLocation: "middle",
-      nameGap: 25
-    },{
-      name: '누적강우량(㎜)',
-      nameLocation: "middle",
-      nameGap: 30
-    }],
-    grid: {
-      top:40,
-      left: 60,
-      right: 65
-    },
-    series: seriesList
-  };
-  iotChart.setOption(option);
-};
-    
-</script>
 </body>
 </html>

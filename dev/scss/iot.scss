@@ -135,6 +135,12 @@
   .weather#{$i},
   .weather#{$i}::before{background-image:url(../images/weather/ico_weather#{$i}.png);}
 }
+.slideRemote{position:absolute;right:15px;top:5px;}
+.slide_prev, .slide_next{position:static;color:$btn_gray;transform:translateY(0);background-color:transparent;padding:2px 5px;border-radius:3px;
+  &:hover{color:#fff;background-color:$btn_gray;}
+}
+.slide_next{margin-left:10px;}
+.slide_dots{background-color:$btn_gray;}
 .precipitation li{position:relative;
   i{ --p:calc(var(--val)*-1% + 100%);
     position:relative;@include shape(16px,16px);display:block;margin:3px auto;background:#f0f3ff;border-radius:0 95% 45% 50% / 0 50% 45% 95%;transform:rotate(45deg);
@@ -184,6 +190,7 @@
     }
   }
   .present{border:1px solid $border_deep;}
-
-
+}
+.admin_rainGauge{
+  dt{@include marginL(2 5 7 9);}
 }
