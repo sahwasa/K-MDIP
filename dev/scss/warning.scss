@@ -167,14 +167,16 @@
 		&:not(:first-of-type){border-left: 1px solid $border_gray;}
 	}
 	h4{position:sticky;left:0;top:0;display:block;padding:10px;background-color:$bg_gray;font-size:15px;font-weight:700;text-align:center;color:#566e97;}
+	& > div:has(.multi_column){flex:3;
+		.multi_column{display:grid;grid-template-columns:repeat(auto-fill, minmax(90px, auto));grid-auto-rows:minmax(auto,40px); }
+	} 
 }
 .select_box{height:calc(100vh - 177px);min-height:623px;overflow-y:auto;
-	li{line-height:40px;cursor:pointer;
+	li{display:flex;align-items:center;gap:5px;padding:5px;cursor:pointer;
 		&.on{background-color:#B8DEFF;}
 		&:hover{background-color: #eef5fb;}
 	}
-	input[type=checkbox]{position:relative;top:1px;display:inline-block;width:30px;line-height:40px;text-align:center;vertical-align:initial;}
-	label{display:inline-block;width:calc(100% - 40px);font-size:15px;}
+	input[type=checkbox]{position:relative;top:1px;text-align:center;vertical-align:initial;}
 }
 .selectlocate_wrap{display:flex;gap:10px;align-items:stretch;
 	.dot_tit{margin-bottom:10px;padding:7px 0;}
