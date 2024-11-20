@@ -172,7 +172,7 @@
 	} 
 }
 .select_box{height:calc(100vh - 177px);min-height:623px;overflow-y:auto;
-	li{display:flex;align-items:center;gap:5px;padding:5px;cursor:pointer;
+	li{display:flex;align-items:center;gap:5px;padding:5px;cursor:pointer;min-height:40px;
 		&.on{background-color:#B8DEFF;}
 		&:hover{background-color: #eef5fb;}
 	}
