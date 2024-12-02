@@ -618,7 +618,9 @@ a.ui-button:active,
 .tit .tool{
   button{@include btnType(S);}
 }
-.user_admin,
+.user_admin{
+  .tbl_wrap{--h:calc(100vh - 329px); min-height:459px;}
+}
 .dest_admin{
   .tbl_wrap{--h:calc(100vh - 275px); min-height:513px;}
 }
