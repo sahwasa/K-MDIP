@@ -448,7 +448,7 @@ table .selected td{background-color:#f3e1e1!important;}
 .ellipsis{min-width:95px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
 .tbl_ellipsis td{text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
 .tbl_wrap{height:var(--h);overflow-y:auto;border:1px solid $border_gray;border-width:1px 0;background-color:$bg_gray;  
-  thead{position:sticky;left:0;top:0;z-index:10;
+  thead{position:sticky;left:0;top:0;z-index:200;
     th{position:relative;border-top-width:0;
       &::after{@include shape(100%, 0);position:absolute;left:0;bottom:-1px;border-bottom:1px solid $border_gray;}
     }
