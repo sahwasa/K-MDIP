@@ -307,6 +307,7 @@ main{position:relative;flex:1 1 auto;
     h2{display:flex;gap:8px;align-items:center;font-size:15px;font-weight:600;color:#000;
       &::before{@include shape(5px, 15px);background-color:$deepNavy;}
     }
+    h3{line-height:25px;}
   }
 }
 /* Common */
@@ -447,7 +448,7 @@ table .selected td{background-color:#f3e1e1!important;}
 .ellipsis{min-width:95px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
 .tbl_ellipsis td{text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
 .tbl_wrap{height:var(--h);overflow-y:auto;border:1px solid $border_gray;border-width:1px 0;background-color:$bg_gray;  
-  thead{position:sticky;left:0;top:0;
+  thead{position:sticky;left:0;top:0;z-index:10;
     th{position:relative;border-top-width:0;
       &::after{@include shape(100%, 0);position:absolute;left:0;bottom:-1px;border-bottom:1px solid $border_gray;}
     }
