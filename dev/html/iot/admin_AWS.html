@@ -1,0 +1,161 @@
+@@include('../../inc/top.html')
+<body>
+<div id="wrap">
+  @@include('../../inc/header.html')
+  <div class="con_wrap">
+    @@include('../../inc/iot/lnb.html')
+    <main class="contents">
+      <header class="tit">
+        <h1>장비관리 <b>기상청(AWS)</b></h1>
+      </header>
+      <div class="content status">
+        <div class="search_area">
+          <ul class="search">
+            <li><select name="" id="" title="시군구"><option value="">시군구</option></select>            
+            <select name="" id="" title="읍면동"><option value="">읍면동</option></select>
+            </li>
+            <li>
+            <input type="text" title="location" placeholder="지점번호, 지점명" id="" onkeydown="">
+            <button type="button" class="btn_skyblue" onclick="search();">검색</button>
+            </li>
+          </ul>
+          <div class="tool">
+            <button type="button" class="btn_skyblue" onclick="document.querySelector('.p_admin_aws').show();">추가</button>
+          </div>
+        </div>
+        <section class="tbl_area">
+          <div class="tbl_top">
+            <p>* 조회일자 : 2024-07-01 10:20 (<b class="font_blue" id="">10</b> 건)</p>
+          </div>
+          <div class="tbl_wrap">
+            <table class="tbl_default tbl_hover">
+              <caption>지정한 기상청(AWS)지점 목록</caption>         
+              <thead>
+                <tr>
+                  <th scope="col">지점번호</th>
+                  <th scope="col">지점명</th>
+                  <th scope="col">위도</th>
+                  <th scope="col">경도</th>
+                  <th scope="col">해발고도</th>
+                  <th scope="col">지역명</th>
+                  <th scope="col">특보구역코드</th>
+                  <th scope="col">갱신시각</th>
+                  <th scope="col">관리</th>
+                </tr>
+              </thead>            
+              <tbody>
+                <tr>
+                  <td>131</td>
+                  <td>청주</td>
+                  <td>36.96924000</td>
+                  <td>127.4406000</td>
+                  <td>58.70</td>
+                  <td>청주(4311000000)</td>
+                  <td>L1040100</td>
+                  <td>2024-09-01 12:20:10</td>
+                  <td><button type="button" class="btn_del">삭제</button></td>
+                </tr>
+                <tr>
+                  <td>239</td>
+                  <td>세종</td>
+                  <td>36.48522000</td>
+                  <td>127.24438000</td>
+                  <td>75.40</td>
+                  <td>세종(41211110)</td>
+                  <td>L1031800</td>
+                  <td>2024-09-01 12:20:10</td>
+                  <td><button type="button" class="btn_del">삭제</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>  
+</div>
+<dialog id="admin_aws" class="p_admin_aws" style="--width:900px;">
+  <header class="p_header">
+    <h1>기상청 AWS 지점 추가하기</h1>
+    <button type="button" class="btn_cross">닫기</button>
+  </header>
+  <div class="p_body">
+    <div class="search_area">
+      <ul class="search">
+        <li><select name="" id="" title="시군구"><option value="">시군구</option></select>            
+        <select name="" id="" title="읍면동"><option value="">읍면동</option></select>
+        </li>
+        <li>
+        <input type="text" title="location" placeholder="지점번호, 지점명" id="" onkeydown="">
+        <button type="button" class="btn_skyblue" onclick="search();">검색</button>
+        </li>
+      </ul>     
+    </div>
+    <div class="tbl_wrap" style="--h:510px">
+      <table class="tbl_default tbl_hover">
+        <caption>강우계 목록</caption>         
+        <thead>
+          <tr>
+            <th scope="col">선택</th>
+            <th scope="col">지점번호</th>
+            <th scope="col">지점명</th>
+            <th scope="col">위도</th>
+            <th scope="col">경도</th>
+            <th scope="col">해발고도</th>
+            <th scope="col">지역명</th>
+            <th scope="col">특보구역명</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="checkbox" title="줄 선택" checked /></td>
+            <td>131</td>
+            <td>청주</td>
+            <td>36.96924000</td>
+            <td>127.4406000</td>
+            <td>58.70</td>
+            <td>청주(4311000000)</td>
+            <td>L1040100</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" title="줄 선택" /></td>
+            <td>90</td>
+            <td>속초</td>
+            <td>38.25085000</td>
+            <td>128.56473000</td>
+            <td>17.53</td>
+            <td>속초(41211210)</td>
+            <td>11D20402</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" title="줄 선택" /></td>
+            <td>92</td>
+            <td>양양(공)</td>
+            <td>38.05903000</td>
+            <td>128.66298000</td>
+            <td>75.40</td>
+            <td>양양(공)(20111000)</td>
+            <td>11D20402</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" title="줄 선택" checked /></td>
+            <td>239</td>
+            <td>세종</td>
+            <td>36.48522000</td>
+            <td>127.24438000</td>
+            <td>75.40</td>
+            <td>세종(41211110)</td>
+            <td>L1031800</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="p_foot">
+      <button type="button" class="btn_blue" onclick="">적용</button>
+      <button type="button" class="btn_gray" onclick="">취소</button>
+    </div>
+  </div>             
+</dialog>
+@@include('../../inc/script.html')
+</body>
+</html>

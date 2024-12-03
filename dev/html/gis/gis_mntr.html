@@ -18,7 +18,7 @@
           <div class="ol-viewport"> 
             <!-- 단말기 -->
             <div class="terminal">
-              <div class="symbol" style="--right:1100px;--top:50px">
+              <div class="symbol" style="--right:560px;--top:390px">
                 <button type="button" class="BIS" title="버스정보시스템">00지구 00회관(단말기명)</button>
                 <div class="layer" style="display: block;">
                   <header>                  
@@ -31,18 +31,18 @@
                     <li><em>단말번호</em>A1DF233</li>
                     <li><em>종류</em>마을방송</li>
                     <li><em>수신지역</em>00동</li>
-                    <li><em>설치위치</em>울릉도 동남쪽 뱃길따라 200리 외로운 섬</li>
+                    <li><em>설치위치</em>청주시 월오동</li>
                   </ul>
                 </div>
               </div>
-              <div class="symbol" style="--right:1150px;--top:50px">
+              <div class="symbol" style="--right:590px;--top:350px">
                 <!-- 수신 불량은 fail 추가. 필요할까요??? 설계에는 없습니다 -->
                 <button type="button" class="BIS fail" title="버스정보시스템">00지구 00회관(단말기명)</button>                
               </div>
             </div>
             <!-- 예경보 발령현황 -->
             <div class="DAlert">           
-              <div class="symbol" style="--right:800px;--top:250px">
+              <div class="symbol" style="--right:560px;--top:190px">
                 <strong>
                   <img src="../../images/symbol/HRW.png" alt="호우경보">
                   호우경보 발령
@@ -60,7 +60,7 @@
                   </header>
                   <ul class="lst">
                     <li><em>유형</em>자동/실제</li>
-                    <li><em>발령지역</em>울산</li>
+                    <li><em>발령지역</em>청주</li>
                     <li><em>발생시각</em>2024-05-04 17:41:55</li>
                   </ul>
                   <div class="btn_wrap">
@@ -104,7 +104,7 @@
             <!-- IOT관측장비 -->
             <div class="iot">
             <!-- .rainGauge:강우계 .waterGauge:수위계 .snowGauge:적설계 .seismicMeter:지진계 .AWS .cctv -->
-              <div class="symbol" style="--right:1100px;--top:550px">
+              <div class="symbol" style="--right:970px;--top:400px">
                 <button type="button" title="강우계" onclick="document.querySelector('.dataMonitor').show();" class="rainGauge">강우계 OOO회관</button>
                 <!-- lv1:노랑,2,빨강 -->
                 <div class="iot_desc lv1">
@@ -117,7 +117,7 @@
                   </a>
                 </div>
               </div>
-              <div class="symbol" style="--right:900px;--top:550px">
+              <div class="symbol" style="--right:840px;--top:430px">
                 <button type="button" title="수위계" onclick="document.querySelector('.dataMonitor').show();"  class="waterGauge">수위계 OOO교</button>
                 <!-- lv1:노랑,2:주황,3,빨강 -->
                 <div class="iot_desc lv2">
@@ -156,7 +156,7 @@
     <strong>[기상특보]</strong> 호우경보 2024. 09. 01 12:20
   </div>
 </div>
-<dialog id="dataMonitor" class="dataMonitor" open style="--width:700px">
+<dialog id="dataMonitor" class="dataMonitor" style="--width:700px">
   <header class="p_header">
     <h1>실시간 관측자료 현황</h1>
     <button type="button" class="btn_cross">닫기</button>

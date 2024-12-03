@@ -224,7 +224,9 @@ $iots: rainGauge, waterGauge, snowGauge, AWS, seismicMeter, cctv;
 $panelWidth : 220px;
 .lnb_panel{flex:0 0 $panelWidth;box-shadow: 0 4px 5px rgba(0, 0, 0, .2);
   .panel_wrap{width:$panelWidth;}
-  .tit{padding:20px 15px 15px 20px;border-bottom:1px solid $border_gray;}
+  .tit{padding:20px 15px 15px 20px;border-bottom:1px solid $border_gray;
+    .tool button{height:auto;padding:0;}
+  }
   .lnb{height:calc(100% - 59px);background-color:$bg_gray;
     & > ul{
       & > li{
@@ -287,9 +289,9 @@ main{position:relative;flex:1 1 auto;
 }
 
 /* lnb */
-.lnb_panel{position:relative;transition:width .6s ease-in-out;
+.lnb_panel{position:relative;transition:all .6s ease-in-out;
   .panel_wrap{display:flex;flex-direction:column;height:100%;transition:transform .6s ease-in-out;}
-  &:has(.btn_slide :checked){width:0;
+  &:has(.btn_slide :checked){width:0;flex:0 0 0;
     .panel_wrap{transform:translateX(-100%);}
   }
 }
@@ -375,7 +377,7 @@ $dlH:33px;
     select:last-of-type{width:100%;}
   }
   input:not([type=radio],[type=checkbox],[size]){flex:1;}
-  input[type=number]{max-width:110px;}
+  input[type=number]{max-width:80px;}
   &.column2{grid-template-columns:repeat(2, 130px 1fr);
     .full{grid-column:2 / span 3;}
     .break{grid-column-start:1;}

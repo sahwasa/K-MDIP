@@ -52,13 +52,14 @@ $panelWidth : 350px;
 }
 .cctv_wrap{background-color:#f1f1f1;text-align:center;
   button{display:inline-block;width:100%;min-height:187px;}    
-  img{width:100%;}
+  img{width:100%;aspect-ratio:498 / 320;}
 }
 dialog.pop_cctv_zoom{width:800px;padding:0;top:20vh;left:calc(50vw - 400px);
   .cctv_desc{background-color:#293141;}
   .name{
     span,strong,p{color:#fff;}
   }
-  .cctv_wrap{background-color:transparent;}
-
+  .cctv_wrap{background-color:transparent;
+    img{height:auto;}
+  }
 }

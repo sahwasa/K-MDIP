@@ -69,175 +69,196 @@
   </div>
 </header>
   <div class="con_wrap">
-    <section class="lnb_panel lnb_admin">
+    <section class="lnb_panel lnb_iot">
   <div class="panel_wrap">
     <header class="tit">
-      <h1>시스템관리</h1>
+      <h1>IOT 관측자료</h1>
     </header>    
     <nav class="lnb">
       <ul id="left_menu">
-        <li class="on"><a href="../../html/admin/user.html">사용자관리</a></li>       
-        <li><a href="../../html/admin/cmmnCode.html">공통코드관리</a></li>       
-        <li><a href="../../html/admin/disasterCode.html">재난코드관리</a></li>
-        <li><a href="../../html/admin/dest.html">수신처관리</a></li>       
+        <li class="on"><a href="../../html/iot/iot_integrated.html">통합상황판</a></li>       
+        <li><a href="../../html/iot/status_rainGauge.html">실시간현황</a>
+          <ul>
+            <li><a href="../../html/iot/status_rainGauge.html">강우</a></li>
+            <li><a href="../../html/iot/status_waterGauge.html">수위</a></li>
+            <li><a href="../../html/iot/status_snowGauge.html">적설</a></li>
+            <li><a href="../../html/iot/status_seismicMeter.html">지진가속도</a></li>
+            <li><a href="../../html/iot/status_AWS.html">기상</a></li>
+          </ul>
+        </li>       
+        <li><a href="../../html/iot/history_rainGauge.html">이력조회</a>
+          <ul>
+            <li><a href="../../html/iot/history_rainGauge.html">강우</a></li>
+            <li><a href="../../html/iot/history_waterGauge.html">수위</a></li>
+            <li><a href="../../html/iot/history_snowGauge.html">적설</a></li>
+            <li><a href="../../html/iot/history_seismicMeter.html">지진가속도</a></li>
+            <li><a href="../../html/iot/history_AWS.html">기상</a></li>
+          </ul>
+        </li>
+        <li><a href="../../html/iot/admin_rainGauge.html">장비관리</a>
+           <ul>
+            <li><a href="../../html/iot/admin_rainGauge.html">강우계</a></li>
+            <li><a href="../../html/iot/admin_waterGauge.html">수위계</a></li>
+            <li><a href="../../html/iot/admin_snowGauge.html">적설계</a></li>
+            <li><a href="../../html/iot/admin_seismicMeter.html">지진가속도계</a></li>
+            <li><a href="../../html/iot/admin_AWS.html">기상청(AWS)</a></li>
+          </ul>
+        </li>       
       </ul>
     </nav>      
   </div>  
 </section>
     <main class="contents">
       <header class="tit">
-        <h1>재난코드관리</h1>
+        <h1>장비관리 <b>기상청(AWS)</b></h1>
       </header>
-      <div class="content disaster_code">
-        <div class="layout_flex">
-          <div class="layout_flex vertical">
-            <section class="section">
-              <header class="tit">
-                <h3>대분류그룹</h3>
-                <div class="tool">
-                  <button type="button" class="btn_skyblue" onclick="document.querySelector('.pop_codeAdmin').show();">추가</button>
-                  <button type="button" class="btn_grayline" onclick="">삭제</button>
-                </div>
-              </header>
-              <div class="tbl_wrap">
-                <table class="tbl_default tbl_hover">
-                  <caption>대분류제목</caption>                 
-                  <thead>
-                    <tr>
-                      <th scope="col">대분류코드</th>
-                      <th scope="col">코드명</th>
-                      <th scope="col">설명</th>
-                      <th scope="col">사용여부</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr onclick="selectDisasterCode1(this, 'T1')" class="on">
-                      <td>T1</td>
-                      <td>자연재난</td>
-                      <td>재난코드 대분류</td>
-                      <td>
-                        <div class="switch_toggle">
-                          <input type="checkbox" id="useYN1"><label class="useYN" for="useYN1">사용여부</label>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr onclick="selectDisasterCode1(this, 'T2')">
-                      <td>T1</td>
-                      <td>자연재난</td>
-                      <td>재난코드 대분류</td>
-                      <td>
-                        <div class="switch_toggle">
-                          <input type="checkbox" id="useYN1"><label class="useYN" for="useYN1">사용여부</label>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </section>
-            <section>
-              <header class="tit">
-                <h3>중분류그룹</h3>
-                <div class="tool">
-                  <button type="button" class="btn_skyblue" onclick="">추가</button>
-                  <button type="button" class="btn_grayline" onclick="">삭제</button>
-                </div>
-              </header>
-              <div class="tbl_wrap tbl_hover">
-                <table class="tbl_default">
-                  <caption>중분류제목</caption>            
-                  <thead>
-                    <tr>
-                      <th>중분류코드</th>
-                      <th>코드명</th>
-                      <th>설명</th>
-                      <th>사용여부</th>
-                    </tr>
-                  </thead>                  
-                  <tbody>
-                  </tbody>
-                </table>
-              </div>              
-            </section>
+      <div class="content status">
+        <div class="search_area">
+          <ul class="search">
+            <li><select name="" id="" title="시군구"><option value="">시군구</option></select>            
+            <select name="" id="" title="읍면동"><option value="">읍면동</option></select>
+            </li>
+            <li>
+            <input type="text" title="location" placeholder="지점번호, 지점명" id="" onkeydown="">
+            <button type="button" class="btn_skyblue" onclick="search();">검색</button>
+            </li>
+          </ul>
+          <div class="tool">
+            <button type="button" class="btn_skyblue" onclick="document.querySelector('.p_admin_aws').show();">추가</button>
           </div>
-          <section class="section">
-            <header class="tit">
-              <h3>상세그룹</h3>
-              <div class="tool">
-                <button type="button" class="btn_skyblue" onclick="">추가</button>
-                <button type="button" class="btn_grayline" onclick="">삭제</button>
-              </div>
-            </header>
-            <div class="tbl_wrap">
-              <table class="tbl_default">
-                <caption>상세그룹 제목</caption>
-                <thead>
-                  <tr>
-                    <th scope="col">선택</th>
-                    <th scope="col">코드</th>
-                    <th scope="col">코드명</th>
-                    <th scope="col">사용여부</th>
-                    <th scope="col">상세보기</th>
-                  </tr>
-                </thead>                 
-                <tbody>
-                </tbody>
-              </table>
-            </div>
-          </section>
         </div>
-      </div>          
+        <section class="tbl_area">
+          <div class="tbl_top">
+            <p>* 조회일자 : 2024-07-01 10:20 (<b class="font_blue" id="">10</b> 건)</p>
+          </div>
+          <div class="tbl_wrap">
+            <table class="tbl_default tbl_hover">
+              <caption>지정한 기상청(AWS)지점 목록</caption>         
+              <thead>
+                <tr>
+                  <th scope="col">지점번호</th>
+                  <th scope="col">지점명</th>
+                  <th scope="col">위도</th>
+                  <th scope="col">경도</th>
+                  <th scope="col">해발고도</th>
+                  <th scope="col">지역명</th>
+                  <th scope="col">특보구역코드</th>
+                  <th scope="col">갱신시각</th>
+                  <th scope="col">관리</th>
+                </tr>
+              </thead>            
+              <tbody>
+                <tr>
+                  <td>131</td>
+                  <td>청주</td>
+                  <td>36.96924000</td>
+                  <td>127.4406000</td>
+                  <td>58.70</td>
+                  <td>청주(4311000000)</td>
+                  <td>L1040100</td>
+                  <td>2024-09-01 12:20:10</td>
+                  <td><button type="button" class="btn_del">삭제</button></td>
+                </tr>
+                <tr>
+                  <td>239</td>
+                  <td>세종</td>
+                  <td>36.48522000</td>
+                  <td>127.24438000</td>
+                  <td>75.40</td>
+                  <td>세종(41211110)</td>
+                  <td>L1031800</td>
+                  <td>2024-09-01 12:20:10</td>
+                  <td><button type="button" class="btn_del">삭제</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
     </main>
   </div>  
 </div>
-<!-- popup -->
-<dialog id="pop_codeAdmin" class="pop_codeAdmin" style="--width:400px;">
+<dialog id="admin_aws" class="p_admin_aws" style="--width:900px;">
   <header class="p_header">
-    <h1>코드 추가 및 수정</h1>
+    <h1>기상청 AWS 지점 추가하기</h1>
     <button type="button" class="btn_cross">닫기</button>
   </header>
   <div class="p_body">
-    <dl class="dl_list">
-      <dt>대분류코드</dt>
-      <dd><input type="text" disabled value="T1"></dd>
-      <dt>중분류코드</dt>
-      <dd><input type="text" disabled value="T10102"></dd>
-      <dt><label for="" class="required">코드</label></dt>
-      <dd>
-        <input type="text" value="abcdefg"/><button type="button" class="btn_skyblue">중복확인</button>
-      </dd>
-      <dt><label for="common_pwd" class="required">코드명</label></dt>
-      <dd>
-        <input type="text" id="" >
-      </dd>
-      <dt><label for="">통보구분</label></dt>
-      <dd><select name="" id=""><option value="">Alert</option></select></dd>
-      <dt><label for="">재난유형 분류코드</label></dt>
-      <dd><select name="" id=""><option value="">Geo</option></select></dd>
-      <dt><label for="">대응 행위의 긴급성</label></dt>
-      <dd><select name="" id=""><option value="">Immediate</option></select></dd>
-      <dt><label for="">재난의 발생 확률</label></dt>
-      <dd><select name="" id=""><option value="">Observed</option></select></dd>
-      <dt><label for="">우선순위</label></dt>
-      <dd><select name="" id=""><option value="">0(테스트 또는 관리 신호 메시지)</option></select></dd>
-      <dt><label for="">의무방송 구분</label></dt>
-      <dd><select name="" id=""><option value="">0(자막 자율)</option></select></dd>
-      <dt><label for="">설명</label></dt>
-      <dd>
-        <input type="text" id="" >
-      </dd>
-      <dt>사용여부</dt>
-      <dd>
-        <div class="switch_toggle">
-          <input type="checkbox" id="useYN1"><label class="useYN" for="useYN1">사용여부</label>
-        </div> 
-      </dd>
-    </dl>
-    <div class="p_foot">
-      <button type="button" class="btn_blue">확인</button>
-      <button type="button" class="btn_gray">취소</button>
+    <div class="search_area">
+      <ul class="search">
+        <li><select name="" id="" title="시군구"><option value="">시군구</option></select>            
+        <select name="" id="" title="읍면동"><option value="">읍면동</option></select>
+        </li>
+        <li>
+        <input type="text" title="location" placeholder="지점번호, 지점명" id="" onkeydown="">
+        <button type="button" class="btn_skyblue" onclick="search();">검색</button>
+        </li>
+      </ul>     
     </div>
-  </div>
+    <div class="tbl_wrap" style="--h:510px">
+      <table class="tbl_default tbl_hover">
+        <caption>강우계 목록</caption>         
+        <thead>
+          <tr>
+            <th scope="col">선택</th>
+            <th scope="col">지점번호</th>
+            <th scope="col">지점명</th>
+            <th scope="col">위도</th>
+            <th scope="col">경도</th>
+            <th scope="col">해발고도</th>
+            <th scope="col">지역명</th>
+            <th scope="col">특보구역명</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="checkbox" title="줄 선택" checked /></td>
+            <td>131</td>
+            <td>청주</td>
+            <td>36.96924000</td>
+            <td>127.4406000</td>
+            <td>58.70</td>
+            <td>청주(4311000000)</td>
+            <td>L1040100</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" title="줄 선택" /></td>
+            <td>90</td>
+            <td>속초</td>
+            <td>38.25085000</td>
+            <td>128.56473000</td>
+            <td>17.53</td>
+            <td>속초(41211210)</td>
+            <td>11D20402</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" title="줄 선택" /></td>
+            <td>92</td>
+            <td>양양(공)</td>
+            <td>38.05903000</td>
+            <td>128.66298000</td>
+            <td>75.40</td>
+            <td>양양(공)(20111000)</td>
+            <td>11D20402</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" title="줄 선택" checked /></td>
+            <td>239</td>
+            <td>세종</td>
+            <td>36.48522000</td>
+            <td>127.24438000</td>
+            <td>75.40</td>
+            <td>세종(41211110)</td>
+            <td>L1031800</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="p_foot">
+      <button type="button" class="btn_blue" onclick="">적용</button>
+      <button type="button" class="btn_gray" onclick="">취소</button>
+    </div>
+  </div>             
 </dialog>
 
 <!-- popup 비밀번호변경 -->
