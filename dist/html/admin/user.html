@@ -38,7 +38,7 @@
   </h1>
   <nav class="gnb">
     <ul class="gnb_lst">
-      <li class="on"><a href="../../html/gis/gis_mntr.html">GIS 상황판</a></li>
+      <li><a href="../../html/gis/gis_mntr.html">GIS 상황판</a></li>
       <li><a href="../../html/cctv/integrated_ctrl.html">CCTV 통합관제</a></li>
       <li><a href="../../html/iot/iot_integrated.html">IOT 관측자료</a></li>
       <li><a href="../../html/warning/monitoring.html">재난예경보</a></li>
@@ -334,6 +334,24 @@
     var path_arr=window.location.pathname.split('/')
     var path = path_arr[path_arr.length-2];
     $('head').append( $('<link rel="stylesheet" />').attr('href', '../../css/' + path + '.css') );
+    var gnb_lst = $('.gnb_lst').find('li');
+    gnb_lst.removeClass('on');
+    switch (path) {
+      case 'gis':
+        gnb_lst.eq(0).addClass('on');        
+        break;
+      case 'cctv':
+        gnb_lst.eq(1).addClass('on');        
+        break;
+      case 'iot':
+        gnb_lst.eq(2).addClass('on');        
+        break;
+      case 'warning':
+        gnb_lst.eq(3).addClass('on');        
+        break;    
+      default:
+        break;
+    }
     init();
     initSlideshow();
   })
