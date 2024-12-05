@@ -253,7 +253,6 @@ $panelWidth : 220px;
 		@for $i from 1 through 10{
 			&:nth-child(#{$i}){background-position-y:($i - 1) * -70px + 15px;}
 		}
-		&:nth-child(2){display:none;} //정기발령 보류
 		& > a{display:block;height:100%;padding-top:50px;text-align:center;font-size:13px;color:#fff; letter-spacing:-.7px;}
 		&:has(ul){position:relative;
 			&:hover ul{display:block;}
