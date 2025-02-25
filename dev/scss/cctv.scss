@@ -7,7 +7,7 @@ $panelWidth : 350px;
   .tit{padding:20px 15px 15px 20px;border-bottom-width:0;}
   .section_body{flex:1;background-color:$bg_gray;overflow-y:auto;}
   .tab{margin-bottom:0;}
-  & + main{padding-top:0;height:calc(100vh - 56px);min-height:744px;overflow-y:auto;}
+  & + main:not(:has(.status)){padding-top:0;height:calc(100vh - 56px);min-height:744px;overflow-y:auto;}
 }
 .lst_top{position:sticky;left:0;top:0;background-color:#fff;z-index:10;padding:30px 0 5px;margin-bottom:0;}
 .tree{height:calc(100vh - 234px);min-height:529px;}
@@ -62,4 +62,7 @@ dialog.pop_cctv_zoom{width:800px;padding:0;top:20vh;left:calc(50vw - 400px);
   .cctv_wrap{background-color:transparent;
     img{height:auto;}
   }
+}
+.admin_cctv{
+  dt{@include marginL(5 7);}
 }

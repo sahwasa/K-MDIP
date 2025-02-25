@@ -1,0 +1,154 @@
+@@include('../../inc/top.html')
+<body>
+<div id="wrap">
+  @@include('../../inc/header.html')
+  <div class="con_wrap">
+    @@include('../../inc/cctv/lnb.html')
+    <main class="contents">      
+      <header class="tit">
+        <h1>장비관리 <b>CCTV</b></h1>
+      </header>
+      <div class="content status">
+        <div class="search_area">
+          <ul class="search">
+            <li><select name="" id="" title="사용여부"><option value="">사용여부</option></select></li>
+            <li><select name="" id="" title="시군구"><option value="">시군구</option></select>            
+            <select name="" id="" title="읍면동"><option value="">읍면동</option></select>
+            </li>
+            <li>
+            <input type="text" title="location" placeholder="장비명, 지역명" id="" onkeydown="">
+            <button type="button" class="btn_skyblue" onclick="search();">검색</button>
+            </li>
+          </ul>
+          <div class="tool">
+            <a class="btn_skyblueline" href="../cctv/integrated_ctrl.html">통합관제 돌아가기</a>
+            <span class="divide">
+              <button type="button" class="btn_skyblue" onclick="document.querySelector('.admin_cctv').show();">추가</button>
+              <button type="button" class="btn_grayline">삭제</button>
+            </span>
+          </div>
+        </div>
+        <section class="tbl_area">          
+          <div class="tbl_top">
+            <p>* 조회일자 : 2024-07-01 10:20 (<b class="font_blue" id="">10</b> 건)</p>
+          </div>
+          <div class="tbl_wrap">
+            <table class="tbl_default tbl_hover">
+              <caption>강우계 목록</caption>         
+              <thead>
+                <tr>
+                  <th scope="col">CCTV명</th>
+                  <th scope="col">행정구역</th>
+                  <th scope="col">장비명</th>
+                  <th scope="col">위도</th>
+                  <th scope="col">경도</th>
+                  <th scope="col">종류?용도?위치?</th>
+                  <th scope="col">갱신시각</th>
+                  <th scope="col">상태</th>
+                  <th scope="col">사용여부</th>
+                  <th scope="col">관리</th>
+                </tr>
+              </thead>            
+              <tbody>
+                <tr onclick="document.querySelector('.admin_rainGauge').show();">
+                  <td>내수신대교</td>
+                  <td>서울시 구로구 ㅇㅇ동</td>
+                  <td>15.5</td>
+                  <td>20.3</td>
+                  <td>128.0</td>
+                  <td>교각</td>
+                  <td>2024-09-01 12:20</td>
+                  <td><i class="connection default">정상</i></td>
+                  <td>Y</td>
+                  <td><button type="button" class="btn_edit" title="수정">수정</button></td>
+                </tr>
+                <tr onclick="document.querySelector('.admin_rainGauge').show();">
+                  <td>주성교차로1</td>
+                  <td>서울시 구로구 ㅇㅇ동</td>
+                  <td>15.5</td>
+                  <td>20.3</td>
+                  <td>128.0</td>
+                  <td>도로</td>
+                  <td>2024-09-01 12:20</td>
+                  <td><i class="connection error">미수신</i></td>
+                  <td>Y</td>
+                  <td><button type="button" class="btn_edit" title="수정">수정</button></td>
+                </tr>
+                <tr onclick="document.querySelector('.admin_rainGauge').show();">
+                  <td>내덕거리</td>
+                  <td>서울시 구로구 ㅇㅇ동</td>
+                  <td>15.5</td>
+                  <td>20.3</td>
+                  <td>128.0</td>
+                  <td>도로</td>
+                  <td>2024-09-01 12:20</td>
+                  <td><i class="connection error">미수신</i></td>
+                  <td>N</td>
+                  <td><button type="button" class="btn_edit" title="수정">수정</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+</div>
+<dialog id="admin_cctv" class="admin_cctv" style="--width:700px">
+  <header class="p_header">
+    <h1>cctv관리</h1>
+    <button type="button" class="btn_cross">닫기</button>
+  </header>
+  <div class="p_body">
+    <dl class="dl_list column2">
+      <dt><label for="" class="required">CCTV명</label></dt>
+      <dd class="full"><input type="text" value="CCTV명" /></dd>
+      <dt><label for="" class="required">단말기 설치지역</label></dt>
+      <dd class="full">
+        <select name="" id=""><option value="">시도</option></select>
+        <select name="" id=""><option value="">시군구</option></select>
+        <select name="" id=""><option value="">읍면동</option></select>
+        <select name="" id=""><option value="">리</option></select>
+      </dd>
+      <dt><label for="">단말기 설치주소</label></dt>
+      <dd class="full"><input type="text" placeholder="나머지 주소(필수 아님)"></dd>
+      <dt><label for="">위도</label></dt>
+      <dd><input type="text"></dd>
+      <dt><label for="">경도</label></dt>
+      <dd><input type="text"></dd>
+      <dt><label for="" class="required">위치?용도:?</label></dt>
+      <dd>
+        <select name="" id="" title="">
+          <option value="">도로</option>
+          <option value="">하천</option>
+          <option value="">교각</option>
+          <option value="">산</option>
+          <option value="">해변</option>
+        </select>
+      </dd>
+      <dt><label for="">설치일자</label></dt>
+      <dd><input type="text" data-datepicker="date" class="input_calendar"></dd>
+      <dt><label for="">내용</label></dt>
+      <dd class="full"><textarea name="" id="" rows="3"></textarea></dd>
+      <dt><label for="">사용여부</label></dt>
+      <dd class="full">
+        <div class="switch_toggle">
+          <input type="checkbox" id="useYN1"><label class="useYN" for="useYN1">사용여부</label>
+        </div> 
+      </dd>
+    </dl>
+    <div class="p_foot">
+      <div class="renewal_time">(갱신시각 : 2024-07-01 10:10:10)</div>
+      <button type="button" class="btn_blue" onclick="">저장</button>
+      <button type="button" class="btn_gray" onclick="">취소</button>
+    </div>
+  </div>             
+</dialog>
+@@include('../../inc/script.html')
+<script>
+  
+
+</script>
+</body>
+</html>
+

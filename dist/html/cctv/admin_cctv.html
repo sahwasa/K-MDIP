@@ -362,161 +362,144 @@
   </div>
 </section>
     <main class="contents">      
-      <header class="tit blind">
-        <h1>CCTV 통합관제</h1>
+      <header class="tit">
+        <h1>장비관리 <b>CCTV</b></h1>
       </header>
-      <div class="content">
-        <div class="lst_top">
-          <div class="tool">
-            <select name="CCTV보기유형" id="viewType">
-              <option value="2">2칸씩 보기</option>
-              <option value="3" selected>3칸씩 보기</option>
-              <option value="4">4칸씩 보기</option>
-              <option value="5">5칸씩 보기</option>
-            </select>
-            <div class="tgl_cctv_lst">
-              <label class="tgl_cctv_lst" for="monitoring_lst"><input type="checkbox" id="monitoring_lst">현재 관찰중인 CCTV리스트보기</label>
-              <div class="layer">
-                <ol class="monitoring_lst">
-                  <li><button type="button">내수신대교</button></li>
-                  <li><button type="button">주성교차로1</button></li>
-                  <li><button type="button">주성교차로2</button></li>
-                  <li><button type="button">내덕7거리</button></li>
-                  <li><button type="button">상당교차로1</button></li>
-                  <li><button type="button">상당교차로2</button></li>
-                  <li><button type="button">청주대교1</button></li>
-                  <li><button type="button">청주대교2</button></li>
-                </ol>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="lst_wrap">
-          <ul id="lst_cctv" class="lst_cctv">
-            <li>
-              <div class="cctv_desc">
-                <i class="i_green">수신상태:정상</i>
-                <div class="name">
-                  <span>1</span>
-                  <strong>내수신대교</strong>
-                  <p>청주시 충청대로</p>   
-                </div>
-                <div class="tool">
-                  <label class="bookmark" for="bookmark1"><input type="checkbox" id="bookmark1">관심CCTV</label>
-                  <button type="button" class="btn_cross">끄기</button>
-                </div>
-              </div>
-              <div class="cctv_wrap">
-                <button type="button" id="btn1" onclick="popOpen('btn1');"><img src="../../images/temp/temp_cctv1.jpg" width="498" alt=""></button>
-              </div>
+      <div class="content status">
+        <div class="search_area">
+          <ul class="search">
+            <li><select name="" id="" title="사용여부"><option value="">사용여부</option></select></li>
+            <li><select name="" id="" title="시군구"><option value="">시군구</option></select>            
+            <select name="" id="" title="읍면동"><option value="">읍면동</option></select>
             </li>
             <li>
-              <div class="cctv_desc">
-                <i class="i_red">수신상태:비정상</i>
-                <div class="name">
-                  <span>2</span>
-                  <strong>주성교차로1</strong>
-                  <p>청주시 2순환로</p>     
-                </div>
-                <div class="tool">
-                  <label class="bookmark" for="bookmark2"><input type="checkbox" id="bookmark2">관심CCTV</label>
-                  <button type="button" class="btn_cross">끄기</button>
-                </div>
-              </div>
-              <div class="cctv_wrap">
-                <button type="button" id="btn2" onclick="popOpen('btn2');"><img src="../../images/temp/temp_cctv2.jpg" width="498" alt=""></button>
-              </div>
-            </li>
-            <li>
-              <div class="cctv_desc">
-                <i class="i_green">수신상태:정상</i>
-                <div class="name">
-                  <span>3</span>
-                  <strong>주성교차로2</strong>
-                  <p>청주시 2순환로</p>     
-                </div>
-                <div class="tool">
-                  <label class="bookmark" for="bookmark3"><input type="checkbox" id="bookmark3">관심CCTV</label>
-                  <button type="button" class="btn_cross">끄기</button>
-                </div>
-              </div>
-              <div class="cctv_wrap">
-                <button type="button" id="btn3" onclick="popOpen('btn3');"><img src="../../images/temp/temp_cctv3.jpg" width="498" alt="">
-                </button>
-              </div>
-            </li>
-            <li>
-              <div class="cctv_desc">
-                <i class="i_green">수신상태:정상</i>
-                <div class="name">
-                  <span>4</span>
-                  <strong>내덕거리</strong>
-                  <p>청주시 공항로</p>     
-                </div>
-                <div class="tool">
-                  <label class="bookmark" for="bookmark4"><input type="checkbox" id="bookmark4">관심CCTV</label>
-                  <button type="button" class="btn_cross">끄기</button>
-                </div>
-              </div>
-              <div class="cctv_wrap">
-                <button type="button" id="btn4" onclick="popOpen('btn4');"><img src="../../images/temp/temp_cctv4.jpg" width="498" alt=""></button>
-              </div>
-            </li>
-            <li>
-              <div class="cctv_desc">
-                <i class="i_green">수신상태:정상</i>
-                <div class="name">
-                  <span>4</span>
-                  <strong>상당교</strong>
-                  <p>청주시 상당로</p>     
-                </div>
-                <div class="tool">
-                  <label class="bookmark" for="bookmark4"><input type="checkbox" id="bookmark4">관심CCTV</label>
-                  <button type="button" class="btn_cross">끄기</button>
-                </div>
-              </div>
-              <div class="cctv_wrap">
-                <button type="button" id="btn4" onclick="popOpen('btn4');"><img src="../../images/temp/temp_cctv5.jpg" width="498" alt=""></button>
-              </div>
-            </li>
-            <li>
-              <div class="cctv_desc">
-                <i class="i_green">수신상태:정상</i>
-                <div class="name">
-                  <span>4</span>
-                  <strong>상당로</strong>
-                  <p>청주시 상당로</p>     
-                </div>
-                <div class="tool">
-                  <label class="bookmark" for="bookmark4"><input type="checkbox" id="bookmark4">관심CCTV</label>
-                  <button type="button" class="btn_cross">끄기</button>
-                </div>
-              </div>
-              <div class="cctv_wrap">
-                <button type="button" id="btn4" onclick="popOpen('btn4');"><img src="../../images/temp/temp_cctv6.jpg" width="498" alt=""></button>
-              </div>
+            <input type="text" title="location" placeholder="장비명, 지역명" id="" onkeydown="">
+            <button type="button" class="btn_skyblue" onclick="search();">검색</button>
             </li>
           </ul>
+          <div class="tool">
+            <a class="btn_skyblueline" href="../cctv/integrated_ctrl.html">통합관제 돌아가기</a>
+            <span class="divide">
+              <button type="button" class="btn_skyblue" onclick="document.querySelector('.admin_cctv').show();">추가</button>
+              <button type="button" class="btn_grayline">삭제</button>
+            </span>
+          </div>
         </div>
+        <section class="tbl_area">          
+          <div class="tbl_top">
+            <p>* 조회일자 : 2024-07-01 10:20 (<b class="font_blue" id="">10</b> 건)</p>
+          </div>
+          <div class="tbl_wrap">
+            <table class="tbl_default tbl_hover">
+              <caption>강우계 목록</caption>         
+              <thead>
+                <tr>
+                  <th scope="col">CCTV명</th>
+                  <th scope="col">행정구역</th>
+                  <th scope="col">장비명</th>
+                  <th scope="col">위도</th>
+                  <th scope="col">경도</th>
+                  <th scope="col">종류?용도?위치?</th>
+                  <th scope="col">갱신시각</th>
+                  <th scope="col">상태</th>
+                  <th scope="col">사용여부</th>
+                  <th scope="col">관리</th>
+                </tr>
+              </thead>            
+              <tbody>
+                <tr onclick="document.querySelector('.admin_rainGauge').show();">
+                  <td>내수신대교</td>
+                  <td>서울시 구로구 ㅇㅇ동</td>
+                  <td>15.5</td>
+                  <td>20.3</td>
+                  <td>128.0</td>
+                  <td>교각</td>
+                  <td>2024-09-01 12:20</td>
+                  <td><i class="connection default">정상</i></td>
+                  <td>Y</td>
+                  <td><button type="button" class="btn_edit" title="수정">수정</button></td>
+                </tr>
+                <tr onclick="document.querySelector('.admin_rainGauge').show();">
+                  <td>주성교차로1</td>
+                  <td>서울시 구로구 ㅇㅇ동</td>
+                  <td>15.5</td>
+                  <td>20.3</td>
+                  <td>128.0</td>
+                  <td>도로</td>
+                  <td>2024-09-01 12:20</td>
+                  <td><i class="connection error">미수신</i></td>
+                  <td>Y</td>
+                  <td><button type="button" class="btn_edit" title="수정">수정</button></td>
+                </tr>
+                <tr onclick="document.querySelector('.admin_rainGauge').show();">
+                  <td>내덕거리</td>
+                  <td>서울시 구로구 ㅇㅇ동</td>
+                  <td>15.5</td>
+                  <td>20.3</td>
+                  <td>128.0</td>
+                  <td>도로</td>
+                  <td>2024-09-01 12:20</td>
+                  <td><i class="connection error">미수신</i></td>
+                  <td>N</td>
+                  <td><button type="button" class="btn_edit" title="수정">수정</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
       </div>
     </main>
   </div>
 </div>
-<dialog class="pop_cctv_zoom">
-  <div class="cctv_desc p_header">
-    <i class="i_green">수신상태:정상</i>
-    <div class="name">
-      <strong>상당교차로1</strong>
-      <p>서울시 청주시</p>     
+<dialog id="admin_cctv" class="admin_cctv" style="--width:700px">
+  <header class="p_header">
+    <h1>cctv관리</h1>
+    <button type="button" class="btn_cross">닫기</button>
+  </header>
+  <div class="p_body">
+    <dl class="dl_list column2">
+      <dt><label for="" class="required">CCTV명</label></dt>
+      <dd class="full"><input type="text" value="CCTV명" /></dd>
+      <dt><label for="" class="required">단말기 설치지역</label></dt>
+      <dd class="full">
+        <select name="" id=""><option value="">시도</option></select>
+        <select name="" id=""><option value="">시군구</option></select>
+        <select name="" id=""><option value="">읍면동</option></select>
+        <select name="" id=""><option value="">리</option></select>
+      </dd>
+      <dt><label for="">단말기 설치주소</label></dt>
+      <dd class="full"><input type="text" placeholder="나머지 주소(필수 아님)"></dd>
+      <dt><label for="">위도</label></dt>
+      <dd><input type="text"></dd>
+      <dt><label for="">경도</label></dt>
+      <dd><input type="text"></dd>
+      <dt><label for="" class="required">위치?용도:?</label></dt>
+      <dd>
+        <select name="" id="" title="">
+          <option value="">도로</option>
+          <option value="">하천</option>
+          <option value="">교각</option>
+          <option value="">산</option>
+          <option value="">해변</option>
+        </select>
+      </dd>
+      <dt><label for="">설치일자</label></dt>
+      <dd><input type="text" data-datepicker="date" class="input_calendar"></dd>
+      <dt><label for="">내용</label></dt>
+      <dd class="full"><textarea name="" id="" rows="3"></textarea></dd>
+      <dt><label for="">사용여부</label></dt>
+      <dd class="full">
+        <div class="switch_toggle">
+          <input type="checkbox" id="useYN1"><label class="useYN" for="useYN1">사용여부</label>
+        </div> 
+      </dd>
+    </dl>
+    <div class="p_foot">
+      <div class="renewal_time">(갱신시각 : 2024-07-01 10:10:10)</div>
+      <button type="button" class="btn_blue" onclick="">저장</button>
+      <button type="button" class="btn_gray" onclick="">취소</button>
     </div>
-    <div class="tool">
-      <label class="bookmark" for="bookmark4"><input type="checkbox" id="bookmark4">관심CCTV</label>
-      <button type="button" class="btn_cross">끄기</button>
-    </div>
-  </div>
-  <div class="cctv_wrap">
-    <a href="#"><img src="https://picsum.photos/800/505?random=4" alt=""></a>
-  </div>
+  </div>             
 </dialog>
 
 <!-- popup 비밀번호변경 -->
@@ -676,43 +659,6 @@
   })
 </script>
 <script>
-  //보기옵션
-  const cctvList = $('#lst_cctv');
-  $('#viewType').on('change',function(){
-    var type = $(this).val();
-    cctvList.css('grid-template-columns',`repeat(${type}, 1fr)`)
-  })
-  //cctv 화면 드래그
-  cctvList.sortable({placeholder: "ui-state-highlight"});
-  // document.querySelector('.pop_cctv_zoom').show();
-
-  //팝업생성
-  const createPop = (btnId) => {
-    const zoomWrap = document.createElement('dialog')
-    zoomWrap.id = 'pop' + btnId;
-    zoomWrap.setAttribute('class','pop_cctv_zoom');
-    document.getElementById('wrap').appendChild(zoomWrap)
-    return zoomWrap
-  }
-
-  function popOpen(btnId) {
-    const button = document.getElementById(btnId);
-    let pop;
-    let html = button.closest('li').innerHTML;
-    if($('#pop' + btnId).length === 0){
-      pop = createPop(btnId);
-    }else{
-      pop = document.getElementById('pop'+btnId);
-    }
-    pop.innerHTML = html;
-    pop.addEventListener('click',function(event){
-      if(event.target.className === 'btn_cross') pop.remove();
-    });
-    $(pop).draggable({ handle: ".cctv_desc", cursor: "move" ,containment: "#wrap",scroll: true, scrollSensitivity: 100, scrollSpeed: 10})
-    .resizable({minHeight:290, minWidth: 200, /* aspectRatio: 16 / 9 영상비율을 몰라서 생략 */});
-    //움... 관심CCTV 별모양은 어떻게 연동한담...??
-    pop.show();
-  }
   
 
 </script>
