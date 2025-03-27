@@ -445,9 +445,11 @@ $dlH:33px;
   button{@include btnType(S);}
   .unit{margin-left:auto;color:#777;font-size:12px;}
   .tool{margin-left:auto;}
+  .check,
   .search{
     input,select{min-height:25px;}
   }
+  .label{font-weight:normal;color:#555;@include dot(#555){margin-right:5px;};}
 }
 .tbl_preview{margin-top:20px;
   .err{position:relative;
