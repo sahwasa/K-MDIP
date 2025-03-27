@@ -451,7 +451,7 @@ $dlH:33px;
 }
 .tbl_preview{margin-top:20px;
   .err{position:relative;
-    &::after{@include shape(calc(100% - 2px),calc(100% - 1px));position:absolute;left:-1px;top:-1px;background-color:#ec7f7f15;border:1px solid $coral;}
+    &::after{@include shape(calc(100% - 2px),calc(100% - 1px));position:absolute;left:-0;top:-1px;background-color:#ec7f7f15;border:1px solid $coral;}
     td{color:$red;}
   } 
 }
