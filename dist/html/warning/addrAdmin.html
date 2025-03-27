@@ -157,8 +157,9 @@
                     <button type="button" class="btn_skyblue" onclick="document.querySelector('#pop_addrAdmin').show()">추가</button>
                     <button type="button" class="btn_grayline">삭제</button>
                     <span class="divide">
-                      <button type="button" class="btn_green">엑셀 업로드</button>
-                      <button type="button" class="btn_greenline">엑셀 다운로드</button>
+                      <button type="button" class="btn_green" onclick="document.querySelector('#pop_upload').show()">엑셀 업로드</button>
+                      <button type="button" class="btn_greenline">양식 다운로드</button>
+                      <button type="button" class="btn_greenline">주소록 다운로드</button>
                     </span>
                   </div>
                 </div>
@@ -228,10 +229,10 @@
       <dd class="full">
         <ul class="tag_lst">
           <li>
-            <span class="tag_group">이·통·반장<button type="button" class="btn_cross" onclick="">선택해제</button></span>
+            <span class="tag_group">이·통·반장<button type="button" class="btn_delete_s" onclick="">선택해제</button></span>
           </li>
           <li>
-            <span class="tag_group">재난도우미<button type="button" class="btn_cross" onclick="">선택해제</button></span>
+            <span class="tag_group">재난도우미<button type="button" class="btn_delete_s" onclick="">선택해제</button></span>
           </li>
         </ul>
       </dd>
@@ -272,6 +273,410 @@
       <button type="button" class="btn_gray" onclick="">취소</button>
     </div>
   </div>
+</dialog>
+<dialog id="pop_upload" class="pop_upload" style="--width:1185px" popover="manual" open>
+  <form method="dialog">
+    <header class="p_header tit">
+      <h1>주소록 엑셀 업로드</h1>
+      <button type="button" class="btn_cross">닫기</button>
+    </header>
+    <section class="p_body">
+      <dl class="dl_list">          
+        <dt><label for="" class="required">그룹</label></dt>
+        <dd><select name="" id=""><option value="">선택</option></select></dd>
+        <dd>
+          <ul class="tag_lst">
+            <li>
+              <span class="tag_group">이·통·반장<button type="button" class="btn_delete_s" onclick="">선택해제</button></span>
+            </li>
+            <li>
+              <span class="tag_group">재난도우미<button type="button" class="btn_delete_s" onclick="">선택해제</button></span>
+            </li>
+          </ul>
+        </dd>
+        <dt><label for="">파일</label></dt>
+        <dd>
+          <div class="file_ipt">
+            <input type="text" id="" name="" class="file_text" readonly="" role="filePath" title="첨부폴더 경로" placeholder="엑셀파일 첨부">              
+            <span class="file_wrap btn_skyblueline">파일선택</span>
+            <input type="file" role="fileAdd" class="file_add">
+          </div>
+          <button type="button" class="btn_grayline">미리보기</button>
+        </dd>         
+      </dl>
+      <div class="tbl_preview">
+        <div class="tbl_top">
+          <p>
+            전체 <span id="count_all">50</span>건 /
+            <b class="font_red">( 데이터 오류 <span id="count_R">3</span>건 발견 )</b>
+          </p>        
+        </div>
+        <div class="tbl_wrap" style="--h:407px">
+          <table class="tbl_default">
+            <caption>업로드 미리보기</caption>     
+            <thead>           
+              <tr>
+                <th scope="col">유효성 검사</th>
+                <th scope="col">순번</th>
+                <th scope="col">성명</th>
+                <th scope="col">모바일번호</th>
+                <th scope="col">전화번호</th>
+                <th scope="col">팩스번호</th>
+                <th scope="col">이메일</th>
+                <th scope="col">소속</th>
+                <th scope="col">직위</th>
+                <th scope="col">직급</th>
+                <th scope="col">시군구</th>
+                <th scope="col">읍면동</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>확인</td>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>abcdefghijklmnop@hanmail.net</td>
+                <td>케이아이티밸리</td>
+                <td>연구원</td>
+                <td>담당자</td>
+                <td>청주시</td>
+                <td>쌍문동</td>
+              </tr>            
+              <tr class="err">
+                <td>데이터 중복</td>
+                <td>2</td>
+                <td>홍길동</td>
+                <td>010-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>abcdefghijklmnop@hanmail.net</td>
+                <td>케이아이티밸리</td>
+                <td>연구원</td>
+                <td>담당자</td>
+                <td>청주시</td>
+                <td>쌍문동</td>
+              </tr>            
+              <tr class="err">
+                <td>전화번호 형식오류</td>
+                <td>3</td>
+                <td>홍길동</td>
+                <td>010-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>abcdefghijklmnop@hanmail.net</td>
+                <td>케이아이티밸리</td>
+                <td>연구원</td>
+                <td>담당자</td>
+                <td>청주시</td>
+                <td>쌍문동</td>
+              </tr>            
+              <tr class="err">
+                <td>시군구 정보누락</td>
+                <td>4</td>
+                <td>홍길동</td>
+                <td>010-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>abcdefghijklmnop@hanmail.net</td>
+                <td>케이아이티밸리</td>
+                <td>연구원</td>
+                <td>담당자</td>
+                <td>청주시</td>
+                <td>쌍문동</td>
+              </tr>   
+              <tr>
+                <td>확인</td>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>abcdefghijklmnop@hanmail.net</td>
+                <td>케이아이티밸리</td>
+                <td>연구원</td>
+                <td>담당자</td>
+                <td>청주시</td>
+                <td>쌍문동</td>
+              </tr>           
+              <tr>
+                <td>확인</td>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>abcdefghijklmnop@hanmail.net</td>
+                <td>케이아이티밸리</td>
+                <td>연구원</td>
+                <td>담당자</td>
+                <td>청주시</td>
+                <td>쌍문동</td>
+              </tr>           
+              <tr>
+                <td>확인</td>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>abcdefghijklmnop@hanmail.net</td>
+                <td>케이아이티밸리</td>
+                <td>연구원</td>
+                <td>담당자</td>
+                <td>청주시</td>
+                <td>쌍문동</td>
+              </tr>           
+              <tr>
+                <td>확인</td>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>abcdefghijklmnop@hanmail.net</td>
+                <td>케이아이티밸리</td>
+                <td>연구원</td>
+                <td>담당자</td>
+                <td>청주시</td>
+                <td>쌍문동</td>
+              </tr>           
+              <tr>
+                <td>확인</td>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>abcdefghijklmnop@hanmail.net</td>
+                <td>케이아이티밸리</td>
+                <td>연구원</td>
+                <td>담당자</td>
+                <td>청주시</td>
+                <td>쌍문동</td>
+              </tr>           
+              <tr>
+                <td>확인</td>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>abcdefghijklmnop@hanmail.net</td>
+                <td>케이아이티밸리</td>
+                <td>연구원</td>
+                <td>담당자</td>
+                <td>청주시</td>
+                <td>쌍문동</td>
+              </tr>           
+              <tr>
+                <td>확인</td>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>abcdefghijklmnop@hanmail.net</td>
+                <td>케이아이티밸리</td>
+                <td>연구원</td>
+                <td>담당자</td>
+                <td>청주시</td>
+                <td>쌍문동</td>
+              </tr>           
+              <tr>
+                <td>확인</td>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>abcdefghijklmnop@hanmail.net</td>
+                <td>케이아이티밸리</td>
+                <td>연구원</td>
+                <td>담당자</td>
+                <td>청주시</td>
+                <td>쌍문동</td>
+              </tr>           
+              <tr>
+                <td>확인</td>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>abcdefghijklmnop@hanmail.net</td>
+                <td>케이아이티밸리</td>
+                <td>연구원</td>
+                <td>담당자</td>
+                <td>청주시</td>
+                <td>쌍문동</td>
+              </tr>           
+              <tr>
+                <td>확인</td>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>abcdefghijklmnop@hanmail.net</td>
+                <td>케이아이티밸리</td>
+                <td>연구원</td>
+                <td>담당자</td>
+                <td>청주시</td>
+                <td>쌍문동</td>
+              </tr>           
+              <tr>
+                <td>확인</td>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>abcdefghijklmnop@hanmail.net</td>
+                <td>케이아이티밸리</td>
+                <td>연구원</td>
+                <td>담당자</td>
+                <td>청주시</td>
+                <td>쌍문동</td>
+              </tr>           
+              <tr>
+                <td>확인</td>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>abcdefghijklmnop@hanmail.net</td>
+                <td>케이아이티밸리</td>
+                <td>연구원</td>
+                <td>담당자</td>
+                <td>청주시</td>
+                <td>쌍문동</td>
+              </tr>           
+              <tr>
+                <td>확인</td>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>abcdefghijklmnop@hanmail.net</td>
+                <td>케이아이티밸리</td>
+                <td>연구원</td>
+                <td>담당자</td>
+                <td>청주시</td>
+                <td>쌍문동</td>
+              </tr>           
+              <tr>
+                <td>확인</td>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>abcdefghijklmnop@hanmail.net</td>
+                <td>케이아이티밸리</td>
+                <td>연구원</td>
+                <td>담당자</td>
+                <td>청주시</td>
+                <td>쌍문동</td>
+              </tr>           
+              <tr>
+                <td>확인</td>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>abcdefghijklmnop@hanmail.net</td>
+                <td>케이아이티밸리</td>
+                <td>연구원</td>
+                <td>담당자</td>
+                <td>청주시</td>
+                <td>쌍문동</td>
+              </tr>           
+              <tr>
+                <td>확인</td>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>abcdefghijklmnop@hanmail.net</td>
+                <td>케이아이티밸리</td>
+                <td>연구원</td>
+                <td>담당자</td>
+                <td>청주시</td>
+                <td>쌍문동</td>
+              </tr>           
+              <tr>
+                <td>확인</td>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>abcdefghijklmnop@hanmail.net</td>
+                <td>케이아이티밸리</td>
+                <td>연구원</td>
+                <td>담당자</td>
+                <td>청주시</td>
+                <td>쌍문동</td>
+              </tr>           
+              <tr>
+                <td>확인</td>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>abcdefghijklmnop@hanmail.net</td>
+                <td>케이아이티밸리</td>
+                <td>연구원</td>
+                <td>담당자</td>
+                <td>청주시</td>
+                <td>쌍문동</td>
+              </tr>           
+              <tr>
+                <td>확인</td>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>abcdefghijklmnop@hanmail.net</td>
+                <td>케이아이티밸리</td>
+                <td>연구원</td>
+                <td>담당자</td>
+                <td>청주시</td>
+                <td>쌍문동</td>
+              </tr>           
+              <tr>
+                <td>확인</td>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>010-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>031-0000-0000</td>
+                <td>abcdefghijklmnop@hanmail.net</td>
+                <td>케이아이티밸리</td>
+                <td>연구원</td>
+                <td>담당자</td>
+                <td>청주시</td>
+                <td>쌍문동</td>
+              </tr>           
+            </tbody>
+          </table> 
+        </div>
+      </div>
+    </section>
+    <div class="p_foot">
+      <button type="button" class="btn_blue" onclick="">적용</button>
+      <button type="button" class="btn_gray" onclick="">취소</button>
+    </div>
+  </form>
 </dialog>
 
 <!-- popup 비밀번호변경 -->
