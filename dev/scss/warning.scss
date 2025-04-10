@@ -316,6 +316,7 @@
 .symbol{position:absolute;left:var(--left);top:var(--top);
 	& > button{display:block;background-image:url(../images/symbol_ok.png);font-size:0;width:33px;height:33px;
 		&.fail{background-image:url(../images/symbol_fail.png);}
+		&.notuse{background-image:url(../images/symbol_notuse.png);}
 	}
 	.selected{box-shadow:0 0 15px#fff;border-radius:50%;
 	}

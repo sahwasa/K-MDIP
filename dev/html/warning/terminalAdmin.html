@@ -146,7 +146,7 @@
           </div>
           <div class="symbols">
             <div class="symbol" style="--left:1100px;--top:350px">
-              <button type="button" class="CDB">00지구 00회관(단말기명)</button>
+              <button type="button" class="CDB selected">00지구 00회관(단말기명)</button>
               <div class="layer" style="display: block;">
                 <button type="button" class="axi axi-close" title="닫기">닫기</button>
                 <strong>00지구 00회관(단말기명)</strong>
@@ -158,9 +158,26 @@
                   <li><em>위경도</em>12.345 &sol; 123.456</li>
                   <li><em>설치주소</em>단말기 설치 주소 (100자리 이내)</li>                
                   <li><em>설치일자</em>2024-05-04</li>
+                  <li><em>상태</em>
+                    <span class="font_green">정상
+                      (갱신:2025-04-08 10:20:10)
+                    </span>
+                  </li>
+                  <li><em>상태</em>
+                    <div class="font_gray">사용안함
+                      (갱신:2025-04-08 10:20:10)
+                    </div>
+                  </li>
+                  <li><em>상태</em>
+                    <div class="font_red">비정상
+                      (갱신:2025-04-08 10:20:10)
+                    </div>
+                  </li>
+                  <li><em>메모</em>비정상 사유</li>
                 </ul>
               </div>
-            </div>            
+            </div>    
+            @@include('../../inc/warning/symbol_device.html')        
             @@include('../../inc/warning/symbol_legend.html')
           </div>
         </div>
