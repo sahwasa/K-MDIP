@@ -125,6 +125,12 @@ $iots: rainGauge, waterGauge, snowGauge, AWS, seismicMeter, cctv;
     [data-label]::after{position:absolute;right:calc(100% + 5px);content:attr(data-label);font-size:11px;line-height:24px;color:$unselectedColor;}
   } 
 }
+.ico_status{display:inline-flex;align-items:center;justify-content:center;width:14px;aspect-ratio:1;flex-shrink:0;font-size:0;background-color:nth($connection,1);border-radius:50%;overflow:hidden;line-height:1;font-family:'fontello';
+		&.abnormal{background-color:nth($connection,2);}
+		&.not_use{background-color:nth($connection,3);
+			&::before{@include fontello('\eb2e');font-size:11px;color:#fff;}
+		}
+	}
 // tree
 .tree_ctrl{border-bottom:1px solid $border_gray;text-align:right;padding:10px 15px;z-index:5;
   .tgl_tree{@include btn();&{padding:0;}
@@ -266,7 +272,7 @@ $panelWidth : 220px;
 		@for $i from 1 through 10{
 			&:nth-child(#{$i}){background-position-y:($i - 1) * -70px + 15px;}
 		}
-		& > a{display:block;height:100%;padding-top:50px;text-align:center;font-size:13px;color:#fff; letter-spacing:-.7px;}
+		& > a{display:block;height:100%;padding-top:50px;text-align:center;font-size:11px;color:#fff;letter-spacing:-.05em;word-spacing:-.1em;}
 		&:has(ul){position:relative;
 			&:hover ul{display:block;}
 		}

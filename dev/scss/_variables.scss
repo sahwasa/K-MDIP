@@ -24,7 +24,7 @@ $border_gray:#e2e2e2;
 $border_deep:#8b94ad;
 // $riskLevel:#ffd200,#ff8b00,#fd1515;
 $riskLevel:#e7b900,#fd1515;
-$connection:#86bf56,$coral;
+$connection:#86bf56,$coral,$bg_deep;
 $seismic:#36af07,#00ccfe,#0269fc,#0102fd,#ecff4f,#ddd709,#e0a70b,#de520a,#eb0803,#ba041d;
 $reversed-seismic: reverse($seismic);
 @function reverse($list, $recursive: false) {

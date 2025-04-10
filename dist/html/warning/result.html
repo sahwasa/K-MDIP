@@ -71,7 +71,7 @@
   <div class="con_wrap">
      <nav class="lnb lnb_warning">
   <ul id="left_menu">
-    <li class="on"><a href="../../html/warning/monitoring.html">모니터링</a></li>
+    <li class="on"><a href="../../html/warning/monitoring.html">실시간 모니터링</a></li>
     <li><a href="../../html/warning/reserve.html">(보류)정기발령</a></li>
     <li><a href="../../html/warning/result.html">발령현황</a></li>
     <li><a href="../../html/warning/manual.html">수동발령</a>
@@ -146,7 +146,7 @@
                       <tr>
                         <th scope="col">유형</th>
                         <th scope="col">재난정보</th>
-                        <th scope="col">발령지역</th>
+                        <th scope="col">수신처</th>
                         <th scope="col">처리시각</th>
                         <th scope="col">최종상태</th>
                       </tr>
@@ -182,7 +182,7 @@
               </header>
               <div class="flex_vertical">                
                 <dl class="issue_dtl">
-                  <dt>발령매체</dt>
+                  <dt>수신유형</dt>
                   <dd id="media_select">재해문자전광판(지자체), 마을방송시스템</dd>
                   <dt>발생시각</dt>
                   <dd id="detail_creat_dt">2024-02-13 15:35</dd>
@@ -190,13 +190,13 @@
                   <dd id="detail_mag">-</dd>
                   <dt>발생위치</dt>
                   <dd id="detail_location">울산(동구)</dd>
-                  <dt>발령지역</dt>
-                  <dd id="detail_areadesc">울산(동구)</dd>
+                  <dt>발령단말</dt>
+                  <dd id="detail_device">울산(동구)</dd>
                 </dl>
                 <div class="tab tab_s">
                   <ul class="tab_list">
                     <li><a href="#tab01" class="on">발령내용</a></li>
-                    <li><a href="#tab02">단말기 발령이력</a></li>
+                    <li><a href="#tab02">수신처 발령이력</a></li>
                   </ul>
                 </div>
                 <div class="tab_conts">
@@ -395,7 +395,7 @@
               </div>
             </div>
             <div class="symbol" style="--left:1100px;--top:350px">
-              <button type="button" class="CDB">00지구 00회관(단말기명)_성공</button>
+              <button type="button" class="CDB selected">00지구 00회관(단말기명)_성공</button>
               <div class="layer" style="display: block;">
                 <button type="button" class="axi axi-close" title="닫기">닫기</button>
                 <strong>00지구 00회관(단말기명)_성공</strong>
@@ -497,6 +497,48 @@
     </ul>           
   </div>
 </div>
+            <div class="layer receiver_result" style="display:block;left:1100px;top:550px">
+              <button type="button" class="btn_cross" title="닫기">닫기</button>
+              <strong>수신자 목록</strong>
+              <div class="tbl_wrap" style="--h:234px">
+                <table class="tbl_default tbl_s">
+                  <thead>
+                    <tr>
+                      <th scope="col">순번</th>
+                      <th scope="col">지역명</th>
+                      <th scope="col">수신자명</th>
+                      <th scope="col">소속</th>
+                      <th scope="col">연락처</th>
+                      <th scope="col">발송시각</th>
+                      <th scope="col">성공여부</th>
+                      <th scope="col">메모</th>
+                    </tr>
+                  </thead>
+                  <tbody id="">
+                  <tr>
+                    <td>1</td>
+                    <td>청주시</td>
+                    <td>홍길동</td>
+                    <td>청주시청</td>
+                    <td>010-1234-5678</td>
+                    <td>2025-11-20 10:13:02</td>
+                    <td><i class="i_success">성공</i></td>
+                    <td>-</td>
+                  </tr>                  
+                  <tr>
+                    <td>1</td>
+                    <td>청주시</td>
+                    <td>홍길동</td>
+                    <td>청주시청</td>
+                    <td>010-1234-5678</td>
+                    <td>2025-11-20 10:13:02</td>
+                    <td><i class="i_fail">실패</i></td>
+                    <td>실패사유</td>
+                  </tr>                  
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
      </main>

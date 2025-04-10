@@ -76,7 +76,20 @@
       background-color:#f00;
   }
 }
-
+@keyframes bounce{
+ 	0% {
+    transform: translateY(0); /* Start at the normal position */
+  }
+  50% {
+    transform: translateY(-5px); /* Move up slightly less */
+  }
+  80% {
+    transform: translateY(0); /* Return to the normal position */
+  }
+  100% {
+    transform: translateY(0); /* End at the normal position */
+  }
+}
 @mixin flex_between{display:flex;justify-content:space-between;align-items:center;}
 
 @mixin full{display:block;width:100%!important;min-width:auto;}

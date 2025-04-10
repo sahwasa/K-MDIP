@@ -215,9 +215,46 @@
                   <li><em>위도</em>37.12345</li>
                   <li><em>경도</em>123.12345</li>
                   <li><em>주소</em>단말기 설치 주소 (100자리 이내)</li>                
+                  <li><em>상태</em>
+                    <span class="font_green">정상
+                      (갱신:2025-04-08 10:20:10)
+                    </span>
+                  </li>
+                  <li><em>상태</em>
+                    <div class="font_red">비정상
+                      (갱신:2025-04-08 10:20:10)
+                    </div>
+                  </li>
+                  <li><em>메모</em>비정상 사유</li>
                 </ul>
               </div>
             </div>            
+            <div class="layer receiver" style="display: block;left:1200px;top:350px">
+              <button type="button" class="btn_cross" title="닫기">닫기</button>
+              <strong>수신자 목록</strong>
+              <div class="tbl_wrap" style="--h:234px">
+                <table class="tbl_default tbl_s">
+                  <thead>
+                    <tr>
+                      <th scope="col">순번</th>
+                      <th scope="col">지역명</th>
+                      <th scope="col">수신자명</th>
+                      <th scope="col">소속</th>
+                      <th scope="col">연락처</th>
+                    </tr>
+                  </thead>
+                  <tbody id="">
+                  <tr>
+                    <td>1</td>
+                    <td>청주시</td>
+                    <td>홍길동</td>
+                    <td>청주시청</td>
+                    <td>010-1234-5678</td>
+                  </tr>                  
+                  </tbody>
+                </table>
+              </div>
+            </div>
             @@include('../../inc/warning/symbol_legend.html')
           </div>
         </div>

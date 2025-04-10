@@ -71,7 +71,7 @@
   <div class="con_wrap">
      <nav class="lnb lnb_warning">
   <ul id="left_menu">
-    <li class="on"><a href="../../html/warning/monitoring.html">모니터링</a></li>
+    <li class="on"><a href="../../html/warning/monitoring.html">실시간 모니터링</a></li>
     <li><a href="../../html/warning/reserve.html">(보류)정기발령</a></li>
     <li><a href="../../html/warning/result.html">발령현황</a></li>
     <li><a href="../../html/warning/manual.html">수동발령</a>
@@ -105,13 +105,36 @@
               <ul id="" class="check_lst lst_ctrl">
                 <li>
                   <strong>
-                    <label for="dong1"><input type="checkbox">예경보서버1</label>
+                    <i class="ico_status not_use" title="사용안함">사용안함</i>
+                    <label for="dong1"><input type="checkbox">gateway</label>
                     <button type="button" class="btn_dtl" title="상세보기" onclick="document.querySelector('.pop_sendingServer').show();">상세보기</button>
                   </strong>
                 </li>
                 <li>
                   <strong>
-                    <label for="dong1"><input type="checkbox">예경보서버2</label>
+                    <i class="ico_status abnormal" title="비정상">비정상</i>
+                    <label for="dong1"><input type="checkbox">gateway-client</label>
+                    <button type="button" class="btn_dtl" title="상세보기" onclick="document.querySelector('.pop_sendingServer').show();">상세보기</button>
+                  </strong>
+                </li>
+                <li>
+                  <strong>
+                    <i class="ico_status" title="정상">정상</i>
+                    <label for="dong1"><input type="checkbox">마을방송시스템</label>
+                    <button type="button" class="btn_dtl" title="상세보기" onclick="document.querySelector('.pop_sendingServer').show();">상세보기</button>
+                  </strong>
+                </li>
+                <li>
+                  <strong>
+                    <i class="ico_status" title="정상">정상</i>
+                    <label for="dong1"><input type="checkbox">청주시 서버</label>
+                    <button type="button" class="btn_dtl" title="상세보기" onclick="document.querySelector('.pop_sendingServer').show();">상세보기</button>
+                  </strong>
+                </li>
+                <li>
+                  <strong>
+                    <i class="ico_status" title="정상">정상</i>
+                    <label for="dong1"><input type="checkbox">gateway-client2</label>
                     <button type="button" class="btn_dtl" title="상세보기" onclick="document.querySelector('.pop_sendingServer').show();">상세보기</button>
                   </strong>
                 </li>
@@ -150,6 +173,7 @@
                   <table class="tbl_default tbl_hover">
                     <thead>
                       <tr>
+                        <th scope="col">상태</th>
                         <th scope="col">단말기 유형</th>
                         <th scope="col">예경보서버</th>
                         <th scope="col">단말기명</th>
@@ -160,6 +184,25 @@
                     </thead>
                     <tbody>
                       <tr>
+                        <td><i class="ico_status" title="정상">정상</i></td>
+                        <td>마을방송</td>
+                        <td>예경보서버1</td>
+                        <td>OO마을회관</td>
+                        <td>010-1234-5678</td>
+                        <td>경북 포항</td>
+                        <td><button type="button" class="btn_edit" title="수정">수정</button></td>
+                      </tr>
+                      <tr>
+                        <td><i class="ico_status abnormal" title="비정상">비정상</i></td>
+                        <td>마을방송</td>
+                        <td>예경보서버1</td>
+                        <td>OO마을회관</td>
+                        <td>010-1234-5678</td>
+                        <td>경북 포항</td>
+                        <td><button type="button" class="btn_edit" title="수정">수정</button></td>
+                      </tr>
+                      <tr>
+                        <td><i class="ico_status not_use" title="사용안함">사용안함</i></td>
                         <td>마을방송</td>
                         <td>예경보서버1</td>
                         <td>OO마을회관</td>
