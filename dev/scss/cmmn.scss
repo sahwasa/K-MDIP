@@ -487,7 +487,7 @@ table .selected td{background-color:#f3e1e1!important;}
   th{font-size:13px;}
   td{font-size:12px;}
 }
-.tbl_default{
+.tbl_default{word-break:break-all;
   th, td{padding:7px;border:1px solid #dedede;}
   th{background-color:#f9fafc;color:#333;font-weight:600;}
   thead th{background-color: #f5f5f5;}
@@ -654,7 +654,9 @@ a.ui-button:active,
   .tbl_wrap{--h:calc(100vh - 275px); min-height:513px;}
 }
 .cmmn_code{
-  .tbl_wrap{--h:calc(100vh - 209px); min-height:590px;}  
+  .tbl_wrap{--h:calc(100vh - 209px); min-height:590px;
+    th{white-space:nowrap;}
+  }
 }
 .disaster_code{
   .tbl_wrap{--h:calc(100vh - 209px); min-height:590px;}
