@@ -314,13 +314,13 @@
 
 .symbols{position:absolute;left:0;top:0;width:100%;height:100%;}
 .symbol{position:absolute;left:var(--left);top:var(--top);
-	& > button{display:block;background-image:url(../images/symbol_ok.png);font-size:0;width:33px;height:33px;
+	& > button{display:block;background-image:url(../images/symbol_ok.png);font-size:0;width:20px;height:20px;background-size:45px;
 		&.fail{background-image:url(../images/symbol_fail.png);}
 		&.notuse{background-image:url(../images/symbol_notuse.png);}
 	}
 	.selected{box-shadow:0 0 15px#fff;border-radius:50%;
 	}
-	&:has(.selected){&::before{@include fontello('\eba1');position:absolute;left:7px;top:-25px;color:$red;font-size:25px;text-shadow:-1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;animation: bounce 1s infinite;}}
+	&:has(.selected){&::before{@include fontello('\eba1');position:absolute;left:1px;top:-25px;color:$red;font-size:25px;text-shadow:-1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;animation: bounce 1s infinite;}}
 }
 
 
@@ -382,22 +382,30 @@ button[disabled]:hover{background-color:#ccc;cursor:default;border-color:transpa
 }
 .i_success{background-color:#86BF56;}
 .i_fail{background-color:#EA5A3E;}
-.BIS, .CDB, .LDB, .TDB, .PDB, .ADD{background-position-x:0;}
-.VBS, .VNS, .VNI, .VNO, .RAS, .DSB{background-position-x:-40px;}
-.BIS, .VBS{background-position-y:0;}
-.VNS, .CDB{background-position-y:-40px;}
-.VNI, .LDB{background-position-y:-80px;}
-.VNO, .TDB{background-position-y:-120px;}
-.RAS, .PDB{background-position-y:-160px;}
-.DSB, .ADD{background-position-y:-200px;}
-.BIS::before, .CDB::before, .LDB::before, .TDB::before, .PDB::before, .ADD::before{background-position-x:0;}
-.VBS::before, .VNS::before, .VNI::before, .VNO::before, .RAS::before, .DSB::before{background-position-x:-25px;}
-.BIS::before, .VBS::before{background-position-y:0;}
-.VNS::before, .CDB::before{background-position-y:-25px;}
-.VNI::before, .LDB::before{background-position-y:-50px;}
-.VNO::before, .TDB::before{background-position-y:-75px;}
-.RAS::before, .PDB::before{background-position-y:-100px;}
-.DSB::before, .ADD::before{background-position-y:-125px;}
+.BIS, .CDB, .LDB, .TDB, .PDB, .ADD{background-position-x:0;
+	&::before{background-position-x:0;}
+}
+.VBS, .VNS, .VNI, .VNO, .RAS, .DSB{background-position-x:-25px;
+	&::before{background-position-x:-25px;}
+}
+.BIS, .VBS{background-position-y:0;
+	&::before{background-position-y:0;}
+}
+.VNS, .CDB{background-position-y:-25px;
+	&::before{background-position-y:-25px;}
+}
+.VNI, .LDB{background-position-y:-50px;
+	&::before{background-position-y:-25px;}
+}
+.VNO, .TDB{background-position-y:-75px;
+	&::before{background-position-y:-75px;}
+}
+.RAS, .PDB{background-position-y:-100px;
+	&::before{background-position-y:-100px;}
+}
+.DSB, .ADD{background-position-y:-125px;
+	&::before{background-position-y:-125px;}
+}
 .slide_container .slide_item{min-width:330px;height:431px;background-color:#cfcfcf;text-align:center;}
 // pop
 .pop_wrap_refer{
