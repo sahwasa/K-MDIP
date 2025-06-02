@@ -268,7 +268,7 @@ function currentSlide(n) {
   showSlides();
 }
 
-const createDot = (index) => {
+var createDot = (index) => {
   var dotBtn = document.createElement('button');
   dotBtn.innerHTML = index + 1;
   dotBtn.setAttribute('class', 'slide_dots');

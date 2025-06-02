@@ -204,6 +204,10 @@
 		.tbl_top .search{@include divide;}
 		.tbl_wrap{--h:calc(100vh - 650px);min-height:158px;}
 	} 
+	.search_area + .tbl_area td{
+		&:nth-child(3),
+		&:nth-last-of-type(2){@include ellipsis;max-width:200px;text-align:center;}
+	}
 }
 .stats{
 	.flex_wrap > section{flex:1;}
