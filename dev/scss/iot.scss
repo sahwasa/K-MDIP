@@ -107,7 +107,7 @@
 .rainGauge td:nth-child(6),
 .waterGauge td:nth-child(4),
 .snowGauge td:nth-child(5){background-color:$bg_yellow;}
-.forecast{display:flex;flex-direction:column;gap:14px;border:1px solid $border_gray;border-radius:3px;padding:10px;$border-color:#d0cdcd;
+.forecast{display:flex;flex-direction:column;gap:14px;width:100%;border:1px solid $border_gray;border-radius:3px;padding:10px;$border-color:#d0cdcd;
   section:not(:first-of-type){position:relative;border:1px solid #cae2fc;border-radius:5px;padding:20px 15px 10px;}
   h2{position:absolute;left:9px;top:-11px;display:inline-block;padding:3px 6px;border-radius:10px; background-color:$skyblue;color:#fff;}
   ul{display:flex;} 

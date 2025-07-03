@@ -292,7 +292,7 @@ function showSlides() {
     dot.classList.remove('active');
   });
 
-  slides[slideIndex].style.display = 'block';
+  slides[slideIndex].style.display = 'flex';
   dots[slideIndex].classList.add('active');
 }
 

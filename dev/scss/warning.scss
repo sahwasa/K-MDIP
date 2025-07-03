@@ -17,7 +17,7 @@
 	}
 	&.monitoring{
 		.panel_main .panel_content{padding:0;border-top-width:0;}
-		.tab_wrap{margin-top:10px;}		
+		// .tab_wrap{margin-top:10px;}		
 	}
 	&.reserve{
 		.panel_main .panel_content{padding:0;border-top-width:0;}
@@ -26,6 +26,14 @@
 	&.manual{right:0;
 		.panel:nth-child(1){flex:0 1 400px;}
 		.panel:nth-child(2){flex:1;width:auto;}		
+	}
+	&.terminal{width:100%;
+		.panel:has(.map_content){flex:1;padding:0;display: flex;flex-direction: column;}
+		.map_content{position: relative;background-color:#f5f5f5;}
+		.btn_map{display:inline-flex;position:absolute;right:10px;top:10px;}
+		.target_terminal{flex:1 0 auto;height:auto;
+			.tbl_wrap{max-height:227px;}
+		}
 	}
 	&.result{
 		.panel_main .tbl_wrap{height:calc(100vh - 315px);}
@@ -95,6 +103,11 @@
 }
 .issue_dtl{background-color:#f5f5f5;padding:10px;border-radius:3px;margin-top:5px;
 	dt::before{content:'·';font-weight:600;margin-right:5px;}
+}
+.generated_slide_lst .slide_item{padding:5px;}
+.generate_wrap{display:flex;gap:15px;
+	.slide_container_wrap{width:100px;height:a;}
+	.tab_wrap{flex:1;margin-top:0;}
 }
 .generated_img img{width:100%;}
 .dtl_img{max-width:433px;cursor:pointer;
@@ -196,18 +209,24 @@
 .msg{display:flex;flex-direction:column;gap:5px;border:1px solid $border_gray;border-radius:5px;padding:15px 10px;background-color:$bg_gray;
 	.btn_wrap{margin-top:15px;}
 }
-.target_terminal{
-	.tbl_wrap{--h:calc(100vh - 120px);min-height:680px;}
-}
 .history{
-	.linked_down{
+	.layout_flex,.linked_right{gap:10px;}
+	.tbl_history{height:calc(100vh - 274px);min-height:526px;
+		td:nth-child(4){line-height:1.5;}
+		.align_box{display:inline-block;text-align:left;}
+	}	
+	.linked_right{flex:1.2;
 		.tbl_top .search{@include divide;}
-		.tbl_wrap{--h:calc(100vh - 650px);min-height:158px;}
+		// .tbl_wrap{--h:calc(100vh - 650px);min-height:158px;}
 	} 
+	.flex_vertical{justify-content:space-between;height:100%;gap:25px;}
+	.result_terminal{flex:1;.tbl_wrap{height:calc(100% - 34px);}}
 	.search_area + .tbl_area td{
 		&:nth-child(3),
-		&:nth-last-of-type(2){@include ellipsis;max-width:200px;text-align:center;}
+		&:nth-last-of-type(2){@include ellipsis;max-width:150px;text-align:center;}
 	}
+
+	.type_wrap {display: flex;flex-direction: column;gap:2px;align-items: center;justify-content: center;}
 }
 .stats{
 	.flex_wrap > section{flex:1;}
@@ -216,11 +235,18 @@
 .terminal{
 	.panel_main{flex:0 1 250px;
 		.panel_content{padding:0;border-top-width:0;}
-		.tree{height:calc(100vh - 158px);}
 	}
 	.panel_sub{flex:1;transition:none;
 		.tbl_wrap{height:calc(100vh - 177px);min-height:623px;}
-	} 
+	}
+}
+.select_terminal{margin-top:10px;
+	.tab_cont{padding:0;
+		.tree_ctrl{background-color:#fff;border-bottom:1px solid #ddd;
+		}
+	}
+	.tree{height:calc((100vh - 465px));min-height:335px;overflow-y:auto;}
+	.tgl_tree label{padding:3px 10px 3px 26px;}
 }
 .std_tmpl{
 	.vertical{flex:2.5;}
@@ -318,17 +344,17 @@
 
 .symbols{position:absolute;left:0;top:0;width:100%;height:100%;}
 .symbol{position:absolute;left:var(--left);top:var(--top);
-	& > button{display:block;background-image:url(../images/symbol_ok.png);font-size:0;width:20px;height:20px;background-size:45px;
+	& > button{display:flex;background-image:url(../images/symbol_ok.png);width:23px;height:23px;background-size:52px;border-radius:50%;white-space:pre;justify-content:center;font-size:0;
 		&.fail{background-image:url(../images/symbol_fail.png);}
 		&.notuse{background-image:url(../images/symbol_notuse.png);}
 	}
 	.selected{box-shadow:0 0 15px#fff;border-radius:50%;
 	}
-	&:has(.selected){&::before{@include fontello('\eba1');position:absolute;left:1px;top:-25px;color:$red;font-size:25px;text-shadow:-1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;animation: bounce 1s infinite;}}
+	&:has(.selected){&::before{@include fontello('\eba1');position:absolute;left:2px;top:-28px;color:$red;font-size:25px;text-shadow:-1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;animation: bounce 1s infinite;}}
 }
 
 
-.layer{display:none;position:absolute;left:100%;top:0;width:300px;background-color:#fff;border-radius:5px;padding:15px;border:1px solid #b4b4b4;box-shadow:0 2px 9px rgba(0, 0, 0, .22);z-index:110;margin:-8px 0 0 10px;
+.layer{display:none;position:absolute;left:100%;top:-5px;width:300px;background-color:#fff;border-radius:5px;padding:15px;border:1px solid #b4b4b4;box-shadow:0 2px 9px rgba(0, 0, 0, .22);z-index:110;margin:-8px 0 0 10px;
 	& > strong{display:block;width: calc(100% - 20px); color:#2287f3;font-size:16px;margin-bottom:5px;}
 	.btn_cross{float:right;
 		&::before{color:#666;font-size:16px;}
@@ -381,36 +407,40 @@ button[disabled]:hover{background-color:#ccc;cursor:default;border-color:transpa
 	.full{flex-grow:1;}
 }
 .i_success,
-.i_fail{display:inline-block;width:14px;height:14px;font-size:0;border-radius:50%;vertical-align:middle;
+.i_fail,
+.i_not_use{display:inline-block;width:14px;height:14px;font-size:0;border-radius:50%;vertical-align:middle;
 	&:empty{position:relative;top:-2px;}
 }
 .i_success{background-color:#86BF56;}
 .i_fail{background-color:#EA5A3E;}
+.i_not_use{background-color:#8a93ab;
+	&::before{@include fontello('\eb2e');font-size:11px;color:#fff;line-height:15px;vertical-align:middle;}
+}
 .BIS, .CDB, .LDB, .TDB, .PDB, .ADD{background-position-x:0;
 	&::before{background-position-x:0;}
 }
-.VBS, .VNS, .VNI, .VNO, .RAS, .DSB{background-position-x:-25px;
+.VBS, .VNS, .VNI, .VNO, .RAS, .DSB{background-position-x:-29px;
 	&::before{background-position-x:-25px;}
 }
 .BIS, .VBS{background-position-y:0;
 	&::before{background-position-y:0;}
 }
-.VNS, .CDB{background-position-y:-25px;
+.VNS, .CDB{background-position-y:-29px;
 	&::before{background-position-y:-25px;}
 }
-.VNI, .LDB{background-position-y:-50px;
+.VNI, .LDB{background-position-y:-58px;
 	&::before{background-position-y:-25px;}
 }
-.VNO, .TDB{background-position-y:-75px;
+.VNO, .TDB{background-position-y:-87px;
 	&::before{background-position-y:-75px;}
 }
-.RAS, .PDB{background-position-y:-100px;
+.RAS, .PDB{background-position-y:-116px;
 	&::before{background-position-y:-100px;}
 }
-.DSB, .ADD{background-position-y:-125px;
+.DSB, .ADD{background-position-y:-145px;
 	&::before{background-position-y:-125px;}
 }
-.slide_container .slide_item{min-width:330px;height:431px;background-color:#cfcfcf;text-align:center;}
+.slide_container .slide_item{background-color:#f5f5f5;text-align:center;}
 // pop
 .pop_wrap_refer{
 	.tbl_wrap{--h:535px;}

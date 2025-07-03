@@ -202,7 +202,25 @@
                 </div>
                 <div class="tab_conts">
                   <div class="tab_cont" id="tab01">
-                    <figure id="detail_img" class="dtl_img"><img src="http://122.199.200.232:9200//noti/2024/KR.T10101-2024900002_HWA_1/IMG/KR.T10101-2024900002_HWA_1_MAP.png?refesh='0.15003963318223512'" onclick="enLarge(this)"></figure>
+                    <!-- <figure id="detail_img" class="dtl_img"><img src="http://122.199.200.232:9200//noti/2024/KR.T10101-2024900002_HWA_1/IMG/KR.T10101-2024900002_HWA_1_MAP.png?refesh='0.15003963318223512'" onclick="enLarge(this)"></figure> -->
+                    <div class="slide_container_wrap generated_slide_lst">                                   
+                      <ul class="slide_container">
+                        <li class="slide_item">
+                          <img src="http://122.199.200.232:9200//noti/2024/KR.T10101-2024900002_HWA_1/IMG/KR.T10101-2024900002_HWA_1_MAP.png?refesh='0.15003963318223512" alt="slide" />
+                        </li>
+                        <li class="slide_item">
+                          <img src="https://picsum.photos/400/400?random=1" alt="slide" />
+                        </li>
+                        <li class="slide_item">
+                          <img src="https://picsum.photos/400/400?random=2" alt="slide" />
+                        </li>
+                      </ul>
+                      <div class="slideRemote">
+                        <button type="button" class="slide_prev" onclick="prevSlide()">&#10094;</button>
+                        <button type="button" class="slide_next" onclick="nextSlide()">&#10095;</button>
+                      </div>
+                      <div class="dots_container"></div>
+                    </div>
                     <div id="tabs" class="tab_wrap">
                       <ul>
                         <li><a href="#tabs-1">한국어</a></li>
@@ -329,7 +347,7 @@
                       </div>
                     </div>
                     <div class="tbl_wrap">
-                      <table class="tbl_default tbl_s tbl_clicked">
+                      <table class="tbl_default tbl_s tbl_clicked tbl_hover">
                         <thead>
                           <tr>
                             <th scope="col">성공 여부</th>
@@ -342,7 +360,7 @@
                         </thead>
                         <tbody>
                           <tr>
-                            <td><i class="i_success" title="성공">성공</i></td>
+                            <td><i class="ico_status" title="성공">성공</i></td>
                             <td>마을방송</td>
                             <td>00지구 00회관</td>
                             <td>단말기 설치 주소 (100자리 이내)</td>
@@ -350,7 +368,15 @@
                             <td>-</td>                    
                           </tr>
                           <tr>
-                            <td><i class="i_fail" title="실패">실패</i></td>
+                            <td><i class="ico_status abnormal" title="실패">실패</i></td>
+                            <td>마을방송</td>
+                            <td>00지구 00회관</td>
+                            <td>단말기 설치 주소 (100자리 이내)</td>
+                            <td>2024-02-06 10:32:02</td>
+                            <td>실패사유</td>                    
+                          </tr>
+                          <tr>
+                            <td><i class="ico_status not_use" title="사용안함">사용안함</i></td>
                             <td>마을방송</td>
                             <td>00지구 00회관</td>
                             <td>단말기 설치 주소 (100자리 이내)</td>

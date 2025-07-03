@@ -535,7 +535,7 @@
     <button type="button" class="btn_blue" onclick="">확인</button>
   </div>
 </dialog>
-<dialog id="pop_terminalBook" class="pop_terminalBook" style="--width:1200px" open>
+<dialog id="pop_terminalBook" class="pop_terminalBook" style="--width:1200px">
   <div class="p_header">
     <h1>단말기 선택</h1>
     <button type="button" class="btn_cross">닫기</button>
@@ -635,6 +635,24 @@
                     </li>
                     <li>
                       <label for="si2"><input type="checkbox" id="si2">시군구1</label>
+                      <ul>
+                        <li>
+                          <button type="button">그룹 접기/열기</button>
+                          <label for="dong1"><input type="checkbox" id="dong1">읍면동1</label>
+                          <ul>
+                            <li>
+                              <label for=""><input type="checkbox" id="">리1</label>
+                            </li>
+                            <li>
+                              <label for=""><input type="checkbox" id="">리2</label>
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <button type="button">그룹 접기/열기</button>
+                          <label for="dong2"><input type="checkbox" id="dong2">읍면동2</label>                             
+                        </li>
+                      </ul>
                     </li>
                   </ul>
                 </li>
