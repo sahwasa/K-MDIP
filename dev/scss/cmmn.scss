@@ -402,12 +402,20 @@ $dlH:33px;
     select{flex:1 0 auto;}
     select:last-of-type{width:100%;}
   }
-  input:not([type=radio],[type=checkbox],[size]){flex:1;}
+  .ipt_full, input:not([type=radio],[type=checkbox],[size]){flex:1;width:100%;}
   input[type=number]{max-width:80px;}
   &.column2{grid-template-columns:repeat(2, 130px 1fr);
     .full{grid-column:2 / span 3;}
     .break{grid-column-start:1;}
   }
+}
+.opt_area{margin-top:15px;border-top:1px dashed #d7d7d7;padding:20px 10px 10px;background-color:#f5f5f5;
+  .tit{margin-bottom:15px;
+    h2{color:#fff;background-color:#8a93ab;padding:3px 10px;border-radius:3px;font-weight:normal;}
+  }
+  ul{display:flex;flex-direction:column;gap:8px;width:100%;}
+  li{display:flex;align-items:center;justify-content:space-between;}
+  label select{margin-left:5px;}
 }
 .lst_num{counter-reset:list_num;
   li{display:grid;grid-template-columns:30px 1fr;gap:10px;    
@@ -538,6 +546,7 @@ input:disabled{border-color:transparent;}
 [required]::after,
 .required::after{position:relative;content:"\e705";color:#f35857;margin-left:2px;font-family:"axicon";font-size:10px;}
 .input_calendar{background: #fff url(../images/btn_calendar.png) no-repeat top 6px right 4px;background-size: 15px;cursor:pointer;}
+:is([type="checkbox"],[type="radio"]) + label{margin-left:3px;}
 
 /* search */
 .search_area{position:relative;display:flex;gap:5px;margin-bottom:15px;padding:10px;border:1px solid $border_deep;border-width:1px 0;

@@ -12,23 +12,23 @@
           </header>
           <div class="panel_content">
             <dl class="dl_list">
-              <dt><label for="type">재난유형</label></dt>
+              <dt><label for="type" class="required">재난유형</label></dt>
               <dd class="code_wrap">
                 <select title="대분류" id="code1" onchange="setCode2()"><option value="">전체</option><option value="T1">자연재난</option><option value="T2">사회재난</option><option value="T3">기타재난</option></select>
                 <select title="중분류" id="code2" onchange="setCode3()"><option value="">전체</option></select>
                 <select title="소분류" id="code3" onchange="setTitle()"><option value="">선택</option></select>
               </dd>
-              <dt><label for="_status">재난상황</label></dt>
+              <dt><label for="_status" class="required">재난상황</label></dt>
               <dd id="_status">               
                 <label for="status_Actual"><input type="radio" name="status" value="Actual" id="status_Actual">실제</label>
                 <label for="status_Exercise"><input type="radio" name="status" value="Exercise" id="status_Exercise">훈련</label>
                 <label for="status_Test"><input type="radio" name="status" value="Test" id="status_Test">시험</label>
               </dd>
-              <dt><label for="headline">제목</label></dt>
+              <dt><label for="headline" class="required">제목</label></dt>
               <dd>
                 <input type="text" id="headline" placeholder="제목을 입력하세요">
               </dd>
-              <dt><label for="type1">발령매체</label></dt>
+              <dt><label for="type1" class="required">발령매체</label></dt>
               <dd>
                 <ul class="media_select" id="media_select">
                   <li><label for="media_I-C-BC1.0"><input type="checkbox" name="media" value="I-C-BC1.0" id="media_I-C-BC1.0">재난방송(UHD)</label></li>
@@ -46,6 +46,12 @@
                   <input type="text" id="" title="date" class="input_calendar" data-datepicker="datetime" value="발생시각 선택">
                 </span>
                 <button type="button" class="btn_skyblue" onclick="setDateTimeNow()">현재시각</button>
+              </dd>
+              <dt>종료시각</dt>
+              <dd>
+                <span class="datetimepicker_wrap">
+                  <input type="text" id="expires" title="date" class="input_calendar" data-datepicker="datetime" value="종료시각 선택">
+                </span>
               </dd>
               <dt><label for="mag">규모</label></dt>
               <dd class="eq_val">
@@ -78,6 +84,53 @@
                 </span>
               </dd>
             </dl>
+            <div class="opt_area">
+              <header class="tit">
+                <h2>재해문자전광판 추가옵션</h2>                
+              </header>
+              <dl class="dl_list">
+                <dt><label for="">표시효과</label></dt>
+                <dd>
+                  <ul>
+                    <li>
+                      <select name="" id="" class="ipt_full"><option value="">아래에서부터 위로 서서히 올라가며 점점 빨라지며 바운스됨ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ</option></select>
+                    </li>
+                    <li>
+                      <label for="">속도
+                        <select name="" id="">
+                          <option value="">1(빠름)</option>
+                          <option value="">8(느림)</option>
+                        </select>                        
+                      </label>
+                      <label for="">표시 유지시간
+                        <select name="" id=""><option value=""></option></select> 초                  
+                      </label>
+                    </li>
+                  </ul>
+                <dt><label for="">완료효과</label></dt>
+                <dd>
+                  <ul>
+                    <li>
+                      <select name="" id="" class="ipt_full"><option value="">아래에서부터 위로 서서히 올라감</option></select>
+                    </li>
+                    <li>
+                      <label for="">속도
+                        <select name="" id="">
+                          <option value="">1(빠름)</option>
+                          <option value="">8(느림)</option>
+                        </select>                        
+                      </label>                     
+                    </li>
+                  </ul>
+                </dd>                
+                <dt><label for="">싸이렌 출력</label></dt>
+                <dd>
+                  <div class="switch_toggle">
+                    <input type="checkbox" id="useYN1"><label class="useYN" for="useYN1">사용여부</label>
+                  </div>
+                </dd>
+              </dl>
+            </div>              
           </div>
         </section>
         <section class="panel">
