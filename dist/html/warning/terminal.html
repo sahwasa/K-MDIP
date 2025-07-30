@@ -94,7 +94,7 @@
       <div class="panel_wrap terminal">
         <section class="panel">
           <header class="tit">
-            <h1>단말기발송<em>수동발령</em></h1>
+            <h1>재해문자전광판(행정안전부)<em>수동발령</em></h1>
           </header>
           <div class="panel_content">
             <dl class="dl_list">
@@ -116,7 +116,7 @@
               </dd>
               <!-- <dt><label for="type1">발령매체</label></dt>
               <dd>
-                <ul class="media_select" id="media_select">                  
+                <ul class="media_select_marker" id="media_select_marker">                  
                   <li><input type="checkbox" name="deviceType" value="VNS" id="media_VNS"><label for="media_VNS">버스정보시스템</label></li>
                   <li><input type="checkbox" name="deviceType" value="VNS" id="media_VNS"><label for="media_VNS">재해문자전광판</label></li>
                   <li><input type="checkbox" name="deviceType" value="VNS" id="media_VNS"><label for="media_VNS">마을방송시스템</label></li>
@@ -129,6 +129,12 @@
                   <input type="text" id="datetimepicker_" title="date" class="input_calendar" data-datepicker="datetime" value="발생시각 선택">
                 </span>
                 <button type="button" class="btn_skyblue" onclick="setDateTimeNow()">현재시각</button>
+              </dd>
+              <dt>종료시각</dt>
+              <dd>
+                <span class="datetimepicker_wrap">
+                  <input type="text" id="datetimepicker_" title="date" class="input_calendar" data-datepicker="datetime" value="종료시각 선택">
+                </span>
               </dd>
               <dt>발송구분</dt>
               <dd>
@@ -144,205 +150,115 @@
                 <span class="datetimepicker_wrap">
                   <input type="text" id="" data-datepicker="datetime" class="input_calendar" value="발송시각 선택">
                 </span>
-              </dd>
-            </dl>
-            <div class="select_terminal">
-              <header class="blind">
-                <h1>단말기선택</h1>
-              </header>
-              <section class="select_group">
-                <div class="tab_wrap">
-                  <ul class="tab_list">
-                    <li><a href="#tab01" class="on">유형별 선택</a></li>
-                    <li><a href="#tab02">지역별 선택</a></li>
-                  </ul>
-                  <section id="tab01" class="tab_cont">
-                    <div class="tree_wrap">      
-                      <div class="tree_ctrl lst_status all_lst_ctrl">
-                        <label for="all" class="all"><input type="checkbox" id="all">전체선택</label>
-                        <div class="tool">
-                          <span class="btn_switch_single tgl_tree">
-                            <input type="checkbox" id="loc_lst">
-                            <label for="loc_lst">전체접기</label>
-                          </span>
-                        </div>
-                      </div>
-                      <ul id="" class="tree lst_ctrl">
-                        <li><button type="button">그룹 접기/열기</button>
-                          <label for=""><input type="checkbox">버스정보시스템</label>
-                          <ul>
-                            <li>
-                              <label for="dong1"><input type="checkbox" id="dong1">(지좌동)마장 경로당<span class="category">울산 지좌동</span></label>                                
-                            </li>
-                            <li>
-                              <label for="dong2"><input type="checkbox" id="dong2">(지좌동)마장 경로당<span class="category">울산 지좌동</span></label>                             
-                            </li>
-                          </ul>
-                        </li>
-                        <li><button type="button">그룹 접기/열기</button>
-                          <label for=""><input type="checkbox">재해문자전광판</label>
-                          <ul>
-                            <li>
-                              <label for="dong1"><input type="checkbox" id="dong1">(지좌동)마장 경로당<span class="category">울산 지좌동</span></label>                                
-                            </li>
-                            <li>
-                              <label for="dong2"><input type="checkbox" id="dong2">(지좌동)마장 경로당<span class="category">울산 지좌동</span></label>                             
-                            </li>
-                          </ul>
-                        </li>
-                        <li><button type="button">그룹 접기/열기</button>
-                          <label for=""><input type="checkbox" name="" id="">마을방송시스템</label>
-                          <ul>
-                            <li>
-                              <label for="dong1"><input type="checkbox" id="dong1">(지좌동)마장 경로당<span class="category">울산 지좌동</span></label>                                
-                            </li>
-                            <li>
-                              <label for="dong2"><input type="checkbox" id="dong2">(지좌동)마장 경로당<span class="category">울산 지좌동</span></label>                             
-                            </li>
-                          </ul>
-                        </li>
-                        <li><button type="button">그룹 접기/열기</button>
-                          <label for=""><input type="checkbox">자동음성통보시스템</label>
-                          <ul>
-                            <li>
-                              <label for="dong1"><input type="checkbox" id="dong1">(지좌동)마장 경로당<span class="category">울산 지좌동</span></label>                                
-                            </li>
-                            <li>
-                              <label for="dong1"><input type="checkbox" id="dong1">(지좌동)마장 경로당<span class="category">울산 지좌동</span></label>                                
-                            </li>
-                            <li>
-                              <label for="dong1"><input type="checkbox" id="dong1">(지좌동)마장 경로당<span class="category">울산 지좌동</span></label>                                
-                            </li>
-                            <li>
-                              <label for="dong1"><input type="checkbox" id="dong1">(지좌동)마장 경로당<span class="category">울산 지좌동</span></label>                                
-                            </li>
-                            <li>
-                              <label for="dong1"><input type="checkbox" id="dong1">(지좌동)마장 경로당<span class="category">울산 지좌동</span></label>                                
-                            </li>
-                            <li>
-                              <label for="dong1"><input type="checkbox" id="dong1">(지좌동)마장 경로당<span class="category">울산 지좌동</span></label>                                
-                            </li>
-                            <li>
-                              <label for="dong1"><input type="checkbox" id="dong1">(지좌동)마장 경로당<span class="category">울산 지좌동</span></label>                                
-                            </li>
-                            <li>
-                              <label for="dong1"><input type="checkbox" id="dong1">(지좌동)마장 경로당<span class="category">울산 지좌동</span></label>                                
-                            </li>
-                            <li>
-                              <label for="dong1"><input type="checkbox" id="dong1">(지좌동)마장 경로당<span class="category">울산 지좌동</span></label>                                
-                            </li>
-                            <li>
-                              <label for="dong1"><input type="checkbox" id="dong1">(지좌동)마장 경로당<span class="category">울산 지좌동</span></label>                                
-                            </li>
-                            <li>
-                              <label for="dong1"><input type="checkbox" id="dong1">(지좌동)마장 경로당<span class="category">울산 지좌동</span></label>                                
-                            </li>
-                          </ul>
-                        </li>
-                      </ul>
+              </dd>              
+            </dl>            
+            <div class="opt_area">              
+              <section class="opt_wrap">
+                <header class="tit">
+                  <h2>재해문자전광판 추가옵션</h2>                
+                </header>
+                <dl class="dl_list">
+                  <dt><label for="">표시효과</label></dt>
+                  <dd>
+                    <ul>
+                      <li>
+                        <select name="" id="" class="ipt_full"><option value="">아래에서부터 위로 서서히 올라가며 점점 빨라지며 바운스됨ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ</option></select>
+                      </li>
+                      <li>
+                        <label for="">속도
+                          <select name="" id="">
+                            <option value="">1(빠름)</option>
+                            <option value="">8(느림)</option>
+                          </select>                        
+                        </label>
+                        <label for="">표시 유지시간
+                          <select name="" id=""><option value=""></option></select> 초                  
+                        </label>
+                      </li>
+                    </ul>
+                  </dd><dt><label for="">완료효과</label></dt>
+                  <dd>
+                    <ul>
+                      <li>
+                        <select name="" id="" class="ipt_full"><option value="">아래에서부터 위로 서서히 올라감</option></select>
+                      </li>
+                      <li>
+                        <label for="">속도
+                          <select name="" id="">
+                            <option value="">1(빠름)</option>
+                            <option value="">8(느림)</option>
+                          </select>                        
+                        </label>                     
+                      </li>
+                    </ul>
+                  </dd>                
+                  <dt><label for="">싸이렌 출력</label></dt>
+                  <dd>
+                    <div class="switch_toggle">
+                      <input type="checkbox" id="useYN1"><label class="useYN" for="useYN1">사용여부</label>
                     </div>
-                  </section>
-                  <section id="tab02" class="tab_cont">
-                    <div class="tree_wrap">      
-                      <div class="tree_ctrl lst_status all_lst_ctrl">
-                        <label for="all" class="all"><input type="checkbox" id="all">전체선택</label>
-                        <div class="tool">
-                          <span class="btn_switch_single tgl_tree">
-                            <input type="checkbox" id="loc_lst">
-                            <label for="loc_lst">전체접기</label>
-                          </span>
-                        </div>
-                      </div>
-                      <ul class="tree lst_ctrl">
-                        <li>
-                          <button type="button">그룹 접기/열기</button>          
-                          <label for="deps1"><input type="checkbox" id="deps1">읍면동1</label>
-                          <ul>
-                            <li>
-                              <button type="button">그룹 접기/열기</button>
-                              <label for="deps1-1"><input type="checkbox" id="deps1-1">리1</label>
-                              <ul>
-                                <li>
-                                  <label for="dong1"><input type="checkbox" id="dong1">(지좌동)마장 경로당<span class="category">마을방송시스템</span></label>                                
-                                </li>
-                                <li>
-                                  <label for="dong2"><input type="checkbox" id="dong2">(지좌동)마장 경로당<span class="category">버스정보시스템</span></label>                             
-                                </li>
-                              </ul>
-                            </li>
-                            <li>
-                              <button type="button">그룹 접기/열기</button>
-                              <label for="deps1-2"><input type="checkbox" id="deps1-2">리2</label>
-                              <ul>
-                                <li>
-                                  <label for="dong1"><input type="checkbox" id="dong1">(지좌동)마장 경로당<span class="category">마을방송시스템</span></label>                                
-                                </li>
-                                <li>
-                                  <label for="dong2"><input type="checkbox" id="dong2">(지좌동)마장 경로당<span class="category">버스정보시스템</span></label>                             
-                                </li>
-                                <li>
-                                  <label for="dong2"><input type="checkbox" id="dong2">(지좌동)마장 경로당<span class="category">버스정보시스템</span></label>                             
-                                </li>
-                                <li>
-                                  <label for="dong2"><input type="checkbox" id="dong2">(지좌동)마장 경로당<span class="category">버스정보시스템</span></label>                             
-                                </li>
-                                <li>
-                                  <label for="dong2"><input type="checkbox" id="dong2">(지좌동)마장 경로당<span class="category">버스정보시스템</span></label>                             
-                                </li>
-                              </ul>          
-                            </li>
-                          </ul>
-                        </li>
-                        <li>
-                          <button type="button">그룹 접기/열기</button>          
-                          <label for="deps2"><input type="checkbox" id="deps2">읍면동2</label>
-                          <ul>
-                            <li>
-                              <label for="dong1"><input type="checkbox" id="dong1">(지좌동)마장 경로당<span class="category">마을방송시스템</span></label>                                
-                            </li>
-                            <li>
-                              <label for="dong2"><input type="checkbox" id="dong2">(지좌동)마장 경로당<span class="category">버스정보시스템</span></label>                             
-                            </li>
-                          </ul>   
-                        </li>
-                      </ul>
-                      <!-- <ul id="" class="tree lst_ctrl">
-                        <li><button type="button">그룹 접기/열기</button>
-                          <strong>읍면동??</strong>
-                          <ul>
-                            <li>
-                              <label for="dong1"><input type="checkbox" id="dong1">(지좌동)마장 경로당<span class="category">마을방송시스템</span></label>                                
-                            </li>
-                            <li>
-                              <label for="dong2"><input type="checkbox" id="dong2">(지좌동)마장 경로당<span class="category">버스정보시스템</span></label>                             
-                            </li>
-                          </ul>
-                        </li>
-                        <li><button type="button">그룹 접기/열기</button>
-                          <strong>읍면동??</strong>
-                          <ul>
-                            <li>
-                              <label for="dong1"><input type="checkbox" id="dong1">(지좌동)마장 경로당<span class="category">마을방송시스템</span></label>                                
-                            </li>
-                            <li>
-                              <label for="dong2"><input type="checkbox" id="dong2">(지좌동)마장 경로당<span class="category">버스정보시스템</span></label>                             
-                            </li>
-                          </ul>
-                        </li>
-                        <li><button type="button">그룹 접기/열기</button>
-                          <strong>읍면동??</strong>
-                          <ul>
-                            <li>
-                              <label for="dong1"><input type="checkbox" id="dong1">(지좌동)마장 경로당<span class="category">마을방송시스템</span></label>                                
-                            </li>
-                            <li>
-                              <label for="dong2"><input type="checkbox" id="dong2">(지좌동)마장 경로당<span class="category">버스정보시스템</span></label>                             
-                            </li>
-                          </ul>
-                        </li>                          
-                      </ul> -->
-                    </div>                      
-                  </section>
+                  </dd>
+                </dl>
+              </section>
+              <span class="btn_switch_single">
+                <input type="checkbox" id="add_opt">
+                <label for="add_opt" class="btn_opt" data-on="사용하기" data-off="사용안함">+ 추가옵션</label>
+              </span>
+            </div>
+            <div class="select_terminal">
+              <header class="dot_tit tbl_top">
+                <h1>발송단말기 선택</h1>
+                <div class="tool check">                   
+                  <select name="" id="" title="시군구"><option value="">시군구</option></select>
+                  <select name="" id="" title="읍면동"><option value="">읍면동</option></select>
+                  <button type="button" class="btn_skyblue">검색</button>
+                </div>
+              </header>
+              <section>
+                <div class="tbl_wrap" style="--h:385px">
+                  <table class="tbl_default tbl_hover">
+                    <caption>버스정보</caption>
+                    <thead>
+                      <tr>
+                        <th scope="col">선택</th>
+                        <th scope="col">번호</th>
+                        <th scope="col">설치지역</th>
+                        <th scope="col">단말기명</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><input type="checkbox"></td>
+                        <td>1</td>
+                        <td>울산 지좌동</td>
+                        <td>(지좌동)마장 경로당</td>
+                      </tr>
+                      <tr>
+                        <td><input type="checkbox"></td>
+                        <td>2</td>
+                        <td>울산 지좌동</td>
+                        <td>(지좌동)마장 경로당</td>
+                      </tr>                    
+                      <tr>
+                        <td><input type="checkbox"></td>
+                        <td>1</td>
+                        <td>울산 지좌동</td>
+                        <td>(지좌동)마장 경로당</td>
+                      </tr>
+                      <tr>
+                        <td><input type="checkbox"></td>
+                        <td>2</td>
+                        <td>울산 지좌동</td>
+                        <td>(지좌동)마장 경로당</td>
+                      </tr>                    
+                      <tr>
+                        <td><input type="checkbox"></td>
+                        <td>1</td>
+                        <td>울산 지좌동</td>
+                        <td>(지좌동)마장 경로당</td>
+                      </tr>                              
+                    </tbody>
+                  </table>
                 </div>
               </section>
             </div>
@@ -350,22 +266,162 @@
         </section>
         <section class="panel">
           <div class="map_content">
-            <div class="symbols">
-              <div class="symbol" style="--left:200px;--top:50px">
-                <button type="button" class="BIS selected">00지구 00회관(단말기명)</button>
-                <div class="layer" style="display: block;">
-                  <button type="button" class="btn_cross" title="닫기">닫기</button>
-                  <strong>00지구 00회관(단말기명)</strong>
-                  <ul class="lst">
-                    <li><em>유형</em>버스정보시스템</li>
-                    <li><em>시스템</em>00운수 버스정보시스템</li>
-                    <li><em>고유번호</em>단말기 고유식별번호 (30자리 이내)</li>
-                    <li><em>위도</em>37.12345</li>
-                    <li><em>경도</em>123.12345</li>
-                    <li><em>주소</em>단말기 설치 주소 (100자리 이내)</li>                
-                  </ul>
+            <div class="target_lst">
+              <header class="tit">
+                <h2>발송대상 단말기</h2>
+                <b class="count">
+                  (전체 <span id="count_all">2</span>개)
+                </b>
+              </header>
+              <div class="tbl_area">         
+                <div class="tbl_wrap">
+                  <table class="tbl_default tbl_hover">
+                    <caption>발송대상자</caption>
+                    <thead>
+                      <tr>
+                        <th scope="col">설치지역</th>
+                        <th scope="col">단말기명</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>울산 지좌동</td>
+                        <td>(지좌동)마장 경로당</td>
+                      </tr>
+                      <tr>
+                        <td>울산 지좌동</td>
+                        <td>(지좌동)마장 경로당</td>
+                      </tr>                    
+                      <tr>
+                        <td>울산 지좌동</td>
+                        <td>(지좌동)마장 경로당</td>
+                      </tr>
+                      <tr>
+                        <td>울산 지좌동</td>
+                        <td>(지좌동)마장 경로당</td>
+                      </tr>                    
+                      <tr>
+                        <td>울산 지좌동</td>
+                        <td>(지좌동)마장 경로당</td>
+                      </tr>
+                      <tr>
+                        <td>울산 지좌동</td>
+                        <td>(지좌동)마장 경로당</td>
+                      </tr>                    
+                      <tr>
+                        <td>울산 지좌동</td>
+                        <td>(지좌동)마장 경로당</td>
+                      </tr>
+                      <tr>
+                        <td>울산 지좌동</td>
+                        <td>(지좌동)마장 경로당</td>
+                      </tr>                    
+                      <tr>
+                        <td>울산 지좌동</td>
+                        <td>(지좌동)마장 경로당</td>
+                      </tr>
+                      <tr>
+                        <td>울산 지좌동</td>
+                        <td>(지좌동)마장 경로당</td>
+                      </tr>                    
+                      <tr>
+                        <td>울산 지좌동</td>
+                        <td>(지좌동)마장 경로당</td>
+                      </tr>
+                      <tr>
+                        <td>울산 지좌동</td>
+                        <td>(지좌동)마장 경로당</td>
+                      </tr>                    
+                      <tr>
+                        <td>울산 지좌동</td>
+                        <td>(지좌동)마장 경로당</td>
+                      </tr>
+                      <tr>
+                        <td>울산 지좌동</td>
+                        <td>(지좌동)마장 경로당</td>
+                      </tr>                    
+                      <tr>
+                        <td>울산 지좌동</td>
+                        <td>(지좌동)마장 경로당</td>
+                      </tr>
+                      <tr>
+                        <td>울산 지좌동</td>
+                        <td>(지좌동)마장 경로당</td>
+                      </tr>                    
+                      <tr>
+                        <td>울산 지좌동</td>
+                        <td>(지좌동)마장 경로당</td>
+                      </tr>
+                      <tr>
+                        <td>울산 지좌동</td>
+                        <td>(지좌동)마장 경로당</td>
+                      </tr>                    
+                      <tr>
+                        <td>울산 지좌동</td>
+                        <td>(지좌동)마장 경로당</td>
+                      </tr>
+                      <tr>
+                        <td>울산 지좌동</td>
+                        <td>(지좌동)마장 경로당</td>
+                      </tr>                    
+                      <tr>
+                        <td>울산 지좌동</td>
+                        <td>(지좌동)마장 경로당</td>
+                      </tr>
+                      <tr>
+                        <td>울산 지좌동</td>
+                        <td>(지좌동)마장 경로당</td>
+                      </tr>                    
+                      <tr>
+                        <td>울산 지좌동</td>
+                        <td>(지좌동)마장 경로당</td>
+                      </tr>
+                      <tr>
+                        <td>울산 지좌동</td>
+                        <td>(지좌동)마장 경로당</td>
+                      </tr>                    
+                    </tbody>
+                  </table>          
                 </div>
               </div>
+            </div>
+            <div class="symbols">                                 
+              <label for="t1" class="marker BIS" style="--left:200px;--top:100px">
+                <input type="checkbox" id="t1" checked>00지구 00회관(단말기명)
+              </label>
+              <label for="t2" class="marker CDB" style="--left:200px;--top:200px">
+                <input type="checkbox" id="t2" checked>00지구 00회관(단말기명)
+              </label>
+              <label for="t3" class="marker LDB" style="--left:200px;--top:300px">
+                <input type="checkbox" id="t3" checked>00지구 00회관(단말기명)
+              </label>
+              <label for="t4" class="marker TDB" style="--left:200px;--top:400px">
+                <input type="checkbox" id="t4">00지구 00회관(단말기명)
+              </label>
+              <label for="t5" class="marker PDB" style="--left:200px;--top:500px">
+                <input type="checkbox" id="t5">00지구 00회관(단말기명)
+              </label>
+              <label for="t6" class="marker ADD" style="--left:200px;--top:600px">
+                <input type="checkbox" id="t6">00지구 00회관(단말기명)
+              </label>
+              <label for="t7" class="marker VBS" style="--left:400px;--top:100px">
+                <input type="checkbox" id="t7" checked>00지구 00회관(단말기명)
+              </label>
+              <label for="t8" class="marker VNS" style="--left:400px;--top:200px">
+                <input type="checkbox" id="t8">00지구 00회관(단말기명)
+              </label>
+              <label for="t9" class="marker VNI" style="--left:400px;--top:300px">
+                <input type="checkbox" id="t9">00지구 00회관(단말기명)
+              </label>
+              <label for="t10" class="marker VNO" style="--left:400px;--top:400px">
+                <input type="checkbox" id="t10">00지구 00회관(단말기명)
+              </label>
+              <label for="t11" class="marker RAS" style="--left:400px;--top:500px">
+                <input type="checkbox" id="t11">00지구 00회관(단말기명)
+              </label>
+              <label for="t12" class="marker DSB" style="--left:400px;--top:600px">
+                <input type="checkbox" id="t12">00지구 00회관(단말기명)
+              </label>                
             </div>
             <div class="ol-viewport"> 
             </div>
@@ -374,52 +430,7 @@
               <button class="btn" id="mapmode_2" onclick="mapMode(2)">2D지도</button>
               <button class="btn" id="mapmode_3" onclick="mapMode(3)">위성지도</button>
             </div> 
-          </div>
-          <div class="panel_content target_terminal">
-            <header class="dot_tit">
-              <h1>발송대상 단말기</h1>
-              <b class="count">
-                (전체 <span id="count_all">2</span>개)
-              </b> 
-              <!-- <div class="tool">
-                <button type="button" class="btn_skyblue" onclick="document.querySelector('#pop_terminalBook').show()">단말기 선택</button>
-                <button type="button" class="btn_gray" onclick="">선택삭제</button>                  
-                <button type="button" class="btn_skyblueline" onclick="document.querySelector('.pop_map').showModal();">지도보기</button>                  
-              </div> -->
-            </header>
-            <div class="tbl_area">         
-              <div class="tbl_wrap">
-                <table class="tbl_default tbl_hover">
-                  <caption>발송대상자</caption>
-                  <thead>
-                    <tr>
-                      <th scope="col">번호</th>
-                      <th scope="col">단말기 유형</th>
-                      <th scope="col">설치지역</th>
-                      <th scope="col">단말기명</th>
-                      <th scope="col">단말기번호</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>마을방송</td>
-                      <td>울산 지좌동</td>
-                      <td>(지좌동)마장 경로당</td>
-                      <td>012-3456-7891</td>
-                    </tr>
-                    <tr class="on">
-                      <td>2</td>
-                      <td>마을방송</td>
-                      <td>울산 지좌동</td>
-                      <td>(지좌동)마장 경로당</td>
-                      <td>012-3456-7891</td>
-                    </tr>                    
-                  </tbody>
-                </table>          
-              </div>
-            </div>
-          </div>
+          </div>          
         </section>
         <section class="panel">
           <div class="panel_content flex_vertical">           
@@ -1002,18 +1013,18 @@
   </span>
   <div class="lst_wrap" style="--h:178px">
     <ul class="symbol_lst">
-      <li><i class="BIS">버스정보시스템</i></li>
-      <li><i class="CDB">재해문자전광판(행정안전부)</i></li>
-      <li><i class="LDB">재해문자전광판(지자체)</i></li>
-      <li><i class="TDB">교통전광판</i></li>
-      <li><i class="PDB">전광판(민간)</i></li>
-      <li><i class="ADD">자율주행표시장치(C-ITS)</i></li>
-      <li><i class="VBS">마을방송시스템</i></li>
-      <li><i class="VNS">자동음성통보시스템</i></li>
-      <li><i class="VNI">자동음성통보시스템(실내)</i></li>
-      <li><i class="VNO">자동음성통보시스템(실외)</i></li>
-      <li><i class="RAS">자동우량경보시스템</i></li>
-      <li><i class="DSB">디지털사이니지</i></li>
+      <li><label for="BIS" class="BIS"><input type="checkbox" checked id="BIS" name=""> 버스정보시스템</label></li>
+      <li><label for="CDB" class="CDB"><input type="checkbox" checked id="CDB" name=""> 재해문자전광판(행정안전부)</label></li>
+      <li><label for="LDB" class="LDB"><input type="checkbox" checked id="LDB" name=""> 재해문자전광판(지자체)</label></li>
+      <li><label for="TDB" class="TDB"><input type="checkbox" checked id="TDB" name=""> 교통전광판</label></li>
+      <li><label for="PDB" class="PDB"><input type="checkbox" checked id="PDB" name=""> 전광판(민간)</label></li>
+      <li><label for="ADD" class="ADD"><input type="checkbox" checked id="ADD" name=""> 자율주행표시장치(C-ITS)</label></li>
+      <li><label for="VBS" class="VBS"><input type="checkbox" checked id="VBS" name=""> 마을방송시스템</label></li>
+      <li><label for="VNS" class="VNS"><input type="checkbox" checked id="VNS" name=""> 자동음성통보시스템</label></li>
+      <li><label for="VNI" class="VNI"><input type="checkbox" checked id="VNI" name=""> 자동음성통보시스템(실내)</label></li>
+      <li><label for="VNO" class="VNO"><input type="checkbox" checked id="VNO" name=""> 자동음성통보시스템(실외)</label></li>
+      <li><label for="RAS" class="RAS"><input type="checkbox" checked id="RAS" name=""> 자동우량경보시스템</label></li>
+      <li><label for="DSB" class="DSB"><input type="checkbox" checked id="DSB" name=""> 디지털사이니지</label></li>
     </ul>           
   </div>
 </div>

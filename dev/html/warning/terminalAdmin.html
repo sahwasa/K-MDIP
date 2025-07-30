@@ -238,52 +238,50 @@
   </div>
   <div class="p_body">    
     <dl class="dl_list column2">
-      <dt><label for="" class="required">예경보 송출서버</label></dt>
-      <dd><select name="" id=""><option value="">선택</option></select></dd>
-      <dt><label for="" class="required">단말기 유형</label></dt>
-      <dd><select name="" id=""><option value="">선택</option></select></dd>
-      <dt><label for="" class="required">고유번호</label></dt>
-      <dd><input type="text"></dd>
-      <dt><label for="" class="required">단말기명</label></dt>
-      <dd><input type="text"></dd>
-      <dt><label for="" class="required">단말기 설치지역</label></dt>
+      <dt><label for="p_t_frcst_server_id" class="required">예경보 송출서버</label></dt>
+      <dd><select id="p_t_frcst_server_id" onchange="setPTDeviceCd()"><option value="4">청주시 마을방송시스템</option><option value="2552">test</option><option value="202">철원군 우보재난시스템</option><option value="10">부산 자동음성통보시스템</option></select></dd>
+      <dt><label for="p_t_device_cd" class="required">단말기 유형</label></dt>
+      <dd><select id="p_t_device_cd"><option value="">선택</option></select></dd>
+      <dt><label for="p_t_tmnduno" class="required">고유번호</label></dt>
+      <dd><input type="text" id="p_t_tmnduno"></dd>
+      <dt><label for="p_t_tmndunm" class="required">단말기명</label></dt>
+      <dd><input type="text" id="p_t_tmndunm"></dd>
+      <dt><label class="required">단말기 설치지역</label></dt>
       <dd class="full">
-        <select name="" id=""><option value="">시도</option></select>
-        <select name="" id=""><option value="">시군구</option></select>
-        <select name="" id=""><option value="">읍면동</option></select>
-        <select name="" id=""><option value="">리</option></select>
-      </dd>      
-      <dt><label for="">단말기 설치주소</label></dt>
-      <dd class="full"><input type="text" placeholder="나머지 주소(필수 아님)"></dd>
-      <dt><label for="">위도</label></dt>
-      <dd><input type="text" title="위도"></dd>
-      <dt><label for="">경도</label></dt>
-      <dd><input type="text" title=경도></dd>
-      <dt><label for="">모델명</label></dt>
-      <dd><select name="" id=""><option value="">선택</option></select></dd>
-      <dt><label for="">전원방식</label></dt>
-      <dd><select name="" id=""><option value="">선택</option></select></dd>
-      <dt><label for="">출력</label></dt>
-      <dd><select name="" id=""><option value="">선택</option></select></dd>
-      <dt><label for="">설치형태</label></dt>
-      <dd><select name="" id=""><option value="">선택</option></select></dd>
-      <dt><label for="">설치자</label></dt>
-      <dd><input type="text"></dd>
-      <dt><label for="">설치일자</label></dt>
-      <dd><input type="text" data-datepicker="date" class="input_calendar"></dd>
-      <dt><label for="">시작일자</label></dt>
-      <dd><input type="text" data-datepicker="date" class="input_calendar"></dd>
-      <dt><label for="">종료일자</label></dt>
-      <dd><input type="text" data-datepicker="date" class="input_calendar"></dd>
-      <dt><label for="">비고</label></dt>
-      <dd class="full"><textarea name="" id="" rows="2"></textarea></dd>
-      <dt><label for="">사용여부</label></dt>
-      <dd class="full">
-        <div class="switch_toggle">
-          <input type="checkbox" id="useYN1"><label class="useYN" for="useYN1">사용여부</label>
-        </div> 
+          <select id="p_t_legaldong_cd_1" onchange="getSigunguList('p_t_legaldong_cd')"><option value="2600000000">부산시</option></select>
+          <select id="p_t_legaldong_cd_2" onchange="getEmdList('p_t_legaldong_cd')" style=""><option value="">시군구</option><option value="2611000000">중구</option><option value="2614000000">서구</option><option value="2617000000">동구</option><option value="2620000000">영도구</option><option value="2623000000">부산진구</option><option value="2626000000">동래구</option><option value="2629000000">남구</option><option value="2632000000">북구</option><option value="2635000000">해운대구</option><option value="2638000000">사하구</option><option value="2641000000">금정구</option><option value="2644000000">강서구</option><option value="2647000000">연제구</option><option value="2650000000">수영구</option><option value="2653000000">사상구</option><option value="2671000000">기장군</option></select>
+          <select id="p_t_legaldong_cd_3" onchange="getLiList('p_t_legaldong_cd')" style="display: none;"><option value="">읍면동</option></select>
+          <select id="p_t_legaldong_cd_4" style="display: none;"><option value="">리</option></select>
       </dd>
-    </dl>
+      <dt><label>단말기 설치주소</label></dt>
+      <dd class="full"><input type="text" placeholder="주소" id="p_t_adres"></dd>
+      <dt><label for="p_t_lat" class="required">위도</label></dt>
+      <dd><input type="text" title="위도" id="p_t_lat"></dd>
+      <dt><label for="p_t_lon" class="required">경도</label></dt>
+      <dd><input type="text" title="경도" id="p_t_lon"></dd>
+      <dt><label for="p_t_trmnl_modl_nm">모델명</label></dt>
+      <dd><input id="p_t_trmnl_modl_nm"></dd>
+      <dt><label for="p_t_outpt">단말기표출형식</label></dt>
+      <dd><input type="text" id="p_t_outpt"></dd>
+      <dt><label for="p_t_min_perm_dist">허용 범위</label></dt>
+      <dd class="full"><input id="p_t_min_perm_dist" type="number"> ~ <input id="p_t_max_perm_dist" type="number">(숫자로 기재, 단위 m)</dd>
+      <dt><label for="p_t_instlr">제조사</label></dt>
+      <dd><input type="text" id="p_t_instlr"></dd>
+      <dt><label for="p_t_instl_de">설치일자</label></dt>
+      <dd><input type="text" data-datepicker="date" class="input_calendar" id="p_t_instl_de"></dd>
+      <dt><label for="p_t_bgnde">시작일자</label></dt>
+      <dd><input type="text" data-datepicker="date" class="input_calendar" id="p_t_bgnde"></dd>
+      <dt><label for="p_t_endde">종료일자</label></dt>
+      <dd><input type="text" data-datepicker="date" class="input_calendar" id="p_t_endde"></dd>
+      <dt><label for="p_t_memo">비고</label></dt>
+      <dd class="full"><textarea id="p_t_memo" rows="2"></textarea></dd>
+      <dt><label for="p_t_use_at">사용여부</label></dt>
+      <dd class="full">
+          <div class="switch_toggle">
+              <input type="checkbox" id="p_t_use_at"><label class="useYN" for="p_t_use_at">사용여부</label>
+          </div>
+      </dd>
+  </dl>
     <div class="p_foot">
       <div class="renewal_time">(갱신시각 : 2024-07-01 10:10:10)</div>
       <button type="button" class="btn_blue" onclick="">저장</button>

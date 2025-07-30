@@ -72,6 +72,8 @@
                   <dd>재난방송, 재해문자전광판(지자체), 마을방송시스템</dd>
                   <dt>발생시각</dt>
                   <dd>2024-02-13 15:35</dd>
+                  <dt>종료시각</dt>
+                  <dd>2024-02-13 15:35</dd>
                   <dt>발령지역</dt>
                   <dd>울산(동구)</dd>
                 </dl>
@@ -90,6 +92,8 @@
                   <dd>재난방송, 재해문자전광판(지자체), 마을방송시스템</dd>
                   <dt>발생시각</dt>
                   <dd>2024-02-13 15:35</dd>
+                  <dt>종료시각</dt>
+                  <dd>2024-02-13 15:35</dd>
                   <dt>발령지역</dt>
                   <dd>울산(동구)</dd>
                 </dl>
@@ -107,22 +111,68 @@
               </div>
             </header>
             <div class="flex_vertical">
-              <dl class="issue_dtl">
-                <dt>발령매체</dt>
-                <dd id="media_select"></dd>
-                <dt>발생시각</dt>
-                <dd id="detail_creat_dt">2024-02-13 15:35</dd>               
-                <dt>발령지역</dt>
-                <dd id="detail_areadesc">울산(동구)</dd>
-              </dl> 
-                <!-- <div id="no_image_div" class="alignR">
-                </div> -->
-                <div class="slide_container_wrap generated_slide_lst">
-                  <header class="tit">
-                    <h4 class="blind">생성된 발령이미지</h4>
-                    <div id="no_image_div" class="tool">
-                      <label for="no_image"><input type="checkbox" id="no_image" />이미지 전송 제외</label>
+              <div class="set_desc">
+                <dl class="issue_dtl">
+                  <dt>발령매체</dt>
+                  <dd id="media_select"></dd>
+                  <dt>발생시각</dt>
+                  <dd id="detail_creat_dt">2024-02-13 15:35</dd>               
+                  <dt>종료시각</dt>
+                  <dd id="detail_creat_dt">2024-02-13 15:35</dd>               
+                  <dt>발령지역</dt>
+                  <dd id="detail_areadesc">울산(동구)</dd>                  
+                </dl>
+                <div class="opt_area">
+                  <button type="button" class="btn_opt">+ 추가옵션 보기</button>
+                  <div class="layer">
+                    <header class="p_header">
+                      <h1 class="blind">추가옵션 보기</h1>
+                      <button type="button" class="btn_cross" onclick="document.activeElement.blur();">닫기</button>         
+                    </header>
+                    <div>
+                      <header class="tit">
+                        <h2>재해문자전광판 추가옵션</h2>
+                      </header>                    
+                      <dl class="dl_list">
+                        <dt>표시효과</dt>
+                        <dd>
+                          <ul>
+                            <li>
+                              <span class="effect">
+                                아래에서부터 위로 서서히 올라가며 점점 빨라지며 바운스됨ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ
+                              </span>
+                            </li>
+                            <li>
+                              <strong>속도<span>1(빠름)</span></strong>                      
+                              <strong>표시 유지시간<span>3초</span></strong>
+                            </li>
+                          </ul>
+                        </dd>
+                        <dt>완료효과</dt>
+                        <dd>
+                          <ul>
+                            <li>
+                              <span class="effect">
+                                아래에서부터 위로 서서히 올라가며 점점 빨라지며 바운스됨
+                              </span>
+                            </li>
+                            <li>
+                              <strong>속도<span>2</span></strong>
+                            </li>
+                          </ul>
+                        </dd>
+                        <dt>싸이렌 출력</dt>
+                        <dd>사용안함</dd>
+                      </dl>
                     </div>
+                  </div>
+                </div>               
+                <div class="slide_container_wrap generated_slide_lst">
+                  <header class="blind">
+                    <h2>발령이미지</h2>
+                    <!-- <div id="no_image_div" class="tool">
+                      <label for="no_image"><input type="checkbox" id="no_image" />이미지 전송 제외</label>
+                    </div> -->
                   </header>                 
                   <ul class="slide_container">
                     <li class="slide_item">
@@ -141,18 +191,19 @@
                   </div>
                   <div class="dots_container"></div>
                 </div>
-                <div id="tabs" class="tab_wrap">
-                  <ul>
-                    <li><a href="#tabs-1">한국어</a></li>
-                    <li><a href="#tabs-2">영어</a></li>
-                  </ul>
-                  <div id="tabs-1">
-                    @@include('../../inc/warning/msg_lst.html')
-                  </div>              
-                  <div id="tabs-2">
-                    @@include('../../inc/warning/msg_lst.html')
-                  </div>             
-                </div>
+              </div>
+              <div id="tabs" class="tab_wrap">
+                <ul>
+                  <li><a href="#tabs-1">한국어</a></li>
+                  <li><a href="#tabs-2">영어</a></li>
+                </ul>
+                <div id="tabs-1">
+                  @@include('../../inc/warning/msg_lst.html')
+                </div>              
+                <div id="tabs-2">
+                  @@include('../../inc/warning/msg_lst.html')
+                </div>             
+              </div>
               <div class="confirm_area">
                 <div class="tit">
                   <h2 class="dot_tit">24시간 이내 동일 재난, 동일 지역 발령내역</h2>
@@ -299,6 +350,7 @@
     </div>
   </div>
 </dialog>
+
 @@include('../../inc/script.html')
 </body>
 </html>
