@@ -420,7 +420,10 @@ button[disabled]:hover{background-color:#ccc;cursor:default;border-color:transpa
 	.symbol_lst{width:435px;background-color:#fff;gap:6px;text-align:left;border:1px solid #ccc;padding:10px;border-radius:3px 0 3px 3px;column-count:2;column-gap:15px;
 		label,i{display:flex;gap:5px;font-size:13px;padding:3px 0;line-height:20px;
 			&::before{@include shape(20px,20px);background-image:url(../images/symbol_ok.png);background-size:45px;}
-			input{order:-1;}
+		}
+		label{cursor:pointer;
+			input{@include blind;}
+			&:not(:has(:checked))::before{background-image:url(../images/symbol_notuse.png);}
 		}
 	}
 	&:not(:has(.folding :checked)) .lst_wrap{max-height:0;}

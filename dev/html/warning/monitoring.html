@@ -2,6 +2,17 @@
 <body>
 <div id="wrap">
   @@include('../../inc/header.html')
+  <div class="toast_alarm" style="display: block;">
+    <ul id="toast_alarm">
+      <li class="toastbg2" onclick="showDetail('');">
+        <div class="toast_msg">
+          <p><b>5</b>건의 재난정보 승인요청이 접수되었습니다.</p>
+          <div class="toast_time">2025-08-08 14:56:41</div>
+        </div>
+        <button type="button" class="btn_cross">닫기</button>
+      </li>
+    </ul>
+</div>
   <div class="con_wrap">
     @@include('../../inc/warning/lnb.html')
     <main class="contents">
