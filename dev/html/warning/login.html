@@ -2,22 +2,30 @@
 <body>
   <div class="login_wrap">
     <div class="login">
-      <h1 id="logo_box">대구 재난방송 온라인시스템<span>Daegu Disaster Situation online System</span></h1>
-      <div id="input_box" class="login_input">
-      	<form action="login.do" method="post">
-  	      <h2>로그인</h2>
-  	      <div class="login_body">
-  		      <span class="axi axi-user">
-  		        <input type="text" id="id" name="user" placeholder="아이디" title="아이디" value="gw_admin" />
-  		      </span>
-  		      <span class="axi axi-lock3">
-  		      <input type="password" id="pwd" name="password" placeholder="패스워드" title="패스워드" value="P@ssw0rd" />
-  		      </span>
-  		      <input type="submit" class="btn_login" value="로그인" />
-  		      <p class="connect">TEL ${login_phone}</p>
-  	      </div>
-        </form>
-  	    <p class="copyright">© Gangwon Province Government all rights reserved.</p>
+      <header class="login_tit">
+        <h1 class="tit_login">
+          <b>
+          <img src="../../images/logo/2600000000.png" style="position:relative;top:-2px;" alt="로고">
+          	부산광역시 재난 예경보 통합플랫폼
+          </b>
+          <span>LOGIN</span>
+        </h1>
+      </header>
+      <div class="login_body">
+				<div class="flex_wrap">
+					<div class="login_input">
+						<label for="id">사용자아이디
+							<input type="text" id="id" name="user" placeholder="사용자 아이디" onkeydown="fn_onKeyDown('id')">
+						</label>
+						<label for="pwd">비밀번호
+							<input type="password" id="pwd" name="password" placeholder="비밀번호"  onkeydown="fn_onKeyDown('pwd');">
+						</label>
+					</div>
+					<button type="submit" class="btn_login" onclick="login()">로그인</button>
+				</div>
+				<label for="login_remember" class="remember_me">
+					<input type="checkbox" id="login_remember">ID 기억하기
+				</label>
       </div>
     </div>
   </div>
