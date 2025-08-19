@@ -34,7 +34,7 @@
 		.target_terminal{flex:1 0 auto;height:auto;
 			.tbl_wrap{max-height:227px;}
 		}
-		.target_lst{position:absolute;right:15px;top:calc(50% + 45px);width:300px;z-index:500;
+		.target_lst{position:absolute;right:15px;bottom:15px;width:300px;z-index:500;
 		.tit{margin-bottom:5px;
 			h2{color:#fff;background-color:#2287f3;border-radius:5px;padding:2px 15px 3px;box-shadow:2px 2px 0 #00000080;}
 			.count{margin-left:auto;@include text_stroke(#fff);}
@@ -376,7 +376,7 @@
 .marker{background-image:url(../images/device_ico_GY.png);}
 .marker input{position:absolute;opacity:0;width:0;height:0;appearance:none;outline:none;box-shadow:none;vertical-align:middle;}
 
-.layer{display:none;position:absolute;left:100%;top:-20px;width:300px;background-color:#fff;border-radius:5px;padding:15px;border:1px solid #b4b4b4;box-shadow:0 2px 9px rgba(0, 0, 0, .22);z-index:110;margin:-8px 0 0 13px;
+.layer{display:none;position:absolute;left:100%;top:-20px;width:250px;background-color:#fff;border-radius:5px;padding:15px;border:1px solid #b4b4b4;box-shadow:0 2px 9px rgba(0, 0, 0, .22);z-index:110;margin:-8px 0 0 13px;
 	& > strong{display:block;width: calc(100% - 20px); color:#2287f3;font-size:16px;margin-bottom:5px;}
 	.btn_cross{float:right;
 		&::before{color:#666;font-size:16px;}
@@ -419,11 +419,11 @@ button[disabled]:hover{background-color:#ccc;cursor:default;border-color:transpa
 	.lst_wrap{transition:max-height .5s ease-in-out;max-height:var(--h);overflow:hidden;}
 	.symbol_lst{width:435px;background-color:#fff;gap:6px;text-align:left;border:1px solid #ccc;padding:10px;border-radius:3px 0 3px 3px;column-count:2;column-gap:15px;
 		label,i{display:flex;gap:5px;font-size:13px;padding:3px 0;line-height:20px;
-			&::before{@include shape(20px,20px);background-image:url(../images/symbol_ok.png);background-size:45px;}
+			&::before{@include shape(20px,20px);background-image:url(../images/device_ico_GR.png);background-size:45px;}
 		}
 		label{cursor:pointer;
 			input{@include blind;}
-			&:not(:has(:checked))::before{background-image:url(../images/symbol_notuse.png);}
+			&:not(:has(:checked))::before{background-image:url(../images/device_ico_GY.png);}
 		}
 	}
 	&:not(:has(.folding :checked)) .lst_wrap{max-height:0;}
@@ -454,23 +454,23 @@ button[disabled]:hover{background-color:#ccc;cursor:default;border-color:transpa
 }
 .VNS, .CDB{background-position-y:-35px;
 	&.selected,&:has(:checked){background-position-y:-45px;}
-	&::before{background-position-y:-25px;}
+	&::before{background-position-y:-26px;}
 }
 .VNI, .LDB{background-position-y:-70px;
 	&.selected,&:has(:checked){background-position-y:-90px;}
-	&::before{background-position-y:-50px;}
+	&::before{background-position-y:-52px;}
 }
 .VNO, .TDB{background-position-y:-105px;
 	&.selected,&:has(:checked){background-position-y:-135px;}
-	&::before{background-position-y:-75px;}
+	&::before{background-position-y:-78px;}
 }
 .RAS, .PDB{background-position-y:-140px;
 	&.selected,&:has(:checked){background-position-y:-180px;}
-	&::before{background-position-y:-100px;}
+	&::before{background-position-y:-104px;}
 }
 .DSB, .ADD{background-position-y:-175px;
 	&.selected,&:has(:checked){background-position-y:-225px;}
-	&::before{background-position-y:-125px;}
+	&::before{background-position-y:-130px;}
 }
 .slide_container .slide_item{background-color:#f5f5f5;text-align:center;}
 // pop
