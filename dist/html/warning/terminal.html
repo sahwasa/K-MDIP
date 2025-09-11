@@ -76,10 +76,26 @@
     <li><a href="../../html/warning/reserve.html">(보류)정기발령</a></li>
     <li><a href="../../html/warning/result.html">발령현황</a></li>
     <li><a href="../../html/warning/manual.html">수동발령</a>
-      <ul>
+      <ul class="sub_manual">
         <li><a href="../../html/warning/manual.html">통합발령</a></li>
-        <li><a href="../../html/warning/terminal.html">단말기발송</a></li>
-        <li><a href="../../html/warning/mms.html">문자발송</a></li>
+        <li>
+          <dl>
+            <dt>단말기발송</dt>
+            <dd class="on" ><a href="../../html/warning/terminal.html" class="BIS">버스정보시스템</a></dd>
+            <dd><a href="CDB" class="CDB">재해문자전광판(행안부)</a></dd>
+            <dd><a href="LDB" class="LDB">재해문자전광판(지자체)</a></dd>
+            <dd><a href="TDB" class="TDB">교통전광판</a></dd>
+            <dd><a href="PDB" class="PDB">전광판(민간)</a></dd>
+            <dd><a href="ADD" class="ADD">자율주행표시장치(C-ITS)</a></dd>
+            <dd><a href="VBS" class="VBS">마을방송시스템</a></dd>
+            <dd><a href="VNS" class="VNS">자동음성통보시스템</a></dd>
+            <dd><a href="VNI" class="VNI">자동음성통보시스템(실내)</a></dd>
+            <dd><a href="VNO" class="VNO">자동음성통보시스템(실외)</a></dd>
+            <dd><a href="RAS" class="RAS">자동우량경보시스템</a></dd>
+            <dd><a href="DSB" class="DSB">디지털사이니지</a></dd>
+          </dl>
+        </li>
+        <li><a href="../../html/warning/mms.html" class="mms">문자발송</a></li>
       </ul>    
     </li>
     <li><a href="../../html/warning/history.html">발령이력</a></li>
@@ -202,7 +218,7 @@
               </section>
               <span class="btn_switch_single">
                 <input type="checkbox" id="add_opt">
-                <label for="add_opt" class="btn_opt" data-on="+ 추가옵션 사용하기" data-off="- 추가옵션 사용안함"></label>
+                <label for="add_opt" class="btn_opt" data-on="+ 추가옵션 사용하기" data-off="- 추가옵션 사용안함">추가옵션</label>
               </span>
             </div>
             <div class="select_terminal">

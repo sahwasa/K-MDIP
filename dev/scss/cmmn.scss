@@ -286,13 +286,33 @@ $panelWidth : 220px;
 		&:has(ul){position:relative;
 			&:hover ul{display:block;}
 		}
-		ul{display:none;position:absolute;top:50%;left:72px;padding:8px 0;border:1px solid #d8d8d8;transform:translateY(-50%);background-color:#fff;border-radius:5px;box-shadow:1px 1px 5px rgba(0, 0, 0, 0.1);
-			&::before{@include down_arrow(8px){transform:scaleX(1.5) rotate(135deg);left:-4px;top:50%;};margin-top:-4px;}
-			a{min-width:140px;white-space:pre;text-align:left;padding:0 18px;line-height:26px;font-size:13px;color:#555;}
+		ul{display:none;position:fixed;top:56px;left:75px;width:220px;height:100%;padding:8px 10px;overflow:hidden; background-color:$bg_gray;border-right:1px solid $border_gray;box-shadow: 2.9px 2.7px 5px 0 rgba(0, 0, 0, 0.2);
+			// &::before{@include down_arrow(8px){transform:scaleX(1.5) rotate(135deg);left:-4px;top:50%;};margin-top:-4px;}
+			a{width:100%;white-space:pre;text-align:left;line-height:26px;font-size:13px;color:#333;padding:9px 10px;border-radius:5px;letter-spacing:-.03em;font-weight:600;}
+      li:has(dl){        
+        &::before,
+        & + li::before{@include shape(calc(100% - 20px),0);border-top:1px solid #d4d9df;margin-left:10px;}
+        & + li::before{margin-bottom:10px;}
+      }
+        
 		}
-		li:is(:hover,.on, :focus-within) a{position:relative;color:#000;background-color:#ffe6e6;z-index:10;}
+    dl{padding:10px 0;}
+    dt{color:#777;font-size:12px;margin:10px;}
+		:is(li,dd):is(:hover,.on, :focus-within) > a{position:relative;color:#e35757;background-color:#ffe6e6;z-index:10;}
 	}
 	& + .contents{margin-left:75px;}
+}
+.sub_manual{
+  a{display:flex;align-items:center;gap:10px;
+    &::before{@include shape(20px,20px);background:url(../images/sub_manual.png) 0 0 no-repeat;}
+    &.mms::before{background-position-x:-30px;}
+  }
+  :is(li,dd):is(:hover,.on, :focus-within) > a::before{background-image:url(../images/sub_manual_on.png);}
+  $__type:BIS, CDB, LDB, TDB, PDB, ADD, VBS, VNS, VNI, VNO, RAS, DSB;
+  @each $item in $__type{
+    $index :index($__type, $item);		
+    .#{$item}::before{background-position-y:($index)  * -30px;}
+  }
 }
 .con_wrap{display:flex;align-items:stretch;flex:1 1 auto;overflow:auto;@include scrollbarW;}
 main{position:relative;flex:1 1 auto;
