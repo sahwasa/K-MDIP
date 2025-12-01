@@ -401,7 +401,9 @@ main{position:relative;flex:1 1 auto;
     em{color:$bg_deep;font-size:16px;letter-spacing:-.8px;font-weight:normal;}
   }
 }
-.tool{margin-left:auto;flex-shrink:0;display:flex;align-items:center;gap:5px;}
+.tool{margin-left:auto;flex-shrink:0;display:flex;align-items:center;gap:5px;
+  &:has(.number_loc){gap:15px;}
+}
 
 // list
 $dlH:33px;
@@ -420,6 +422,7 @@ $dlH:33px;
     textarea{line-height:1.2;min-height:$dlH;padding:5px}
     &.full{grid-column:1 / span 2;width:100%;}
     .select_group{flex:1;}
+    &.device_type{flex-wrap:wrap;row-gap:0;}
   }
   button:not(:is(.btn_locate,.btn_cross,.btn_delete_s)){flex-shrink:0;@include btnType(M);}
   &.dd_line_fix dd{line-height:$dlH;}
@@ -531,8 +534,10 @@ $dlH:33px;
   .search{
     input,select{min-height:25px;}
   }
+  .number_loc{width:80px;}
   .label{font-weight:normal;color:#555;@include dot(#555){margin-right:5px;};}
 }
+
 .tbl_preview{margin-top:20px;
   .err{position:relative;
     &::after{@include shape(calc(100% - 2px),calc(100% - 1px));position:absolute;left:-0;top:-1px;background-color:#ec7f7f15;border:1px solid $coral;}

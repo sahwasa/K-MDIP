@@ -163,7 +163,7 @@
               <dd class="eq_val" id="latlon">               
                 <label for="lat">위도</label><input type="number" id="lat">
                 <label for="lon">경도</label><input type="number" id="lon">
-                <button type="button" class="btn_locate" onclick="showSelectLatLon()">좌표 선택</button>
+                <button type="button" class="btn_locate" onclick="document.querySelector('#pop_gis_location').showModal();">좌표 선택</button>
               </dd>
               <dt><label for="location">발생위치</label></dt>
               <dd class="eq_val">
@@ -186,53 +186,98 @@
                 </span>
               </dd>
             </dl>
-            <div class="opt_area">
-              <header class="tit">
-                <h2>재해문자전광판 추가옵션</h2>                
-              </header>
-              <dl class="dl_list">
-                <dt><label for="">표시효과</label></dt>
-                <dd>
-                  <ul>
-                    <li>
-                      <select name="" id="" class="ipt_full"><option value="">아래에서부터 위로 서서히 올라가며 점점 빨라지며 바운스됨ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ</option></select>
-                    </li>
-                    <li>
-                      <label for="">속도
-                        <select name="" id="">
-                          <option value="">1(빠름)</option>
-                          <option value="">8(느림)</option>
-                        </select>                        
-                      </label>
-                      <label for="">표시 유지시간
-                        <select name="" id=""><option value=""></option></select> 초                  
-                      </label>
-                    </li>
-                  </ul>
-                <dt><label for="">완료효과</label></dt>
-                <dd>
-                  <ul>
-                    <li>
-                      <select name="" id="" class="ipt_full"><option value="">아래에서부터 위로 서서히 올라감</option></select>
-                    </li>
-                    <li>
-                      <label for="">속도
-                        <select name="" id="">
-                          <option value="">1(빠름)</option>
-                          <option value="">8(느림)</option>
-                        </select>                        
-                      </label>                     
-                    </li>
-                  </ul>
-                </dd>                
-                <dt><label for="">싸이렌 출력</label></dt>
-                <dd>
-                  <div class="switch_toggle">
-                    <input type="checkbox" id="useYN1"><label class="useYN" for="useYN1">사용여부</label>
-                  </div>
-                </dd>
-              </dl>
-            </div>              
+            <div class="opt_area" id="div_DIDParameters">              
+              <section class="opt_wrap">
+                <header class="tit">
+                  <h2>재해문자전광판 추가옵션</h2>                
+                </header>
+                <dl class="dl_list">
+                  <dt><label for="">표시효과</label></dt>
+                  <dd>
+                    <ul>
+                      <li>
+                        <select id="DIDParameters_1" class="ipt_full"><option value="1">바로 표시</option><option value="2">좌측으로 스크롤</option><option value="3">위로 스크롤</option><option value="4">아래로 스크롤</option><option value="5">레이저 효과</option><option value="6">중심에서 상하로 벌어짐</option><option value="7">상하에서 중심으로 모여듬</option><option value="8">문자 회전 display</option><option value="9">Line 회전 display</option><option value="10">문자 회전 change</option><option value="11">Line 회전 change</option><option value="12">문자 위, 아래로 이동1</option><option value="13">문자 위, 아래로 이동2</option><option value="14">역상 큰 상태에서 표시(느리게)</option><option value="15">역상 큰 상태에서 (빠르게)</option><option value="16">현재시간 표시</option><option value="17">왼쪽으로 모두 스크롤</option></select>
+                      </li>
+                      <li>
+                        <label for="DIDParameters_2">속도
+                                          <select id="DIDParameters_2">
+                                              <option value="1">1(빠름)</option>
+                                              <option value="2">2</option>
+                                              <option value="3">3</option>
+                                              <option value="4">4</option>
+                                              <option value="5">5</option>
+                                              <option value="6">6(느림)</option>
+                                          </select>
+                                      </label>
+                        <label for="DIDParameters_3">표시 유지시간
+                                <select id="DIDParameters_3">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5" selected="">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                </select> 초
+                            </label>
+                      </li>
+                    </ul>
+                  </dd><dt><label for="DIDParameters_4">완료효과</label></dt>
+                  <dd>
+                    <ul>
+                      <li>
+                        <select id="DIDParameters_4" class="ipt_full"><option value="1">위로 스크롤</option><option value="2">아래로 스크롤</option><option value="3">중심에서 상하로 벌어짐</option><option value="4">상하에서 중심으로 모여듬</option><option value="5">바로 사라짐</option><option value="6">문자회전하며 사라짐</option><option value="7">좌측으로 스크롤</option><option value="8">화면 반전</option><option value="9">좌우로 확대되면서 사라짐</option><option value="10">중심으로 축소되면서 사라짐</option><option value="11">좌우역상으로 확대되면서 사라짐</option></select>
+                      </li>
+                      <li>
+                        <label for="DIDParameters_5">속도
+                                  <select id="DIDParameters_5">
+                                      <option value="1">1(빠름)</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                      <option value="5">5</option>
+                                      <option value="6">6(느림)</option>
+                                  </select>
+                              </label>           
+                      </li>
+                    </ul>
+                  </dd>                
+                  <dt><label for="DIDParameters_6">싸이렌 출력</label></dt>
+                  <dd>
+                    <div class="switch_toggle">
+                                  <input type="checkbox" id="DIDParameters_6"><label class="useYN" for="DIDParameters_6">사용여부</label>
+                              </div>
+                  </dd>
+                </dl>
+              </section>
+              <span class="btn_switch_single">
+                <input type="checkbox" id="add_opt">
+                <label for="add_opt" class="btn_opt" data-on="사용하기" data-off="사용안함">+ 추가옵션</label>
+              </span>
+            </div>             
           </div>
         </section>
         <section class="panel">
@@ -404,7 +449,31 @@
     </main>      
   </div>
 </div>
-
+<dialog id="pop_gis_location" class="pop_gis_location" style="--width:1100px" open>
+  <div class="p_header">
+    <h1>위치정보 선택</h1>
+    <button type="button" class="btn_cross" onclick="document.querySelector('#pop_gis_location').close();">닫기</button>
+  </div>
+  <div class="p_body">
+    <div class="lst_top">
+      <div class="tool check">        
+        <label for="popup_lat" class="label">위도
+          <input type="number" id="popup_lat" class="number_loc">
+        </label>
+        <label for="popup_lon" class="label">경도
+          <input type="number" id="popup_lon" class="number_loc">      
+        </label>
+      </div>
+    </div>
+    <div class="ol-viewport select_map">
+      지도영역
+    </div>
+    <div class="p_foot">
+      <button type="button" class="btn_blue" onclick="applyLatLon()">적용</button>
+      <button type="button" class="btn_gray" onclick="document.querySelector('#pop_gis_location').close();">닫기</button>
+    </div>
+  </div>
+</dialog>
 <dialog id="pop_wrap_refer" class="pop_wrap_refer" style="--width:1100px">
   <div class="p_header">
     <h1>문안 불러오기</h1>

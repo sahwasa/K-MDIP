@@ -195,8 +195,16 @@
       <dd><input type="text"></dd>
       <dt><label for="">서버IP</label></dt>
       <dd><input type="text" value="123.123.1.1234" /></dd>
-      <dt><label for="">단말기 유형</label></dt>
-      <dd><select name="" id=""><option value="">단말기 유형(공통코드)</option></select></dd>      
+      <dt>단말기 유형</dt>
+      <dd id="devicetype" class="device_type">
+        <label for=""><input type="checkbox" name="devicetype" value="BIS">버스정보</label>
+        <label for=""><input type="checkbox" name="devicetype" value="CDB">재해문자전광판(행정안전부)</label>
+        <label for=""><input type="checkbox" name="devicetype" value="LDB">재해문자전광판(지자체)</label>
+        <label for=""><input type="checkbox" name="devicetype" value="TDB">교통전광판</label>
+        <label for=""><input type="checkbox" name="devicetype" value="VBS">마을방송</label>
+        <label for=""><input type="checkbox" name="devicetype" value="VNS">자동음성통보</label>
+        <label for=""><input type="checkbox" name="devicetype" value="BCS">재난방송(TV)</label>
+      </dd>
       <dt><label for="">통보대상지역</label></dt>
       <dd>
         <select name="" id=""><option value="">시도</option></select>

@@ -1,0 +1,25 @@
+<dialog id="pop_gis_location" class="pop_gis_location" style="--width:1100px" open>
+  <div class="p_header">
+    <h1>위치정보 선택</h1>
+    <button type="button" class="btn_cross" onclick="document.querySelector('#pop_gis_location').close();">닫기</button>
+  </div>
+  <div class="p_body">
+    <div class="lst_top">
+      <div class="tool check">        
+        <label for="popup_lat" class="label">위도
+          <input type="number" id="popup_lat" class="number_loc">
+        </label>
+        <label for="popup_lon" class="label">경도
+          <input type="number" id="popup_lon" class="number_loc">      
+        </label>
+      </div>
+    </div>
+    <div class="ol-viewport select_map">
+      지도영역
+    </div>
+    <div class="p_foot">
+      <button type="button" class="btn_blue" onclick="applyLatLon()">적용</button>
+      <button type="button" class="btn_gray" onclick="document.querySelector('#pop_gis_location').close();">닫기</button>
+    </div>
+  </div>
+</dialog>
