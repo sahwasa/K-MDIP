@@ -95,7 +95,7 @@
             <dd><a href="DSB" class="DSB">디지털사이니지</a></dd>
           </dl>
         </li>
-        <li><a href="../../html/warning/mms.html" class="mms">문자발송</a></li>
+        <li><a href="../../html/warning/mms.html" class="SMS">문자발송</a></li>
       </ul>    
     </li>
     <li><a href="../../html/warning/history.html">발령이력</a></li>
@@ -290,7 +290,7 @@
             </div>
             <div class="tab_conts">
               <section id="tab01" class="tab_cont">                
-                <div class="select_map">
+                <div class="select_map" style="background:url(../../images/temp/map2.png) 100%;">
                   <div class="list_select_map_box">
                     <div class="request_wrap" id="map">
                       <div class="btn_map">
@@ -298,6 +298,45 @@
                         <button class="btn" id="mapmode_2" onclick="mapMode(2)">2D지도</button>
                         <button class="btn" id="mapmode_3" onclick="mapMode(3)">위성지도</button>
                       </div>                    
+                    </div>
+                    <div class="symbols">
+                      <div class="symbol_circle" style="--left:300px;--top:150px">
+                        <button type="button" class="selected">00지구 00회관(단말기명)</button>
+                        <div class="layer" style="display: block;">
+                          <button type="button" class="btn_cross" title="닫기">닫기</button>
+                          <strong>00지구 00회관(단말기명)</strong>
+                          <ul class="lst">
+                            <li><em>유형</em>버스정보시스템</li>
+                            <li><em>시스템</em>00운수 버스정보시스템</li>
+                            <li><em>고유번호</em>단말기 고유식별번호 (30자리 이내)</li>
+                            <li><em>위도</em>37.12345</li>
+                            <li><em>경도</em>123.12345</li>
+                            <li><em>주소</em>단말기 설치 주소 (100자리 이내)</li>                
+                            <li><em>상태</em>
+                              <span class="font_green">정상
+                                (갱신:2025-04-08 10:20:10)
+                              </span>
+                            </li>
+                            <li><em>상태</em>
+                              <div class="font_red">비정상
+                                (갱신:2025-04-08 10:20:10)
+                              </div>
+                            </li>
+                            <li><em>상태</em>
+                              <div class="font_gray">사용안함
+                                (갱신:2025-04-08 10:20:10)
+                              </div>
+                            </li>
+                            <li><em>메모</em>비정상 사유</li>
+                          </ul>
+                        </div>
+                      </div>            
+                      <div class="symbol_circle" style="--left:700px;--top:150px">
+                       <button type="button" class="fail">00지구 00회관(단말기명)_실패</button>
+                      </div>
+                      <div class="symbol_circle" style="--left:700px;--top:250px">
+                       <button type="button" class="notuse">00지구 00회관(단말기명)_실패</button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -449,7 +488,7 @@
     </main>      
   </div>
 </div>
-<dialog id="pop_gis_location" class="pop_gis_location" style="--width:1100px" open>
+<dialog id="pop_gis_location" class="pop_gis_location" style="--width:650px">
   <div class="p_header">
     <h1>위치정보 선택</h1>
     <button type="button" class="btn_cross" onclick="document.querySelector('#pop_gis_location').close();">닫기</button>
